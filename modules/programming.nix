@@ -49,6 +49,12 @@ in
           email = "._.";
           name = "._.";
         };
+        gpg = {
+          format = "ssh";
+        };
+        commit = {
+          gpgSign = true;
+        };
       };
     };
     programs.lazygit = {
