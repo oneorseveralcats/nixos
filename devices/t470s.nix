@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  myConfig.boot-amd6.enable = true;
+  myConfig.boot-amd64.enable = true;
 
   networking.hostName = "t470s";
 }
