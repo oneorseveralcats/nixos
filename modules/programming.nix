@@ -48,8 +48,8 @@ in
       enable = true;
       extraConfig = {
         user = {
-          email = "";
-          name = "";
+          email = ".";
+          name = ".";
         };
         gpg = {
           format = "ssh";
