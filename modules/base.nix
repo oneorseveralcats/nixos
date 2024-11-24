@@ -70,10 +70,6 @@ in
       set -o vi
     '';
 
-    programs.ssh = {
-      startAgent = true;
-    };
-
     programs.appimage = {
       enable = true;
       binfmt = true;
