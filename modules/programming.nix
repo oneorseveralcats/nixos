@@ -44,6 +44,12 @@ in
 
     programs.git = {
       enable = true;
+      extraConfig = {
+        user = {
+          email = "._.";
+          name = "._.";
+        };
+      };
     };
     programs.lazygit = {
       enable = true;
