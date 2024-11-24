@@ -42,6 +42,8 @@ in
     };
     services.lorri.enable = true;
 
+    services.ssh-agent.enable = true;
+
     programs.git = {
       enable = true;
       extraConfig = {
