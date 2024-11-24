@@ -6,10 +6,10 @@
 
 stdenv.mkDerivation {
   name = "nsxiv-extra";
-  version = "2023-10-02";
+  # version = "2023-10-02";
   src = fetchgit {
     url = "https://codeberg.org/nsxiv/nsxiv-extra/";
-    sha256 = "7aa3bce9e1e3eda0804cc82273ae047e56f9b079a829fa70bf4ee17d137ba72e";
+    sha256 = "1eca24b743c3fe00e42063fb8151cb018085b04c80c6176c74b660208032c40c";
   };
 
   dontBuild = true;
