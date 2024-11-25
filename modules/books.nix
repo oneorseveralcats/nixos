@@ -26,7 +26,7 @@ in
 
       home.packages = with pkgs; [
         bk
-        # calibre
+        calibre
         epr
         yacreader
         unoconv
