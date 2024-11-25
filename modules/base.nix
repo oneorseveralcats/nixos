@@ -499,13 +499,16 @@ in
       '';
     };
 
-    xdg.userDirs = {
+    xdg = {
       enable = true;
-      desktop = "$HOME/";
-      documents = "$HOME/documents";
-      download = "$HOME/downloads";
-      pictures = "$HOME/pictures";
-      videos = "$HOME/videos";
+      userDirs = {
+        enable = true;
+        desktop = "$HOME/";
+        documents = "$HOME/documents";
+        download = "$HOME/downloads";
+        pictures = "$HOME/pictures";
+        videos = "$HOME/videos";
+      };
     };
   };
 }
