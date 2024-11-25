@@ -22,10 +22,10 @@ stdenv.mkDerivation {
     sed -i 's/nsxiv/& -a/' scripts/nsxiv-fill/nsxiv-fill
     sed -i 's/nsxiv/& -a/' scripts/nsxiv-open/nsxiv-open
     sed -i 's/nsxiv/& -a/' scripts/nsxiv-pipe/nsxiv-pipe
-    sed -i 's/nsxiv/& -a/' scripts/nsxiv-rifle/nsxiv-rifle
     sed -i 's/nsxiv/& -a/' scripts/nsxiv-saver/nsxiv-saver
     sed -i 's/nsxiv/& -a/' scripts/nsxiv-thumb/nsxiv-thumb
     sed -i 's/nsxiv/& -a/' scripts/nsxiv-url/nsxiv-url
+    # sed -i 's/nsxiv/& -a/' scripts/nsxiv-rifle/nsxiv-rifle
     # sed -i 's/nsxiv/& -a/' scripts/nsxiv-cb/nsxiv-cb
 
     install -Dm755 -t $out/bin scripts/nsxiv-anti-alias/nsxiv-anti-alias
