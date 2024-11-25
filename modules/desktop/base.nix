@@ -75,6 +75,19 @@ in
       '';
     };
 
+    programs.pqiv = {
+      enable = true;
+      settings = {
+        options = {
+          lazy-load = true;
+          hide-info-box = true;
+          background-pattern = "black";
+          thumbnail-size = "256x256";
+          command-1 = "thunar";
+        };
+      };
+    };
+
     services.udiskie = {
       enable = true;
       notify = false;
