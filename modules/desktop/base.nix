@@ -79,13 +79,15 @@ in
       enable = true;
       settings = {
         options = {
-          lazy-load = true;
+          browse = true;
           hide-info-box = true;
-          background-pattern = "black";
-          thumbnail-size = "256x256";
-          command-1 = "thunar";
+          max-depth = 1;
         };
       };
+      extraConfig = ''
+        [actions]
+        set_cursor_auto_hide(1)
+      '';
     };
 
     services.udiskie = {
