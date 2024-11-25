@@ -25,7 +25,7 @@ in
         };
         nsxiv-rifle = {
           name = "nsxiv-rifle";
-          exec = "nsxiv-rifle %F";
+          exec = "nsxiv-rifle %F -a";
           icon = "nsxiv";
           noDisplay = true;
           mimeType = [ "image/bmp" "image/gif" "image/jpeg" "image/jpg" "image/png" "image/tiff" "image/x-bmp" "image/x-portable-anymap" "image/x-portable-bitmap" "image/x-portable-graymap" "image/x-tga" "image/x-xpixmap" "image/webp" "image/heic" "image/svg+xml" "application/postscript" "image/jp2" "image/jxl" "image/avif" "image/heif" ];
