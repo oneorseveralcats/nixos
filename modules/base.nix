@@ -80,6 +80,8 @@ in
       presenterm typst
       # haskellPackages.patat
     ];
+
+    home.preferXdgDirectories = true;
   
     programs.lesspipe.enable = true;
     programs.pandoc.enable = true;
