@@ -82,11 +82,13 @@ in
           browse = true;
           hide-info-box = true;
           max-depth = 1;
+          window-position = "1510,0";
         };
       };
       extraConfig = ''
         [actions]
         set_cursor_auto_hide(1)
+        set_scale_mode_fit_px(400,500)
       '';
     };
 
