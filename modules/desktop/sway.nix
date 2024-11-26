@@ -105,8 +105,9 @@ in
           criteria = [
             { app_id = "^mpv$"; }
             { title = "^n*sxiv$"; }
+            { class = "^Pqiv$"; }
             { app_id = "^firefox$"; title = "^$"; }
-            { app_id = "^syncplay$"; title = ".*(.*).*";}
+            { app_id = "^syncplay$"; title = ".*\(.*\).*";}
           ];
         };
         bindkeysToCode = true;
