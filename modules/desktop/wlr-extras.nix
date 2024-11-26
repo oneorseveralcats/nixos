@@ -17,7 +17,7 @@ in
       grim 
       slurp 
       xdragon
-      wf-recorder wl-clipboard wl-clipboard-x11
+      wf-recorder wl-clipboard wl-clipboard-x11 wlprop
     ];
 
     programs.foot = {
