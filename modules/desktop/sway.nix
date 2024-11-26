@@ -107,7 +107,9 @@ in
             { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
             { app_id = "^firefox$"; title = "^$"; }
-            { app_id = "^syncplay$"; title = ".*\(.*\).*";}
+            { app_id = "^syncplay$"; title = "^Set playlist \\(one per line\\)$"; }
+            { app_id = "^syncplay$"; title = "^Add URLs to playlist \\(one per line\\)$"; }
+            { app_id = "^syncplay$"; title = "^Directories to search for media$"; }
           ];
         };
         bindkeysToCode = true;
