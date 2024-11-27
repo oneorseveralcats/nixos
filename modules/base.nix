@@ -2,6 +2,15 @@
 with lib;
 let 
   cfg = config.myHome.base;
+  fonts = with pkgs; [
+    corefonts
+    fira-code-nerdfont
+    mno16
+    noto-fonts
+    noto-fonts-cjk-sans
+    spleen
+    twemoji-color-font
+  ];
 in
 {
   options.myHome.base = {
@@ -79,9 +88,19 @@ in
       # terminal powerpoint
       presenterm typst
       # haskellPackages.patat
-    ];
+    ] ++ fonts;
 
     home.preferXdgDirectories = true;
+
+    fonts.fontconfig = {
+      enable = true;      
+      defaultFonts = {
+          serif = [ "Noto Serif Light" "Noto Serif" ];
+          sansSerif = [ "Noto Sans Light" "Noto Sans" ];
+          monospace = [ "Fira Code Nerd Font Light" "Fira Code Light" "Noto Sans Mono" ];
+          emoji = [ "Twitter Color Emoji" ];
+      };
+    };
   
     programs.lesspipe.enable = true;
     programs.pandoc.enable = true;
