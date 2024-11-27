@@ -5,14 +5,6 @@
   home.homeDirectory = "/home/user";
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "libretro-genesis-plus-gx"
-    "steam" "steam-original" "steam-run"
-    "terraria-server"
-    "unrar"
-    "zerotierone"
-  ];
-
   imports = [
     ./modules
     ./pkgs
