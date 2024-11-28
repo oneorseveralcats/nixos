@@ -102,7 +102,7 @@ in
     home.preferXdgDirectories = true;
 
     fonts.fontconfig = {
-      enable = true;      
+      enable = false;      
       defaultFonts = {
           serif = [ "Noto Serif Light" "Noto Serif" ];
           sansSerif = [ "Noto Sans Light" "Noto Sans" ];
