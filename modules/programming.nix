@@ -50,6 +50,7 @@ in
         user = {
           email = ".";
           name = ".";
+          signingkey = "~/.ssh/oosc.pub";
         };
         gpg = {
           format = "ssh";
