@@ -23,6 +23,7 @@ in
       helix
       killall
       lm_sensors
+      pciutils
       ncdu
       wget
 
