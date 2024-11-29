@@ -104,6 +104,7 @@ in
         floating = {
           criteria = [
             { app_id = "^mpv$"; }
+            { app_id = "^usbimager$"; }
             { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
             { app_id = "^firefox$"; title = "^$"; }
