@@ -22,14 +22,14 @@ in
   };
 
   config = mkIf cfg.enable {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "corefonts"
-    "libretro-genesis-plus-gx"
-    "steam" "steam-original" "steam-run"
-    "terraria-server"
-    "unrar"
-    "zerotierone"
-  ];
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "corefonts"
+      "libretro-genesis-plus-gx"
+      "steam" "steam-original" "steam-run"
+      "terraria-server"
+      "unrar"
+      "zerotierone"
+    ];
 
     home = {
       sessionPath = [
