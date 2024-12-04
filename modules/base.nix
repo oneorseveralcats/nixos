@@ -133,7 +133,7 @@ in
 
     users.users.user = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" ];
+      extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
     };
 
     security = {
