@@ -341,7 +341,7 @@ in
       defaults = {
         pdf-engine = "typst";
       };
-    }
+    };
 
     programs.pistol = {
       enable = true;
