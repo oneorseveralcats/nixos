@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = lib.mkDefault "user";
+  home.homeDirectory = lib.mkDefault "/home/user";
   programs.home-manager.enable = true;
 
   imports = [
