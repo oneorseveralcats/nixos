@@ -4,6 +4,7 @@
   myHome = {
     desktop.enable = false;
     books.enable = false;
+    books.extras.enable = false;
     games.gui.enable = false;
     multimedia.enable = false;
     probation.enable = false;
