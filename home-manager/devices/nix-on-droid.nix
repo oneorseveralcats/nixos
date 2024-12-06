@@ -4,7 +4,7 @@
   myHome = {
     desktop.enable = false;
     books.enable = false;
-    gaming.gui.enable = false;
+    games.gui.enable = false;
     multimedia.enable = false;
     probation.enable = false;
     rax.enable = false;
