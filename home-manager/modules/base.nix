@@ -415,15 +415,6 @@ in
       '';
     };
 
-    programs.gpg = {
-      enable = false;
-    };
-    services.gpg-agent = {
-      enable = false;
-      pinentryPackage = pkgs.pinentry-curses;
-      enableSshSupport = true;
-    };
-
     programs.readline = {
       enable = true;
       includeSystemConfig = true;
