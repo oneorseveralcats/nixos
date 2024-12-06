@@ -39,9 +39,9 @@ in
         aspell
         img2pdf
         ocrmypdf
-        poppler_utils 
+        poppler_utils python3Packages.weasyprint
         scantailor-advanced 
-        tesseract
+        tesseract texlive.combined.scheme-small
       ];
     })
   ];

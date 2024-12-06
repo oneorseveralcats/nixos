@@ -80,8 +80,8 @@ in
       httrack
       imagemagickBig
       magic-wormhole megatools mpvc
-      pulsemixer python3Packages.weasyprint python3Packages.yq
-      rdrview texlive.combined.scheme-small
+      pulsemixer python3Packages.yq
+      rdrview 
       termdown
       ventoy-bin 
       w3m wget woof
