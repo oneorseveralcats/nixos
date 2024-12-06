@@ -84,7 +84,7 @@ in
       rdrview 
       termdown
       ventoy-bin 
-      w3m wget woof
+      w3m wcalc wget woof 
 
       distrobox lilipod
 

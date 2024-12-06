@@ -15,7 +15,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       giac-with-xcas gnuplot
-      wcalc
     ];
 
     home.file.".wcalcrc".text = ''
