@@ -20,7 +20,7 @@ in
       elmPackages.elm
       ghc gcc
       lua
-      purescript spago python
+      purescript spago python3
       rustc # R_env
     ] ++ haskellPackages;
   
