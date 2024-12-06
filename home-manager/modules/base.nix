@@ -112,7 +112,6 @@ in
     };
   
     programs.lesspipe.enable = true;
-    programs.pandoc.enable = true;
     programs.jq.enable =true;
 
 
@@ -336,6 +335,13 @@ in
         yaml-language-server
       ];
     };
+
+    programs.pandoc = {
+      enable = true;
+      defaults = {
+        pdf-engine = "typst";
+      };
+    }
 
     programs.pistol = {
       enable = true;
