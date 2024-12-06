@@ -1,0 +1,11 @@
+{ config, pkgs, lib, ... }:
+{
+  home.packages = with pkgs; [
+    librewolf
+    piper
+  ];
+  programs.i3status.modules = {
+    "battery all".enable = false;
+    "wireless _first_".enable = false;
+  };
+}

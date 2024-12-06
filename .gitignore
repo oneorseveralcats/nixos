@@ -1,2 +1,4 @@
-/configuration.nix
-/hardware-configuration.nix
+nixos/configuration.nix
+nixos/hardware-configuration.nix
+
+home-manager/home.nix

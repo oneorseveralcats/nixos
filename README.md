@@ -1,3 +1,1 @@
-# nixos
-
-nixos system configuration
+# NixOS configuration

@@ -1,0 +1,46 @@
+{ config, lib, pkgs, ... }:
+with lib;
+let 
+  aspell = with pkgs; aspellWithDicts (dicts: with dicts; [ de fr en es ]);
+  cfg = config.myHome.books;
+in
+{
+  options.myHome.books = {
+    enable = lib.mkOption {
+      description = "Enable ebook/reading related packages.";
+      type = types.bool;
+      default = true;
+    };
+    extras.enable = lib.mkOption {
+      description = "Enable packages for creating/modifying ebook formats.";
+      type = types.bool;
+      default = true;
+    };
+  };
+
+  config = mkMerge [
+    (mkIf cfg.enable {
+      home.sessionVariables = {
+        CALIBRE_USE_SYSTEM_THEME = 1;
+      };
+
+      home.packages = with pkgs; [
+        bk
+        calibre
+        epr
+        yacreader
+        unoconv
+      ];
+    })
+    (mkIf cfg.extras.enable {
+      home.packages = with pkgs; [
+        aspell
+        img2pdf
+        ocrmypdf
+        poppler_utils 
+        scantailor-advanced 
+        tesseract
+      ];
+    })
+  ];
+}
