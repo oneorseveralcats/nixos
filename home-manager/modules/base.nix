@@ -331,8 +331,6 @@ in
         marksman
         nil nodePackages.bash-language-server nodePackages.purescript-language-server nushell
         python3Packages.python-lsp-server
-        (pkgs.rWrapper.override{ packages = with pkgs.rPackages; [languageserver];})
-        texlab
         yaml-language-server
       ];
     };
