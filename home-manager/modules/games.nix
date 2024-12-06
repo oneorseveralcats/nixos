@@ -63,7 +63,6 @@ in
 
     (mkIf cfg.cli.enable {
       home.packages = with pkgs; [
-        brogue
         frotz
         gnugo
         nethack
