@@ -23,10 +23,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    myHome.desktop.base.enable = true;
-    myHome.desktop.extras.enable = true;
-    myHome.desktop.firefox.enable = true;
-    myHome.desktop.labwc.enable = true;
-    myHome.desktop.sway.enable = true;
+    myHome.desktop.base.enable = lib.mkDefault true;
+    myHome.desktop.extras.enable = lib.mkDefault true;
+    myHome.desktop.firefox.enable = lib.mkDefault true;
+    myHome.desktop.labwc.enable = lib.mkDefault true;
+    myHome.desktop.sway.enable = lib.mkDefault true;
   };
 }
