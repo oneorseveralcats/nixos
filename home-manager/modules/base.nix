@@ -322,16 +322,9 @@ in
         #   command = "${pkgs.jdt-language-server}/bin/jdt-language-server";
         # };
       };
-      extraPackages = with pkgs; [
-        clang-tools
-        elixir-ls elmPackages.elm-language-server erlang-ls
-        haskellPackages.haskell-language-server
-        # jdt-language-server
-        lua-language-server
+      extraPackages = with pkgs; lib.mkDefault [
         marksman
-        nil nodePackages.bash-language-server nodePackages.purescript-language-server nushell
-        python3Packages.python-lsp-server
-        yaml-language-server
+        nil
       ];
     };
 
