@@ -64,11 +64,9 @@ in
     (mkIf cfg.cli.enable {
       home.packages = with pkgs; [
         brogue
-        cataclysm-dda-git
         frotz
         gnugo
         nethack
-        robotfindskitten rogue
         tty-solitaire
         vitetris
       ];
