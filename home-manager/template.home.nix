@@ -14,6 +14,7 @@
     # ./devices/primary.nix
     # ./devices/pbp.nix
     # ./devices/t470s.nix
+    # ./devices/nix-on-droid.nix
   ];
 
   # original nixos version
