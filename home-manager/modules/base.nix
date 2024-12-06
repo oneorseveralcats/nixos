@@ -159,13 +159,6 @@ in
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
           exec ${pkgs.sway}/bin/sway
         fi
-
-        # starts nushell in most bash contexts. see: archwiki fish page
-        # if [[ $(ps --no-header --pid=$PPID --format=comm) != "nu" && -z ''${BASH_EXECUTION_STRING} ]]
-        #   then
-  	    #   shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-  	    #   exec ${pkgs.nushell}/bin/nu $LOGIN_OPTION
-        # fi
       '';
     };
 
