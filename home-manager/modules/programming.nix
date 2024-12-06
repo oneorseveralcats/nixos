@@ -2,6 +2,7 @@
 with lib;
 let 
   cfg = config.myHome.programming;
+  x86_packages = with pkgs; [ purescript spago ];
   haskellPackages = with pkgs.haskellPackages; [ brick turtle ];
   # R_env = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ languageserver ]; };
 in
@@ -20,9 +21,16 @@ in
       elmPackages.elm
       ghc gcc
       lua
-      purescript spago python3
+      python3
       rustc # R_env
-    ] ++ haskellPackages;
+    ] ++ haskellPackages
+      ++ (if pkgs.system == "aarch64-linux" then
+        []
+      else if pkgs.system == "x86_64-linux" then
+        x86_packages
+      else
+        [])
+;
   
     home.shellAliases = {
       sbcl = "${pkgs.rlwrap}/bin/rlwrap ${pkgs.sbcl}/bin/sbcl";
