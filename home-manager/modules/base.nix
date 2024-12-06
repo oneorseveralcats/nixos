@@ -80,6 +80,7 @@ in
       httrack
       imagemagickBig
       magic-wormhole megatools mpvc
+      ncdu
       pulsemixer python3Packages.yq
       rdrview 
       termdown
