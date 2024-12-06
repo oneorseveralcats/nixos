@@ -34,13 +34,14 @@ in
 
     programs.helix = {
       extraPackages = with pkgs; [
+        marksman
+        nil nodePackages.bash-language-server
+
         clang-tools
-        elixir-ls elmPackages.elm-language-server erlang-ls
+        elmPackages.elm-language-server
         haskellPackages.haskell-language-server
         # jdt-language-server
         lua-language-server
-        marksman
-        nil nodePackages.bash-language-server nodePackages.purescript-language-server nushell
         python3Packages.python-lsp-server
         yaml-language-server
       ];
