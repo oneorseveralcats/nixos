@@ -324,7 +324,7 @@ in
       };
       extraPackages = with pkgs; lib.mkDefault [
         marksman
-        nil
+        nil nodePackages.bash-language-server
       ];
     };
 
