@@ -14,12 +14,14 @@ in
     extras.enable = lib.mkOption {
       description = "Enable packages for creating/modifying ebook formats.";
       type = types.bool;
-      default = true;
+      default = false;
     };
   };
 
   config = mkMerge [
     (mkIf cfg.enable {
+      myHome.books.extras.enable = lib.mkDefault true;
+
       home.sessionVariables = {
         CALIBRE_USE_SYSTEM_THEME = 1;
       };
