@@ -74,7 +74,7 @@ in
     };
 
     home.packages = with pkgs; [
-      asciinema
+      amfora asciinema
       python3Packages.aria2p 
       exiftool
       httrack
