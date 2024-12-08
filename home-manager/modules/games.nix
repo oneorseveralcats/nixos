@@ -38,6 +38,7 @@ in
             beetle-psx-hw
             bsnes
             genesis-plus-gx
+            melonds
             mesen
             mgba
             mupen64plus
@@ -45,13 +46,6 @@ in
         })
       ] ++ kdeGames;
 
-      # home.file.".local/bin/dolphin-emu" = {
-      #   executable = true;
-      #   text = ''
-      #     #!/usr/bin/env bash
-      #     QT_QPA_PLATFORM=xcb exec "${pkgs.dolphin-emu-beta}/bin/dolphin-emu" "$@"
-      #   '';
-      # };
       home.file.".local/bin/terraria" = {
         executable = true;
         text = ''
