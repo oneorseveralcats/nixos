@@ -7,6 +7,7 @@
     ./bluetooth.nix
     ./boot-amd64.nix
     ./college.nix
+    ./flatpak.nix
     ./gaming.nix
     ./print_scan.nix
     ./rax.nix
