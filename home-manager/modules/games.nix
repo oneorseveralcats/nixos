@@ -29,7 +29,7 @@ in
       home.packages = with pkgs; [
         dolphin-emu-beta
         minetest
-        protontricks prismlauncher
+        pcsx2 protontricks prismlauncher
         terraria-server
         wine winetricks
 
