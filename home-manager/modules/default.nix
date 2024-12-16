@@ -2,6 +2,7 @@
 {
   imports = [
     ./desktop
+    ./editors
     ./file-managers
     ./shells
 
