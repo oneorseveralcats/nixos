@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./browsers
+    ./terminals
 
     ./base.nix
     ./extras.nix
@@ -28,6 +29,8 @@ in
     myHome.desktop.extras.enable = lib.mkDefault true;
 
     myHome.desktop.browsers.firefox.enable = lib.mkDefault true;
+
+    myHome.desktop.terminals.foot.enable = lib.mkDefault true;
 
     myHome.desktop.labwc.enable = lib.mkDefault true;
     myHome.desktop.sway.enable = lib.mkDefault true;

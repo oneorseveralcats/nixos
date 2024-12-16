@@ -13,10 +13,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.sessionVariables = {
-      TERMINAL = "footclient --title Terminal";
-    };
-
     home.packages = with pkgs; [
       anki
       deluge
