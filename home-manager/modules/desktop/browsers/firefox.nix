@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.firefox;
+  cfg = config.myHome.desktop.browsers.firefox;
 in
 {
-  options.myHome.desktop.firefox = {
+  options.myHome.desktop.browsers.firefox = {
     enable = lib.mkOption {
       description = "Enable and configure firefox.";
       type = types.bool;

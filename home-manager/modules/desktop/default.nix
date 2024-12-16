@@ -5,9 +5,10 @@ let
 in
 {
   imports = [
+    ./browsers
+
     ./base.nix
     ./extras.nix
-    ./firefox.nix
     ./labwc.nix
     ./river.nix
     ./sway.nix
@@ -25,7 +26,9 @@ in
   config = mkIf cfg.enable {
     myHome.desktop.base.enable = lib.mkDefault true;
     myHome.desktop.extras.enable = lib.mkDefault true;
-    myHome.desktop.firefox.enable = lib.mkDefault true;
+
+    myHome.desktop.browsers.firefox.enable = lib.mkDefault true;
+
     myHome.desktop.labwc.enable = lib.mkDefault true;
     myHome.desktop.sway.enable = lib.mkDefault true;
   };
