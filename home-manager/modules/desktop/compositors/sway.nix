@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.sway;
+  cfg = config.myHome.desktop.compositors.sway;
 in
 {
-  options.myHome.desktop.sway = {
+  options.myHome.desktop.compositors.sway = {
     enable = lib.mkOption {
       description = "Enable and configure the sway wayland compositor.";
       type = types.bool;
@@ -13,7 +13,7 @@ in
   };
 
   config =  mkIf cfg.enable {
-    myHome.desktop.wlr-extras.enable = true;
+    myHome.desktop.compositors.wlr-extras.enable = true;
   
     wayland.windowManager.sway = {
       enable = true;
@@ -32,7 +32,7 @@ in
       config = {
         modifier = "Mod4";
         menu = "${pkgs.fuzzel}/bin/fuzzel | xargs swaymsg exec --";
-        terminal = "footclient";
+        terminal = lib.mkDefault "footclient";
         left = "h";
         down = "n";
         up = "t";

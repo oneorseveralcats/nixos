@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.river;
+  cfg = config.myHome.desktop.compositors.river;
 in
 {
-  options.myHome.desktop.river = {
+  options.myHome.desktop.compositors.river = {
     enable = lib.mkOption {
       description = "Enable the river wayland compositor.";
       type = types.bool;
@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    myHome.desktop.wlr-extras.enable = true;
+    myHome.desktop.compositors.wlr-extras.enable = true;
 
     wayland.windowManager.river = {
       enable = true;

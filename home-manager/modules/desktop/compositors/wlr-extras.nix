@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.wlr-extras;
+  cfg = config.myHome.desktop.compositors.wlr-extras;
 in
 {
-  options.myHome.desktop.wlr-extras = {
+  options.myHome.desktop.compositors.wlr-extras = {
     enable = lib.mkOption {
       description = "Enable extra programs and services for wlroots compositors.";
       type = types.bool;

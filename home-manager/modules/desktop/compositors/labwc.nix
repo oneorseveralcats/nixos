@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.labwc;
+  cfg = config.myHome.desktop.compositors.labwc;
 in
 {
-  options.myHome.desktop.labwc = {
+  options.myHome.desktop.compositors.labwc = {
     enable = lib.mkOption {
       description = "Enable and configure the labwc wayland compositor.";
       type = types.bool;
@@ -13,7 +13,7 @@ in
   };
 
   config =  mkIf cfg.enable {
-    myHome.desktop.wlr-extras.enable = true;
+    myHome.desktop.compositors.wlr-extras.enable = true;
 
     home.packages = with pkgs; [
       labwc

@@ -7,13 +7,10 @@ in
   imports = [
     ./browsers
     ./terminals
+    ./compositors
 
     ./base.nix
     ./extras.nix
-    ./labwc.nix
-    ./river.nix
-    ./sway.nix
-    ./wlr-extras.nix
   ];
 
   options.myHome.desktop = {
@@ -32,7 +29,7 @@ in
 
     myHome.desktop.terminals.foot.enable = lib.mkDefault true;
 
-    myHome.desktop.labwc.enable = lib.mkDefault true;
-    myHome.desktop.sway.enable = lib.mkDefault true;
+    myHome.desktop.compositors.labwc.enable = lib.mkDefault true;
+    myHome.desktop.compositors.sway.enable = lib.mkDefault true;
   };
 }
