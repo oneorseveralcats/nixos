@@ -32,6 +32,16 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
+    environment.pathsToLink = [
+      # shell completions
+      "/share/bash-completion"
+      "/share/fish"
+      "/share/zsh"
+
+      # xdg portals
+      "/share/xdg-desktop-portal" "/share/applications"
+    ];
+
     boot.supportedFilesystems = [ "ntfs" ];
     boot.kernelPackages = pkgs.linuxPackages_latest;
     swapDevices = [{device = "/swapfile"; size = 4096;}];
