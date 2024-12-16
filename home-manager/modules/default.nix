@@ -3,6 +3,7 @@
   imports = [
     ./desktop
     ./file-managers
+    ./shells
 
     ./base.nix
     ./books.nix
