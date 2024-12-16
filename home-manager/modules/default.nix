@@ -4,6 +4,7 @@
     ./desktop
     ./editors
     ./file-managers
+    ./multiplexers
     ./shells
 
     ./base.nix
