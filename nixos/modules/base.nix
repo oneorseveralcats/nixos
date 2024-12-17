@@ -169,10 +169,12 @@ in
       useXkbConfig = true;
     };
 
-    users.users.user = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
-      shell = pkgs.zsh;
+    users = {
+      defaultUserShell = pkgs.zsh;
+      users.user = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
+      };
     };
 
     security = {
