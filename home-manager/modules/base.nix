@@ -68,6 +68,7 @@ in
       n = "lf";
       nn = "gd";
       neofetch = "${pkgs.hyfetch}/bin/neowofetch";
+      q = "exit";
       weather = "${pkgs.curl}/bin/curl wttr.in/Cincinnati?2QFu";
     };
 
