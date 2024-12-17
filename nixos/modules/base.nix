@@ -81,6 +81,32 @@ in
       set -o vi
     '';
 
+    programs.zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+
+      promptInit = ''
+        autoload -U colors && colors 
+
+        if [ -n "$IN_NIX_SHELL" ]; then
+          PS1="%{$fg[green]%}%~%{$reset_color%}> "
+        else 
+          case "$(whoami)" in
+            root) 
+              PS1="%{$fg[red]%}%~%{$reset_color%}> ";;
+            *) 
+              PS1="%{$fg[blue]%}%~%{$reset_color%}> ";;
+          esac
+        fi
+      '';
+
+      interactiveShellInit = ''
+        source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
+        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.zsh
+      '';
+    };
+
     programs.adb.enable = true;
 
     programs.appimage = {
@@ -146,6 +172,7 @@ in
     users.users.user = {
       isNormalUser = true;
       extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
+      shell = pkgs.zsh;
     };
 
     security = {
