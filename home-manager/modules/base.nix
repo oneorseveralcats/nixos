@@ -171,6 +171,10 @@ in
         ]);
     };
 
+    programs.fzf = {
+      enable = true;
+    };
+
     programs.hyfetch = {
       enable = true;
       settings = {
