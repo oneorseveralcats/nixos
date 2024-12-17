@@ -23,6 +23,7 @@ in
       udiskie usbimager
       xournalpp
 
+      dconf
       hicolor-icon-theme
       adwaita-icon-theme gnome-themes-extra
     ] ++
