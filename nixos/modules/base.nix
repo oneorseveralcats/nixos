@@ -102,8 +102,8 @@ in
       '';
 
       interactiveShellInit = ''
-        source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
-        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.zsh
+        source "${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.zsh"
+        source "${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh"
       '';
     };
 
