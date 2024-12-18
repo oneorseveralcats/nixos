@@ -38,6 +38,7 @@ in
         zmodload zsh/zprof
       '';
       initExtra = ''
+        # Prompt
         autoload -U colors && colors 
 
         if [ -n "$IN_NIX_SHELL" ]; then
@@ -54,9 +55,19 @@ in
         [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
         [ -n "$CONTAINER_ID" ] && PROMPT="($CONTAINER_ID) $PROMPT"
 
-        # setopt promptsubst
-        # RPROMPT="\$(${pkgs.gitprompt-rs}/bin/gitprompt-rs zsh)"
         RPROMPT='$GITSTATUS_PROMPT'
+
+        # Keycodes
+        typeset -g -A key
+
+        
+        # shift+enter auto executes completion
+        # TODO: see if i can do this via terminfo instead of ugly escape sequences
+        bindkey -M viins -- '^[[27;2;13~' autosuggest-execute
+        bindkey -M vicmd -- '^[[27;2;13~' autosuggest-execute
+
+        bindkey -M vicmd -- 'k' history-beginning-search-backward
+        bindkey -M vicmd -- 'j' history-beginning-search-forward
       '';
 
       plugins = with pkgs; [
