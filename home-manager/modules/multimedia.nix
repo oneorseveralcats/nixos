@@ -144,11 +144,6 @@ in
         urls = [
           { tags = [ "~Youtube" ]; url = "file:///home/user/sync/default/youtube.rss"; }
           # { tags = [ "~Podcasts" ]; url = "file:///media/storage/projects/programming/rssfeed_hackery/podcasts.rss"; }
-          # { tags = [ "~Kavin" "Youtube" ]; url = "https://invidious.kavin.rocks/feed/private?token=N4IX0dYHpf8PT9QJZT_RFrnFCleXa3LgrI9_ub1qjJU="; }
-          # { tags = [ "~Yewtube" "Youtube" ]; url = "https://yewtu.be/feed/private?token=lD_UokLKfO98rIhWDlCkbIbiMJqLCFRL_827beN1Gew="; }
-          # { tags = [ "~Puffyan" "Youtube" ]; url = "https://vid.puffyan.us/feed/private?token=JP0HR5JlfmmaJv4g7hvi-kwfeDA3D1HuJDSWb2uEINg="; }
-          # { tags = [ "~Snopyta" "Youtube" ]; url = "https://invidious.snopyta.org/feed/private?token=FNHCkalo0kutCFv_TRFGR_5eHq50D5fmYNFmXPwmUbI="; }
-          # { tags = [ "~Zapashcanon" "Youtube" ]; url = "https://invidious.zapashcanon.fr/feed/private?token=E0I_BS0Rbq3CMeYq5XqB3VSVT9owjHDd0ytOTzsvP5c="; }
           { tags = [ "~StandardEbooks Releases" ]; url = "https://standardebooks.org/rss/new-releases"; }
         ];
       };
