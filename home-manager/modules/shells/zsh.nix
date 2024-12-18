@@ -24,11 +24,16 @@ in
       history = {
         path = "${config.xdg.configHome}/zsh/zsh_history";
         expireDuplicatesFirst = true;
+        ignoreSpace = true;
       };
       shellAliases = {
         zr = "source ${config.xdg.configHome}/zsh/.zshrc";
       };
 
+      completionInit = ''
+        autoload -U compinit && compinit -u
+        _comp_options+=(globdots)
+      '';
       initExtraFirst = ''
         zmodload zsh/zprof
       '';
@@ -45,12 +50,17 @@ in
               PROMPT="%{$fg[blue]%}%~%{$reset_color%}> ";;
           esac
         fi
+        [ -n "$NNNLVL" ] && PROMPT="N$NNNLVL $PROMPT"
+        [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
+        [ -n "$CONTAINER_ID" ] && PROMPT="($CONTAINER_ID) $PROMPT"
 
-        setopt promptsubst
-        RPROMPT="\$(${pkgs.gitprompt-rs}/bin/gitprompt-rs zsh)"
+        # setopt promptsubst
+        # RPROMPT="\$(${pkgs.gitprompt-rs}/bin/gitprompt-rs zsh)"
+        RPROMPT='$GITSTATUS_PROMPT'
       '';
 
       plugins = with pkgs; [
+        { name = gitstatus.pname; src = gitstatus.src; file="gitstatus.prompt.zsh"; }
         { name = zsh-autopair.pname; src = zsh-autopair.src; }
         { name = zsh-completions.pname; src = zsh-completions.src; }
         { name = zsh-forgit.pname; src = zsh-forgit.src; file = "forgit.plugin.zsh"; }
