@@ -72,8 +72,8 @@ in
       enable = true;
       extraConfig = {
         user = {
-          email = ".";
-          name = ".";
+          email = "oneorseveralcats@noreply.codeberg.org";
+          name = "oneorseveralcats";
           signingkey = "~/.ssh/oosc.pub";
         };
         gpg = {
