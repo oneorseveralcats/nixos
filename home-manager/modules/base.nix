@@ -202,6 +202,7 @@ in
       };
       config = {
         af = "scaletempo2=max-speed=10";
+        hwdec = "auto-safe";
         osc = "no";
         osd-font-size = "20";
         osd-level = "3";
