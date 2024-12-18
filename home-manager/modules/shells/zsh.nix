@@ -29,6 +29,9 @@ in
         zr = "source ${config.xdg.configHome}/zsh/.zshrc";
       };
 
+      initExtraFirst = ''
+        zmodload zsh/zprof
+      '';
       initExtra = ''
         autoload -U colors && colors 
 
@@ -51,7 +54,7 @@ in
         { name = zsh-autopair.pname; src = zsh-autopair.src; }
         { name = zsh-completions.pname; src = zsh-completions.src; }
         { name = zsh-forgit.pname; src = zsh-forgit.src; file = "forgit.plugin.zsh"; }
-        { name = zsh-nix-shell.pname; src = zsh-nix-shell.src; }
+        { name = zsh-nix-shell.pname; src = zsh-nix-shell.src; file = "nix-shell.plugin.zsh"; }
         { name = zsh-vi-mode.pname; src = zsh-vi-mode.src; }
       ];
     };
