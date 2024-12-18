@@ -19,6 +19,7 @@ in
     home.packages = with pkgs; [
       dotnet-runtime
       elmPackages.elm
+      # fennel
       ghc gcc
       lua
       python3
@@ -31,6 +32,11 @@ in
       else
         [])
     ;
+
+    home.shellAliases = {
+      lg = "${pkgs.lazygit}/bin/lazygit";
+      sbcl = "${pkgs.rlwrap}/bin/rlwrap ${pkgs.sbcl}/bin/sbcl";
+    };
 
     programs.helix = {
       extraPackages = with pkgs; [
@@ -47,11 +53,6 @@ in
       ];
     };
   
-    home.shellAliases = {
-      sbcl = "${pkgs.rlwrap}/bin/rlwrap ${pkgs.sbcl}/bin/sbcl";
-      fennel = "${pkgs.fennel}/bin/fennel --lua lua";
-    };
-
     home.file.".haskeline".text = ''
       editMode: Vi
     '';
