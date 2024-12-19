@@ -126,7 +126,7 @@ in
       ];
     };
 
-    programs.swaylock = with config.home.sessionVariables; {
+    programs.swaylock = {
       enable = true;
       settings = {
         daemonize = true;
