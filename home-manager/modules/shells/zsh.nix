@@ -48,13 +48,14 @@ in
             PROMPT="%{$fg[blue]%}%~%{$reset_color%}> ";;
         esac
 
-        [ -n "$IN_NIX_SHELL" ] && PROMPT="%{$fg[green]%}%~%{$reset_color%}> "
+
         [ -n "$NNNLVL" ] && PROMPT="N$NNNLVL $PROMPT"
         [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
         [ -n "$CONTAINER_ID" ] && PROMPT="($CONTAINER_ID) $PROMPT"
 
         RPROMPT='$GITSTATUS_PROMPT'
 
+        prompt_nix_shell_setup
         # Keycodes
         typeset -g -A key
 
@@ -75,8 +76,8 @@ in
         { name = gitstatus.pname; src = gitstatus.src; file="gitstatus.prompt.zsh"; }
         { name = zsh-autopair.pname; src = zsh-autopair.src; }
         { name = zsh-completions.pname; src = zsh-completions.src; }
-        { name = zsh-forgit.pname; src = zsh-forgit.src; file = "forgit.plugin.zsh"; }
         { name = zsh-nix-shell.pname; src = zsh-nix-shell.src; file = "nix-shell.plugin.zsh"; }
+        { name = nix-zsh-completions.pname; src = nix-zsh-completions.src; }
         { name = zsh-vi-mode.pname; src = zsh-vi-mode.src; }
       ];
     };
