@@ -24,8 +24,8 @@ in
     stylix = {
       enable = true;
       polarity = "dark";
-      image = ./wallpaper.jpg;
-      imageScalingMode = "fit";
+      image = lib.mkDefault ./wallpaper.jpg;
+      imageScalingMode = lib.mkDefault "fit";
       base16Scheme = {
         base00 = "000000";  # Default Background Color
         base01 = "1c1f24";  # Alternative Background Color
