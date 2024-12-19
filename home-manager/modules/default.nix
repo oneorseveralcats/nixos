@@ -15,6 +15,7 @@
     ./multimedia.nix
     ./programming.nix
     ./rax.nix
+    ./stylix.nix
     ./testing.nix
   ];
 }
