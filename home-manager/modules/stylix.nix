@@ -24,7 +24,7 @@ in
     stylix = {
       enable = true;
       polarity = "dark";
-      image = lib.mkDefault ./wallpaper.jpg;
+      image = lib.mkDefault "${pkgs.lxqt.lxqt-themes}/share/lxqt/wallpapers/origami-dark.png";
       imageScalingMode = lib.mkDefault "fit";
       base16Scheme = {
         base00 = "000000";  # Default Background Color
