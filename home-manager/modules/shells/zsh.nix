@@ -46,7 +46,9 @@ in
         [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
         [ -n "$CONTAINER_ID" ] && PROMPT="($CONTAINER_ID) $PROMPT"
 
-        RPROMPT='$GITSTATUS_PROMPT'
+        # RPROMPT='$GITSTATUS_PROMPT'
+
+        RPROMPT='$(gitprompt)'
 
         prompt_nix_shell_setup
 
@@ -68,6 +70,8 @@ in
       '';
       envExtra = ''
         skip_global_compinit=1
+
+        setopt no_global_rcs
       '';
 
       plugins = with pkgs; [
@@ -77,6 +81,17 @@ in
         { name = zsh-nix-shell.pname; src = zsh-nix-shell.src; file = "nix-shell.plugin.zsh"; }
         { name = nix-zsh-completions.pname; src = nix-zsh-completions.src; }
         { name = zsh-vi-mode.pname; src = zsh-vi-mode.src; }
+
+        {
+          name = "git-prompt.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "woefe";
+            repo = "git-prompt.zsh";
+            rev = "0193adeb09fbc51fac738081a4718a3cf8427ff8";
+            hash = "sha256-Q7Dp6Xgt5gvkWZL+htDmGYk9RTglOWrrbl6Wf6q/qjY=";
+          };
+          file = "git-prompt.plugin.zsh";
+        }
       ];
     };
   };
