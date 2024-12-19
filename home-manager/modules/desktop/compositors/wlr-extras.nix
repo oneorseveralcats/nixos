@@ -40,7 +40,7 @@ in
           reload_style_on_change = true;
           modules-left = [ "sway/workspaces" "sway/mode" "river/tags" "river/mode" ];
           modules-center = [ "sway/window" "river/window" ];
-          modules-right = [ "clock#date" "clock#time" "battery" "tray" ];
+          modules-right = lib.mkDefault [ "clock#date" "clock#time" "battery" "tray" ];
 
           "sway/workspaces" = {
             disable-scoll = true;
