@@ -13,6 +13,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.nix-index.enable = true;
+    programs.nix-index.enable = false;
   };
 }
