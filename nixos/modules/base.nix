@@ -81,30 +81,15 @@ in
       set -o vi
     '';
 
+    # Added in order to suppress "ignoreShellProgramCheck" warnings.
+    # ZSH is configured in home-manager and having any of these options
+    # on slows it down dramatically. 
+    # See: https://github.com/nix-community/home-manager/issues/910
     programs.zsh = {
-      enable = false;
-      # autosuggestions.enable = true;
-      # syntaxHighlighting.enable = true;
-
-      # promptInit = ''
-      #   autoload -U colors && colors 
-
-      #   if [ -n "$IN_NIX_SHELL" ]; then
-      #     PS1="%{$fg[green]%}%~%{$reset_color%}> "
-      #   else 
-      #     case "$(whoami)" in
-      #       root) 
-      #         PS1="%{$fg[red]%}%~%{$reset_color%}> ";;
-      #       *) 
-      #         PS1="%{$fg[blue]%}%~%{$reset_color%}> ";;
-      #     esac
-      #   fi
-      # '';
-
-      # interactiveShellInit = ''
-      #   source "${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.zsh"
-      #   source "${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh"
-      # '';
+      enable = true;
+      enableCompletion = false;
+      enableGlobalCompInit = false;
+      enableLsColors = false;
     };
 
     programs.adb.enable = true;
@@ -170,11 +155,10 @@ in
     };
 
     users = {
+      defaultUserShell = pkgs.zsh;
       users.user = {
         isNormalUser = true;
         extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
-        shell = pkgs.zsh;
-        ignoreShellProgramCheck = true;
       };
     };
 
