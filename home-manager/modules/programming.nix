@@ -64,7 +64,6 @@ in
       enable = false;
       nix-direnv.enable = true;
     };
-    services.lorri.enable = true;
 
     services.ssh-agent.enable = true;
 
