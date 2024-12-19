@@ -102,7 +102,7 @@ in
     home.preferXdgDirectories = true;
 
     fonts.fontconfig = {
-      enable = false;      
+      # enable = false;      
       defaultFonts = {
           serif = [ "Noto Serif Light" "Noto Serif" ];
           sansSerif = [ "Noto Sans Light" "Noto Sans" ];
@@ -140,7 +140,7 @@ in
     programs.bat = {
       enable = true;
       config = {
-        theme = "base16";
+        # theme = "base16";
       };
       extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
     };
