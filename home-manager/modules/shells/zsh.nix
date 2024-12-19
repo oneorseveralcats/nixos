@@ -41,13 +41,7 @@ in
         # Prompt
         autoload -U colors && colors 
 
-        case "$(whoami)" in
-          root) 
-            PROMPT="%{$fg[red]%}%~%{$reset_color%}> ";;
-          *) 
-            PROMPT="%{$fg[blue]%}%~%{$reset_color%}> ";;
-        esac
-
+        PROMPT="%{$fg[blue]%}%~%{$reset_color%}> "
 
         [ -n "$NNNLVL" ] && PROMPT="N$NNNLVL $PROMPT"
         [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
