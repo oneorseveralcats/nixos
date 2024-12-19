@@ -82,7 +82,7 @@ in
     '';
 
     programs.zsh = {
-      enable = true;
+      enable = false;
       # autosuggestions.enable = true;
       # syntaxHighlighting.enable = true;
 
@@ -174,6 +174,7 @@ in
         isNormalUser = true;
         extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
         shell = pkgs.zsh;
+        ignoreShellProgramCheck = true;
       };
     };
 
