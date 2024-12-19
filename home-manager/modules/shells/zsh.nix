@@ -40,7 +40,6 @@ in
       initExtra = ''
         # Prompt
         autoload -U colors && colors 
-
         PROMPT="%{$fg[blue]%}%~%{$reset_color%}> "
 
         [ -n "$NNNLVL" ] && PROMPT="N$NNNLVL $PROMPT"
@@ -50,6 +49,8 @@ in
         RPROMPT='$GITSTATUS_PROMPT'
 
         prompt_nix_shell_setup
+
+        
         # Keycodes
         typeset -g -A key
 
