@@ -67,6 +67,9 @@ in
 
         bindkey -M vicmd -- 'k' history-beginning-search-backward
         bindkey -M vicmd -- 'j' history-beginning-search-forward
+
+
+        zvm_after_init_commands=(autopair-init)
       '';
       envExtra = ''
         skip_global_compinit=1
