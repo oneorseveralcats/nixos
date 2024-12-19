@@ -111,6 +111,12 @@ in
     };
 
     ## Overrides
+    wayland.windowManager.river.settings = {
+        # background-color = lib.mkForce "0x002b36";
+        # border-color-focused = lib.mkForce "0x${config.stylix.base16Scheme.base0D}";
+        border-color-unfocused = lib.mkForce "0x${config.stylix.base16Scheme.base02}";
+    };
+
     wayland.windowManager.sway.config.colors = {
       focused.background = lib.mkForce "#${config.stylix.base16Scheme.base0D}";
       focused.text = lib.mkForce "#${config.stylix.base16Scheme.base00}";
