@@ -41,16 +41,14 @@ in
         # Prompt
         autoload -U colors && colors 
 
-        if [ -n "$IN_NIX_SHELL" ]; then
-          PROMPT="%{$fg[green]%}%~%{$reset_color%}> "
-        else 
-          case "$(whoami)" in
-            root) 
-              PROMPT="%{$fg[red]%}%~%{$reset_color%}> ";;
-            *) 
-              PROMPT="%{$fg[blue]%}%~%{$reset_color%}> ";;
-          esac
-        fi
+        case "$(whoami)" in
+          root) 
+            PROMPT="%{$fg[red]%}%~%{$reset_color%}> ";;
+          *) 
+            PROMPT="%{$fg[blue]%}%~%{$reset_color%}> ";;
+        esac
+
+        [ -n "$IN_NIX_SHELL" ] && PROMPT="%{$fg[green]%}%~%{$reset_color%}> "
         [ -n "$NNNLVL" ] && PROMPT="N$NNNLVL $PROMPT"
         [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
         [ -n "$CONTAINER_ID" ] && PROMPT="($CONTAINER_ID) $PROMPT"
@@ -68,6 +66,9 @@ in
 
         bindkey -M vicmd -- 'k' history-beginning-search-backward
         bindkey -M vicmd -- 'j' history-beginning-search-forward
+      '';
+      envExtra = ''
+        skip_global_compinit=1
       '';
 
       plugins = with pkgs; [
