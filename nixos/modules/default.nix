@@ -11,6 +11,7 @@
     ./gaming.nix
     ./print_scan.nix
     ./rax.nix
+    ./root.nix
     ./sway.nix
     ./tablet.nix
     ./virtualization.nix
