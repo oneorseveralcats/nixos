@@ -90,7 +90,7 @@ in
         };
         monospace = {
           package = pkgs.fira-code-nerdfont;
-          name = "Fira Code Nerd Font Light";
+          name = "FiraCode Nerd Font Light";
         };
         emoji = {
           package = pkgs.noto-fonts-emoji;
@@ -175,6 +175,17 @@ in
     programs.fuzzel.settings.colors = rec {
       match = lib.mkForce "${config.stylix.base16Scheme.base0D}ff";
       selection-match = match;
+    };
+
+    xresources = {
+      properties = {
+        "Nsxiv.window.background" =	"#${config.stylix.base16Scheme.base00}";
+        "Nsxiv.window.foreground" =	"#${config.stylix.base16Scheme.base0D}";
+        "Nsxiv.bar.background" =	"#${config.stylix.base16Scheme.base0D}";
+        "Nsxiv.bar.foreground" =	"#${config.stylix.base16Scheme.base00}";
+        "Nsxiv.mark.foreground" =	"#${config.stylix.base16Scheme.base08}";
+        "Nsxiv.bar.font" = "${config.stylix.fonts.sansSerif.name}-${toString config.stylix.fonts.sizes.applications}";
+      };
     };
   };
 }
