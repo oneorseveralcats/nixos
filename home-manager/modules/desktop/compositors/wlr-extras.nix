@@ -27,13 +27,6 @@ in
           terminal = "${pkgs.foot}/bin/foot";
           list-executables-in-path = true;
         };
-        colors = with config.home.sessionVariables; {
-          background = "${background}ff";
-          text = "${foreground}ff";
-          match = "${blue}ff";
-          selection = "${background}ff";
-          selection-text = "${blue}ff";
-        };
       };
     };
 
@@ -47,7 +40,7 @@ in
           reload_style_on_change = true;
           modules-left = [ "sway/workspaces" "sway/mode" "river/tags" "river/mode" ];
           modules-center = [ "sway/window" "river/window" ];
-          modules-right = [ "custom/sep" "clock#date" "custom/sep" "clock#time" "custom/sep" "battery" "custom/sep" "tray" ];
+          modules-right = [ "clock#date" "clock#time" "battery" "tray" ];
 
           "sway/workspaces" = {
             disable-scoll = true;
@@ -86,7 +79,6 @@ in
             max-length = 30;
           };
 
-
           "clock#date" = {
             format = "{:%m/%d}";
           };
@@ -97,76 +89,15 @@ in
             icon-size = 25;
             spacing = 5;
           };
-
-          "custom/sep" = {
-            format = "|";
-          };
         };
       };
-      style = with config.home.sessionVariables; ''
-        * {
-          font-family: monospace;
-          font-size: 22px;
-        }
-
-        window#waybar {
-          color: #${foreground};
-          background-color: #${background};
-        }
-
-        #workspaces button,
-        #tags button {
-          padding: 0 3px;
-        }
-
-        #workspaces button:hover,
-        #tags button:hover {
-          box-shadow: inherit;
-          text-shadow: inherit;
-        }
-      
-        #workspaces button.empty,
-        #tags button:not(.occupied):not(.focused) {
-          color: #${brightBlack};
-        }
-
-        #workspaces button.focused,
-        #tags button.focused {
-          color: #${blue};
-        }
-
-
-        label#mode {
-          margin-left: 0.25em;
-          color: #${red};
-        }
-        /*
-        #mode.passthrough {
-          color: #${background};
-          background-color: #${magenta};
-        }
-        #mode.resize {
-          background-color: #${red};
-        }
-        */
-
-        #custom-sep {
-          font-weight: bold;
-          padding-left: 2px;
-          padding-right: 2px;
-        }
-      '';
     };
 
-    services.mako =  with config.home.sessionVariables; {
+    services.mako = {
       enable = true;
       defaultTimeout = 15000;
-      font = "monospace 16";
-    
       width = 500;
       height = 500;
-      backgroundColor = "#${background}";
-      borderColor = "#${blue}";
       borderSize = 2;
     };
 
@@ -200,8 +131,6 @@ in
       settings = {
         daemonize = true;
         hide-keyboard-layout = true;
-        scaling = "solid_color";
-        color = background;
       };
     };
 

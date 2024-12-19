@@ -17,7 +17,7 @@ in
       enable = true;
       defaultEditor = true;
       settings = {
-        theme = "base16_transparent";
+        # theme = "base16_transparent";
         editor = {
           bufferline = "multiple";
           color-modes = true;

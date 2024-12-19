@@ -41,7 +41,7 @@ in
         fonts = {
           names = [ "monospace" ];
           style = "Light";
-          size = 14.0;
+          # size = 14.0;
         };
         input."*" = {
           xkb_layout = "us,us";
@@ -54,7 +54,7 @@ in
         };
         output."*" = {
           resolution = "1920x1080@60Hz";
-          bg = "~/.wallpaper fit";
+          # bg = "~/.wallpaper fit";
         };
         assigns = {
           "1:WEB" = [];
@@ -201,23 +201,6 @@ in
           "${modifier}+F11" = "mode passthrough";
         };
         bars = [{ command = "none"; }];
-        colors = with config.home.sessionVariables; rec {
-          unfocused = {
-            border = "#${background}";
-            background = "#${background}";
-            text = "#${foreground}";
-            indicator = "#${background}";
-            childBorder = "#${background}";
-          };
-          focusedInactive = unfocused;
-          focused = unfocused // {
-            border = "#${blue}";
-            background = "#${blue}";
-            text = "#${background}";
-            indicator = "#${brightCyan}";
-            childBorder = "#${blue}";
-          };
-        };
         startup = [
           { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
           { command = "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"; }
