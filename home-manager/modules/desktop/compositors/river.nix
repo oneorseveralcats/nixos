@@ -19,9 +19,6 @@ in
       enable = true;
       settings = {
         default-layout = "rivertile";
-        background-color = "0x002b36";
-        border-color-focused = "0x${config.home.sessionVariables.blue}";
-        border-color-unfocused = "0x${config.home.sessionVariables.brightBlack}";
         border-width = 2;
 
         set-repeat = "50 300";
