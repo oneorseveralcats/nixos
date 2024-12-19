@@ -94,32 +94,25 @@ in
       notify = false;
     };
 
-    gtk = {
-      enable = true;
-      iconTheme = {
-        package = pkgs.adwaita-icon-theme;
-        name = "Adwaita";
-      };
-      theme = {
-        package = pkgs.gnome-themes-extra;
-        name = "Adwaita-dark";
-      };
-    };
-    qt = {
-      enable = true;
-      platformTheme.name = "qtct";
-      style = {
-        # package = pkgs.adwaita-qt;
-        name = "adwaita-dark";
-      };
-    };
+    # gtk = {
+    #   enable = true;
+    #   iconTheme = {
+    #     package = pkgs.adwaita-icon-theme;
+    #     name = "Adwaita";
+    #   };
+    #   theme = {
+    #     package = pkgs.gnome-themes-extra;
+    #     name = "Adwaita-dark";
+    #   };
+    # };
+    # qt = {
+    #   enable = true;
+    #   platformTheme.name = "qtct";
+    #   style = {
+    #     # package = pkgs.adwaita-qt;
+    #     name = "adwaita-dark";
+    #   };
+    # };
 
-    xresources = with config.home.sessionVariables; {
-      properties = {
-        "Nsxiv.window.background" =	"#${black}";
-        "Nsxiv.window.foreground" =	"#${blue}";
-        "Nsxiv.bar.font" = "monospace:style=light:size=14";
-      };
-    };
   };
 }
