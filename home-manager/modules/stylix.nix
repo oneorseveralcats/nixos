@@ -95,6 +95,16 @@ in
     };
 
     ## Overrides
+    gtk = {
+    #   iconTheme = {
+    #     package = pkgs.adwaita-icon-theme;
+    #     name = "Adwaita";
+    #   };
+      theme = {
+        package = lib.mkForce pkgs.gnome-themes-extra;
+        name = lib.mkForce "Adwaita-dark";
+      };
+    };
     wayland.windowManager.river.settings = {
         # background-color = lib.mkForce "0x002b36";
         # border-color-focused = lib.mkForce "0x${config.stylix.base16Scheme.base0D}";
