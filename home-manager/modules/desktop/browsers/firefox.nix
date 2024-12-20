@@ -20,9 +20,27 @@ in
       nativeMessagingHosts = with pkgs; [
         ff2mpv
         vdhcoapp
+        tridactyl-native
       ];
     };
 
+    xdg.configFile."tridactyl/tridactylrc".text = ''
+      set editorcmd ${config.home.sessionVariables.TERMINAL} ${pkgs.helix}/bin/hx
+
+      set externalclipboardcmd wl-copy
+
+      # Search Engines
+      set searchengine duckduckgo
+      set searchurls.aw https://wiki.archlinux.org/index.php?search=%s
+      set searchurls.np https://search.nixos.org/packages?query=%s
+      set searchurls.no https://search.nixos.org/options?query=%s
+      set searchurls.nw https://wiki.nixos.org/w/index.php?search=%s
+
+      # Bindings
+      bind ge scrollto 100
+
+      # command mpvsafe js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('mpv --no-terminal ' + url))
+    '';
     home.file.".local/bin/schoolfox" = {
       executable = true;
       text = ''
