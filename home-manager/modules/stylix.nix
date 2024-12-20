@@ -74,8 +74,8 @@ in
           name = "FiraCode Nerd Font Light";
         };
         emoji = {
-          package = pkgs.noto-fonts-emoji;
-          name = "Noto Color Emoji";
+          package = pkgs.twemoji-color-font;
+          name = "Twitter Color Emoji";
         };
 
         sizes = {
