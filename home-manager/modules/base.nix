@@ -202,7 +202,6 @@ in
       };
       config = {
         af = "scaletempo2=max-speed=10";
-        hwdec = "auto-safe";
         osc = "no";
         osd-font-size = "20";
         osd-level = "3";
@@ -223,6 +222,7 @@ in
         quality-menu
         reload
         sponsorblock-minimal # sponsorblock
+        # manga-reader
         # mpv-image-viewer.status-line
         # mpv-image-viewer.ruler
         # mpv-image-viewer.minimap
