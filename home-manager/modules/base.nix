@@ -223,6 +223,13 @@ in
         quality-menu
         reload
         sponsorblock-minimal # sponsorblock
+        # mpv-image-viewer.status-line
+        # mpv-image-viewer.ruler
+        # mpv-image-viewer.minimap
+        # mpv-image-viewer.image-positioning
+        # mpv-image-viewer.freeze-window
+        # mpv-image-viewer.equalizer
+        # mpv-image-viewer.detect-image
       ];
       scriptOpts = {
         playlistmanager = {
