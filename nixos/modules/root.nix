@@ -15,6 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    home-manager.backupFileExtension = "backup";
     home-manager.users.root = { pkgs, ...}: {
       xdg.userDirs.enable = true;
       home.preferXdgDirectories = true;
