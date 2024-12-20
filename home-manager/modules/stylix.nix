@@ -116,15 +116,15 @@ in
 
     wayland.windowManager.river.settings = {
         # background-color = lib.mkForce "0x002b36";
-        # border-color-focused = lib.mkForce "0x${config.stylix.base16Scheme.base0D}";
-        border-color-unfocused = lib.mkForce "0x${config.stylix.base16Scheme.base02}";
+        # border-color-focused = lib.mkForce "0x${config.lib.stylix.colors.base0D-hex}";
+        border-color-unfocused = lib.mkForce "0x${config.lib.stylix.colors.base02-hex}";
     };
 
     wayland.windowManager.sway.config.colors = {
-      focused.background = lib.mkForce "#${config.stylix.base16Scheme.base0D}";
-      focused.text = lib.mkForce "#${config.stylix.base16Scheme.base00}";
-      focusedInactive.border = lib.mkForce "#${config.stylix.base16Scheme.base0D}";
-      unfocused.border = lib.mkForce "#${config.stylix.base16Scheme.base02}";
+      focused.background = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
+      focused.text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
+      focusedInactive.border = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
+      unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
     };
 
     programs.waybar.style = ''
@@ -136,7 +136,7 @@ in
 
       .modules-left #workspaces button,
       .modules-left #tags button {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.lib.stylix.colors.base05-hex};
         padding: 0 3px;
       }
 
@@ -144,22 +144,22 @@ in
       .modules-left #workspaces button.active,
       .modules-left #tags button.focused,
       .modules-left #tags button.active {
-        border-bottom-color: #${config.stylix.base16Scheme.base0D};
-        color: #${config.stylix.base16Scheme.base0D};
+        border-bottom-color: #${config.lib.stylix.colors.base0D-hex};
+        color: #${config.lib.stylix.colors.base0D-hex};
       }
 
       .modules-left #workspaces button.empty,
       .modules-left #tags button:not(.occupied):not(.focused) {
-        color: #${config.stylix.base16Scheme.base02};
+        color: #${config.lib.stylix.colors.base02-hex};
       }
 
       .modules-left widget label#mode {
         margin-left: 0.25em;
-        color: #${config.stylix.base16Scheme.base08};
+        color: #${config.lib.stylix.colors.base08-hex};
       }
 
       .modules-right widget {
-        border-left: 1.25px solid #${config.stylix.base16Scheme.base05};
+        border-left: 1.25px solid #${config.lib.stylix.colors.base05-hex};
         border-bottom: 15px solid transparent;
         border-top: 15px solid transparent;
         padding-left: 5px;
@@ -185,22 +185,22 @@ in
     programs.helix.settings.theme = "stylix";
     programs.helix.themes = {
       stylix = let
-        base00 = "#${config.stylix.base16Scheme.base00}";
-        base01 = "#${config.stylix.base16Scheme.base01}";
-        base02 = "#${config.stylix.base16Scheme.base02}";
-        base03 = "#${config.stylix.base16Scheme.base03}";
-        base04 = "#${config.stylix.base16Scheme.base04}";
-        base05 = "#${config.stylix.base16Scheme.base05}";
-        base06 = "#${config.stylix.base16Scheme.base06}";
-        base07 = "#${config.stylix.base16Scheme.base07}";
-        base08 = "#${config.stylix.base16Scheme.base08}";
-        base09 = "#${config.stylix.base16Scheme.base09}";
-        base0A = "#${config.stylix.base16Scheme.base0A}";
-        base0B = "#${config.stylix.base16Scheme.base0B}";
-        base0C = "#${config.stylix.base16Scheme.base0C}";
-        base0D = "#${config.stylix.base16Scheme.base0D}";
-        base0E = "#${config.stylix.base16Scheme.base0E}";
-        base0F = "#${config.stylix.base16Scheme.base0F}";
+        base00 = "#${config.lib.stylix.colors.base00-hex}";
+        base01 = "#${config.lib.stylix.colors.base01-hex}";
+        base02 = "#${config.lib.stylix.colors.base02-hex}";
+        base03 = "#${config.lib.stylix.colors.base03-hex}";
+        base04 = "#${config.lib.stylix.colors.base04-hex}";
+        base05 = "#${config.lib.stylix.colors.base05-hex}";
+        base06 = "#${config.lib.stylix.colors.base06-hex}";
+        base07 = "#${config.lib.stylix.colors.base07-hex}";
+        base08 = "#${config.lib.stylix.colors.base08-hex}";
+        base09 = "#${config.lib.stylix.colors.base09-hex}";
+        base0A = "#${config.lib.stylix.colors.base0A-hex}";
+        base0B = "#${config.lib.stylix.colors.base0B-hex}";
+        base0C = "#${config.lib.stylix.colors.base0C-hex}";
+        base0D = "#${config.lib.stylix.colors.base0D-hex}";
+        base0E = "#${config.lib.stylix.colors.base0E-hex}";
+        base0F = "#${config.lib.stylix.colors.base0F-hex}";
       in {
         "attributes" = base09;
         "comment" = { fg = base03; modifiers = ["italic"]; };
@@ -280,18 +280,18 @@ in
     programs.fuzzel.settings = {
       main.icon-theme = "${config.stylix.iconTheme.dark}";
       colors = rec {
-        match = lib.mkForce "${config.stylix.base16Scheme.base0D}ff";
+        match = lib.mkForce "${config.lib.stylix.colors.base0D-hex}ff";
         selection-match = match;
       };
     };
 
     xresources = {
       properties = {
-        "Nsxiv.window.background" =	"#${config.stylix.base16Scheme.base00}";
-        "Nsxiv.window.foreground" =	"#${config.stylix.base16Scheme.base0D}";
-        "Nsxiv.bar.background" =	"#${config.stylix.base16Scheme.base0D}";
-        "Nsxiv.bar.foreground" =	"#${config.stylix.base16Scheme.base00}";
-        "Nsxiv.mark.foreground" =	"#${config.stylix.base16Scheme.base08}";
+        "Nsxiv.window.background" =	"#${config.lib.stylix.colors.base00-hex}";
+        "Nsxiv.window.foreground" =	"#${config.lib.stylix.colors.base0D-hex}";
+        "Nsxiv.bar.background" =	"#${config.lib.stylix.colors.base0D-hex}";
+        "Nsxiv.bar.foreground" =	"#${config.lib.stylix.colors.base00-hex}";
+        "Nsxiv.mark.foreground" =	"#${config.lib.stylix.colors.base08-hex}";
         "Nsxiv.bar.font" = "${config.stylix.fonts.sansSerif.name}-${toString config.stylix.fonts.sizes.applications}";
       };
     };
