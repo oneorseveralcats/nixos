@@ -105,6 +105,15 @@ in
         name = lib.mkForce "Adwaita-dark";
       };
     };
+    qt = {
+      enable = true;
+      platformTheme.name = "qtct";
+      style = {
+        # package = pkgs.adwaita-qt;
+        name = "adwaita-dark";
+      };
+    };
+
     wayland.windowManager.river.settings = {
         # background-color = lib.mkForce "0x002b36";
         # border-color-focused = lib.mkForce "0x${config.stylix.base16Scheme.base0D}";
