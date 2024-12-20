@@ -87,6 +87,9 @@ in
       };
 
       targets = {
+        gtk.extraCss = ''
+          window.background { border-radius: 0; }
+        '';
         swaylock.useImage = false;
       };
     };
