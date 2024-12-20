@@ -18,6 +18,7 @@ in
       acpi
       doas-sudo-shim
       entr
+      keyd
       ffmpeg
       git
       helix
@@ -158,7 +159,18 @@ in
       defaultUserShell = pkgs.zsh;
       users.user = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "kvm" "libvirtd" "lp" "networkmanager" "plugdev" "scanner" "video" "adbusers" ];
+        extraGroups = [
+         "adbusers"
+         "keyd"
+         "kvm"
+         "libvirtd"
+         "lp"
+         "networkmanager"
+         "plugdev"
+         "scanner"
+         "video"
+         "wheel"
+        ];
       };
     };
 
@@ -205,10 +217,26 @@ in
 
     services.keyd = {
       enable = true;
-      keyboards = {
+      keyboards = rec {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              "capslock" = "overload(control, esc)";
+            };
+          };
+        };
+        t470s = {
+          ids = [ "0001:0001:a38e6885" ];
+          settings = lib.recursiveUpdate default.settings {
+            main = {
+              "sysrq" = "layer(meta)";
+            };
+          };
+        };
         matcha = {
           ids = [ "3151:4011:5b3db59a" ];
-          settings = {
+          settings = lib.recursiveUpdate default.settings {
             main = {
               "esc" = "`";
               "S-esc" = "~";
