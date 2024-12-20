@@ -15,6 +15,7 @@ in
   config = mkIf cfg.enable {
     services.flatpak.enable = true;
     xdg.portal.wlr.enable = true;
+    xdg.portal.config.common.default = "*";
   };
 }
 
