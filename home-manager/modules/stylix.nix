@@ -54,9 +54,9 @@ in
       };
       iconTheme = {
         enable = true;
-        dark = "Adwaita";
-        light = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
+        dark = "Papirus-Dark";
+        light = "Papirus-Light";
+        package = pkgs.papirus-icon-theme;
       };
 
       fonts = {
@@ -255,9 +255,12 @@ in
       };
     };
 
-    programs.fuzzel.settings.colors = rec {
-      match = lib.mkForce "${config.stylix.base16Scheme.base0D}ff";
-      selection-match = match;
+    programs.fuzzel.settings = {
+      main.icon-theme = "${config.stylix.iconTheme.dark}";
+      colors = rec {
+        match = lib.mkForce "${config.stylix.base16Scheme.base0D}ff";
+        selection-match = match;
+      };
     };
 
     xresources = {
