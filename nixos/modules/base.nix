@@ -2,7 +2,7 @@
 with lib;
 let 
   cfg = config.myConfig.base;
-  nix-alien-pkgs = import (builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master") {};
+  # nix-alien-pkgs = import (builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master") {};
 in
 {
   options.myConfig.base = {
@@ -27,7 +27,7 @@ in
       ncdu
       wget
 
-      nix-alien-pkgs.nix-alien
+      # nix-alien-pkgs.nix-alien
     ];
 
     nixpkgs.config.allowUnfree = true;
