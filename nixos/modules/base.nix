@@ -203,6 +203,24 @@ in
       settings.auto-optimise-store = true;
     };
 
+    services.keyd = {
+      enable = true;
+      keyboards = {
+        matcha = {
+          ids = [ "3151:4011:5b3db59a" ];
+          settings = {
+            main = {
+              "esc" = "`";
+              "S-esc" = "~";
+              "`" = "capslock";
+              "pause" = "backspace";
+            };
+          };
+        };
+      };
+    };
+
+
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
