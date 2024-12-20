@@ -13,6 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    myHome.editors.neovim.enable = true;
     programs.nix-index.enable = false;
   };
 }
