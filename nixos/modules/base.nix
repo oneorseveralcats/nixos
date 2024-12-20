@@ -148,7 +148,7 @@ in
 
     i18n.defaultLocale = "en_US.UTF-8";
     services.xserver.xkb.layout = "us,us";
-    services.xserver.xkb.options = "altwin:prtsc_rwin,caps:swapescape,lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
+    services.xserver.xkb.options = "lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
     services.xserver.xkb.variant = "dvorak,";
     console = {
       font = "Lat2-Terminus16";
@@ -247,7 +247,6 @@ in
         };
       };
     };
-
 
     security.rtkit.enable = true;
     services.pipewire = {
