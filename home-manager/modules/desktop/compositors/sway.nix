@@ -85,19 +85,32 @@ in
           border = 2;
           commands = [
             # focus on open
-            { command = "focus"; criteria = { instance = "^logseq$"; } ; }
-            { command = "focus"; criteria = { app_id = "^foot$"; } ; }
-            { command = "focus"; criteria = { app_id = "^footclient$"; } ; }
-            { command = "focus"; criteria = { app_id = "^org.pwmt.zathura$"; } ; }
-            { command = "focus"; criteria = { app_id = "^Terraria.bin.x86_64$"; } ; }
-            { command = "focus"; criteria = { app_id = "^Patrick's Parabox.x86_64$";} ; }
-            { command = "focus"; criteria = { app_id = ".*Baba Is You.*"; } ; }
+            { command = "focus"; criteria = { instance = "^logseq$"; }; }
+            { command = "focus"; criteria = { app_id = "^foot$"; }; }
+            { command = "focus"; criteria = { app_id = "^footclient$"; }; }
+            { command = "focus"; criteria = { app_id = "^org.pwmt.zathura$"; }; }
+            ## Games
+            { command = "focus"; criteria = { app_id = "^Terraria.bin.x86_64$"; }; }
+            { command = "focus"; criteria = { app_id = "^Patrick's Parabox.x86_64$";}; }
+            { command = "focus"; criteria = { app_id = ".*Baba Is You.*"; }; }
 
-            { command = "sticky enable"; criteria = { app_id = "^mpv$"; } ; }
-            { command = "move position 1400 660"; criteria = { app_id = "^mpv$"; } ; }
+            { command = "sticky enable"; criteria = { app_id = "^mpv$"; }; }
+            { command = "move position 1400 660"; criteria = { app_id = "^mpv$"; }; }
 
-            { command = "resize set 400 500"; criteria = { title = "^n*sxiv$"; } ; }
-            { command = "move position 1510 0"; criteria = { title = "^n*sxiv$"; } ; }
+            { command = "sticky enable"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
+            { command = "move position 1460 380"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
+            { command = "resize set 485 125"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
+
+            { command = "sticky enable"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+            { command = "move position 1400 660"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+            { command = "resize set 400 500"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+
+            { command = "resize set 750 750"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
+            { command = "move position center"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
+            # TODO: Resize Picture-in-Picture window
+
+            { command = "resize set 400 500"; criteria = { title = "^n*sxiv$"; }; }
+            { command = "move position 1510 0"; criteria = { title = "^n*sxiv$"; }; }
           
           ];
         };
@@ -107,7 +120,12 @@ in
             { app_id = "^usbimager$"; }
             { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
+
+            { app_id = "^it.catboy.ripdrag$"; }
+
             { app_id = "^firefox$"; title = "^$"; }
+            { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }
+
             { app_id = "^syncplay$"; title = "^Set playlist \\(one per line\\)$"; }
             { app_id = "^syncplay$"; title = "^Add URLs to playlist \\(one per line\\)$"; }
             { app_id = "^syncplay$"; title = "^Directories to search for media$"; }
