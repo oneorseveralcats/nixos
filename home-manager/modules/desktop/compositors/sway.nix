@@ -126,6 +126,8 @@ in
             { app_id = "^firefox$"; title = "^$"; }
             { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }
 
+            { app_id = "^floating$"; }
+
             { app_id = "^syncplay$"; title = "^Set playlist \\(one per line\\)$"; }
             { app_id = "^syncplay$"; title = "^Add URLs to playlist \\(one per line\\)$"; }
             { app_id = "^syncplay$"; title = "^Directories to search for media$"; }
@@ -191,13 +193,11 @@ in
 
           "${modifier}+r" = "mode resize";
 
-          "${modifier}+Return" = "exec ${terminal} -T 'Terminal'";
-          "${modifier}+Shift+Return" = "exec ${terminal} -a 'floating'";
+          "${modifier}+Return" = "exec ${terminal} --title='Terminal'";
+          "${modifier}+Shift+Return" = "exec ${terminal} --app-id='floating'";
           "${modifier}+d" = "exec ${menu}";
-          # "${modifier}+m" = "exec mpvc -a \"$(wl-paste)\"";
           "${modifier}+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpvc' \"playlist: $(wl-paste) added.\" & mpvc -a \"$(wl-paste)\"";
           "${modifier}+Shift+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpv' \"opening $(wl-paste)\" & mpv \"$(wl-paste)\"";
-          # "${modifier}+Shift+m" = "exec mpv \"$(wl-paste)\"";
 
           "${modifier}+Insert" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot -n copy anything";
 

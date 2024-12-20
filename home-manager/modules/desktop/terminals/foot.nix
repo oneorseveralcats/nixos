@@ -14,7 +14,7 @@ in
 
   config = mkIf cfg.enable {
     home.sessionVariables = {
-      TERMINAL = "footclient --title Terminal";
+      TERMINAL = lib.mkDefault "footclient";
     };
 
     programs.foot = {
