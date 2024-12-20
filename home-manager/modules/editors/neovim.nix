@@ -1,10 +1,18 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.editors.nvim;
+  cfg = config.myHome.editors.neovim;
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+    ref = "nixos-24.11";
+  });
 in
 {
-  options.myHome.editors.nvim = {
+  imports = [
+    nixvim.homeManagerModules.nixvim
+  ];
+
+  options.myHome.editors.neovim = {
     enable = lib.mkOption {
       description = "Enable the neovim text editor (nvim).";
       type = types.bool;
@@ -13,8 +21,22 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.neovim = {
+    programs.nixvim = {
       enable = true;
+      plugins = {
+        lualine = {
+          enable = true;
+        };
+        nvim-colorizer.enable = true;
+      };
+
+      extraPlugins = with pkgs.vimPlugins; [
+        mini-base16
+      ];
+    };
+
+    programs.neovim = {
+      enable = false;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
