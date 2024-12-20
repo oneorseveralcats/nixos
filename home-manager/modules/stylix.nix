@@ -48,9 +48,9 @@ in
       };
       
       cursor = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-        size = 30;
+        name = "phinger-cursors-dark";
+        package = pkgs.phinger-cursors;
+        size = 36;
       };
       iconTheme = {
         enable = true;
