@@ -61,7 +61,7 @@ in
     '';
 
     programs.direnv = {
-      enable = false;
+      enable = true;
       nix-direnv.enable = true;
     };
 
