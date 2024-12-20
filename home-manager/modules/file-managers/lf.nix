@@ -47,7 +47,7 @@ in
 
         "<a-f>" = "filter";
 
-        "xd" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x $fx'';
+        "xd" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
         "xr" = ''''${{ [ -n "$fs" ] && vidir $fs || vidir $PWD }}'';
         "xm" = ''$mpv $fx'';
         "xw" = ''$pandoc -t html "$f" | w3m -T text/html'';
