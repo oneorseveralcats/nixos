@@ -244,7 +244,7 @@ in
         "diagnostic.error" = { underline = { style = "curl"; }; };
 
         "ui.background" = { bg = base00; };
-        "ui.bufferline.active" = { fg = base00; bg = base03; modifiers = ["bold"]; };
+        "ui.bufferline.active" = { fg = base00; bg = base0D; modifiers = ["bold"]; }; # Edited
         "ui.bufferline" = { fg = base04; bg = base00; };
         "ui.cursor" = { fg = base0A; modifiers = ["reversed"]; };
         "ui.cursor.insert" = { fg = base0A; modifiers = ["reversed"]; };
