@@ -19,6 +19,7 @@ in
       gimp
       keepassxc
       mullvad-vpn
+      nb
       nsxiv
       udiskie usbimager
       xournalpp
