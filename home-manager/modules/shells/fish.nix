@@ -14,6 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      grc
+    ];
+
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
@@ -67,12 +71,23 @@ in
         set fish_cursor_external line
         set fish_cursor_visual block
 
+        bind \cy accept-autosuggestion execute
+
+
       '';
       plugins = with pkgs.fishPlugins; [
         {
           name = autopair.pname;
           src = autopair.src;
         }
+        {
+          name = grc.pname;
+          src = grc.src;
+        }
+        # {
+        #   name = hydro.pname;
+        #   src = hydro.src;
+        # }
       ];
     };
   };
