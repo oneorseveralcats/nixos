@@ -79,55 +79,6 @@ in
         ];
       };      
 
-      programs.zsh = {
-        enable = true;
-        dotDir = ".config/zsh";
-
-        autocd = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
-
-        history = {
-          path = "$XDG_CONFIG_HOME/zsh/zsh_history";
-          expireDuplicatesFirst = true;
-          ignoreSpace = true;
-        };
-
-        completionInit = ''
-          autoload -U compinit && compinit -u
-          _comp_options+=(globdots)
-        '';
-        initExtra = ''
-          # Prompt
-          autoload -U colors && colors 
-          PROMPT="%{$fg[red]%}%~%{$reset_color%}> "
-
-          [ -n "$NNNLVL" ] && PROMPT="N$NNNLVL $PROMPT"
-          [ -n "$LF_LEVEL" ] && PROMPT="LF$LF_LEVEL $PROMPT"
-          [ -n "$CONTAINER_ID" ] && PROMPT="($CONTAINER_ID) $PROMPT"
-
-          prompt_nix_shell_setup
-
-
-          # Keybindings
-          bindkey -M viins -- '^[[27;2;13~' autosuggest-execute
-          bindkey -M vicmd -- '^[[27;2;13~' autosuggest-execute
-          bindkey -M vicmd -- 'k' history-beginning-search-backward
-          bindkey -M vicmd -- 'j' history-beginning-search-forward
-
-          # Load After
-          zvm_after_init_commands=(autopair-init)
-        '';
-
-        plugins = with pkgs; [
-          { name = zsh-completions.pname; src = zsh-completions.src; }
-          { name = zsh-nix-shell.pname; src = zsh-nix-shell.src; file = "nix-shell.plugin.zsh"; }
-          { name = nix-zsh-completions.pname; src = nix-zsh-completions.src; }
-          { name = zsh-vi-mode.pname; src = zsh-vi-mode.src; }
-          { name = zsh-autopair.pname; src = zsh-autopair.src; }
-        ];
-      };     
-
       home.stateVersion = "21.11";
     };
 

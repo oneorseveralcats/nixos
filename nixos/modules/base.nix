@@ -82,17 +82,6 @@ in
       set -o vi
     '';
 
-    # Added in order to suppress "ignoreShellProgramCheck" warnings.
-    # ZSH is configured in home-manager and having any of these options
-    # on slows it down dramatically. 
-    # See: https://github.com/nix-community/home-manager/issues/910
-    programs.zsh = {
-      enable = true;
-      enableCompletion = false;
-      enableGlobalCompInit = false;
-      enableLsColors = false;
-    };
-
     programs.adb.enable = true;
 
     programs.appimage = {
@@ -156,7 +145,6 @@ in
     };
 
     users = {
-      defaultUserShell = pkgs.zsh;
       users.user = {
         isNormalUser = true;
         extraGroups = [
