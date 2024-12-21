@@ -6,6 +6,7 @@
     ./file-managers
     ./multiplexers
     ./shells
+    ./cli
 
     ./base.nix
     ./books.nix
