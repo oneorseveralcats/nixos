@@ -8,7 +8,7 @@ in
     enable = lib.mkOption {
       description = "Enable the Z shell.";
       type = types.bool;
-      default = true;
+      default = false;
     };
   };
 
