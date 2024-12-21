@@ -47,12 +47,35 @@ in
 
         "<c-f>" = "filter";
 
-        ";d" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
-        ";r" = ''''${{ [ -n "$fs" ] && vidir $fs || vidir $PWD }}'';
-        ";m" = ''$mpv $fx'';
-        ";w" = ''$pandoc -t html "$f" | w3m -T text/html'';
+        "af" = "touch";
+        "ad" = "mkdir";
+        "ac" = "chmod";
+        "ax" = "extract";
+
+        "xd" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
+        "xr" = ''''${{ [ -n "$fs" ] && vidir $fs || vidir $PWD }}'';
+        "xm" = ''$mpv $fx'';
+        "xw" = ''$pandoc -t html "$f" | w3m -T text/html'';
       };
       extraConfig = ''
+        cmd mkdir %{{
+          printf ' directory name: '
+          read ans
+          mkdir -p -- "$ans"
+        }}
+        cmd touch %{{
+          printf ' file name: '
+          read ans
+          touch -- "$ans"
+        }}
+        cmd chmod %{{
+          IFS='\n'
+          printf ' chmod: '
+          read ans
+          chmod $ans $fx
+          lf -remote "send $id reload"
+        }}
+        cmd extract $ IFS='\n' atool -x $fx
       '';
     };
   };
