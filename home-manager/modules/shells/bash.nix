@@ -30,9 +30,15 @@ in
           fi
         }
 
-        # auto launches sway on tty1
+        # launch sway on tty1
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
           exec ${pkgs.sway}/bin/sway
+        fi
+
+        # launch fish
+        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]; then
+          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
         fi
       '';
     };
