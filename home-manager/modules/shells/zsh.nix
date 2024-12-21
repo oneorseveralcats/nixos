@@ -59,8 +59,8 @@ in
         
         # shift+enter auto executes completion
         # TODO: see if i can do this via terminfo instead of ugly escape sequences
-        bindkey -M viins -- '^[[27;2;13~' autosuggest-execute
-        bindkey -M vicmd -- '^[[27;2;13~' autosuggest-execute
+        bindkey -M viins -- '^o' autosuggest-execute
+        bindkey -M vicmd -- '^o' autosuggest-execute
 
         bindkey -M vicmd -- 'k' history-beginning-search-backward
         bindkey -M vicmd -- 'j' history-beginning-search-forward
