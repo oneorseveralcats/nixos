@@ -63,17 +63,20 @@ in
         function fish_mode_prompt; end
 
         # Keybindings
-        fish_vi_key_bindings
+        function fish_user_key_bindings
+          fish_default_key_bindings -M insert
+          fish_vi_key_bindings --no-erase insert
+
+          bind -M default \co accept-autosuggestion execute
+          bind -M insert \co accept-autosuggestion execute
+        end
+
         set fish_cursor_default block
         set fish_cursor_insert line
         set fish_cursor_replace_one underscore
         set fish_cursor_replace underscore
         set fish_cursor_external line
         set fish_cursor_visual block
-
-        bind \cy accept-autosuggestion execute
-
-
       '';
       plugins = with pkgs.fishPlugins; [
         {
