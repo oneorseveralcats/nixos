@@ -33,24 +33,24 @@ in
       };
       keybindings = {
         "." = "set hidden!";
-        DD = "delete";
-        gd = "cd ~/downloads";
-        gD = "cd ~/documents";
-        ge = "bottom";
-        gh = "cd ~";
-        gp = "cd ~/pictures";
-        gr = "cd /media/removable";
-        gs = "cd /media/storage";
-        gS = "cd ~/documents/school";
-        gv = "cd ~/videos/";
+        "DD" = "delete";
+        "gd" = "cd ~/downloads";
+        "gD" = "cd ~/documents";
+        "ge" = "bottom";
+        "gh" = "cd ~";
+        "gp" = "cd ~/pictures";
+        "gr" = "cd /media/removable";
+        "gs" = "cd /media/storage";
+        "gS" = "cd ~/documents/school";
+        "gv" = "cd ~/videos/";
         "g/" = "cd /";
 
-        "<a-f>" = "filter";
+        "<c-f>" = "filter";
 
-        "xd" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
-        "xr" = ''''${{ [ -n "$fs" ] && vidir $fs || vidir $PWD }}'';
-        "xm" = ''$mpv $fx'';
-        "xw" = ''$pandoc -t html "$f" | w3m -T text/html'';
+        ";d" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
+        ";r" = ''''${{ [ -n "$fs" ] && vidir $fs || vidir $PWD }}'';
+        ";m" = ''$mpv $fx'';
+        ";w" = ''$pandoc -t html "$f" | w3m -T text/html'';
       };
       extraConfig = ''
       '';
