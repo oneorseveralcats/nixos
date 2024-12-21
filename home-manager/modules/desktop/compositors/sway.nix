@@ -46,7 +46,8 @@ in
         input."*" = {
           xkb_layout = "us,us";
           xkb_variant = "dvorak,";
-          xkb_options = "altwin:prtsc_rwin,caps:swapescape,lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
+          # xkb_options = "altwin:prtsc_rwin,caps:swapescape,lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
+          xkb_options = "lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
 
           tap = "enabled";
           pointer_accel = "0.5";
@@ -123,6 +124,8 @@ in
 
             { app_id = "^it.catboy.ripdrag$"; }
 
+            { app_id = "^calibre-gui$"; title = "^calibre$"; }
+
             { app_id = "^firefox$"; title = "^$"; }
             { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }
 
@@ -193,8 +196,8 @@ in
 
           "${modifier}+r" = "mode resize";
 
-          "${modifier}+Return" = "exec ${terminal} --title='Terminal'";
-          "${modifier}+Shift+Return" = "exec ${terminal} --app-id='floating'";
+          "${modifier}+Return" = "exec ${terminal} -T 'Terminal'";
+          "${modifier}+Shift+Return" = "exec ${terminal} -a 'floating'";
           "${modifier}+d" = "exec ${menu}";
           "${modifier}+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpvc' \"playlist: $(wl-paste) added.\" & mpvc -a \"$(wl-paste)\"";
           "${modifier}+Shift+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpv' \"opening $(wl-paste)\" & mpv \"$(wl-paste)\"";
