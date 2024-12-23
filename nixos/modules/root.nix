@@ -17,11 +17,15 @@ in
   config = mkIf cfg.enable {
     home-manager.backupFileExtension = "backup";
     home-manager.users.root = { pkgs, ...}: {
-      xdg.userDirs.enable = true;
+      xdg = {
+        enable = true;
+        userDirs.enable = true;
+      };
       home.preferXdgDirectories = true;
 
       home.shellAliases = {
         n = "lf";
+        nixos-rebuild = ''XDG_CACHE_HOME="/root/.cache nixos-rebuild'';
         q = "exit";
       };
 
