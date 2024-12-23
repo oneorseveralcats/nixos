@@ -84,7 +84,10 @@ in
         };
         window = {
           border = 2;
-          commands = [
+          commands = let
+              video_xy = "";
+              video_pos = "";
+          in [
             # focus on open
             { command = "focus"; criteria = { instance = "^logseq$"; }; }
             { command = "focus"; criteria = { app_id = "^foot$"; }; }
@@ -97,18 +100,21 @@ in
 
             { command = "sticky enable"; criteria = { app_id = "^mpv$"; }; }
             { command = "move position 1400 660"; criteria = { app_id = "^mpv$"; }; }
+            # { command = "resize set 480 270"; criteria = { app_id = "^mpv$"; }; }
+
+            { command = "sticky enable"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+            { command = "move position 1400 660"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+            { command = "resize set 480 270"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+
+            { command = "resize set 500 150"; criteria = { app_id = "^deluge$"; title = "^Add URl$"; }; }
 
             { command = "sticky enable"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
             { command = "move position 1460 380"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
             { command = "resize set 485 125"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
 
-            { command = "sticky enable"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
-            { command = "move position 1400 660"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
-            { command = "resize set 400 500"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
 
             { command = "resize set 750 750"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
             { command = "move position center"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
-            # TODO: Resize Picture-in-Picture window
 
             { command = "resize set 400 500"; criteria = { title = "^n*sxiv$"; }; }
             { command = "move position 1510 0"; criteria = { title = "^n*sxiv$"; }; }
@@ -125,6 +131,8 @@ in
             { app_id = "^it.catboy.ripdrag$"; }
 
             { app_id = "^calibre-gui$"; title = "^calibre$"; }
+
+            { app_id = "^deluge$"; title = "^Add URL$"; }
 
             { app_id = "^firefox$"; title = "^$"; }
             { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }
