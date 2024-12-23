@@ -17,7 +17,8 @@ in
       grim 
       slurp 
       xdragon
-      wf-recorder wl-clipboard wl-clipboard-x11 wlprop
+      wf-recorder wl-clipboard wl-clipboard-x11 
+      wev wlprop
     ];
 
     programs.fuzzel = {
