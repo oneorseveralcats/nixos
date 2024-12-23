@@ -82,6 +82,10 @@ in
       set -o vi
     '';
 
+    programs.fish = {
+      enable = true;
+    };
+
     programs.adb.enable = true;
 
     programs.appimage = {
@@ -147,6 +151,7 @@ in
     users = {
       users.user = {
         isNormalUser = true;
+        shell = pkgs.fish;
         extraGroups = [
          "adbusers"
          "keyd"
