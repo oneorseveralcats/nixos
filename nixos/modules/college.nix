@@ -13,17 +13,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.lighttpd = {
-      enable = true;
-      port = 9999;
-      enableModules = [
-      ];
-    };
-
-    services.grafana = {
-      enable = true;
-    };
   };
-
 }
 
