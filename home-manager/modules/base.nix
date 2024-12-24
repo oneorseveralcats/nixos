@@ -150,6 +150,7 @@ in
       package = pkgs.htop-vim;
       settings = {
         color_scheme = 1;
+        show_program_path = false;
         fields = with config.lib.htop.fields; [
           PID
           NICE
