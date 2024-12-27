@@ -3,7 +3,7 @@ with lib;
 let 
   cfg = config.myHome.programming;
   x86_packages = with pkgs; [ purescript spago ];
-  haskell_packages = with pkgs.haskellPackages; [ brick turtle ];
+  haskell_packages = with pkgs.haskellPackages; [ brick turtle curlhs language-gemini pandoc ];
   # R_env = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ languageserver ]; };
 in
 {
