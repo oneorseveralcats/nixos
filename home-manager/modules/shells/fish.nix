@@ -18,12 +18,17 @@ in
       grc
     ];
 
+    # programs.foot.settings.main.shell = "fish";
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting
 
+        function fish_title; end
+
         # Prompt
+        # ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+
         function fish_prompt
             string join "" -- (set_color blue) (prompt_pwd --full-length-dirs 2) (set_color normal) '> '
         end
@@ -59,7 +64,7 @@ in
         function fish_right_prompt
           fish_vcs_prompt
         end
-        
+
         function fish_mode_prompt; end
 
         # Keybindings
@@ -67,8 +72,8 @@ in
           fish_default_key_bindings -M insert
           fish_vi_key_bindings --no-erase insert
 
-          bind -M default \co accept-autosuggestion execute
-          bind -M insert \co accept-autosuggestion execute
+          bind -M default \ce accept-autosuggestion execute
+          bind -M insert \ce accept-autosuggestion execute
         end
 
         set fish_cursor_default block
@@ -78,10 +83,19 @@ in
         set fish_cursor_external line
         set fish_cursor_visual block
       '';
+      shellInitLast = ''
+        if [ $SHLVL -eq 1 ]
+          PISTOL_CHROMA_STYLE=monokai ${pkgs.pistol}/bin/pistol ${config.home.homeDirectory}/documents/lists/todo.md
+        end
+      '';
       plugins = with pkgs.fishPlugins; [
         {
           name = autopair.pname;
           src = autopair.src;
+        }
+        {
+          name = foreign-env.pname;
+          src = foreign-env.src;
         }
         {
           name = grc.pname;
