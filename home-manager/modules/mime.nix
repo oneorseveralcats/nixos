@@ -122,6 +122,7 @@ in
           "text/x-c" = [ "Helix.desktop" "nvim.desktop" ];
           "text/x-c++" = [ "Helix.desktop" "nvim.desktop" ];
           "application/json" = [ "Helix.desktop" "nvim.desktop" ];
+          "text/html" = [ "firefox.desktop" "chromium.desktop" ];
 
           # documents
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "base.desktop"];
