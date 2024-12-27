@@ -30,12 +30,13 @@ in
 
       # Search Engines
       set searchengine duckduckgo
-      set searchurls.aw https://wiki.archlinux.org/index.php?search=%s
-      set searchurls.aman https://man.archlinux.org/search?q=%s
-      set searchurls.np https://search.nixos.org/packages?query=%s
-      set searchurls.no https://search.nixos.org/options?query=%s
-      set searchurls.nw https://wiki.nixos.org/w/index.php?search=%s
-      
+      set searchurls.aw: https://wiki.archlinux.org/index.php?search=%s
+      set searchurls.am: https://man.archlinux.org/search?q=%s
+      set searchurls.np: https://search.nixos.org/packages?query=%s
+      set searchurls.no: https://search.nixos.org/options?query=%s
+      set searchurls.nw: https://wiki.nixos.org/w/index.php?search=%s
+      set searchurls.hd: https://hackage.haskell.org/package/%s/docs/
+
 
       # Bindings
       bind ge scrollto 100
