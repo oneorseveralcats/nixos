@@ -112,7 +112,6 @@ in
             { command = "move position 1460 380"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
             { command = "resize set 485 125"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
 
-
             { command = "resize set 750 750"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
             { command = "move position center"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
 
