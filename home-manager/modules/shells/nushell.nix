@@ -15,6 +15,10 @@ in
   config = mkIf cfg.enable {
     programs.nushell = {
       enable = true;
+      # configFile.text = ''
+      # '';
+      # envFile.txt = ''
+      # '';
     };
   };
 }
