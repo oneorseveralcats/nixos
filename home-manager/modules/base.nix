@@ -203,7 +203,6 @@ in
       };
       config = {
         af = "scaletempo2=max-speed=10";
-        auto-window-resize= "no";
         osc = "no";
         osd-font-size = "20";
         osd-level = "3";
