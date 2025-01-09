@@ -30,7 +30,16 @@ in
         # ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
         function fish_prompt
-            string join "" -- (set_color blue) (prompt_pwd --full-length-dirs 2) (set_color normal) '> '
+          if test -n "$LF_LEVEL"
+            set LF "LF$LF_LEVEL "
+          end
+          if test -n "$NNNLVL"
+            set NNN "N$NNNLVL "
+          end
+
+          string join "" -- (printf '%s' $LF)  \
+                            (printf '%s' $NNN) \
+                            (set_color blue) (prompt_pwd --full-length-dirs 2) (set_color normal) '> '
         end
 
         if not set -q __fish_git_prompt_show_informative_status
@@ -84,9 +93,9 @@ in
         set fish_cursor_visual block
       '';
       shellInitLast = ''
-        if [ $SHLVL -eq 1 ]
-          PISTOL_CHROMA_STYLE=monokai ${pkgs.pistol}/bin/pistol ${config.home.homeDirectory}/documents/lists/todo.md
-        end
+        # if [ $SHLVL -eq 1 ]
+        #   PISTOL_CHROMA_STYLE=monokai ${pkgs.pistol}/bin/pistol ${config.home.homeDirectory}/documents/lists/todo.md
+        # end
       '';
       plugins = with pkgs.fishPlugins; [
         {
