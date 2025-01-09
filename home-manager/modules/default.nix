@@ -10,6 +10,7 @@
     ./cli
 
     ./base.nix
+    ./college.nix
     ./books.nix
     ./games.nix
     ./math.nix
