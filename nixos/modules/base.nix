@@ -209,6 +209,9 @@ in
         default = {
           ids = [ "*" ];
           settings = {
+            global = {
+              overload_tap_timeout = "1000";
+            };
             main = {
               "capslock" = "overload(control, esc)";
             };
