@@ -182,10 +182,10 @@ in
       }
     '';
 
-    stylix.targets.helix.enable = false;
-    programs.helix.settings.theme = "stylix";
+    stylix.targets.helix.enable = true;
+    programs.helix.settings.theme = lib.mkForce "stylix-custom";
     programs.helix.themes = {
-      stylix = let
+      stylix-custom = let
         base00 = "#${config.lib.stylix.colors.base00-hex}";
         base01 = "#${config.lib.stylix.colors.base01-hex}";
         base02 = "#${config.lib.stylix.colors.base02-hex}";
