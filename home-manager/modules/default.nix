@@ -4,6 +4,7 @@
     ./desktop
     ./editors
     ./file-managers
+    ./media
     ./multiplexers
     ./shells
     ./cli
@@ -13,7 +14,6 @@
     ./games.nix
     ./math.nix
     ./mime.nix
-    ./multimedia.nix
     ./programming.nix
     ./rax.nix
     ./stylix.nix
