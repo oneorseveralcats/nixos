@@ -39,13 +39,22 @@ in
     };
 
     programs.helix = {
+      languages = {
+        language = [
+          {
+            name = "haskell";
+            auto-format = true;
+            formatter = { command = "${pkgs.ormolu}/bin/ormolu"; args = [ "--stdin-input-file" "dummy.hs" ]; };
+          }
+        ];
+      };
       extraPackages = with pkgs; [
         marksman
         nil nodePackages.bash-language-server
 
         clang-tools
         elmPackages.elm-language-server
-        haskellPackages.haskell-language-server
+        haskellPackages.haskell-language-server haskellPackages.ormolu
         # jdt-language-server
         lua-language-server
         python3Packages.python-lsp-server
