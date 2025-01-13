@@ -17,7 +17,6 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      dotnet-runtime
       elmPackages.elm
       # fennel
       ghc gcc

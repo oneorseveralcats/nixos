@@ -15,7 +15,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       algol68g marst # algol 68
-      dotnet         # f#
+      dotnet-sdk     # f#
       gnucobol       # cobol
       sbcl           # common-lisp
       # gfortran       # fortran
