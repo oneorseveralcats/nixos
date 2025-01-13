@@ -15,9 +15,10 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       algol68g marst # algol 68
+      dotnet         # f#
       gnucobol       # cobol
       sbcl           # common-lisp
-      gfortran       # fortran
+      # gfortran       # fortran
 
 
       # TODO: find a PL/1 compiler?

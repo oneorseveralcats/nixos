@@ -16,7 +16,6 @@ in
     home.packages = with pkgs; [
     ];
 
-    myHome.editors.neovim.enable = true;
     programs.nix-index.enable = false;
   };
 }
