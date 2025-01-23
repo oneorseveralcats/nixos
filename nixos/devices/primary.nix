@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    <nixos-hardware/lenovo/thinkpad/t470s>
+  ];
 
   networking.hostName = "primary";
 
