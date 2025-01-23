@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  unstableTarball =
-    fetchTarball
-      "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-in
 {
   imports = [
       ./hardware-configuration.nix
@@ -18,14 +13,6 @@ in
       # ./devices/pbp.nix
       # ./devices/t470s.nix
   ];
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
 
   system.stateVersion = "21.11";
 }
