@@ -26,17 +26,37 @@ in
       viAlias = true;
       vimAlias = true;
       plugins = {
+        lsp = {
+          enable = true;
+          servers = {
+            bashls.enable = true;
+            nixd.enable = true;
+            hls = {
+              enable = true;
+              installGhc = false;
+            };
+          };
+        };
         mini = {
           enable = true;
           mockDevIcons = true;
           modules = {
+            ai = {};
+            align = {};
+            completion = {};
             icons = {};
+            operators = {};
+            pairs = {};
+            # snippets = {};
+            surround = {};
+
+            pick = {};
           };
         };
 
         lualine.enable = true;
         nvim-colorizer.enable = true;
-        telescope.enable = true;
+        # telescope.enable = true;
       };
 
       extraPlugins = with pkgs.vimPlugins; [
