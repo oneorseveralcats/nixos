@@ -26,13 +26,13 @@ in
       polarity = "dark";
       image = lib.mkDefault "${pkgs.lxqt.lxqt-themes}/share/lxqt/wallpapers/origami-dark.png";
       imageScalingMode = lib.mkDefault "fit";
-      # base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/evenok-dark.yaml";
       base16Scheme = {
         name = "dark and vibrant";
         base00 = "#000000";
         base01 = "#202020";
-        base02 = "#505050";
-        base03 = "#707070";
+        base02 = "#404040";
+        base03 = "#606060";
         base04 = "#b0b0b0";
         base05 = "#d0d0d0";
         base06 = "#e0e0e0";
