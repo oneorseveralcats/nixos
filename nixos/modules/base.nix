@@ -232,7 +232,7 @@ in
               "esc" = "`";
               "S-esc" = "~";
               "`" = "capslock";
-              "pause" = "backspace";
+              "pause" = "delete";
             };
           };
         };
