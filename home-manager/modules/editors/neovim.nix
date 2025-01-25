@@ -23,59 +23,29 @@ in
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
+      viAlias = true;
+      vimAlias = true;
       plugins = {
-        lualine = {
+        mini = {
           enable = true;
+          mockDevIcons = true;
+          modules = {
+            icons = {};
+          };
         };
+
+        lualine.enable = true;
         nvim-colorizer.enable = true;
+        telescope.enable = true;
       };
 
       extraPlugins = with pkgs.vimPlugins; [
-        mini-base16
+        # mini-base16 # stylix
       ];
     };
 
     programs.neovim = {
       enable = false;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      plugins = with pkgs.vimPlugins; [
-        polyglot
-        {
-          plugin = nvim-colorizer-lua;
-          config = ''
-            set termguicolors
-            lua << END
-              require 'colorizer'.setup()
-            END
-          '';
-        }
-        {
-          plugin = lualine-nvim;
-          config = ''
-            set noshowmode
-            lua << EOF
-              local lualine = require('lualine')
-              lualine.theme = 'gruvbox'
-              lualine.setup()
-            EOF
-          '';
-        }
-        {
-          plugin = modus-themes-nvim;
-          config = ''
-            lua << EOF
-              vim.cmd([[colorscheme modus]])
-            EOF
-          '';
-        }
-        {
-          plugin = fzf-vim;
-          config = ''
-          '';
-        }
-      ];
       extraConfig = ''
         nmap '<C-l>' '<cmd>noh<CR>'
       
@@ -157,9 +127,6 @@ in
           nmap <buffer> <Leader>dd :Lexplore<CR>
         endfunction
       '';
-      extraPackages = with pkgs; [
-        bat
-      ];
     };
   };
 }
