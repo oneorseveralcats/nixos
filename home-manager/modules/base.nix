@@ -65,6 +65,7 @@ in
     };
 
     home.shellAliases = {
+      e = "$EDITOR";
       n = "lf";
       nn = "gd";
       neofetch = "${pkgs.hyfetch}/bin/neowofetch";
