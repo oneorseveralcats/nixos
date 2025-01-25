@@ -26,27 +26,26 @@ in
       polarity = "dark";
       image = lib.mkDefault "${pkgs.lxqt.lxqt-themes}/share/lxqt/wallpapers/origami-dark.png";
       imageScalingMode = lib.mkDefault "fit";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/evenok-dark.yaml";
-      # base16Scheme = {
-      #   name = "OneDark Dark";
-      #   author = "olimorris (https://github.com/olimorris)";
-      #   base00 = "000000";  
-      #   base01 = "1c1f24";  
-      #   base02 = "2c313a";  
-      #   base03 = "434852";  
-      #   base04 = "565c64";  
-      #   base05 = "abb2bf";  
-      #   base06 = "b6bdca";  
-      #   base07 = "c8ccd4";  
-      #   base08 = "ef596f";  
-      #   base09 = "d19a66";  
-      #   base0A = "e5c07b";  
-      #   base0B = "89ca78";  
-      #   base0C = "2bbac5";  
-      #   base0D = "61afef";  
-      #   base0E = "d55fde";  
-      #   base0F = "be5046";  
-      # };
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/irblack.yaml";
+      base16Scheme = {
+        name = "dark and vibrant";
+        base00 = "#000000";
+        base01 = "#202020";
+        base02 = "#505050";
+        base03 = "#707070";
+        base04 = "#b0b0b0";
+        base05 = "#d0d0d0";
+        base06 = "#e0e0e0";
+        base07 = "#ffffff";
+        base08 = "#f5708a";
+        base09 = "#ee8122";
+        base0A = "#b8a300";
+        base0B = "#54bc5c";
+        base0C = "#00bab3";
+        base0D = "#00aff2";
+        base0E = "#9095ff";
+        base0F = "#d47ada";
+      };
       
       cursor = {
         name = "phinger-cursors-dark";
