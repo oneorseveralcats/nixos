@@ -92,11 +92,6 @@ in
         set fish_cursor_external line
         set fish_cursor_visual block
       '';
-      shellInitLast = ''
-        # if [ $SHLVL -eq 1 ]
-        #   PISTOL_CHROMA_STYLE=monokai ${pkgs.pistol}/bin/pistol ${config.home.homeDirectory}/documents/lists/todo.md
-        # end
-      '';
       plugins = with pkgs.fishPlugins; [
         {
           name = autopair.pname;
