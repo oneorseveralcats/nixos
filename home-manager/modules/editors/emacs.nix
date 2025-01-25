@@ -15,6 +15,19 @@ in
   config = mkIf cfg.enable {
     programs.emacs = {
       enable = true;
+      extraConfig = ''
+        (setq standard-indent 2)
+
+        ; evil
+        (require 'evil)
+        (evil-mode 1)
+        (evil-collection-init)
+      '';
+      extraPackages = epkgs: with epkgs; [
+        evil evil-collection
+        magit
+        which-key
+      ];
     };
   };
 }
