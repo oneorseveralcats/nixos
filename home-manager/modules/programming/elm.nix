@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.elm;
+  cfg = config.myHome.programming.languages.elm;
 in
 {
-  options.myHome.programming.elm = {
+  options.myHome.programming.languages.elm = {
     enable = lib.mkOption {
       description = "Enable the elm programming language and tools.";
       type = types.bool;

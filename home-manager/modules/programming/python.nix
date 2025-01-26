@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.python;
+  cfg = config.myHome.programming.languages.python;
 in
 {
-  options.myHome.programming.python = {
+  options.myHome.programming.languages.python = {
     enable = lib.mkOption {
       description = "Enable the python programming language and tools.";
       type = types.bool;

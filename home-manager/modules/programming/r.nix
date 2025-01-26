@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.r;
+  cfg = config.myHome.programming.languages.r;
   rPkg = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ languageserver ]; };
 in
 {
-  options.myHome.programming.r = {
+  options.myHome.programming.languages.r = {
     enable = lib.mkOption {
       description = "Enable the R programming language and tools.";
       type = types.bool;

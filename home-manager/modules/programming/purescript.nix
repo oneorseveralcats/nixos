@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.purescript;
+  cfg = config.myHome.programming.languages.purescript;
 in
 {
-  options.myHome.programming.purescript = {
+  options.myHome.programming.languages.purescript = {
     enable = lib.mkOption {
       description = "Enable the purescript programming language and tools.";
       type = types.bool;

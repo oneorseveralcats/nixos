@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.haskell;
+  cfg = config.myHome.programming.languages.haskell;
 in
 {
-  options.myHome.programming.haskell = {
+  options.myHome.programming.languages.haskell = {
     enable = lib.mkOption {
       description = "Enable the Haskell programming language and tools.";
       type = types.bool;

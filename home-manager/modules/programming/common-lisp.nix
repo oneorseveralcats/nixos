@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.common-lisp;
+  cfg = config.myHome.programming.languages.common-lisp;
 in
 {
-  options.myHome.programming.common-lisp = {
+  options.myHome.programming.languages.common-lisp = {
     enable = lib.mkOption {
       description = "Enable the common-lisp programming language and tools.";
       type = types.bool;
