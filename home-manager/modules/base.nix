@@ -66,11 +66,11 @@ in
 
     home.shellAliases = {
       e = "$EDITOR";
-      n = "lf";
+      f = "lf";
       nn = "gd";
       neofetch = "${pkgs.hyfetch}/bin/neowofetch";
       q = "exit";
-      weather = "${pkgs.curl}/bin/curl wttr.in/Cincinnati?2QFu";
+      weather = "${pkgs.curl}/bin/curl 'wttr.in/Cincinnati?2QFu'";
     };
 
     home.packages = with pkgs; [
