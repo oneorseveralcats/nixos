@@ -6,6 +6,7 @@
     ./file-managers
     ./media
     ./multiplexers
+    ./programming
     ./shells
     ./cli
 
@@ -15,7 +16,6 @@
     ./games.nix
     ./math.nix
     ./mime.nix
-    ./programming.nix
     ./rax.nix
     ./stylix.nix
     ./testing.nix

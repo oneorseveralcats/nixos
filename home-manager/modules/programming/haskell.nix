@@ -1,0 +1,37 @@
+{ config, lib, pkgs, ... }:
+with lib;
+let 
+  cfg = config.myHome.programming.haskell;
+in
+{
+  options.myHome.programming.haskell = {
+    enable = lib.mkOption {
+      description = "Enable the Haskell programming language and tools.";
+      type = types.bool;
+      default = false;
+    };
+  };
+
+  config = mkIf cfg.enable {
+    home.packages = with pkgs.haskellPackages; [
+      ghc 
+      haskell-language-server ormolu
+      brick turtle curlhs language-gemini pandoc 
+    ];
+  
+    home.file.".haskeline".text = ''
+      editMode: Vi
+    '';
+    home.file.".ghci".text = ''
+      :set prompt "λ> "
+    '';
+
+    programs.helix.languages.language = [
+      {
+        name = "haskell";
+        auto-format = true;
+        formatter = { command = "${pkgs.ormolu}/bin/ormolu"; args = [ "--stdin-input-file" "dummy.hs" ]; };
+      }
+    ];
+  };
+}
