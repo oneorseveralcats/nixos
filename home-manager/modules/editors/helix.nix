@@ -17,7 +17,6 @@ in
       enable = true;
       defaultEditor = true;
       settings = {
-        # theme = "base16_transparent";
         editor = {
           bufferline = "multiple";
           color-modes = true;
@@ -61,14 +60,10 @@ in
           X = [ "extend_line_up"  "extend_to_line_bounds" ];
         };
       };
-      languages = {
-        # language-server.jdtls = {
-        #   command = "${pkgs.jdt-language-server}/bin/jdt-language-server";
-        # };
-      };
       extraPackages = with pkgs; lib.mkDefault [
         marksman
         nil nodePackages.bash-language-server
+        yaml-language-server
       ];
     };
   };
