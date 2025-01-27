@@ -15,6 +15,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       purescript spago 
+      nodePackages.purescript-language-server nodePackages.purs-tidy
     ];
   };
 }
