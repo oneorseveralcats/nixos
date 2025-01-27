@@ -56,6 +56,9 @@ in
     })
 
     (mkIf cfg.cli.enable {
+      home.shellAliases = {
+        ttysolitaire = "${pkgs.tty-solitaire}/bin/ttysolitaire -p 999 --no-background-color";
+      };
       home.packages = with pkgs; [
         frotz
         gnugo
