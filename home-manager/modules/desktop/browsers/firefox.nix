@@ -36,6 +36,7 @@ in
       set searchurls.no: https://search.nixos.org/options?query=%s
       set searchurls.nw: https://wiki.nixos.org/w/index.php?search=%s
       set searchurls.hd: https://hackage.haskell.org/package/%s/docs/
+      set searchurls.w:  https://en.wikipedia.org/w/index.php?search=%s
 
 
       # Bindings
