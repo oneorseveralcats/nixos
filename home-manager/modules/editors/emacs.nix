@@ -2,6 +2,7 @@
 with lib;
 let 
   cfg = config.myHome.editors.emacs;
+  emacsPkg = pkgs.emacs30-pgtk;
 in
 {
   options.myHome.editors.emacs = {
@@ -15,19 +16,30 @@ in
   config = mkIf cfg.enable {
     programs.emacs = {
       enable = true;
-      extraConfig = ''
-        (setq standard-indent 2)
+      package = emacsPkg;
+      # extraConfig = ''
+      #   (setq standard-indent 2)
 
-        ; evil
-        (require 'evil)
-        (evil-mode 1)
-        (evil-collection-init)
-      '';
-      extraPackages = epkgs: with epkgs; [
-        evil evil-collection
-        magit
-        which-key
-      ];
+      #   ; evil
+      #   (require 'evil)
+      #   (evil-mode 1)
+      #   (evil-collection-init)
+      # '';
+      # extraPackages = epkgs: with epkgs; [
+      #   evil evil-collection
+      #   magit
+      #   which-key
+      # ];
+    };
+
+    services.emacs = {
+      enable = true;
+      socketActivation.enable = true;
+      package = emacsPkg;
+      client = {
+        enable = true;
+        arguments = [ "-c" ];
+      };
     };
   };
 }
