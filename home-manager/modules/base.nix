@@ -97,7 +97,7 @@ in
 
       # terminal powerpoint
       presenterm typst
-      # haskellPackages.patat
+      haskellPackages.patat
     ] ++ fonts;
 
     home.preferXdgDirectories = true;
