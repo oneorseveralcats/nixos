@@ -24,6 +24,7 @@ in
     ./python.nix
     ./rust.nix
     ./r.nix
+    ./scala.nix
     ./scheme.nix
   ];
 
