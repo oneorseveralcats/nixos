@@ -20,6 +20,7 @@ in
       algol.enable = true;
       cobol.enable = true;
       dotnet.enable = true;
+      fortran.enable = true;
     };
   };
 }
