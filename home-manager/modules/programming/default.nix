@@ -16,13 +16,16 @@ in
     ./elm.nix
     ./erlang.nix
     ./fortran.nix
+    ./go.nix
     ./haskell.nix
     ./idris.nix
     ./lua.nix
     ./miranda
     ./ocaml.nix
+    ./perl.nix
     ./purescript.nix
     ./python.nix
+    ./ruby.nix
     ./rust.nix
     ./r.nix
     ./scala.nix
