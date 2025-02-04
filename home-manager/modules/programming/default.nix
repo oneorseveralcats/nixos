@@ -19,6 +19,7 @@ in
     ./haskell.nix
     ./idris.nix
     ./lua.nix
+    ./miranda
     ./ocaml.nix
     ./purescript.nix
     ./python.nix
