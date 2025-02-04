@@ -5,13 +5,17 @@ let
 in
 {
   imports = [
+    ./algol.nix
     ./base.nix
     ./c.nix
     ./clojure.nix
+    ./cobol.nix
     ./common-lisp.nix
+    ./dotnet.nix
     ./elixir.nix
     ./elm.nix
     ./erlang.nix
+    ./fortran.nix
     ./haskell.nix
     ./idris.nix
     ./lua.nix

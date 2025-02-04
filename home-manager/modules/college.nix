@@ -14,14 +14,12 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      algol68g marst # algol 68
-      dotnet-sdk     # f#
-      gnucobol       # cobol
-      sbcl           # common-lisp
-      # gfortran       # fortran
-
-
-      # TODO: find a PL/1 compiler?
     ];
+
+    myHome.programming.languages = {
+      algol.enable = true;
+      cobol.enable = true;
+      dotnet.enable = true;
+    };
   };
 }
