@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 with lib;
 let 
   cfg = config.myHome.programming;
@@ -10,6 +10,7 @@ in
     ./c.nix
     ./clojure.nix
     ./cobol.nix
+    ./coq.nix
     ./common-lisp.nix
     ./dotnet.nix
     ./elixir.nix
@@ -20,7 +21,7 @@ in
     ./haskell.nix
     ./idris.nix
     ./lua.nix
-    ./miranda
+    ./miranda.nix
     ./ocaml.nix
     ./perl.nix
     ./purescript.nix
