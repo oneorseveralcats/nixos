@@ -13,6 +13,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      moreutils
+    ];
+
     myHome.file-managers.pistol.enable = true;
     
     home.file.".config/lf/colors".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
