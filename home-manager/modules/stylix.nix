@@ -5,9 +5,9 @@ let
   stylix = builtins.fetchGit {
     url = "https://github.com/danth/stylix";
     ref = "release-24.11";
-    rev = "9015d5d0d5d100f849129c43d257b827d300b089";
+    # rev = "9015d5d0d5d100f849129c43d257b827d300b089";
     # rev = "70505ba00ff09390b84cf50d52d48ee828727976";
-    # hash = "sha256-fp1iV2JldCSvz+7ODzXYUkQ+H7zyiWw5E0MQ4ILC4vw=";
+    # hash =  lib.fakeSha256;
   };
 in
 {
@@ -96,16 +96,16 @@ in
     };
 
     ## Overrides
-    gtk = {
+    # gtk = {
     #   iconTheme = {
     #     package = pkgs.adwaita-icon-theme;
     #     name = "Adwaita";
     #   };
-      theme = {
-        package = lib.mkForce pkgs.gnome-themes-extra;
-        name = lib.mkForce "Adwaita-dark";
-      };
-    };
+    #   theme = {
+    #     package = lib.mkForce pkgs.gnome-themes-extra;
+    #     name = lib.mkForce "Adwaita-dark";
+    #   };
+    # };
     qt = {
       enable = true;
       platformTheme.name = "qtct";
