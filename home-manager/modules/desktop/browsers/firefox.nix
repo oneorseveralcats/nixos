@@ -26,6 +26,8 @@ in
     };
 
     xdg.configFile."tridactyl/tridactylrc".text = ''
+      colorscheme shydactyl
+
       set editorcmd ${config.home.sessionVariables.TERMINAL} --app-id=floating ${pkgs.helix}/bin/hx
       set externalclipboardcmd wl-copy
 
