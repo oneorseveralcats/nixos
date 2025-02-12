@@ -137,7 +137,7 @@ in
 
       .modules-left #workspaces button,
       .modules-left #tags button {
-        color: #${config.lib.stylix.colors.base05-hex};
+        color: @base05;
         padding: 0 3px;
       }
 
@@ -145,22 +145,22 @@ in
       .modules-left #workspaces button.active,
       .modules-left #tags button.focused,
       .modules-left #tags button.active {
-        border-bottom-color: #${config.lib.stylix.colors.base0D-hex};
-        color: #${config.lib.stylix.colors.base0D-hex};
+        border-bottom-color: @base0D;
+        color: @base0D;
       }
 
       .modules-left #workspaces button.empty,
       .modules-left #tags button:not(.occupied):not(.focused) {
-        color: #${config.lib.stylix.colors.base02-hex};
+        color: @base02;
       }
 
       .modules-left widget label#mode {
         margin-left: 0.25em;
-        color: #${config.lib.stylix.colors.base08-hex};
+        color: @base08;
       }
 
       .modules-right widget {
-        border-left: 1.25px solid #${config.lib.stylix.colors.base05-hex};
+        border-left: 1.25px solid @base05;
         border-bottom: 15px solid transparent;
         border-top: 15px solid transparent;
         padding-left: 5px;
