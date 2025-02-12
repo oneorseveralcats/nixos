@@ -154,6 +154,10 @@ in
         color: @base02;
       }
 
+      .modules-left #workspaces label {
+        font-weight: normal;
+      }
+
       .modules-left widget label#mode {
         margin-left: 0.25em;
         color: @base08;
