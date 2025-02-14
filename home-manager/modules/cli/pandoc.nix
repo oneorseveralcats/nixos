@@ -8,7 +8,7 @@ in
     enable = lib.mkOption {
       description = "Enable the pandoc document converter.";
       type = types.bool;
-      default = false;
+      default = true;
     };
   };
 
