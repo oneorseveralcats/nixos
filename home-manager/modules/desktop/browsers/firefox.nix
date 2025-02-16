@@ -30,6 +30,8 @@ in
 
       guiset_quiet gui none
 
+      set allowautofocus false
+
       set editorcmd ${config.home.sessionVariables.TERMINAL} --app-id=floating ${pkgs.helix}/bin/hx
       set externalclipboardcmd wl-copy
 
@@ -46,8 +48,6 @@ in
 
       # Bindings
       bind ge scrollto 100
-
-      # command mpvsafe js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('mpv --no-terminal ' + url))
     '';
 
     xdg.configFile."tridactyl/themes/stylix.css".text = with config.lib.stylix.colors; ''
