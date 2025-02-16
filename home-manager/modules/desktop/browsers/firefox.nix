@@ -28,6 +28,8 @@ in
     xdg.configFile."tridactyl/tridactylrc".text = ''
       colorscheme shydactyl
 
+      guiset_quiet gui none
+
       set editorcmd ${config.home.sessionVariables.TERMINAL} --app-id=floating ${pkgs.helix}/bin/hx
       set externalclipboardcmd wl-copy
 
