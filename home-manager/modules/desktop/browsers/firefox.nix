@@ -31,6 +31,7 @@ in
       guiset_quiet gui none
 
       set allowautofocus false
+      set tabopenpos last
 
       set editorcmd ${config.home.sessionVariables.TERMINAL} --app-id=floating ${pkgs.helix}/bin/hx
       set externalclipboardcmd wl-copy
