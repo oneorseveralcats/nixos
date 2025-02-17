@@ -28,7 +28,8 @@ in
     xdg.configFile."tridactyl/tridactylrc".text = ''
       colorscheme shydactyl
 
-      guiset_quiet gui none
+      guiset_quiet tabs autohide
+      guiset_quiet navbar autohide
 
       set allowautofocus false
       set tabopenpos last
