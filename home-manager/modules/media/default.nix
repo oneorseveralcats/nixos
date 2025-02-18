@@ -6,6 +6,8 @@
     ./mpv.nix
     ./ncmpcpp.nix
     ./newsboat.nix
+    ./pqiv.nix
+    ./zathura.nix
   ];
 }
 

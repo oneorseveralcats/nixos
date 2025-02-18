@@ -13,6 +13,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    myHome.media.zathura.enable = true;
+
     home.packages = with pkgs; [
       anki
       deluge
@@ -38,61 +40,10 @@ in
       include "%L"
       <Multi_key> <l> <l> : "λ"
     '';
-    home.file.".local/bin/w3m" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        export W3M_IMG2SIXEL="img2sixel -d atkinson"
-        exec "${pkgs.w3m}/bin/w3m" -sixel "$@"
-      '';
-    };
-
-    programs.zathura = {
-      enable = true;
-      options = {
-        guioptions = "";
-        selection-clipboard = "clipboard";
-      };
-      extraConfig = ''
-        unmap [normal] 	   q
-        unmap [fullscreen] q
-        map [normal]     f     toggle_fullscreen
-        map [fullscreen] f     toggle_fullscreen
-        map [normal]     u     recolor
-        map [fullscreen] u     recolor
-        map [normal]     <C-f> follow
-        map [fullscreen] <C-f> follow
-        map [normal]     <C-q> quit
-        map [fullscreen] <C-q> quit
-
-        map [normal]     <Button8> navigate previous
-        map [fullscreen] <Button8> navigate previous
-
-        map [normal]     <Button9> navigate next
-        map [fullscreen] <Button9> navigate next
-      '';
-    };
-
-    programs.pqiv = {
-      enable = true;
-      settings = {
-        options = {
-          browse = true;
-          hide-info-box = true;
-          max-depth = 1;
-          window-position = "1510,0";
-        };
-      };
-      extraConfig = ''
-        [actions]
-        set_cursor_auto_hide(1)
-        set_scale_mode_fit_px(400,500)
-      '';
-    };
 
     services.udiskie = {
       enable = true;
-      notify = false;
+      notify = true;
     };
   };
 }
