@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.media.mpd = {
-    enable = lib.mkOption {
-      description = "Enable the music player daemon (mpd).";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the music player daemon (mpd).";
   };
 
   config = mkIf cfg.enable {
