@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.browsers.tridactyl;
+  cfg = config.myHome.browsers.tridactyl;
 in
 {
-  options.myHome.desktop.browsers.tridactyl = {
+  options.myHome.browsers.tridactyl = {
     enable = lib.mkOption {
       description = "Configure tridactyl for Firefox based-browsers.";
       type = types.bool;

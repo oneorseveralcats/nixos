@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.browsers.firefox;
+  cfg = config.myHome.browsers.firefox;
 in
 {
-  options.myHome.desktop.browsers.firefox = {
+  options.myHome.browsers.firefox = {
     enable = lib.mkOption {
       description = "Enable and configure firefox.";
       type = types.bool;
@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    myHome.desktop.browsers.tridactyl.enable = true;
+    myHome.browsers.tridactyl.enable = true;
 
     home.sessionVariables.BROWSER = lib.mkDefault "firefox";
 

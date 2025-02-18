@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.desktop.browsers.librewolf;
+  cfg = config.myHome.browsers.librewolf;
 in
 {
-  options.myHome.desktop.browsers.librewolf = {
+  options.myHome.browsers.librewolf = {
     enable = lib.mkOption {
       description = "Enable and configure librewolf.";
       type = types.bool;
@@ -13,7 +13,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    myHome.desktop.browsers.tridactyl.enable = true;
+    myHome.browsers.tridactyl.enable = true;
 
     programs.librewolf = {
       enable = true;
