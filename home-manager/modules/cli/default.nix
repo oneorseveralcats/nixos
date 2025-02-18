@@ -8,7 +8,6 @@
     ./pandoc.nix
     ./presenterm.nix
     ./readline.nix
-    ./w3m.nix
     ./yt-dlp.nix
   ];
 }
