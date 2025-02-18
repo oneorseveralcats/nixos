@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.extras = {
-    enable = lib.mkOption {
-      description = "Enable extra programs and services.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable extra programs and services.";
   };
 
   config = mkIf cfg.enable {
@@ -21,14 +17,8 @@ in
         []
       else
         [ pkgs.tor-browser-bundle-bin 
-          pkgs.session-desktop
           # pkgs.logseq  
         ])
     ;
-
-    services.kdeconnect = {
-      enable = false;
-      indicator = true;
-    };
   };
 }
