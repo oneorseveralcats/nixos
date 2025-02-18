@@ -8,6 +8,7 @@
     ./multiplexers
     ./programming
     ./shells
+    ./socials
     ./cli
 
     ./base.nix
