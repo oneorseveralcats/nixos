@@ -13,6 +13,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    myHome.desktop.browsers.tridactyl.enable = true;
+
     programs.librewolf = {
       enable = true;
       nativeMessagingHosts = with pkgs; [
