@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./irssi.nix
+    ./session.nix
     ./signal.nix
     ./telegram.nix
   ];
@@ -16,6 +17,7 @@ in
 
   config = mkIf cfg.enable {
     myHome.socials = {
+      session.enable = true;
       signal.enable = true;
       telegram.enable = true;
     };

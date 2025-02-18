@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.socials.signal = {
-    enable = lib.mkOption {
-      description = "Enable signal.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the signal messaging client.";
   };
 
   config = mkIf cfg.enable {
