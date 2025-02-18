@@ -1,6 +1,7 @@
 {...}:
 {
   imports = [
+    ./browsers
     ./desktop
     ./editors
     ./file-managers
