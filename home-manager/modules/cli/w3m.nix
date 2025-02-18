@@ -28,6 +28,14 @@ in
       W3M_IMG2SIXEL = "img2sixel -d atkinson";
     };
 
+    # home.file.".local/bin/w3m" = {
+    #   executable = true;
+    #   text = ''
+    #     #!/usr/bin/env bash
+    #     export W3M_IMG2SIXEL="img2sixel -d atkinson"
+    #     exec "${pkgs.w3m}/bin/w3m" -sixel "$@"
+    #   '';
+    # };
     # xdg.configFile."w3m/".text = ''
     # '';
     
