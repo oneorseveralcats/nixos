@@ -2,7 +2,6 @@
 with lib;
 let 
   cfg = config.myConfig.base;
-  # nix-alien-pkgs = import (builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master") {};
 in
 {
   options.myConfig.base = {
@@ -27,10 +26,9 @@ in
       pciutils
       ncdu
       wget
-
-      # nix-alien-pkgs.nix-alien
     ];
 
+    nix.package = pkgs.lix;
     nixpkgs.config.allowUnfree = true;
 
     environment.pathsToLink = [
