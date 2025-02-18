@@ -15,8 +15,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       libreoffice hunspell hunspellDicts.tok hunspellDicts.en_US
-      syncplay signal-desktop
-      tdesktop
+      syncplay
     ] ++
       (if pkgs.system == "aarch64-linux" then
         []
