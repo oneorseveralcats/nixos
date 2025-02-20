@@ -212,6 +212,7 @@ in
             };
             main = {
               "capslock" = "overload(control, esc)";
+              "rightshift" = "rightshift"; # fixes xbkoption grp:shifts_toggle
             };
           };
         };
