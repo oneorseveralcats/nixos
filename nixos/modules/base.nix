@@ -28,7 +28,7 @@ in
       wget
     ];
 
-    nix.package = pkgs.lix;
+    # nix.package = pkgs.lix;
     nixpkgs.config.allowUnfree = true;
 
     environment.pathsToLink = [
