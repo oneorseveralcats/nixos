@@ -43,15 +43,24 @@ in
           style = "Light";
           # size = 14.0;
         };
-        input."*" = {
-          xkb_layout = "us,us";
-          xkb_variant = "dvorak,";
-          # xkb_options = "altwin:prtsc_rwin,caps:swapescape,lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
-          xkb_options = "lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
+        input = {
+          "*" = {
+            xkb_layout = "us,us";
+            xkb_variant = "dvorak,";
+            xkb_options = "lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
 
-          tap = "enabled";
-          pointer_accel = "0.5";
-          accel_profile = "adaptive";
+            tap = "enabled";
+            pointer_accel = "0.5";
+            accel_profile = "adaptive";
+          };
+
+          "2:1:PS/2_Generic_Mouse" = {
+            pointer_accel = "1";
+          };
+
+          "2:7:SynPS/2_Synaptics_TouchPad" = {
+            events = "disabled";
+          };
         };
         output."*" = {
           resolution = "1920x1080@60Hz";
