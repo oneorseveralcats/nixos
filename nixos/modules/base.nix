@@ -212,12 +212,13 @@ in
             };
             main = {
               "capslock" = "overload(control, esc)";
+              "esc" = "capslock";
               "rightshift" = "rightshift"; # fixes xbkoption grp:shifts_toggle
             };
           };
         };
         t470s = {
-          ids = [ "0001:0001:a38e6885" ];
+          ids = [ "0001:0001:a38e6885" "0001:0001:70533846" ];
           settings = lib.recursiveUpdate default.settings {
             main = {
               "sysrq" = "layer(meta)";
