@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.browsers.firefox = {
-    enable = lib.mkOption {
-      description = "Enable and configure firefox.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable and configure firefox.";
   };
 
   config = mkIf cfg.enable {
