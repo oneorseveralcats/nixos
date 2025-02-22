@@ -31,5 +31,6 @@ in
     myHome.desktop.compositors.sway.enable = lib.mkDefault true;
 
     myHome.browsers.firefox.enable = lib.mkDefault true;
+    myHome.browsers.qutebrowser.enable = lib.mkDefault true;
   };
 }
