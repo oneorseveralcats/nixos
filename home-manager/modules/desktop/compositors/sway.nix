@@ -57,13 +57,17 @@ in
           };
 
           "type:pointer" = {
+            pointer_accel = "0.5";
+            accel_profile = "adaptive";
+          };
+
+          "2:1:PS/2_Generic_Mouse" = {
             pointer_accel = "1.0";
             accel_profile = "adaptive";
           };
 
-          "2:7:SynPS/2_Synaptics_TouchPad" = {
-            events = "disabled";
-          };
+          # "2:7:SynPS/2_Synaptics_TouchPad" = {
+          # };
         };
         output."*" = {
           resolution = "1920x1080@60Hz";
