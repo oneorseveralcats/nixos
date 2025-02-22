@@ -44,18 +44,21 @@ in
           # size = 14.0;
         };
         input = {
-          "*" = {
+          "type:keyboard" = {
             xkb_layout = "us,us";
             xkb_variant = "dvorak,";
             xkb_options = "lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
+          };
 
+          "type:touchpad" = {
             tap = "enabled";
             pointer_accel = "0.5";
             accel_profile = "adaptive";
           };
 
-          "2:1:PS/2_Generic_Mouse" = {
-            pointer_accel = "1";
+          "type:pointer" = {
+            pointer_accel = "1.0";
+            accel_profile = "adaptive";
           };
 
           "2:7:SynPS/2_Synaptics_TouchPad" = {
@@ -64,7 +67,6 @@ in
         };
         output."*" = {
           resolution = "1920x1080@60Hz";
-          # bg = "~/.wallpaper fit";
         };
         assigns = {
           "1:WEB" = [];
