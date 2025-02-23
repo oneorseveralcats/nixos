@@ -26,16 +26,18 @@ in
       set editorcmd ${config.home.sessionVariables.TERMINAL} --app-id=floating ${pkgs.helix}/bin/hx
       set externalclipboardcmd wl-copy
 
+      set hintchars uhetidonasyfkb
+
       # Search Engines
       set searchengine duckduckgo
-      set searchurls.aw: https://wiki.archlinux.org/index.php?search=%s
-      set searchurls.am: https://man.archlinux.org/search?q=%s
-      set searchurls.np: https://search.nixos.org/packages?query=%s
-      set searchurls.no: https://search.nixos.org/options?query=%s
-      set searchurls.nw: https://wiki.nixos.org/w/index.php?search=%s
-      set searchurls.ha: https://hackage.haskell.org/package/%s/docs/
-      set searchurls.yt: https://www.youtube.com/results?search_query=%s
-      set searchurls.w:  https://en.wikipedia.org/w/index.php?search=%s
+      set searchurls.aw https://wiki.archlinux.org/index.php?search=%s
+      set searchurls.am https://man.archlinux.org/search?q=%s
+      set searchurls.np https://search.nixos.org/packages?query=%s
+      set searchurls.no https://search.nixos.org/options?query=%s
+      set searchurls.nw https://wiki.nixos.org/w/index.php?search=%s
+      set searchurls.ha https://hackage.haskell.org/package/%s/docs/
+      set searchurls.yt https://www.youtube.com/results?search_query=%s
+      set searchurls.w  https://en.wikipedia.org/w/index.php?search=%s
 
 
       # Bindings
