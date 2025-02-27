@@ -18,6 +18,8 @@ in
       autoReload = true;
       browser = ''"mpvc -q -a"'';
       extraConfig = ''
+        articlelist-format "%4i %f %D  %?T?|%-17T| ?%25a  %t"
+
         bind-key j next
         bind-key k prev
         bind-key J next-feed
