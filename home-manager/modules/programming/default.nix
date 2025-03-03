@@ -23,6 +23,7 @@ in
     ./lua.nix
     ./miranda.nix
     ./ocaml.nix
+    ./pascal.nix
     ./perl.nix
     ./purescript.nix
     ./python.nix
