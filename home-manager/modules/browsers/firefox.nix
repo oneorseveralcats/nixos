@@ -17,7 +17,7 @@ in
       enable = true;
       package = pkgs.firefox.override { cfg.speechSynthesisSupport = true; };
       nativeMessagingHosts = with pkgs; [
-        ff2mpv
+        keepassxc
         vdhcoapp
         tridactyl-native
       ];
