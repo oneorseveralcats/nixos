@@ -2,40 +2,87 @@
 with lib;
 let 
   cfg = config.myHome.browsers.firefox;
+  nur = import <nur> {};
 in
 {
   options.myHome.browsers.firefox = {
     enable = lib.mkEnableOption "Enable and configure firefox.";
   };
 
-  config = mkIf cfg.enable {
-    myHome.browsers.tridactyl.enable = true;
+  config = mkMerge [
+    (mkIf cfg.enable {
+      myHome.browsers.tridactyl.enable = true;
+      programs.firefox.enable = true;
 
-    home.sessionVariables.BROWSER = lib.mkDefault "firefox";
+      home.sessionVariables.BROWSER = lib.mkDefault "firefox";
 
-    programs.firefox = {
-      enable = true;
-      package = pkgs.firefox.override { cfg.speechSynthesisSupport = true; };
-      nativeMessagingHosts = with pkgs; [
-        keepassxc
-        vdhcoapp
-        tridactyl-native
-      ];
-    };
+      home.file.".local/bin/schoolfox" = {
+        executable = true;
+        text = ''
+          exec ${pkgs.firefox}/bin/firefox -p school
+        '';
+      };
 
-    home.file.".local/bin/schoolfox" = {
-      executable = true;
-      text = ''
-        exec ${pkgs.firefox}/bin/firefox -p school
-      '';
-    };
+      home.file.".local/bin/offlinefox" = {
+        executable = true;
+        text = ''
+          exec ${pkgs.firefox}/bin/firefox -p offline
+        '';
+      };
+    })
+    ({
+      programs.firefox = {
+        package = pkgs.firefox.override { cfg.speechSynthesisSupport = true; };
+        policies = {
+          DisableFirefoxStudies = true;
+          DisablePocket = true;
+          DisableTelemetry = true;
+          DisplayBookmarksToolbar = "newtab";
+          HttpsOnlyMode = "enabled";
+          Homepage = {
+            URL = "duckduckgo.com";
+          };
+          PasswordManagerEnabled = false;
+          SearchEngine = {
+            Default = "DuckDuckGo";
+          };
+        };
+        profiles = rec {
+          "personal" = {
+            id = lib.mkDefault 0;
+            extensions = with nur.repos.rycee.firefox-addons; [
+              auto-tab-discard
+              # bypass-paywalls-clean
+              canvasblocker
+              cookie-autodelete
+              clearurls
+              darkreader
+              decentraleyes
+              greasemonkey
+              istilldontcareaboutcookies
+              keepassxc-browser
+              tridactyl
+              video-downloadhelper
 
-    home.file.".local/bin/offlinefox" = {
-      executable = true;
-      text = ''
-        exec ${pkgs.firefox}/bin/firefox -p offline
-      '';
-    };
-
-  };
+              overbitewx
+              geminize
+            ];
+          };
+          "school" = {
+            id = lib.mkDefault 1;
+            extensions = personal.extensions;
+          };
+          "offline" = {
+            id = lib.mkDefault 2;
+            extensions = personal.extensions;
+          };
+        };
+        nativeMessagingHosts = with pkgs; [
+          keepassxc
+          vdhcoapp
+          tridactyl-native
+        ];
+      };
+    })
+  ];
 }
