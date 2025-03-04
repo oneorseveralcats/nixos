@@ -2,6 +2,7 @@
 with lib;
 let 
   cfg = config.myHome.browsers.floorp;
+  nur = import <nur> {};
 in
 {
   options.myHome.browsers.floorp = {
@@ -9,13 +10,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.floorp = {
+    programs.floorp = with config.programs; {
       enable = true;
-      nativeMessagingHosts = with lib; [
-        ff2mpv
-        vdhcoapp
-        tridactyl-native
-      ];
+      package = pkgs.floorp.override {
+        nativeMessagingHosts = firefox.nativeMessagingHosts;
+      };
+      profiles = firefox.profiles;
     };
   };
 }
