@@ -66,7 +66,7 @@ in
             darkreader
             decentraleyes
             greasemonkey
-            i-dont-care-about-cookies
+            istilldontcareaboutcookies
             keepassxc-browser
             tridactyl
             video-downloadhelper
