@@ -22,6 +22,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    myHome.browsers.gemini.enable = true;
+
+  
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "corefonts"
       "libretro-genesis-plus-gx"
