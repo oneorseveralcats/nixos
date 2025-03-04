@@ -31,6 +31,7 @@ in
       "steam" "steam-original" "steam-run"
       "terraria-server"
       "unrar"
+      "video-downloadhelper"
       "zerotierone"
     ];
 
