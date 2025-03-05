@@ -21,11 +21,6 @@ in
       package = pkgs.librewolf.override {
         nativeMessagingHosts = firefox.nativeMessagingHosts;
       };
-      policies = {
-        SearchEngine = {
-          Default = "DuckDuckGo";
-        };
-      };
       profiles = firefox.profiles;
       settings = {
         "browser.compactmode.show" = true;

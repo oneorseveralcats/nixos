@@ -43,9 +43,6 @@ in
             URL = "duckduckgo.com";
           };
           PasswordManagerEnabled = false;
-          SearchEngine = {
-            Default = "DuckDuckGo";
-          };
         };
         profiles = rec {
           "personal" = {
@@ -68,13 +65,11 @@ in
               geminize
             ];
           };
-          "school" = {
+          "school" = personal // {
             id = lib.mkDefault 1;
-            extensions = personal.extensions;
           };
-          "offline" = {
+          "offline" = personal // {
             id = lib.mkDefault 2;
-            extensions = personal.extensions;
           };
         };
         nativeMessagingHosts = with pkgs; [
