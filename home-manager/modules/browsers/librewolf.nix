@@ -21,7 +21,17 @@ in
       package = pkgs.librewolf.override {
         nativeMessagingHosts = firefox.nativeMessagingHosts;
       };
-      profiles = firefox.profiles;
+      profiles = rec {
+        "personal" = firefox.profiles.personal // {
+          search.default = firefox.profiles.personal.search.default;
+        };
+        "school" = firefox.profiles.school // {
+          search.default = personal.search.default;
+        };
+        "offline" = firefox.profiles.offline // {
+          search.default = personal.search.default;
+        };
+      };
       settings = {
         "browser.compactmode.show" = true;
         "browser.uidensity" = 1;
