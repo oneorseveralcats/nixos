@@ -26,7 +26,7 @@ in
       enable = true;
       extraConfig = {
         user = {
-          email = "oneorseveralcats@noreply.codeberg.org";
+          email = "oosc@noreply.codeberg.org";
           name = "oneorseveralcats";
           signingkey = "~/.ssh/oosc.pub";
         };
