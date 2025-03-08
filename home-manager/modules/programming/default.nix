@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./ada.nix
     ./algol.nix
     ./base.nix
     ./c.nix

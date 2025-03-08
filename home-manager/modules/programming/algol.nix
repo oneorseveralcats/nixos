@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.algol = {
-    enable = lib.mkOption {
-      description = "Enable the ALGOL 60/68 programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the ALGOL 60/68 programming language and tools.";
   };
 
   config = mkIf cfg.enable {
