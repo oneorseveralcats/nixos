@@ -17,13 +17,16 @@ in
       };
       profiles = rec {
         "personal" = firefox.profiles.personal // {
-          search.default = firefox.profiles.personal.search.default;
+          search = {
+            force = true;
+            default = firefox.profiles.personal.search.default;
+          };
         };
         "school" = firefox.profiles.school // {
-          search.default = personal.search.default;
+          search = personal.search;
         };
         "offline" = firefox.profiles.offline // {
-          search.default = personal.search.default;
+          search = personal.search;
         };
       };
     };

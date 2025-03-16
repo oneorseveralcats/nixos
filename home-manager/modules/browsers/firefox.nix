@@ -47,7 +47,10 @@ in
         profiles = rec {
           "personal" = {
             id = lib.mkDefault 0;
-            search.default = "DuckDuckGo";
+            search = {
+              force = true;
+              default = "DuckDuckGo";
+            };
             extensions = with nur.repos.rycee.firefox-addons; [
               auto-tab-discard
               # bypass-paywalls-clean
