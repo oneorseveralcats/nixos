@@ -24,7 +24,10 @@ in
   config = mkIf cfg.enable {
     myHome.browsers.gemini.enable = true;
 
-  
+    nixpkgs.config.packageOverrides = pkgs: {
+      nur = import <nur> { inherit pkgs; };
+      unstable = import <nixos-unstable> { inherit pkgs; };
+    };
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "corefonts"
       "libretro-genesis-plus-gx"

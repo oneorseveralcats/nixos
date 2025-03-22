@@ -2,7 +2,6 @@
 with lib;
 let 
   cfg = config.myHome.browsers.librewolf;
-  nur = import <nur> {};
 in
 {
   options.myHome.browsers.librewolf = {

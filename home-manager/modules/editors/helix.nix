@@ -2,7 +2,6 @@
 with lib;
 let 
   cfg = config.myHome.editors.helix;
-  unstable = import <nixos-unstable> {};
 in
 {
   options.myHome.editors.helix = {
@@ -16,7 +15,7 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      package = unstable.helix;
+      package = pkgs.unstable.helix;
       defaultEditor = true;
       settings = {
         editor = {

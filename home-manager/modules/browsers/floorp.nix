@@ -2,7 +2,6 @@
 with lib;
 let 
   cfg = config.myHome.browsers.floorp;
-  nur = import <nur> {};
 in
 {
   options.myHome.browsers.floorp = {

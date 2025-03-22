@@ -2,7 +2,6 @@
 with lib;
 let 
   cfg = config.myHome.browsers.firefox;
-  nur = import <nur> {};
 in
 {
   options.myHome.browsers.firefox = {
@@ -51,7 +50,7 @@ in
               force = true;
               default = "DuckDuckGo";
             };
-            extensions = with nur.repos.rycee.firefox-addons; [
+            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
               auto-tab-discard
               # bypass-paywalls-clean
               canvasblocker
