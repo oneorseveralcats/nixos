@@ -42,6 +42,7 @@ in
         "gD" = "cd ~/documents";
         "ge" = "bottom";
         "gh" = "cd ~";
+        "gm" = "cd /run/media/user/";
         "gp" = "cd ~/pictures";
         "gr" = "cd /media/removable";
         "gs" = "cd /media/storage";
