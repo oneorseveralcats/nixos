@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
-    librewolf
     piper
   ];
   programs.i3status.modules = {
