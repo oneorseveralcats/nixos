@@ -31,7 +31,7 @@ in
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "corefonts"
       "libretro-genesis-plus-gx"
-      "steam" "steam-original" "steam-run"
+      "steam"
       "terraria-server"
       "unrar"
       "video-downloadhelper"
