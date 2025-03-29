@@ -61,7 +61,7 @@ in
       };
       home.packages = with pkgs; [
         frotz
-        gnugo
+        gnugo katago
         nethack
         tty-solitaire
         vitetris
