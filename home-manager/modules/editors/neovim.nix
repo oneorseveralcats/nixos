@@ -2,10 +2,7 @@
 with lib;
 let 
   cfg = config.myHome.editors.neovim;
-  nixvim = import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nixvim";
-    ref = "nixos-24.11";
-  });
+  nixvim = import <nixvim>;
 in
 {
   imports = [

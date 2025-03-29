@@ -2,16 +2,10 @@
 with lib;
 let 
   cfg = config.myHome.stylix;
-  stylix = builtins.fetchGit {
-    url = "https://github.com/danth/stylix";
-    ref = "release-24.11";
-    # rev = "9015d5d0d5d100f849129c43d257b827d300b089";
-    # rev = "70505ba00ff09390b84cf50d52d48ee828727976";
-    # hash =  lib.fakeSha256;
-  };
+  stylix = import <stylix>;
 in
 {
-  imports = [ (import stylix).homeManagerModules.stylix ];
+  imports = [ stylix.homeManagerModules.stylix ];
 
   options.myHome.stylix = {
     enable = lib.mkOption {

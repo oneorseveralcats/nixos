@@ -1,5 +1,7 @@
 https://nixos.org/channels/nixos-24.11 nixos
 https://nixos.org/channels/nixos-unstable nixos-unstable
 https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
-https://github.com/nix-community/NUR/archive/main.tar.gz nur
 https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+https://github.com/nix-community/nixvim/archive/nixos-24.11.tar.gz nixvim
+https://github.com/nix-community/NUR/archive/main.tar.gz nur
+https://github.com/danth/stylix/archive/release-24.11.tar.gz stylix
