@@ -61,8 +61,10 @@ in
               greasemonkey
               istilldontcareaboutcookies
               keepassxc-browser
+              sponsorblock
               tridactyl
               video-downloadhelper
+              ublock-origin
 
               overbitewx
               geminize
