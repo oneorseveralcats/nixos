@@ -83,8 +83,10 @@ in
             { app_id = "^footclient$"; }
           ];
           "4:READ" = [
+            { app_id = "^calibre-ebook-viewer$"; }
             { app_id = "^calibre-gui$"; }
             { app_id = "^org.pwmt.zathura$"; }
+            { app_id = "^YACReader$"; }
           ];
           "5:GAME" = [
             { class = "^Steam$"; }
@@ -107,7 +109,10 @@ in
             { command = "focus"; criteria = { instance = "^logseq$"; }; }
             { command = "focus"; criteria = { app_id = "^foot$"; }; }
             { command = "focus"; criteria = { app_id = "^footclient$"; }; }
+
             { command = "focus"; criteria = { app_id = "^org.pwmt.zathura$"; }; }
+            { command = "focus"; criteria = { app_id = "^calibre-ebook-viewer$"; }; }
+            { command = "focus"; criteria = { app_id = "^YACReader$"; }; }
             ## Games
             { command = "focus"; criteria = { app_id = "^Terraria.bin.x86_64$"; }; }
             { command = "focus"; criteria = { app_id = "^Patrick's Parabox.x86_64$";}; }
