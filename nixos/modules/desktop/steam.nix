@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.gaming;
+  cfg = config.myConfig.desktop.steam;
 in
 {
-  options.myConfig.gaming = {
+  options.myConfig.desktop.steam = {
     enable = lib.mkOption {
-      description = "Enable system-wide gaming packages";
+      description = "Enable Steam.";
       type = types.bool;
       default = true;
     };
