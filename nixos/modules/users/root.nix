@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.root;
+  cfg = config.myConfig.users.root;
 in
 {
   imports = [ <home-manager/nixos> ];
 
-  options.myConfig.root = {
+  options.myConfig.users.root = {
     enable = lib.mkOption {
-      description = "Enable root home-manager/nixos config";
+      description = "Enable root home-manager/nixos configuration.";
       type = types.bool;
       default = true;
     };
@@ -29,6 +29,7 @@ in
         q = "exit";
       };
 
+      # TODO: try importing the helix.nix file. It would involve stylix.nix too.
       programs.helix = {
         enable = true;
         defaultEditor = true;

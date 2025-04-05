@@ -142,24 +142,6 @@ in
       useXkbConfig = true;
     };
 
-    users = {
-      users.user = {
-        isNormalUser = true;
-        extraGroups = [
-         "adbusers"
-         "keyd"
-         "kvm"
-         "libvirtd"
-         "lp"
-         "networkmanager"
-         "plugdev"
-         "scanner"
-         "video"
-         "wheel"
-        ];
-      };
-    };
-
     security = {
       sudo.enable = false;
       doas = {
