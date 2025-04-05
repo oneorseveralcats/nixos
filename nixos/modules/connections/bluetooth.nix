@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.bluetooth;
+  cfg = config.myConfig.connections.bluetooth;
 in
 {
-  options.myConfig.bluetooth = {
+  options.myConfig.connections.bluetooth = {
     enable = lib.mkOption {
       description = "Enable bluetooth";
       type = types.bool;
