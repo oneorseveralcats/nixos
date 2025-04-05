@@ -10,6 +10,7 @@ fi
 
 mkdir -p "$cfg_dir"
 
+ln -sf "$dir/.nix-channels" "$HOME/.nix-channels"
 ln -s "$dir/home-manager" "$cfg_dir/"
 ln -s "$dir/nixpkgs" "$cfg_dir/"
 ln -s "$dir/nixos" "/etc/"
