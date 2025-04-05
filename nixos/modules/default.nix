@@ -1,6 +1,8 @@
 { ... }:
 {
   imports = [
+    ./virtualization
+
     ./ai.nix
     ./antivirus.nix
     ./base.nix
@@ -15,7 +17,6 @@
     ./root.nix
     ./sway.nix
     ./tablet.nix
-    ./virtualization.nix
   ];
 }
 

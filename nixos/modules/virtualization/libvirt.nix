@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.virtualization;
+  cfg = config.myConfig.virtualization.libvirt;
 in
 {
-  options.myConfig.virtualization = {
+  options.myConfig.virtualization.libvirt = {
     enable = lib.mkOption {
-      description ="Enable support for QEMU-based virtualization.";
+      description = "Enable libvirt and virt-manager";
       type = types.bool;
       default = true;
     };
@@ -20,7 +20,7 @@ in
     virtualisation = {
       libvirtd.enable = true;
     };
-    # programs.dconf.enable = true;
   };
 
 }
+
