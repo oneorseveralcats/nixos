@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.flatpak;
+  cfg = config.myConfig.system.flatpak;
 in
 {
-  options.myConfig.flatpak = {
+  options.myConfig.system.flatpak = {
     enable = mkOption {
       description = "Enable flatpak support.";
       type = types.bool;

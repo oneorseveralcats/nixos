@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.print_scan;
+  cfg = config.myConfig.printing;
 in
 {
-  options.myConfig.print_scan = {
+  options.myConfig.printing = {
     enable = lib.mkOption {
-      description = "Enable printer and scanner support for models that I own.";
+      description = "Enable printer support.";
       type = types.bool;
       default = true;
     };
@@ -22,11 +22,6 @@ in
       enable = true;
       startWhenNeeded = true;
       drivers = [ pkgs.hplip ];
-    };
-
-    hardware.sane = {
-      enable = true;
-      brscan5.enable = true;
     };
   };
 }

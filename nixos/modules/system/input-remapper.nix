@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.tablet;
+  cfg = config.myConfig.system.input-remapper;
 in
 {
-  options.myConfig.tablet = {
+  options.myConfig.system.input-remapper = {
     enable = lib.mkOption {
-      description = "Enable (better) drawing tablet support";
+      description = "Enable input-remapper, a tool remapping the buttons on input devices (like drawing tablets).";
       type = types.bool;
       default = true;
     };
