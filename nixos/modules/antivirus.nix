@@ -14,9 +14,9 @@ in
 
   config = mkIf cfg.enable {
     services.clamav = {
-      daemon.enable = false;
-      scanner.enable = false;
-      updater.enable = false;
+      daemon.enable = true;
+      scanner.enable = true;
+      updater.enable = true;
     };
   };
 }
