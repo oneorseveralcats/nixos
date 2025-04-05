@@ -2,6 +2,7 @@
 {
   imports = [
     ./connections
+    ./desktop
     ./virtualization
     ./self-hosted
     ./socials
@@ -12,9 +13,7 @@
     ./base.nix
     ./boot-amd64.nix
     ./college.nix
-    ./gaming.nix
     ./rax.nix
-    ./sway.nix
   ];
 }
 

@@ -110,28 +110,6 @@ in
       ];
     };
   
-    # fonts = {
-    #   packages = with pkgs; [
-    #     corefonts
-    #     fira-code-nerdfont
-    #     mno16
-    #     noto-fonts
-    #     noto-fonts-cjk-sans
-    #     spleen
-    #     twemoji-color-font
-    #   ];
-    #   fontDir.enable = true;
-    #   enableDefaultPackages = true;
-    #   fontconfig = {
-    #     defaultFonts = {
-    #       serif = [ "Noto Serif Light" "Noto Serif" ];
-    #       sansSerif = [ "Noto Sans Light" "Noto Sans" ];
-    #       monospace = [ "Fira Code Nerd Font Light" "Fira Code Light" "Noto Sans Mono" ];
-    #       emoji = [ "Twitter Color Emoji" ];
-    #     };
-    #   };
-    # };
-
     fileSystems."/media/removable" = {
       device = "//192.168.1.10/removable";
       fsType = "cifs";
@@ -146,7 +124,6 @@ in
       };
       settings.auto-optimise-store = true;
     };
-
 
     security.rtkit.enable = true;
     services.pipewire = {
