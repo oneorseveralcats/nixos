@@ -16,9 +16,8 @@ in
     home.packages = with pkgs; [
     ];
 
-    myHome.programming.languages.pascal.enable = true;
+    myHome.programming.languages.smalltalk.enable = true;
 
-    myHome.editors.emacs.enable = true;
     myHome.editors.neovim.enable = true;
   };
 }
