@@ -16,8 +16,6 @@ in
     environment.systemPackages = with pkgs; [
       acpi
       entr
-      keyd
-      ffmpeg
       git
       helix
       killall
@@ -48,7 +46,7 @@ in
 
     environment = { 
       localBinInPath = true;
-        shellAliases = {
+      shellAliases = {
         grep = "grep --color=auto";
         ls = "ls -hal --color=auto";
         ncdu = "${pkgs.ncdu}/bin/ncdu --color off";

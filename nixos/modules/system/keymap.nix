@@ -13,6 +13,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      keyd
+    ];
+
     services.xserver.xkb = {
       layout = "us,us";
       options = "lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle";
