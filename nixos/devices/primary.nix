@@ -4,6 +4,14 @@
     <nixos-hardware/lenovo/thinkpad/t470s>
   ];
 
+  # 3rd party keyboard trackpoint device ID
+  hardware.trackpoint = {
+    enable = true;
+    device = "PS/2 Generic Mouse";
+    sensitivity = 255;
+    speed = 255;
+  };
+
   networking.hostName = "primary";
 
   networking.firewall = {
@@ -24,6 +32,5 @@
 
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/fa86d9d0-658a-4c43-b3a9-0fdf938c7460";
 
-  programs.kdeconnect.enable = true;
   services.mullvad-vpn.enable = true;
 }
