@@ -13,6 +13,7 @@ in
     ./cobol.nix
     ./coq.nix
     ./common-lisp.nix
+    ./crystal.nix
     ./dotnet.nix
     ./elixir.nix
     ./elm.nix
