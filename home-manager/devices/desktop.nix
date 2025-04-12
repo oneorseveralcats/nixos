@@ -11,4 +11,6 @@
     "battery all".enable = false;
     "wireless _first_".enable = false;
   };
+
+  myHome.socials.enable = true;
 }

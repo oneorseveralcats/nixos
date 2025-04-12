@@ -2,6 +2,7 @@
 {
   imports = [
     ./extras.nix
+    ./logseq.nix
     ./mpd.nix
     ./mpv.nix
     ./ncmpcpp.nix
