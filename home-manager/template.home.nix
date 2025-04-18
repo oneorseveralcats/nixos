@@ -9,6 +9,8 @@
     ./modules
     ./pkgs
 
+    ./profiles/base.nix
+
     # uncomment or add the correct device
     # ./devices/desktop.nix
     # ./devices/primary.nix
