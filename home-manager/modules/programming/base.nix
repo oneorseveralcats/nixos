@@ -25,6 +25,9 @@ in
     programs.git = {
       enable = true;
       extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
         user = {
           email = "oosc@noreply.codeberg.org";
           name = "oneorseveralcats";
