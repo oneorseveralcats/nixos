@@ -16,9 +16,6 @@ in
     home.packages = with pkgs; [
     ];
 
-    myHome.programming.languages.crystal.enable = true;
-    myHome.programming.languages.smalltalk.enable = true;
-
     myHome.editors.neovim.enable = true;
   };
 }
