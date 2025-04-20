@@ -3,12 +3,6 @@
 {
   imports = [
     ../profiles/wayland.nix
+    ../profiles/socials.nix
   ];
-
-  home.packages = with pkgs; [
-  ];
-
-  myHome = {
-    socials.enable = true;
-  };
 }
