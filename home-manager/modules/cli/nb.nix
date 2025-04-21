@@ -9,7 +9,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.nb ];
+    home.packages = with pkgs; [
+      nb
+      openssl
+    ];
 
     home.sessionVariables = {
       NB_DIR = "${config.xdg.userDirs.documents}/notes";

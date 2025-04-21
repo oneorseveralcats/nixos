@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.cli.irssi;
+  cfg = config.myHome.socials.irssi;
 in
 {
-  options.myHome.cli.irssi = {
+  options.myHome.socials.irssi = {
     enable = lib.mkOption {
       description = "Enable the irssi irc client.";
       type = types.bool;
@@ -13,9 +13,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      irssi
-    ];
     programs.irssi = {
       enable = true;
       extraConfig = ''
