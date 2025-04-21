@@ -27,6 +27,7 @@ in
     ./ocaml.nix
     ./pascal.nix
     ./perl.nix
+    ./prolog.nix
     ./purescript.nix
     ./python.nix
     ./ruby.nix

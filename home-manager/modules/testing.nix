@@ -17,5 +17,7 @@ in
     ];
 
     myHome.editors.neovim.enable = true;
+
+    myHome.programming.languages.prolog.enable = true;
   };
 }
