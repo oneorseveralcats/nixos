@@ -19,5 +19,6 @@ in
     myHome.editors.neovim.enable = true;
 
     myHome.browsers.chromium.enable = true;
+    myHome.programming.languages.prolog.enable = true;
   };
 }
