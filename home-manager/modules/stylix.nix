@@ -57,7 +57,6 @@ in
       fonts = {
         serif = {
           package = pkgs.noto-fonts;
-          # name = "Noto Serif Light";
           name = config.stylix.fonts.sansSerif.name;
         };
         sansSerif = {
