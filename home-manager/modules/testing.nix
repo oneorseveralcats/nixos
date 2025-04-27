@@ -17,5 +17,7 @@ in
     ];
 
     myHome.editors.neovim.enable = true;
+
+    myHome.browsers.chromium.enable = true;
   };
 }
