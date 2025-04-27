@@ -12,6 +12,16 @@ in
     programs.chromium = {
       enable = true;
       package = pkgs.ungoogled-chromium;
+      extensions = [
+        {
+          id = "egilmijcknfacjjbchcacijkknbkgfnd";
+        }
+        # {
+        #   # chromium-web-store
+        #   id = "ocaahdebbfolfmndjeplogmgcagdmblk";
+        #   crxPath = "";
+        # }
+      ];
     };
   };
 }
