@@ -105,7 +105,7 @@ in
               video_xy = "";
               video_pos = "";
           in [
-            # focus on open
+            # Focus on Open
             { command = "focus"; criteria = { instance = "^logseq$"; }; }
             { command = "focus"; criteria = { app_id = "^foot$"; }; }
             { command = "focus"; criteria = { app_id = "^footclient$"; }; }
@@ -113,10 +113,16 @@ in
             { command = "focus"; criteria = { app_id = "^org.pwmt.zathura$"; }; }
             { command = "focus"; criteria = { app_id = "^calibre-ebook-viewer$"; }; }
             { command = "focus"; criteria = { app_id = "^YACReader$"; }; }
-            ## Games
+
+
+            # Games
             { command = "focus"; criteria = { app_id = "^Terraria.bin.x86_64$"; }; }
             { command = "focus"; criteria = { app_id = "^Patrick's Parabox.x86_64$";}; }
             { command = "focus"; criteria = { app_id = ".*Baba Is You.*"; }; }
+
+
+            { command = "resize set 1000 600"; criteria = { title = "^Files$"; app_id = "floating"; }; }
+            { command = "move position center"; criteria = { title = "^Files$"; app_id = "floating"; }; }
 
             { command = "sticky enable"; criteria = { app_id = "^mpv$"; }; }
             { command = "move position 1400 660"; criteria = { app_id = "^mpv$"; }; }
