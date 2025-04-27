@@ -30,16 +30,25 @@ in
           noDisplay = true;
           mimeType = [ "image/bmp" "image/gif" "image/jpeg" "image/jpg" "image/png" "image/tiff" "image/x-bmp" "image/x-portable-anymap" "image/x-portable-bitmap" "image/x-portable-graymap" "image/x-tga" "image/x-xpixmap" "image/webp" "image/heic" "image/svg+xml" "application/postscript" "image/jp2" "image/jxl" "image/avif" "image/heif" ];
         };
+        lf-term = {
+          name = "lf-term";
+          # TODO: unhard-code terminal value.
+          exec = ''foot --title=Files --app-id=floating -- lf %F'';
+          icon = "lf";
+          noDisplay = true;
+          terminal = false;
+          mimeType = [ "inode/directory" ];
+        };
       };
       mimeApps = {
         enable = true;
         defaultApplications = {
           # reading
-          "application/epub+zip" = [ "org.pwmt.zathura-pdf-mupdf.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
-          "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
-          "image/vnd.djvu" = [ "org.pwmt.zathura-djvu.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
-          "application/vnd.comicbook+zip" = [ "YACReader.desktop" "zathura-cb.desktop" ];
-          "application/vnd.comicbook-rar" = [ "YACReader.desktop" "zathura-cb.desktop" ];
+          "application/epub+zip" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
+          "application/pdf" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
+          "image/vnd.djvu" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
+          "application/vnd.comicbook+zip" = [ "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
+          "application/vnd.comicbook-rar" = [ "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
 
           # images
           "image/bmp" = [ "nsxiv-rifle.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
@@ -133,7 +142,11 @@ in
           "application/x-rar"  = [ "atool-list.desktop" ];
           "application/x-7z-compressed" = [ "atool-list.desktop" ];
 
-          "inode/directory" = [ "nnn.desktop" ];
+          # web browser
+          "x-scheme-handler/http" = [ "firefox.desktop" "librewolf.desktop" "chromium.desktop" ];
+          "x-scheme-handler/https" = [ "firefox.desktop" "librewolf.desktop" "chromium.desktop" ];
+
+          "inode/directory" = [ "lf-term.desktop" "lf.desktop" "nnn.desktop" ];
 
           "application/x-xopp" = [ "com.github.xournalpp.xournalpp.desktop" ];
         };
