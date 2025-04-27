@@ -6,6 +6,7 @@
     ./nnn.nix
     ./pistol.nix
     ./ranger.nix
+    ./thunar.nix
     ./vifm.nix
     ./yazi.nix
   ];
