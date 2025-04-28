@@ -18,7 +18,7 @@ in
     home.packages = with pkgs; [
       anki
       deluge
-      gimp-with-plugins
+      unstable.gimp3-with-plugins
       keepassxc
       mullvad-vpn
       nb
