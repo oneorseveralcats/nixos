@@ -2,6 +2,7 @@
 {
   imports = [
     ../profiles/wayland.nix
+    ../profiles/socials.nix
   ];
 
   home.packages = with pkgs; [
@@ -12,5 +13,4 @@
     "wireless _first_".enable = false;
   };
 
-  myHome.socials.enable = true;
 }
