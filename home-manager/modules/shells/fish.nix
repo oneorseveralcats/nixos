@@ -37,8 +37,13 @@ in
             set NNN "N$NNNLVL "
           end
 
-          string join "" -- (printf '%s' $LF)  \
-                            (printf '%s' $NNN) \
+          if test -n "$CONTAINER_ID"
+            set CONTAINER "($CONTAINER_ID) "
+          end
+
+          string join "" -- (printf '%s' $CONTAINER) \
+                            (printf '%s' $LF)        \
+                            (printf '%s' $NNN)       \
                             (set_color blue) (prompt_pwd --full-length-dirs 2) (set_color normal) '> '
         end
 
