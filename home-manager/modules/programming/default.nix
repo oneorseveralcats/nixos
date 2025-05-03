@@ -16,6 +16,7 @@ in
     ./crystal.nix
     ./csharp.nix
     ./d.nix
+    ./dart.nix
     ./elixir.nix
     ./elm.nix
     ./erlang.nix
