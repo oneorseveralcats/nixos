@@ -2,6 +2,7 @@
 with lib;
 let 
   cfg = config.myHome.programming.languages.lua;
+  luaPkg = pkgs.lua.withPackages(ps: with ps; [ readline ]);
 in
 {
   options.myHome.programming.languages.lua = {
@@ -10,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      fennel lua
+      luaPkg
       lua-language-server
     ];
   };

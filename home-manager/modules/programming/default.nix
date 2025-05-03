@@ -18,6 +18,7 @@ in
     ./elixir.nix
     ./elm.nix
     ./erlang.nix
+    ./fennel.nix
     ./fortran.nix
     ./go.nix
     ./haskell.nix
