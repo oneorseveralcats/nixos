@@ -5,14 +5,12 @@ let
 in
 {
   options.myHome.shells.nushell = {
-    enable = lib.mkOption {
-      description = "Enable the Nushell.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the Nushell.";
   };
 
   config = mkIf cfg.enable {
+    myHome.shells.carapace.enable = true;
+
     programs.nushell = {
       enable = true;
       # configFile.text = ''

@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.htop = {
-    enable = lib.mkOption {
-      description = "Enable the htop task manager.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the htop task manager.";
   };
 
   config = mkIf cfg.enable {

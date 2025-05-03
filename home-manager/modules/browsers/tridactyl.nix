@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.browsers.tridactyl = {
-    enable = lib.mkOption {
-      description = "Configure tridactyl for Firefox based-browsers.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Configure tridactyl for Firefox based-browsers.";
   };
 
   config = mkIf cfg.enable {

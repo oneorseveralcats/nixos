@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.yazi = {
-    enable = lib.mkOption {
-      description = "Enable the yazi file manager.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the yazi file manager.";
   };
 
   config = mkIf cfg.enable {

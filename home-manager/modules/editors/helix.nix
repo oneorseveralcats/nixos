@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.editors.helix = {
-    enable = lib.mkOption {
-      description = "Enable the helix text editor (hx).";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the helix text editor (hx).";
   };
 
   config = mkIf cfg.enable {

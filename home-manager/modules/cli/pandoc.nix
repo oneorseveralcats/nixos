@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.pandoc = {
-    enable = lib.mkOption {
-      description = "Enable the pandoc document converter.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the pandoc document converter.";
   };
 
   config = mkIf cfg.enable {

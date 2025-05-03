@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.hyfetch = {
-    enable = lib.mkOption {
-      description = "Enable the hyfetch system information tool.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the hyfetch system information tool.";
   };
 
   config = mkIf cfg.enable {

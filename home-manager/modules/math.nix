@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.math = {
-    enable = lib.mkOption {
-      description = "Enable math related packages and settings.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable math related packages and settings.";
   };
 
   config = mkIf cfg.enable {

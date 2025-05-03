@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.readline = {
-    enable = lib.mkOption {
-      description = "Enable the readline commandline interface configuration.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the readline commandline interface configuration.";
   };
 
   config = mkIf cfg.enable {

@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.lf = {
-    enable = lib.mkOption {
-      description = "Enable the lf file manager.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the lf file manager.";
   };
 
   config = mkIf cfg.enable {

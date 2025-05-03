@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.browsers.w3m = {
-    enable = lib.mkOption {
-      description = "Enable the w3m terminal web browser.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the w3m terminal web browser.";
   };
 
   config = mkIf cfg.enable {

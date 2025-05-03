@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.shells.elvish = {
-    enable = lib.mkOption {
-      description = "Enable the elvish.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the elvish.";
   };
 
   config = mkIf cfg.enable {

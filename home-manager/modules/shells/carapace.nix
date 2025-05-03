@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.shells.carapace = {
-    enable = lib.mkOption {
-      description = "Enable the carapace shell completion library.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the carapace shell completion library.";
   };
 
   config = mkIf cfg.enable {

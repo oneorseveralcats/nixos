@@ -10,11 +10,7 @@ in
   ];
 
   options.myHome.editors.neovim = {
-    enable = lib.mkOption {
-      description = "Enable the neovim text editor (nvim).";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the neovim text editor (nvim).";
   };
 
   config = mkIf cfg.enable {

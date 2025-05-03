@@ -10,6 +10,8 @@
     ./presenterm.nix
     ./readline.nix
     ./sc-im.nix
+    ./tmux.nix
     ./yt-dlp.nix
+    ./zellij.nix
   ];
 }

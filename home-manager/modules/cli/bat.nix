@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.bat = {
-    enable = lib.mkOption {
-      description = "Enable the bat pager.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the bat pager.";
   };
 
   config = mkIf cfg.enable {

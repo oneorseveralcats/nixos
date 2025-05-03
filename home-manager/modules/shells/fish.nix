@@ -6,14 +6,12 @@ let
 in
 {
   options.myHome.shells.fish = {
-    enable = lib.mkOption {
-      description = "Enable the fish.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the fish.";
   };
 
   config = mkIf cfg.enable {
+    myHome.shells.carapace.enable = true;
+
     home.packages = with pkgs; [
       grc
     ];

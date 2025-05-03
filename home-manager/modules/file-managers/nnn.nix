@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.nnn = {
-    enable = lib.mkOption {
-      description = "Enable the nnn file manager.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the nnn file manager.";
   };
 
   config = mkIf cfg.enable {

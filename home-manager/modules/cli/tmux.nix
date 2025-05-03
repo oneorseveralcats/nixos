@@ -2,15 +2,11 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.multiplexers.tmux;
+  cfg = config.myHome.cli.tmux;
 in
 {
-  options.myHome.multiplexers.tmux = {
-    enable = lib.mkOption {
-      description = "Enable the tmux terminal multiplexer.";
-      type = types.bool;
-      default = false;
-    };
+  options.myHome.cli.tmux = {
+    enable = lib.mkEnableOption "Enable the tmux terminal multiplexer.";
   };
 
   config = mkIf cfg.enable {

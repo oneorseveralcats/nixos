@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.shells.starship = {
-    enable = lib.mkOption {
-      description = "Enable the Starship shell prompt.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the Starship shell prompt.";
   };
 
   config = mkIf cfg.enable {

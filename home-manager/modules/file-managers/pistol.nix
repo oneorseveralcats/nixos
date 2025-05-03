@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.pistol = {
-    enable = lib.mkOption {
-      description = "Enable the pistol file preview program for tui file managers.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the pistol file preview program for tui file managers.";
   };
 
   config = mkIf cfg.enable {

@@ -5,14 +5,12 @@ let
 in
 {
   options.myHome.shells.bash = {
-    enable = lib.mkOption {
-      description = "Enable the Bourne-Again SHell.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the Bourne-Again SHell.";
   };
 
   config = mkIf cfg.enable {
+    myHome.shells.carapace.enable = true;
+
     programs.bash = {
       enable = true;
       bashrcExtra = ''

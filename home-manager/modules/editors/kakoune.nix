@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.editors.kakoune = {
-    enable = lib.mkOption {
-      description = "Enable the kakoune text editor (nvim).";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the kakoune text editor.";
   };
 
   config = mkIf cfg.enable {

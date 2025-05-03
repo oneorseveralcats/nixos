@@ -1,15 +1,11 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.multiplexers.zellij;
+  cfg = config.myHome.cli.zellij;
 in
 {
-  options.myHome.multiplexers.zellij = {
-    enable = lib.mkOption {
-      description = "Enable the Zellij terminal multiplexer.";
-      type = types.bool;
-      default = true;
-    };
+  options.myHome.cli.zellij = {
+    enable = lib.mkEnableOption "Enable the Zellij terminal multiplexer.";
   };
 
   config = mkIf cfg.enable {

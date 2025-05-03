@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.ranger = {
-    enable = lib.mkOption {
-      description = "Enable the ranger file manager.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the ranger file manager.";
   };
 
   config = mkIf cfg.enable {

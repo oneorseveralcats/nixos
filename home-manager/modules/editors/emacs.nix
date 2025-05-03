@@ -6,11 +6,7 @@ let
 in
 {
   options.myHome.editors.emacs = {
-    enable = lib.mkOption {
-      description = "Enable the emacs text editor.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the emacs text editor.";
   };
 
   config = mkIf cfg.enable {

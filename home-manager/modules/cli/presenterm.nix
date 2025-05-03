@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.presenterm = {
-    enable = lib.mkOption {
-      description = "Enable the presenterm presentation software.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the presenterm presentation software.";
   };
 
   config = mkIf cfg.enable {

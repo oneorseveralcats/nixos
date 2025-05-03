@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.mime = {
-    enable = lib.mkOption {
-      description = "Enable mimetype configurations.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable mimetype configurations.";
   };
 
   config = mkIf cfg.enable {

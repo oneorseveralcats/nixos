@@ -6,7 +6,6 @@
     ./editors
     ./file-managers
     ./media
-    ./multiplexers
     ./programming
     ./shells
     ./socials

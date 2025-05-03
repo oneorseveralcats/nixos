@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.media.mpv = {
-    enable = lib.mkOption {
-      description = "Enable the mpv media player.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the mpv media player.";
   };
 
   config = mkIf cfg.enable {

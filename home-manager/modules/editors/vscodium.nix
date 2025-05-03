@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.editors.vscodium = {
-    enable = lib.mkOption {
-      description = "Enable the vscodium IDE.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the vscodium IDE.";
   };
 
   config = mkIf cfg.enable {

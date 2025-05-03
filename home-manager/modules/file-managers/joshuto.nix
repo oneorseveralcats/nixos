@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.joshuto = {
-    enable = lib.mkOption {
-      description = "Enable the joshuto file manager.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the joshuto file manager.";
   };
 
   config = mkIf cfg.enable {

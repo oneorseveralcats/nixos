@@ -5,14 +5,12 @@ let
 in
 {
   options.myHome.shells.zsh = {
-    enable = lib.mkOption {
-      description = "Enable the Z shell.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the Z shell.";
   };
 
   config = mkIf cfg.enable {
+    myHome.shells.carapace.enable = true;
+
     programs.zsh = {
       enable = true;
       dotDir = ".config/zsh";

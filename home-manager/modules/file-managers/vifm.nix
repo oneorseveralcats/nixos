@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.file-managers.vifm = {
-    enable = lib.mkOption {
-      description = "Enable the vifm file manager.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the vifm file manager.";
   };
 
   config = mkIf cfg.enable {

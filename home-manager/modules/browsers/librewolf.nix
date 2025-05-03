@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.browsers.librewolf = {
-    enable = lib.mkOption {
-      description = "Enable and configure librewolf.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable and configure librewolf.";
   };
 
   config = mkIf cfg.enable {

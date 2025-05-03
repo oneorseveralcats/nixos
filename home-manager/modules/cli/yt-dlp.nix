@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.cli.yt-dlp = {
-    enable = lib.mkOption {
-      description = "Enable the yt-dlp media downloader.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the yt-dlp media downloader.";
   };
   config = mkIf cfg.enable {
     programs.yt-dlp = {
