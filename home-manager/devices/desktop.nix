@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ../profiles/wayland.nix
+    ../profiles/programming.nix
     ../profiles/socials.nix
+    ../profiles/wayland.nix
   ];
 
   home.packages = with pkgs; [
