@@ -42,41 +42,16 @@ in
       sessionPath = [
         "$HOME/.appimages"
       ];
-      sessionVariables = {
-        background = "000000";
-        foreground = "ffffff";
-
-        selectionBackground = "3c3c3c";
-        selectionForeground = "ffffff";
-
-        black   = "000000";
-        red     = "ff8059";
-        green   = "44bc44";
-        yellow  = "d0bc00";
-        blue    = "2fafff";
-        magenta = "feacd0";
-        cyan    = "00d3d0";
-        white   = "bfbfbf";
-
-        brightBlack   = "595959";
-        brightRed     = "ef8b50";
-        brightGreen   = "70b900";
-        brightYellow  = "c0c530";
-        brightBlue    = "79a8ff";
-        brightMagenta = "b6a0ff";
-        brightCyan    = "6ae4b9";
-        brightWhite   = "ffffff";
+      shellAliases = {
+        e = "$EDITOR";
+        f = "lf";
+        ff = "gd";
+        neofetch = "${pkgs.hyfetch}/bin/neowofetch";
+        q = "exit";
+        weather = "${pkgs.curl}/bin/curl 'wttr.in/Cincinnati?2QFu'";
       };
     };
 
-    home.shellAliases = {
-      e = "$EDITOR";
-      f = "lf";
-      nn = "gd";
-      neofetch = "${pkgs.hyfetch}/bin/neowofetch";
-      q = "exit";
-      weather = "${pkgs.curl}/bin/curl 'wttr.in/Cincinnati?2QFu'";
-    };
 
     home.packages = with pkgs; [
       amfora asciinema
