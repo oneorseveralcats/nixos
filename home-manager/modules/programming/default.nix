@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./ada.nix
+    ./agda.nix
     ./algol.nix
     ./base.nix
     ./c.nix
