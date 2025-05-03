@@ -31,6 +31,7 @@ in
     ./prolog.nix
     ./purescript.nix
     ./python.nix
+    ./racket.nix
     ./ruby.nix
     ./rust.nix
     ./r.nix
