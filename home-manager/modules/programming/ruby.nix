@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.ruby = {
-    enable = lib.mkOption {
-      description = "Enable the ruby programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the ruby programming language and tools.";
   };
 
   config = mkIf cfg.enable {

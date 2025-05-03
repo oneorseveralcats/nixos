@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.perl = {
-    enable = lib.mkOption {
-      description = "Enable the perl programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the perl programming language and tools.";
   };
 
   config = mkIf cfg.enable {

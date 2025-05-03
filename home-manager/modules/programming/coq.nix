@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.coq = {
-    enable = lib.mkOption {
-      description = "Enable the coq interactive theorem prover.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the coq interactive theorem prover.";
   };
 
   config = mkIf cfg.enable {

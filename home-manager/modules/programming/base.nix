@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.base = {
-    enable = lib.mkOption {
-      description = "Enable basic programming tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable basic programming tools.";
   };
 
   config = mkIf cfg.enable {

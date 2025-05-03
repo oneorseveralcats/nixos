@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.cobol = {
-    enable = lib.mkOption {
-      description = "Enable the COBOL programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the COBOL programming language and tools.";
   };
 
   config = mkIf cfg.enable {

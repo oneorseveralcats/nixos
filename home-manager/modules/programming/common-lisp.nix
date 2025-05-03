@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.common-lisp = {
-    enable = lib.mkOption {
-      description = "Enable the common-lisp programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the common-lisp programming language and tools.";
   };
 
   config = mkIf cfg.enable {

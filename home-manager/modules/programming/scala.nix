@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.scala = {
-    enable = lib.mkOption {
-      description = "Enable the Scala programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the Scala programming language and tools.";
   };
 
   config = mkIf cfg.enable {

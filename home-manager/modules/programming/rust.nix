@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.programming.languages.rust = {
-    enable = lib.mkOption {
-      description = "Enable the Rust programming language and tools.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the Rust programming language and tools.";
   };
 
   config = mkIf cfg.enable {
