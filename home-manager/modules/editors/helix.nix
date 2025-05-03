@@ -61,6 +61,23 @@ in
           X = [ "extend_line_up"  "extend_to_line_bounds" ];
         };
       };
+      languages = {
+        # language-server.fennel-ls = with pkgs; {
+        #   command = "${fennel-ls}/bin/fennel-ls";
+        # };
+        # language = [{
+        #   name = "fennel";
+        #   auto-format = false;
+        #   comment-tokens = [ ";;" ];
+        #   file-types = [ "fnl" ];
+        #   language-servers = [ "fennel-ls" ];
+        # }];
+        
+        # TODO: add spellcheck
+        # language = [{
+        #   name = "markdown";
+        # }];
+      };
       extraPackages = with pkgs; lib.mkDefault [
         marksman
         nil nodePackages.bash-language-server
