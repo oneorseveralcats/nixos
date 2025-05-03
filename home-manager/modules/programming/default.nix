@@ -22,6 +22,7 @@ in
     ./erlang.nix
     ./fennel.nix
     ./fortran.nix
+    ./fsharp.nix
     ./go.nix
     ./haskell.nix
     ./idris.nix
