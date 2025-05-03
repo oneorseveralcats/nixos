@@ -36,6 +36,7 @@ in
     ./scala.nix
     ./scheme.nix
     ./smalltalk.nix
+    ./zig.nix
   ];
 
   options.myHome.programming = {
