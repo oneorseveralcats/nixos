@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.media.ncmpcpp = {
-    enable = lib.mkOption {
-      description = "Enable the ncmpcpp mpd client.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the ncmpcpp mpd client.";
   };
 
   config = mkIf cfg.enable {

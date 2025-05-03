@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.media.newsboat = {
-    enable = lib.mkOption {
-      description = "Enable the newsboat feedreader.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the newsboat feedreader.";
   };
 
   config = mkIf cfg.enable {

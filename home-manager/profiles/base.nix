@@ -24,8 +24,13 @@
       lf.enable = true;
     };
 
+    media = {
+      mpv.enable = true;
+      ncmpcpp.enable = true;
+      newsboat.enable = true;
+    };
+
     math.enable = true;
-    media.mpv.enable = true;
     mime.enable = true;
 
     shells = {
