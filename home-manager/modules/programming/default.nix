@@ -15,6 +15,7 @@ in
     ./common-lisp.nix
     ./crystal.nix
     ./csharp.nix
+    ./d.nix
     ./elixir.nix
     ./elm.nix
     ./erlang.nix
