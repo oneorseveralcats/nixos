@@ -75,6 +75,7 @@ in
         # }];
       };
       extraPackages = with pkgs; lib.mkDefault [
+        unstable.awk-language-server
         marksman
         nil nodePackages.bash-language-server
         yaml-language-server
