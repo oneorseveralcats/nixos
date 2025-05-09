@@ -13,6 +13,21 @@ in
 
     programs.joshuto = {
       enable = true;
+      settings = {
+        xdg_open = true;
+        xdg_open_fork = true;
+
+      
+        display = {
+        };
+
+        preview = {
+          preview_protocol = "sixel";
+          max_preview_size = "10GB";
+          preview_script = "${pkgs.pistol}/bin/pistol";
+        };
+      };
+      keymap = {};
     };
   };
 }
