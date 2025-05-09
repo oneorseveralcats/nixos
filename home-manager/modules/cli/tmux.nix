@@ -15,22 +15,42 @@ in
       tmuxp.enable = true;
       baseIndex = 1;
       clock24 = true;
+      disableConfirmationPrompt = true;
       keyMode = "vi";
+      newSession = true;
+      # sensibleOnTop = false;
+      terminal = "screen-256color";
       extraConfig = ''
         bind '|' splitw -h
         bind '_' splitw -v
-        unbind '"'
-        unbind '%'
         bind C-f resize-pane -Z
         bind 'h' select-pane -L
         bind 't' select-pane -U
         bind 'n' select-pane -D
         bind 's' select-pane -R
-        bind 'Tab' choose-tree -Zs
-        set  -g status-style bg=black,fg=white
-        setw -g window-status-current-style fg=black,bg=white
+
+        set -s escape-time 0
+
+        set -g status-position top
+        set -g status-style fg=#${config.lib.stylix.colors.base05-hex},bg=#${config.lib.stylix.colors.base00-hex}
+        set -g window-status-style fg=#${config.lib.stylix.colors.base05-hex},bg=#${config.lib.stylix.colors.base00-hex}
+        set -g window-status-current-style fg=#${config.lib.stylix.colors.base00-hex},bg=#${config.lib.stylix.colors.base0D-hex}
+
+        # I can't figure out how to get this to work or why it doesn't. If I ever use tmux for anything other than lf, it's probably important to figure that out
+        %if "#{==:#{session_name},lf}"
+          set -g window-status-format "#I"
+          set -g window-status-current-format "#I"
+          set -g status-left " "
+          set -g status-right ""
+        %endif
+
+        set -g window-status-format "#I"
+        set -g window-status-current-format "#I"
+        set -g status-left " "
+        set -g status-right ""
       '';
     };
+
     home.file.".config/tmuxp/default.yml" = {
       text = ''
         session_name: default

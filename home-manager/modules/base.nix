@@ -44,7 +44,7 @@ in
       ];
       shellAliases = {
         e = "$EDITOR";
-        f = "lf";
+        f = ''tmux new-session -A -s "lf" -- lf "$PWD"'';
         ff = "gd";
         neofetch = "${pkgs.hyfetch}/bin/neowofetch";
         q = "exit";
