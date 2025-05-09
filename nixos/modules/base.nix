@@ -84,6 +84,8 @@ in
       binfmt = true;
     };
 
+    boot.binfmt.emulatedSystems = [ "x86_64-windows" ];
+
     xdg.mime.enable = true;
 
     programs.neovim = {
