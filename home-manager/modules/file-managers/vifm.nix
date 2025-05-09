@@ -13,6 +13,8 @@ in
 
     programs.vifm = {
       enable = true;
+      extraConfig = ''
+      '';
     };
   };
 }
