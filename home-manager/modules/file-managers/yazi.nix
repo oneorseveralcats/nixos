@@ -12,10 +12,26 @@ in
     programs.yazi = {
       enable = true;
       settings = {
-        sort_by = "natural";
-        sort_dir_first = true;
-        sort_sensitive = false;
-        sort_translit = true;
+        manager = {
+          sort_by = "natural";
+          sort_dir_first = true;
+          sort_sensitive = false;
+          sort_translit = true;
+        };
+        plugin = {
+          append_previews = [
+            { name = "*"; run = "${pkgs.pistol}/bin/pistol"; }
+          ];
+        };
+      };
+      theme = {
+        icon = {
+          globs = [];
+          dirs  = [];
+          files = [];
+          exts  = [];
+          conds = [];
+        };
       };
     };
   };
