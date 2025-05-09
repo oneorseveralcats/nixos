@@ -47,17 +47,20 @@ in
         "gv" = "cd ~/videos/";
         "g/" = "cd /";
 
+        "e" = "editor";
+
         "<c-f>" = "filter";
 
         "af" = "touch";
         "ad" = "mkdir";
         "ac" = "chmod";
-        "ax" = "extract";
 
         "xd" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
-        "xr" = ''''${{ [ -n "$fs" ] && vidir $fs || vidir $PWD }}'';
-        "xm" = ''$mpv $fx'';
-        "xw" = ''$pandoc -t html "$f" | w3m -T text/html'';
+        "xm" = ''$ ${pkgs.mpv}/bin/mpv $fx'';
+        "xr" = ''''${{ [ -n "$fs" ] && ${pkgs.moreutils}/bin/vidir $fs || ${pkgs.moreutils}/bin/vidir $PWD }}'';
+        "xw" = ''$ ${pkgs.pandoc}/bin/pandoc -t html "$f" | ${pkgs.w3m}/bin/w3m -T text/html'';
+        "xx" = ''extract'';
+
         "<tab>" = "% tmux next-window";
         "<c-t>" = "% tmux new-window -- lf $PWD";
         "Q" = "detach";
@@ -86,10 +89,22 @@ in
           IFS='\n'
           printf ' chmod: '
           read ans
-          chmod $ans $fx
+          chmod $ans $f
           lf -remote "send $id reload"
         }}
-        cmd extract $ IFS='\n' atool -x $fx
+
+        cmd extract %{{
+          if ! (${pkgs.atool}/bin/atool -x -- "$f"); then
+            printf ' format not recognized. manually specify: '
+            read ans
+            if ! (${pkgs.atool}/bin/atool -F $ans -x "$f"); then
+              printf ' error: unable to extract. try again.'
+            fi
+          fi
+        }}
+
+        cmd editor $ IFS="\n" $EDITOR "$@" $fx
+
         cmd ask_on_quit %{{
           printf ' close all lf tabs? (y/N) '
           read -n 1 ans
