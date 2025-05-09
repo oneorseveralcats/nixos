@@ -28,11 +28,11 @@ in
       	default_tab_template {
       		pane name="tab-bar" size=1 borderless=true {
       	        plugin location="zellij:tab-bar"
-      	    }
+    	    }
       		children
       	    pane name="status-bar" size=2 borderless=true {
       	        plugin location="zellij:status-bar"
-      	    }
+    	    }
       	}
 
       	tab name="ncmpcpp" {
@@ -55,8 +55,18 @@ in
     '';
     home.file.".config/zellij/layouts/programming.kdl".text = ''
       layout name="programming" {
+      	default_tab_template {
+      		pane name="tab-bar" size=1 borderless=true {
+      	        plugin location="zellij:tab-bar"
+      	  }
+      		children
+    	    pane name="status-bar" size=2 borderless=true {
+    	        plugin location="zellij:status-bar"
+    	    }
+      	}
+
         tab name="Programming" {
-          pane name="helix" size="80%"
+          pane name="editor" size="80%"
           pane name="output" size="20%"
           
         }
