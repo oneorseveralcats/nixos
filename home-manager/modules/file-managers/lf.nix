@@ -11,13 +11,18 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       moreutils
+      tmux
     ];
 
     myHome.file-managers.pistol.enable = true;
-    myHome.cli.tmux.enable = true;
+    # myHome.cli.tmux.enable = true;
     
     home.file.".config/lf/colors".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
     home.file.".config/lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+
+    home.shellAliases = {
+      "lft" = "tmux -L lf -f .config/lf/tmux.conf new-session -A -s lf -- lf";
+    };
 
     programs.lf = {
       enable = true;
@@ -71,6 +76,11 @@ in
         "<c-3>" = "% tmux select-window -t:3";
         "<c-4>" = "% tmux select-window -t:4";
         "<c-5>" = "% tmux select-window -t:5";
+        "<c-6>" = "% tmux select-window -t:6";
+        "<c-7>" = "% tmux select-window -t:7";
+        "<c-8>" = "% tmux select-window -t:8";
+        "<c-9>" = "% tmux select-window -t:9";
+        "<c-0>" = "% tmux select-window -t:0";
       };
       extraConfig = ''
         cmd mkdir %{{
@@ -118,9 +128,26 @@ in
       '';
     };
 
+    xdg.configFile."lf/tmux.conf".text = ''
+      set -g base-index 1
+
+      set -s escape-time 0
+
+      set -g default-terminal "screen-256color"
+
+      set -g status-position top
+      set -g status-style fg=#${config.lib.stylix.colors.base05-hex},bg=#${config.lib.stylix.colors.base00-hex}
+      set -g window-status-style fg=#${config.lib.stylix.colors.base05-hex},bg=#${config.lib.stylix.colors.base00-hex}
+      set -g window-status-current-style fg=#${config.lib.stylix.colors.base00-hex},bg=#${config.lib.stylix.colors.base0D-hex}
+
+      set -g window-status-format "#I"
+      set -g window-status-current-format "#I"
+      set -g status-left " "
+      set -g status-right ""
+    '';
 
     # currently using zellij for lf breaks when there are image previews
-    home.file.".config/zellij/layouts/lf.kdl".text = ''
+    xdg.configFile."zellij/layouts/lf.kdl".text = ''
       layout name="lf" {
       	default_tab_template {
       		pane name="tab-bar" size=1 borderless=true {

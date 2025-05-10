@@ -18,7 +18,6 @@ in
       disableConfirmationPrompt = true;
       keyMode = "vi";
       newSession = true;
-      # sensibleOnTop = false;
       terminal = "screen-256color";
       extraConfig = ''
         bind '|' splitw -h
@@ -35,19 +34,6 @@ in
         set -g status-style fg=#${config.lib.stylix.colors.base05-hex},bg=#${config.lib.stylix.colors.base00-hex}
         set -g window-status-style fg=#${config.lib.stylix.colors.base05-hex},bg=#${config.lib.stylix.colors.base00-hex}
         set -g window-status-current-style fg=#${config.lib.stylix.colors.base00-hex},bg=#${config.lib.stylix.colors.base0D-hex}
-
-        # I can't figure out how to get this to work or why it doesn't. If I ever use tmux for anything other than lf, it's probably important to figure that out
-        %if "#{==:#{session_name},lf}"
-          set -g window-status-format "#I"
-          set -g window-status-current-format "#I"
-          set -g status-left " "
-          set -g status-right ""
-        %endif
-
-        set -g window-status-format "#I"
-        set -g window-status-current-format "#I"
-        set -g status-left " "
-        set -g status-right ""
       '';
     };
 

@@ -44,8 +44,8 @@ in
       ];
       shellAliases = {
         e = "$EDITOR";
-        f = ''tmux new-session -A -s "lf" -- lf "$PWD"'';
-        ff = "gd";
+        f = "lft";
+        ff = "cd $(lf -print-last-dir)";
         neofetch = "${pkgs.hyfetch}/bin/neowofetch";
         q = "exit";
         weather = "${pkgs.curl}/bin/curl 'wttr.in/Cincinnati?2QFu'";
