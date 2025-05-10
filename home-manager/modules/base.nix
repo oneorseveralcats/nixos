@@ -56,11 +56,10 @@ in
 
     home.packages = with pkgs; [
       amfora asciinema
-      python3Packages.aria2p 
       exiftool
       httrack
       imagemagickBig
-      magic-wormhole megatools mpvc
+      magic-wormhole megatools
       ncdu
       pulsemixer python3Packages.yq
       rdrview 

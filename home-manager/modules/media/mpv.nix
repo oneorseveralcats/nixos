@@ -11,6 +11,10 @@ in
   config = mkIf cfg.enable {
     services.playerctld.enable = true;
 
+    home.packages = [
+      pkgs.mpvc
+    ];
+
     programs.mpv = {
       enable = true;
       bindings = {
