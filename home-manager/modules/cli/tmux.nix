@@ -37,7 +37,7 @@ in
       '';
     };
 
-    home.file.".config/tmuxp/default.yml" = {
+    xdg.configFile."tmuxp/default.yml" = {
       text = ''
         session_name: default
         windows:

@@ -17,8 +17,8 @@ in
     myHome.file-managers.pistol.enable = true;
     # myHome.cli.tmux.enable = true;
     
-    home.file.".config/lf/colors".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
-    home.file.".config/lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+    xdg.configFile."lf/colors".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
+    xdg.configFile."lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
 
     home.shellAliases = {
       "lft" = "tmux -L lf -f .config/lf/tmux.conf new-session -A -s lf -- lf";

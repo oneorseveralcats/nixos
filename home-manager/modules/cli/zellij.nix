@@ -23,7 +23,8 @@ in
         };
       };
     };
-    home.file.".config/zellij/layouts/multimedia.kdl".text = ''
+
+    xdg.configFile."zellij/layouts/multimedia.kdl".text = ''
       layout name="multimedia" {
       	default_tab_template {
       		pane name="tab-bar" size=1 borderless=true {
@@ -53,7 +54,8 @@ in
       	}
       }
     '';
-    home.file.".config/zellij/layouts/programming.kdl".text = ''
+
+    xdg.configFile."zellij/layouts/programming.kdl".text = ''
       layout name="programming" {
       	default_tab_template {
       		pane name="tab-bar" size=1 borderless=true {
