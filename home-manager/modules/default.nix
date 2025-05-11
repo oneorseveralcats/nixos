@@ -17,6 +17,7 @@
     ./games.nix
     ./math.nix
     ./mime.nix
+    ./mullvad.nix
     ./rax.nix
     ./stylix.nix
     ./testing.nix

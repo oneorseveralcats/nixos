@@ -20,7 +20,6 @@ in
       deluge
       unstable.gimp3-with-plugins
       keepassxc
-      mullvad-vpn
       nb
       nsxiv
       udiskie usbimager

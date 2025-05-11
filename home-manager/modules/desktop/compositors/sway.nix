@@ -255,16 +255,21 @@ in
           "${modifier}+F11" = "mode passthrough";
         };
         bars = [{ command = "none"; }];
-        startup = [
+        startup =
+          let
+            mullvadAppIfEnabled =
+              if config.myHome.vpn.mullvad.enable then
+                { command = "${pkgs.mullvad-vpn}/bin/mullvad-vpn"; }
+              else
+                {};
+        in [
           { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
           { command = "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"; }
-          { command = "mullvad-vpn --enable-features=useozoneplatform --ozone-platform=wayland"; }
-          # { command = "logseq"; }
           { command = "${pkgs.lxsession}/bin/lxsession"; }
-          # { command = "tmuxp load default"; }
-          { command = "zellij -s multimedia -l multimedia"; }
-          { command = "anki"; }
+          # { command = "anki"; }
           { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
+
+          mullvadAppIfEnabled
         ];
       };
       extraConfig = ''
