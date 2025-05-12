@@ -261,14 +261,14 @@ in
               if config.myHome.vpn.mullvad.enable then
                 { command = "${pkgs.mullvad-vpn}/bin/mullvad-vpn"; }
               else
-                {};
+                { command = "true"; };
         in [
           { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
           { command = "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"; }
           { command = "${pkgs.lxsession}/bin/lxsession"; }
           # { command = "anki"; }
           { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
-
+        ] ++ [
           mullvadAppIfEnabled
         ];
       };
