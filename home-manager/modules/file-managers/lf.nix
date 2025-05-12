@@ -67,6 +67,16 @@ in
         "xx" = ''extract'';
 
         "<tab>" = "% tmux next-window";
+        "<backtab>" = "% tmux previous-window";
+
+        "<a-h>" = "% tmux select-pane -L";
+        "<a-j>" = "% tmux select-pane -D";
+        "<a-k>" = "% tmux select-pane -U";
+        "<a-l>" = "% tmux select-pane -R";
+
+        "_" = "% tmux split-window -v -- lf";
+        "|" = "% tmux split-window -h -- lf";
+
         "<c-t>" = "% tmux new-window -- lf $PWD";
         "Q" = "detach";
         "<c-q>" = "ask_on_quit";
@@ -144,6 +154,10 @@ in
       set -g window-status-current-format "#I"
       set -g status-left " "
       set -g status-right ""
+
+      bind -r c new-window -- lf
+      bind -r '"' split-window -v -- lf
+      bind -r % split-window -h -- lf
     '';
 
     # currently using zellij for lf breaks when there are image previews
