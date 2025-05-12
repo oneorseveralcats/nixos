@@ -142,6 +142,10 @@ in
           "x-scheme-handler/http" = [ "firefox.desktop" "librewolf.desktop" "chromium.desktop" ];
           "x-scheme-handler/https" = [ "firefox.desktop" "librewolf.desktop" "chromium.desktop" ];
 
+          # email
+          "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
+          "x-scheme-handler/mid" = [ "thunderbird.desktop" ];
+
           "inode/directory" = [ "lf-term.desktop" "lf.desktop" "nnn.desktop" ];
 
           "application/x-xopp" = [ "com.github.xournalpp.xournalpp.desktop" ];
