@@ -33,6 +33,7 @@ in
       set searchurls.no https://search.nixos.org/options?query=%s
       set searchurls.nw https://wiki.nixos.org/w/index.php?search=%s
       set searchurls.ha https://hackage.haskell.org/package/%s/docs/
+      set searchurls.tw https://terraria.wiki.gg/wiki/Special:Search?search=%s
       set searchurls.yt https://www.youtube.com/results?search_query=%s
       set searchurls.w  https://en.wikipedia.org/w/index.php?search=%s
 
