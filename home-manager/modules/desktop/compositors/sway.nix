@@ -76,6 +76,7 @@ in
           "1:WEB" = [];
           "2:ANKI" = [
             { app_id = "^anki$"; }
+            { app_id = "^thunderbird$"; }
             { instance = "^logseq$"; }
           ];
           "3:TERM" = [
@@ -262,6 +263,11 @@ in
                 { command = "${pkgs.mullvad-vpn}/bin/mullvad-vpn"; }
               else
                 { command = "true"; };
+            thunderbirdEnabled =
+              if config.myHome.socials.thunderbird.enable then
+                { command = "${pkgs.thunderbird}/bin/thunderbird"; }
+              else
+                { command = "true"; };
         in [
           { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
           { command = "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"; }
@@ -270,6 +276,7 @@ in
           { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
         ] ++ [
           mullvadAppIfEnabled
+          thunderbirdEnabled
         ];
       };
       extraConfig = ''
