@@ -258,16 +258,14 @@ in
         bars = [{ command = "none"; }];
         startup =
           let
-            mullvadAppIfEnabled =
-              if config.myHome.vpn.mullvad.enable then
-                { command = "${pkgs.mullvad-vpn}/bin/mullvad-vpn"; }
+            IfEnabledStartProgram = predicate: command:
+              if predicate then
+                { command = command; }
               else
                 { command = "true"; };
-            thunderbirdEnabled =
-              if config.myHome.socials.thunderbird.enable then
-                { command = "${pkgs.thunderbird}/bin/thunderbird"; }
-              else
-                { command = "true"; };
+
+            mullvadAppIfEnabled = IfEnabledStartProgram config.myHome.vpn.mullvad.enable "${pkgs.mullvad-vpn}/bin/mullvad-vpn";
+            thunderbirdIfEnabled = IfEnabledStartProgram config.myHome.socials.thunderbird.enable "${pkgs.thunderbird}/bin/thunderbird";
         in [
           { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
           { command = "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"; }
@@ -276,7 +274,7 @@ in
           { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
         ] ++ [
           mullvadAppIfEnabled
-          thunderbirdEnabled
+          thunderbirdIfEnabled
         ];
       };
       extraConfig = ''
