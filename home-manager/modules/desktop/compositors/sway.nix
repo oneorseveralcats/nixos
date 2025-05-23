@@ -90,7 +90,7 @@ in
             { app_id = "^YACReader$"; }
           ];
           "5:GAME" = [
-            { class = "^Steam$"; }
+            { class = "^steam$"; }
             { app_id = "^Terraria.bin.x86_64$"; }
             { app_id = "^Patrick's Parabox.x86_64$"; }
             { app_id = ".*Baba Is You.*"; }
