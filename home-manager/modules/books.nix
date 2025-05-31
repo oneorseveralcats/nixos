@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  aspell = with pkgs; aspellWithDicts (dicts: with dicts; [ de fr en es ]);
+  aspell = pkgs.aspellWithDicts (dicts: with dicts; [ de fr en es ]);
   cfg = config.myHome.books;
   unstable = import <nixos-unstable> {};
 in

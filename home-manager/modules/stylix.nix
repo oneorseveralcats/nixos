@@ -64,7 +64,7 @@ in
           name = "Noto Sans Light";
         };
         monospace = {
-          package = pkgs.fira-code-nerdfont;
+          package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font Light";
         };
         emoji = {
@@ -85,6 +85,9 @@ in
           window.background { border-radius: 0; }
         '';
         swaylock.useImage = false;
+
+        firefox.profileNames = [ "personal" "school" "offline" ];
+        librewolf.profileNames = config.stylix.targets.firefox.profileNames;
       };
     };
 

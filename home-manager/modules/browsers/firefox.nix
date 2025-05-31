@@ -48,27 +48,29 @@ in
             id = lib.mkDefault 0;
             search = {
               force = true;
-              default = "DuckDuckGo";
+              default = "ddg";
             };
-            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-              auto-tab-discard
-              # bypass-paywalls-clean
-              canvasblocker
-              cookie-autodelete
-              clearurls
-              darkreader
-              decentraleyes
-              greasemonkey
-              istilldontcareaboutcookies
-              keepassxc-browser
-              sponsorblock
-              tridactyl
-              video-downloadhelper
-              ublock-origin
+            extensions = {
+              packages = with pkgs.nur.repos.rycee.firefox-addons; [
+                auto-tab-discard
+                # bypass-paywalls-clean
+                canvasblocker
+                cookie-autodelete
+                clearurls
+                darkreader
+                decentraleyes
+                greasemonkey
+                istilldontcareaboutcookies
+                keepassxc-browser
+                sponsorblock
+                tridactyl
+                video-downloadhelper
+                ublock-origin
 
-              overbitewx
-              geminize
-            ];
+                overbitewx
+                geminize
+              ];
+            };
           };
           "school" = personal // {
             id = lib.mkDefault 1;

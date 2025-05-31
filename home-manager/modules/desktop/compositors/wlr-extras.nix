@@ -96,10 +96,12 @@ in
 
     services.mako = {
       enable = true;
-      defaultTimeout = 15000;
-      width = 500;
-      height = 500;
-      borderSize = 2;
+      settings = {
+        default-timeout = 15000;
+        width = 500;
+        height = 500;
+        border-size = 2;
+      };
     };
 
     services.swayidle = {

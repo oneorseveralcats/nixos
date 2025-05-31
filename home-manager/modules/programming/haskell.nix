@@ -12,7 +12,9 @@ in
     home.packages = with pkgs.haskellPackages; [
       ghc 
       haskell-language-server ormolu
-      brick turtle curlhs language-gemini pandoc 
+      brick turtle curlhs pandoc 
+
+      # language-gemini
     ];
   
     home.file.".haskeline".text = ''

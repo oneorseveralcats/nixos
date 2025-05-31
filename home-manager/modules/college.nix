@@ -15,12 +15,5 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
     ];
-
-    myHome.programming.languages = {
-      algol.enable = true;
-      cobol.enable = true;
-      dotnet.enable = true;
-      fortran.enable = true;
-    };
   };
 }

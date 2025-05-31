@@ -4,8 +4,8 @@ let
   cfg = config.myHome.base;
   fonts = with pkgs; [
     corefonts
-    fira-code-nerdfont
     mno16
+    nerd-fonts.fira-code
     noto-fonts
     noto-fonts-cjk-sans
     spleen
@@ -64,7 +64,7 @@ in
       pulsemixer python3Packages.yq
       rdrview 
       termdown
-      ventoy-bin 
+      # ventoy-bin 
       wcalc wget woof 
 
       distrobox lilipod

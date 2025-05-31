@@ -50,6 +50,7 @@ in
         quality-menu
         reload
         sponsorblock-minimal # sponsorblock
+        visualizer
         # manga-reader
         # mpv-image-viewer.status-line
         # mpv-image-viewer.ruler
