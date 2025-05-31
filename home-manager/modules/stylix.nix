@@ -5,7 +5,7 @@ let
   stylix = import <stylix>;
 in
 {
-  imports = [ stylix.homeManagerModules.stylix ];
+  imports = [ stylix.homeModules.stylix ];
 
   options.myHome.stylix = {
     enable = lib.mkOption {
@@ -84,7 +84,10 @@ in
         gtk.extraCss = ''
           window.background { border-radius: 0; }
         '';
-        swaylock.useImage = false;
+        swaylock = {
+          enable = true;
+          useImage = false;
+        };
 
         firefox.profileNames = [ "personal" "school" "offline" ];
         librewolf.profileNames = config.stylix.targets.firefox.profileNames;
