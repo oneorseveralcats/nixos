@@ -22,7 +22,9 @@ in
         "ctrl+w"  = "ignore";
         "WHEEL_UP" = "ignore";
         "WHEEL_DOWN" = "ignore";
+
         # "b" = "cycle-values vf \"sub,lavfi=negate\" \"\"";
+        "i" = "script-binding stats/display-stats-toggle";
 
         "alt+f" = "script-binding file_browser/browse-files";
         "alt+p" = "script-binding playlistmanager/showplaylist";
