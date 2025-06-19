@@ -53,13 +53,30 @@ in
       };
     };
 
+    xdg.configFile."bluetuith/bluetuith.conf".text = ''
+      {
+        adapter: ""
+        adapter-states: ""
+        connect-bdaddr: ""
+        gsm-apn: ""
+        gsm-number: ""
+        no-warning: ""
+        keybindings: {
+          NavigateDown: j
+          NavigateUp: k
+        }
+        receive-dir: "${config.home.homeDirectory}/downloads"
+        theme: {}
+      }
+    '';
+
 
     home.packages = with pkgs; [
-      amfora asciinema
+      asciinema
       exiftool
       httrack
       imagemagickBig
-      magic-wormhole megatools
+      magic-wormhole megatools moreutils
       ncdu
       pulsemixer python3Packages.yq
       rdrview 
@@ -71,9 +88,6 @@ in
 
       # archives
       atool bzip2 gzip p7zip unrar unzip xz zip
-
-      # lf
-      moreutils
 
       # terminal powerpoint
       haskellPackages.patat
