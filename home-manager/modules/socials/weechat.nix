@@ -2,6 +2,13 @@
 with lib;
 let 
   cfg = config.myHome.socials.weechat;
+  weechat = pkgs.weechat.override {
+    configure = { availablePlugins, ... }: {
+      scripts = with pkgs.weechatScripts; [
+        weechat-notify-send
+      ];
+    };
+  };
 in
 {
   options.myHome.socials.weechat = {
@@ -14,6 +21,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      # python3Packages.notify2
       weechat
     ];
   };
