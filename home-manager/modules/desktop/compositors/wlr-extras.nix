@@ -41,7 +41,12 @@ in
           reload_style_on_change = true;
           modules-left = [ "sway/workspaces" "sway/mode" "river/tags" "river/mode" ];
           modules-center = [ "sway/window" "river/window" ];
-          modules-right = lib.mkDefault [ "clock#date" "clock#time" "battery" "tray" ];
+          modules-right = lib.mkDefault [ "sway/language" "clock#date" "clock#time" "battery" "tray" ];
+
+          "sway/language" = {
+            format = "{short} {variant}";
+            tooltip = false;
+          };
 
           "sway/workspaces" = {
             disable-scoll = true;
@@ -82,9 +87,11 @@ in
 
           "clock#date" = {
             format = "{:%m/%d}";
+            tooltip = false;
           };
           "clock#time" = {
             format = "{:%R}";
+            tooltip = false;
           };
           "tray" = {
             icon-size = 25;
