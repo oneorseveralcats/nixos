@@ -84,7 +84,7 @@ in
       binfmt = true;
     };
 
-    boot.binfmt.emulatedSystems = [ "x86_64-windows" ];
+    boot.binfmt.emulatedSystems = [ "aarch64-linux" "x86_64-windows" ];
 
     xdg.mime.enable = true;
 
