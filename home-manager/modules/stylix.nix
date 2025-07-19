@@ -89,6 +89,10 @@ in
           useImage = false;
         };
 
+        zellij = {
+          enable = false;
+        };
+
         firefox.profileNames = [ "personal" "school" "offline" ];
         librewolf.profileNames = config.stylix.targets.firefox.profileNames;
       };

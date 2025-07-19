@@ -17,6 +17,7 @@ in
       enable = true;
       settings = {
         mouse_mode = false;
+        theme = "ao";
         simplified_ui = true;
         ui = {
           pane_frames.hide_session_name = true;
