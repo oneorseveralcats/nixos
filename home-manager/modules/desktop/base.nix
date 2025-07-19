@@ -18,7 +18,7 @@ in
     home.packages = with pkgs; [
       anki
       deluge
-      unstable.gimp3-with-plugins
+      gimp3-with-plugins
       keepassxc
       nb
       nsxiv
