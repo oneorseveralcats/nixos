@@ -16,7 +16,6 @@ in
       grc
     ];
 
-    # programs.foot.settings.main.shell = "fish";
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
