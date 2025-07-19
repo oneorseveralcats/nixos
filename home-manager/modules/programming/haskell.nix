@@ -28,7 +28,7 @@ in
       {
         name = "haskell";
         auto-format = true;
-        formatter = { command = "${pkgs.ormolu}/bin/ormolu"; args = [ "--stdin-input-file" "dummy.hs" ]; };
+        formatter = { command = "${pkgs.ormolu}/bin/ormolu"; args = [ "--stdin-input-file" "%{buffer_name}" ]; };
       }
     ];
   };
