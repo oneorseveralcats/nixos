@@ -272,6 +272,7 @@ in
           { command = "${pkgs.lxsession}/bin/lxsession"; }
           # { command = "anki"; }
           { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
+          { command = "${pkgs.keepassxc}/bin/keepassxc --minimized"; }
         ] ++ [
           mullvadAppIfEnabled
           thunderbirdIfEnabled
