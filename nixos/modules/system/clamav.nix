@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.antivirus = {
-    enable = lib.mkOption {
-      description = "Enable clamav antivirus";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable clamav antivirus";
   };
 
   config = mkIf cfg.enable {
