@@ -3,7 +3,6 @@ with lib;
 let 
   aspell = pkgs.aspellWithDicts (dicts: with dicts; [ de fr en es ]);
   cfg = config.myHome.books;
-  unstable = import <nixos-unstable> {};
 in
 {
   options.myHome.books = {
@@ -33,7 +32,7 @@ in
         yacreader
         unoconv
 
-        unstable.calibre
+        calibre
       ];
     })
     (mkIf cfg.extras.enable {
