@@ -9,7 +9,7 @@ stdenv.mkDerivation {
   # version = "2023-10-02";
   src = fetchgit {
     url = "https://codeberg.org/nsxiv/nsxiv-extra/";
-    sha256 = "sha256-/0bWrRUB637gpp4V2LkjlCXW4r6WiRSVkSdTmvxH9a4=";
+    sha256 = "sha256-BS0vJlC5pbAPGWm++6W3Hsqv0fY7n+GGKUThLxc3rvw=";
   };
 
   dontBuild = true;
