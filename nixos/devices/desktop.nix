@@ -1,11 +1,20 @@
 { config, pkgs, ... }:
-{
+let ports = [
+  7777  # terraria
+  3074  # bo/bo2
+  21889 # bo2
+  27016 # mw3
+  28960 # waw
+  28961 # waw
+  # 4976  #
+  ];
+in {
   myConfig.boot-amd64.enable = true;
 
   networking.hostName = "desktop";
 
-  networking.firewall.allowedTCPPorts = [ 4976 7777 28960 ];
-  networking.firewall.allowedUDPPorts = [ 28960 ];
+  networking.firewall.allowedTCPPorts = [] ++ ports;
+  networking.firewall.allowedUDPPorts = [] ++ ports;
 
   # NVME drive can't wake PC
   services.udev.extraRules = ''
