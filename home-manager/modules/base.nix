@@ -30,6 +30,7 @@ in
     };
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "corefonts"
+      "jflap"
       "libretro-genesis-plus-gx"
       "steam"
       "terraria-server"
