@@ -14,6 +14,15 @@ in
 
   config =  mkIf cfg.enable {
     myHome.desktop.compositors.wlr-extras.enable = true;
+
+    # extraSessionCommands does not seem to work with fish shell, so i put the wayland specific variables here.
+    home.sessionVariables = {
+        "_JAVA_AWT_WM_NONREPARENTING" = "1";
+        "ANKI_WAYLAND" = "1";
+        "QT_QPA_PLATFORM" = "wayland-egl";
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
+        "SDL_VIDEODRIVER" = "wayland";
+    };
   
     wayland.windowManager.sway = {
       enable = true;
