@@ -19,6 +19,7 @@ in
         mouse_mode = false;
         theme = "ao";
         simplified_ui = true;
+        show_startup_tips = false;
         ui = {
           pane_frames.hide_session_name = true;
         };
