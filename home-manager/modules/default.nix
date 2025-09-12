@@ -14,6 +14,7 @@
     ./base.nix
     ./college.nix
     ./books.nix
+    ./flatpak.nix
     ./games.nix
     ./math.nix
     ./mime.nix

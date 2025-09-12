@@ -1,0 +1,28 @@
+{ config, lib, pkgs, ... }:
+with lib;
+let 
+  cfg = config.myHome.testing;
+in
+{
+  imports = [
+    "${<nix-flatpak>}/modules/home-manager.nix"
+  ];
+
+  options.myHome.flatpak = {
+    enable = lib.mkOption {
+      description = "Enable declarative flatpak configuration.";
+      type = types.bool;
+      default = true;
+    };
+  };
+
+  config = mkIf cfg.enable {
+    services.flatpak = {
+      enable = true;
+      uninstallUnmanaged = true;
+      packages = [
+        "com.calibre_ebook.calibre"
+      ];
+    };
+  };
+}
