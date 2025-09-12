@@ -29,7 +29,7 @@ in
       unstable = import <nixos-unstable> { inherit pkgs; };
     };
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "corefonts"
+      "calibre" "corefonts"
       "jflap"
       "libretro-genesis-plus-gx"
       "steam"
