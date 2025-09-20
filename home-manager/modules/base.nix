@@ -45,8 +45,6 @@ in
       ];
       shellAliases = {
         e = "$EDITOR";
-        f = "lft";
-        ff = "cd $(lf -print-last-dir)";
         mvi = "${pkgs.mpv-unwrapped}/bin/mpv --config-dir=${config.xdg.configHome}/.config/mvi";
         neofetch = "${pkgs.hyfetch}/bin/neowofetch";
         q = "exit";

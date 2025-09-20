@@ -21,7 +21,10 @@ in
     xdg.configFile."lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
 
     home.shellAliases = {
-      "lft" = "tmux -L lf -f ~/.config/lf/tmux.conf new-session -A -s lf -- lf";
+      lft = "tmux -L lf -f ~/.config/lf/tmux.conf new-session -A -s lf -- lf";
+      f = "lf";
+      ff = "lft";
+      fd = "cd $(lf -print-last-dir)";
     };
 
     programs.lf = {
