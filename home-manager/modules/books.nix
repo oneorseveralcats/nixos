@@ -36,7 +36,7 @@ in
         yacreader
         unoconv
 
-        calibre
+        # calibre
       ];
     })
     (mkIf cfg.extras.enable {
