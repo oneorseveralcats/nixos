@@ -14,9 +14,14 @@ in
     programs.bash = {
       enable = true;
       bashrcExtra = ''
-        source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        RED="\[$(tput setaf 1)\]"
+        GREEN="\[$(tput setaf 2)\]"
+        BLUE="\[$(tput setaf 4)\]"
+        RESET="\[$(tput sgr0)\]"
 
         complete -cf doas
+
+        PS1="''${BLUE}(bash) \w''${RESET}> "
         [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
         [ -n "$LF_LEVEL" ] && PS1="LF$LF_LEVEL $PS1"
 
