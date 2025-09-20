@@ -31,7 +31,6 @@ in
     environment.pathsToLink = [
       # shell completions
       "/share/bash-completion"
-      "/share/fish"
       "/share/zsh"
 
       # xdg portals
