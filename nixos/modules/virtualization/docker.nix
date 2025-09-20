@@ -8,7 +8,7 @@ in
     enable = lib.mkOption {
       description = "Enable docker container manager.";
       type = types.bool;
-      default = true;
+      default = false;
     };
   };
 
