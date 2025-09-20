@@ -23,9 +23,6 @@ in
 
         function fish_title; end
 
-        # Prompt
-        # ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-
         function fish_prompt
           if test -n "$LF_LEVEL"
             set LF "LF$LF_LEVEL "
@@ -37,8 +34,12 @@ in
           if test -n "$CONTAINER_ID"
             set CONTAINER "($CONTAINER_ID) "
           end
+          if test -n "$IN_NIX_SHELL"
+             set NIX_SHELL "($IN_NIX_SHELL) "
+          end 
 
           string join "" -- (printf '%s' $CONTAINER) \
+                            (set_color blue) (printf '%s' $NIX_SHELL) (set_color normal) \
                             (printf '%s' $LF)        \
                             (printf '%s' $NNN)       \
                             (set_color blue) (prompt_pwd --full-length-dirs 2) (set_color normal) '> '
@@ -79,6 +80,8 @@ in
         set fish_cursor_replace underscore
         set fish_cursor_external line
         set fish_cursor_visual block
+
+        ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
       '';
       plugins = with pkgs.fishPlugins; [
         {
