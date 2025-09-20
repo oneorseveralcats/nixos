@@ -34,7 +34,9 @@ in
                 pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'  
                 pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'  
 
-                printf '\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' >> /etc/pacman.conf 
+                if ! $(grep -v "\[chaotic-aur\]") "/etc/pacman.conf"; then
+                  printf '\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' >> /etc/pacman.conf 
+                fi
               '';
           in [
             "${chaotic-aur}/bin/run.sh"
