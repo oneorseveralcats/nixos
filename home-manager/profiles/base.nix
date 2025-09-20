@@ -2,6 +2,8 @@
 {
   myHome = {
     browsers.w3m.enable = true;
+    distrobox.enable = true;
+
 
     cli = {
       aria2.enable = true;

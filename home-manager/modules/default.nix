@@ -2,6 +2,7 @@
 {
   imports = [
     ./browsers
+    ./cli
     ./desktop
     ./editors
     ./file-managers
@@ -9,11 +10,11 @@
     ./programming
     ./shells
     ./socials
-    ./cli
+    ./virtualization
 
     ./base.nix
-    ./college.nix
     ./books.nix
+    ./college.nix
     ./flatpak.nix
     ./games.nix
     ./math.nix

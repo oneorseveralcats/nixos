@@ -85,8 +85,6 @@ in
       # ventoy-bin 
       wcalc wget woof 
 
-      distrobox lilipod
-
       # archives
       atool bzip2 gzip p7zip unrar unzip xz zip
 
