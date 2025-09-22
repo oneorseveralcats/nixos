@@ -18,6 +18,7 @@ in
 
     programs.fish = {
       enable = true;
+      preferAbbrs = true;
       interactiveShellInit = ''
         set fish_greeting
 
@@ -62,7 +63,7 @@ in
         function fish_mode_prompt; end
 
         # Keybindings
-        function fish_user_key_bindings
+        function keymap
           fish_default_key_bindings -M insert
           fish_vi_key_bindings --no-erase
 
@@ -70,8 +71,7 @@ in
           bind -M insert \ce accept-autosuggestion execute
         end
 
-        # required for autopair to work????
-        set -g fish_key_bindings fish_user_key_bindings
+        set -g fish_key_bindings keymap # autopair didn't work without this
 
 
         set fish_cursor_default block
