@@ -16,8 +16,9 @@ in
     home.packages = with pkgs; [
     ];
 
-    myHome.editors.neovim.enable = true;
+    # myHome.editors.neovim.enable = true;
 
+    myHome.shells.nushell.enable = true;
     myHome.browsers.chromium.enable = true;
   };
 }
