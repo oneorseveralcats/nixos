@@ -52,7 +52,11 @@ in
           };
         };
         matcha = {
-          ids = [ "3151:4011:5b3db59a" ];
+          ids = [
+            "3151:4011:5b3db59a"
+            "3151:4015:7eff294f"
+            "3151:4015:ab96504e"
+          ];
           settings = lib.recursiveUpdate default.settings {
             main = {
               "esc" = "`";
