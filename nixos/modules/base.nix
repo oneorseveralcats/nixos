@@ -123,6 +123,7 @@ in
       };
       settings.auto-optimise-store = true;
     };
+    boot.tmp.cleanOnBoot = true;
 
     security.rtkit.enable = true;
     services.pipewire = {
