@@ -59,7 +59,7 @@ in
                 clearurls
                 darkreader
                 decentraleyes
-                greasemonkey
+                firemonkey
                 istilldontcareaboutcookies
                 keepassxc-browser
                 sponsorblock
