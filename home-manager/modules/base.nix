@@ -73,6 +73,7 @@ in
     home.packages = with pkgs; [
       asciinema
       exiftool
+      ffmpeg
       httrack
       imagemagickBig
       magic-wormhole megatools moreutils
