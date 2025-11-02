@@ -65,6 +65,7 @@ in
                 sponsorblock
                 tridactyl
                 video-downloadhelper
+                videospeed
                 ublock-origin
 
                 overbitewx
