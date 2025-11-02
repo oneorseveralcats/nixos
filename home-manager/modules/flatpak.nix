@@ -22,6 +22,7 @@ in
       uninstallUnmanaged = true;
       packages = [
         "com.calibre_ebook.calibre" # until nixos fixes calibre tts: https://github.com/NixOS/nixpkgs/issues/364086
+        "dev.vencord.Vesktop"
       ];
     };
   };
