@@ -13,6 +13,12 @@ in
       typst
     ];
 
+    home = {
+      sessionVariables = {
+        TYPST_FONT_PATHS="${config.home.homeDirectory}/.nix-profile/share/fonts";
+      };
+    };
+
     programs.pandoc = {
       enable = true;
       defaults = {
