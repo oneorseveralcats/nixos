@@ -44,6 +44,14 @@ in
             "sudo ln -sf /usr/bin/vis /usr/bin/e"
           ];
         };
+        debian = {
+            image = "quay.io/toolbx-images/debian-toolbox:12";
+            additional_packages = [
+              "foot-terminfo"
+              "fzf"
+              "grc"
+            ];
+        };
       };
     };
   };
