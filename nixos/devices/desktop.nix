@@ -2,11 +2,10 @@
 let ports = [
   7777  # terraria
   3074  # bo/bo2
-  21889 # bo2
-  27016 # mw3
+  4976  # bo2 server
+  27016 # mw3 server
   28960 # waw
   28961 # waw
-  # 4976  #
   ];
 in {
   myConfig.boot-amd64.enable = true;
