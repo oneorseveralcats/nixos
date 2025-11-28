@@ -66,6 +66,7 @@ in
         search_engine_display_mode = "columns";
         playlist_editor_display_mode = "columns";
         media_library_albums_split_by_date = "no";
+        media_library_primary_tag = "album_artist";
         startup_screen = "media_library";
         ignore_diacritics = "yes";
         mouse_support = "no";
