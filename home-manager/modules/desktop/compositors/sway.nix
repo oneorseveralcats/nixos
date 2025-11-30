@@ -63,6 +63,7 @@ in
             tap = "enabled";
             pointer_accel = "0.5";
             accel_profile = "adaptive";
+            drag_lock = "disabled";
           };
 
           "type:pointer" = {
