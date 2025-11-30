@@ -16,7 +16,7 @@ in
     home.packages = with pkgs; [
       grim 
       slurp 
-      xdragon
+      dragon-drop
       wf-recorder wl-clipboard wl-clipboard-x11 
       wev wlprop
     ];

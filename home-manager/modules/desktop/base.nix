@@ -29,7 +29,7 @@ in
       hicolor-icon-theme
       adwaita-icon-theme gnome-themes-extra
     ] ++
-      (if pkgs.system == "aarch64-linux" then
+      (if pkgs.stdenv.hostPlatform.system == "aarch64-linux" then
         [ pkgs.box64 pkgs.box86 ]
       else
         [])

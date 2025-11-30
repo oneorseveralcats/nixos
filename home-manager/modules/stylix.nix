@@ -86,7 +86,7 @@ in
         '';
         swaylock = {
           enable = true;
-          useImage = false;
+          useWallpaper = false;
         };
 
         zellij = {

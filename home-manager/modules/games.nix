@@ -41,8 +41,8 @@ in
     };
 
     home.packages = with pkgs; [
-      dolphin-emu-beta
-      minetest
+      dolphin-emu
+      luanti
       pcsx2 protontricks prismlauncher
       retroarchPkg
       terraria-server

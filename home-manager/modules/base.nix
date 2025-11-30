@@ -82,7 +82,7 @@ in
       rdrview 
       termdown
       # ventoy-bin 
-      watchexec wcalc wget woof 
+      watchexec wcalc wget
 
       # archives
       atool bzip2 gzip p7zip unrar unzip xz zip

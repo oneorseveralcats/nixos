@@ -44,7 +44,7 @@ in
         aspell
         img2pdf
         ocrmypdf
-        poppler_utils python3Packages.weasyprint
+        poppler-utils python3Packages.weasyprint
         scantailor-advanced 
         tesseract texlive.combined.scheme-small
       ];

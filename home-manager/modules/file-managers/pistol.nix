@@ -14,7 +14,7 @@ in
       associations = [
         # Books
         { mime = "image/vnd.djvu*"; command = "sh: ${pkgs.imagemagickBig}/bin/convert %pistol-filename%[0] JPG:- | ${pkgs.chafa}/bin/chafa -s %pistol-extra0%x%pistol-extra1% --polite on"; }
-        { mime = "application/pdf"; command = "sh: ${pkgs.poppler_utils}/bin/pdftoppm -png -singlefile %pistol-filename% | ${pkgs.chafa}/bin/chafa -f sixel -s %pistol-extra0%x%pistol-extra1% --polite on"; }
+        { mime = "application/pdf"; command = "sh: ${pkgs.poppler-utils}/bin/pdftoppm -png -singlefile %pistol-filename% | ${pkgs.chafa}/bin/chafa -f sixel -s %pistol-extra0%x%pistol-extra1% --polite on"; }
         { mime = "application/epub\\+zip"; command = "${pkgs.bk}/bin/bk -m %pistol-filename%"; }
 
         # Documents/Text

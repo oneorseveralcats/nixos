@@ -13,10 +13,10 @@ in
       libreoffice hunspell hunspellDicts.tok hunspellDicts.en_US
       syncplay
     ] ++
-      (if pkgs.system == "aarch64-linux" then
+      (if pkgs.stdenv.hostPlatform.system == "aarch64-linux" then
         []
       else
-        [ pkgs.tor-browser-bundle-bin 
+        [ pkgs.tor-browser
           # pkgs.logseq  
         ])
     ;
