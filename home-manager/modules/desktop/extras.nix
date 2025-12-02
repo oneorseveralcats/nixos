@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      libreoffice hunspell hunspellDicts.tok hunspellDicts.en_US
+      libreoffice-fresh hunspell hunspellDicts.tok hunspellDicts.en_US
       syncplay
     ] ++
       (if pkgs.stdenv.hostPlatform.system == "aarch64-linux" then
