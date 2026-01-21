@@ -24,7 +24,7 @@ in
          "networkmanager"
          "plugdev"
          "scanner"
-         "video"
+         "vboxusers" "video"
          "wheel"
         ];
 
