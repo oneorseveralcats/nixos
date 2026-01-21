@@ -52,24 +52,6 @@ in
       };
     };
 
-    xdg.configFile."bluetuith/bluetuith.conf".text = ''
-      {
-        adapter: ""
-        adapter-states: ""
-        connect-bdaddr: ""
-        gsm-apn: ""
-        gsm-number: ""
-        no-warning: ""
-        keybindings: {
-          NavigateDown: j
-          NavigateUp: k
-        }
-        receive-dir: "${config.home.homeDirectory}/downloads"
-        theme: {}
-      }
-    '';
-
-
     home.packages = with pkgs; [
       asciinema
       exiftool

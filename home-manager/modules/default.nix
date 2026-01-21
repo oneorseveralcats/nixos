@@ -14,6 +14,7 @@
 
     ./base.nix
     ./books.nix
+    ./bluetooth.nix
     ./college.nix
     ./flatpak.nix
     ./games.nix

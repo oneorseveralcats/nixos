@@ -3,7 +3,7 @@
   myHome = {
     browsers.w3m.enable = true;
     distrobox.enable = true;
-
+    bluetooth.enable = true;
 
     cli = {
       aria2.enable = true;
