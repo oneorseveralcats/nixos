@@ -261,9 +261,10 @@ in
           "XF86AudioLowerVolume" =  "exec swayosd-client --output-volume lower --max-volume 150";
 
           "XF86AudioMedia" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-          "XF86AudioPlay" =  "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-          "XF86AudioPrev" =  "exec ${pkgs.playerctl}/bin/playerctl previous";
-          "XF86AudioNext" =  "exec ${pkgs.playerctl}/bin/playerctl next";
+          "XF86AudioPlay"  = "exec ${pkgs.playerctl}/bin/playerctl play";
+          "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl pause";
+          "XF86AudioPrev"  = "exec ${pkgs.playerctl}/bin/playerctl previous";
+          "XF86AudioNext"  = "exec ${pkgs.playerctl}/bin/playerctl next";
 
           "${modifier}+F11" = "mode passthrough";
         };
