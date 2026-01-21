@@ -17,14 +17,14 @@ in
 
       home.file.".local/bin/schoolfox" = {
         executable = true;
-        text = ''
+        text = /* sh */ ''
           exec ${pkgs.firefox}/bin/firefox -p school
         '';
       };
 
       home.file.".local/bin/offlinefox" = {
         executable = true;
-        text = ''
+        text = /* sh */ ''
           exec ${pkgs.firefox}/bin/firefox -p offline
         '';
       };
@@ -37,10 +37,10 @@ in
           DisablePocket = true;
           DisableTelemetry = true;
           DisplayBookmarksToolbar = "newtab";
+          DontCheckDefaultBrowser = true;
+          GenerativeAI.Enabled = false;
           HttpsOnlyMode = "enabled";
-          Homepage = {
-            URL = "duckduckgo.com";
-          };
+          Homepage.URL = "duckduckgo.com";
           PasswordManagerEnabled = false;
         };
         profiles = rec {
