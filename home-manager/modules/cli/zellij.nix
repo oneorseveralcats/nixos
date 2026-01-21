@@ -26,7 +26,7 @@ in
       };
     };
 
-    xdg.configFile."zellij/layouts/multimedia.kdl".text = ''
+    xdg.configFile."zellij/layouts/multimedia.kdl".text = /* kdl */ ''
       layout name="multimedia" {
       	default_tab_template {
       		pane name="tab-bar" size=1 borderless=true {

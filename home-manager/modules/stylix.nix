@@ -81,7 +81,7 @@ in
       };
 
       targets = {
-        gtk.extraCss = ''
+        gtk.extraCss = /* css */ ''
           window.background { border-radius: 0; }
         '';
         swaylock = {
@@ -131,7 +131,7 @@ in
       unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
     };
 
-    programs.waybar.style = ''
+    programs.waybar.style = /* css */ ''
       .modules-left #workspaces button:hover,
       .modules-left #tags button:hover {
         box-shadow: inherit;

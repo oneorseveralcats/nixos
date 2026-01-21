@@ -141,7 +141,7 @@ in
       '';
     };
 
-    xdg.configFile."lf/tmux.conf".text = ''
+    xdg.configFile."lf/tmux.conf".text = /* conf */ ''
       set -g base-index 1
 
       set -s escape-time 0
@@ -164,7 +164,7 @@ in
     '';
 
     # currently using zellij for lf breaks when there are image previews
-    xdg.configFile."zellij/layouts/lf.kdl".text = ''
+    xdg.configFile."zellij/layouts/lf.kdl".text = /* kdl */ ''
       layout name="lf" {
       	default_tab_template {
       		pane name="tab-bar" size=1 borderless=true {

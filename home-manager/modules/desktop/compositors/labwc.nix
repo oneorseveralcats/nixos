@@ -21,7 +21,7 @@ in
 
     xdg.configFile."labwc/autostart" = {
       # executable = true;
-      text = ''
+      text = /* sh */ ''
         # Example autostart file
 
         # Set background color.

@@ -13,7 +13,7 @@ in
       presenterm typst
     ];
 
-    xdg.configFile."presenterm/config.yaml".text = ''
+    xdg.configFile."presenterm/config.yaml".text = /* yaml */ ''
       defaults:
         theme: tokyonight-storm
 

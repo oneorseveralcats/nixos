@@ -191,7 +191,7 @@ in
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         SDL_VIDEODRIVER = "wayland";
       };
-      extraConfig = ''
+      extraConfig = /* sh */ ''
         rivertile -main-ratio 0.5 -view-padding 6 -outer-padding 6 &
       '';
     };

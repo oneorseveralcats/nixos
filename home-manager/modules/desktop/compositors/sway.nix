@@ -31,7 +31,7 @@ in
         base = true;
         gtk = true;
       };
-      extraSessionCommands = ''
+      extraSessionCommands = /* sh */ ''
         export _JAVA_AWT_WM_NONREPARENTING=1
         export ANKI_WAYLAND=1
         export QT_QPA_PLATFORM=wayland-egl

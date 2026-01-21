@@ -38,7 +38,7 @@ in
     };
 
     xdg.configFile."tmuxp/default.yml" = {
-      text = ''
+      text = /* yaml */ ''
         session_name: default
         windows:
           - panes:

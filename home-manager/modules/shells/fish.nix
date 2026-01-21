@@ -19,7 +19,7 @@ in
     programs.fish = {
       enable = true;
       preferAbbrs = true;
-      interactiveShellInit = ''
+      interactiveShellInit = /* fish */ ''
         set fish_greeting
 
         function fish_title; end

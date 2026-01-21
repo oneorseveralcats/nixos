@@ -28,14 +28,14 @@ in
         zr = "source ${config.xdg.configHome}/zsh/.zshrc";
       };
 
-      completionInit = ''
+      completionInit = /* zsh */ ''
         autoload -U compinit && compinit -u
         _comp_options+=(globdots)
       '';
-      initExtraFirst = ''
+      initExtraFirst = /* zsh */ ''
         zmodload zsh/zprof
       '';
-      initExtra = ''
+      initExtra = /* zsh */ ''
         # Prompt
         autoload -U colors && colors 
         PROMPT="%{$fg[blue]%}%~%{$reset_color%}> "
@@ -66,7 +66,7 @@ in
 
         zvm_after_init_commands=(autopair-init)
       '';
-      envExtra = ''
+      envExtra = /* zsh */ ''
         skip_global_compinit=1
 
         setopt no_global_rcs

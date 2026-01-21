@@ -51,7 +51,7 @@ in
 
     home.file.".local/bin/terraria" = {
       executable = true;
-      text = ''
+      text = /* sh */ ''
         #!/usr/bin/env bash
         exec steam-run /media/storage/games/gog/Terraria/start.sh
       '';

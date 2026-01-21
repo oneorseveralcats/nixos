@@ -33,7 +33,7 @@ in
 
     xdg.configFile."joshuto/preview" = {
       executable = true;
-      text = ''
+      text = /* sh */ ''
         #!/usr/bin/env bash
         
         IFS=$'\n'

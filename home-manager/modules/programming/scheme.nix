@@ -13,7 +13,7 @@ in
       guile
     ];
 
-    home.file.".guile".text = ''
+    home.file.".guile".text = /* scheme */ ''
       (use-modules (ice-9 readline))
       (activate-readline)
     '';

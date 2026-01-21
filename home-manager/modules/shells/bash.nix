@@ -13,7 +13,7 @@ in
 
     programs.bash = {
       enable = true;
-      bashrcExtra = ''
+      bashrcExtra = /* sh */ ''
         RED="\[$(tput setaf 1)\]"
         GREEN="\[$(tput setaf 2)\]"
         BLUE="\[$(tput setaf 4)\]"
