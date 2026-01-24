@@ -39,7 +39,12 @@ in
              set NIX_SHELL "($IN_NIX_SHELL) "
           end 
 
+          if test -n "$SSH_TTY"
+             set SSH_CONNECT "(SSH) "
+          end 
+
           string join "" -- (printf '%s' $CONTAINER) \
+                            (set_color green) (printf '%s' $SSH_CONNECT) (set_color normal) \
                             (set_color blue) (printf '%s' $NIX_SHELL) (set_color normal) \
                             (printf '%s' $LF)        \
                             (printf '%s' $NNN)       \
