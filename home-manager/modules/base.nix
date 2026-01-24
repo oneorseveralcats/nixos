@@ -39,6 +39,9 @@ in
       sessionPath = [
         "$HOME/.appimages"
       ];
+      sessionVariables = {
+        TERMINAL = lib.mkDefault "foot";
+      };
       shellAliases = {
         e = "$EDITOR";
         mvi = "${pkgs.mpv-unwrapped}/bin/mpv --config-dir=${config.xdg.configHome}/.config/mvi";
