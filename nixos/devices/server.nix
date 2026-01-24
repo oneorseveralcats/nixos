@@ -4,7 +4,7 @@
   ];
 
   myConfig.boot-amd64.enable = true;
-  myConfig.connections.nas = lib.mkForce false;
+  myConfig.connections.nas.enable = lib.mkForce false;
 
   networking.hostName = "server";
 }
