@@ -15,6 +15,7 @@
     # ./devices/desktop.nix
     # ./devices/primary.nix
     # ./devices/pbp.nix
+    # ./devices/server.nix
     # ./devices/t470s.nix
     # ./devices/nix-on-droid.nix
   ];
