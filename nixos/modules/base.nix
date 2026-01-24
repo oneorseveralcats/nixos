@@ -108,12 +108,6 @@ in
         zlib
       ];
     };
-  
-    fileSystems."/media/removable" = {
-      device = "//192.168.1.10/removable";
-      fsType = "cifs";
-      options = [ "_netdev" "defaults" "credentials=/etc/secrets/share_removable" "uid=1000" ];
-    };
 
     nix = {
       gc = {
