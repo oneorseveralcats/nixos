@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.terminals.alacritty = {
-    enable = lib.mkOption {
-      description = "Enable the alacritty terminal.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the alacritty terminal.";
   };
 
   config = mkIf cfg.enable {

@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.socials.telegram = {
-    enable = lib.mkOption {
-      description = "Enable telegram.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable telegram.";
   };
 
   config = mkIf cfg.enable {

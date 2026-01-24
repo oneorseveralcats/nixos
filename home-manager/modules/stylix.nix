@@ -8,11 +8,7 @@ in
   imports = [ stylix.homeModules.stylix ];
 
   options.myHome.stylix = {
-    enable = lib.mkOption {
-      description = "Enable stylix, a project to uniformly style NixOS.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable stylix, a project to uniformly style NixOS.";
   };
 
   config = mkIf cfg.enable {

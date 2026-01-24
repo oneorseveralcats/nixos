@@ -10,16 +10,8 @@ let
 in
 {
   options.myHome.books = {
-    enable = lib.mkOption {
-      description = "Enable ebook/reading related packages.";
-      type = types.bool;
-      default = true;
-    };
-    extras.enable = lib.mkOption {
-      description = "Enable packages for creating/modifying ebook formats.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable ebook/reading related packages.";
+    extras.enable = lib.mkEnableOption "Enable packages for creating/modifying ebook formats.";
   };
 
   config = mkMerge [

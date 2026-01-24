@@ -1,9 +1,12 @@
 {...}:
 {
   myHome = {
+    base.enable = true;
     browsers.w3m.enable = true;
     distrobox.enable = true;
     bluetooth.enable = true;
+    stylix.enable = true;
+    testing.enable = true;
 
     cli = {
       aria2.enable = true;

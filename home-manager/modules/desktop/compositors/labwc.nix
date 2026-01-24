@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.compositors.labwc = {
-    enable = lib.mkOption {
-      description = "Enable and configure the labwc wayland compositor.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable and configure the labwc wayland compositor.";
   };
 
   config =  mkIf cfg.enable {

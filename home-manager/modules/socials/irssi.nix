@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.socials.irssi = {
-    enable = lib.mkOption {
-      description = "Enable the irssi irc client.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the irssi irc client.";
   };
 
   config = mkIf cfg.enable {

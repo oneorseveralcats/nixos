@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.rax = {
-    enable = lib.mkOption {
-      description = "Enable programs that rax has me install.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable programs that rax has me install.";
   };
 
   config = mkIf cfg.enable {

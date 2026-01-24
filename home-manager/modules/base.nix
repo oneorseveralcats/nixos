@@ -14,11 +14,7 @@ let
 in
 {
   options.myHome.base = {
-    enable = lib.mkOption {
-      description = "Enable the most basic configuration operations and programs.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the most basic configuration operations and programs.";
   };
 
   config = mkIf cfg.enable {

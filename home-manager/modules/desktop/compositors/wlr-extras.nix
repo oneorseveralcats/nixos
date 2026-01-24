@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.compositors.wlr-extras = {
-    enable = lib.mkOption {
-      description = "Enable extra programs and services for wlroots compositors.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable extra programs and services for wlroots compositors.";
   };
 
   config = mkIf cfg.enable {

@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.base = {
-    enable = lib.mkOption {
-      description = "Enable all the standard desktop packages and settings.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable all the standard desktop packages and settings.";
   };
 
   config = mkIf cfg.enable {

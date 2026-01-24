@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.compositors.sway = {
-    enable = lib.mkOption {
-      description = "Enable and configure the sway wayland compositor.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable and configure the sway wayland compositor.";
   };
 
   config =  mkIf cfg.enable {

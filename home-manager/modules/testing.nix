@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.testing = {
-    enable = lib.mkOption {
-      description = "Enable packages and settings that are currently being tested.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable packages and settings that are currently being tested.";
   };
 
   config = mkIf cfg.enable {

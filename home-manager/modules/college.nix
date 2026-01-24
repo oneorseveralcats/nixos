@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.college = {
-    enable = lib.mkOption {
-      description = "Enable packages and settings that are needed by college courses.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable packages and settings that are needed by college courses.";
   };
 
   config = mkIf cfg.enable {

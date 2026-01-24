@@ -12,11 +12,7 @@ let
 in
 {
   options.myHome.socials.weechat = {
-    enable = lib.mkOption {
-      description = "Enable the weechat irc client.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the weechat irc client.";
   };
 
   config = mkIf cfg.enable {

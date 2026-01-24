@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.terminals.foot = {
-    enable = lib.mkOption {
-      description = "Enable the foot terminal.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the foot terminal.";
   };
 
   config = mkIf cfg.enable {

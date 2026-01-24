@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.vpn.mullvad = {
-    enable = lib.mkOption {
-      description = "Install the mullvad vpn app.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Install the mullvad vpn app.";
   };
 
   config =  mkIf cfg.enable {

@@ -1,7 +1,9 @@
 {...}:
 {
   myHome = {
+    books.enable = true;
     browsers.firefox.enable = true;
+    flatpak.enable = true;
     desktop = {
       compositors.sway.enable = true;
       terminals.foot.enable = true;

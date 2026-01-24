@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.media.extras = {
-    enable = lib.mkOption {
-      description = "Enable additional media packages.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable additional media packages.";
   };
 
   config = mkIf cfg.enable {

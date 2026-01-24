@@ -9,11 +9,7 @@ in
   ];
 
   options.myHome.flatpak = {
-    enable = lib.mkOption {
-      description = "Enable declarative flatpak configuration.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable declarative flatpak configuration.";
   };
 
   config = mkIf cfg.enable {

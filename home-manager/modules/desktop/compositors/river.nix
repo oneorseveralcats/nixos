@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.compositors.river = {
-    enable = lib.mkOption {
-      description = "Enable the river wayland compositor.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption  "Enable the river wayland compositor.";
   };
 
   config = mkIf cfg.enable {

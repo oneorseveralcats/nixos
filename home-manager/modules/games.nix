@@ -28,11 +28,7 @@ let
 in
 {
   options.myHome.games = {
-    enable = lib.mkOption {
-      description = "Enable games.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable games.";
   };
 
   config = mkIf cfg.enable {

@@ -5,11 +5,7 @@ let
 in
 {
   options.myHome.desktop.terminals.kitty = {
-    enable = lib.mkOption {
-      description = "Enable the kitty terminal.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable the kitty terminal.";
   };
 
   config = mkIf cfg.enable {
