@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     services.playerctld.enable = true;
     services.mpd-mpris.enable = true;
+    systemd.user.services.mpd-mpris.Unit.After = [ "playerctld.service" ];
 
     services.mpd = {
       enable = true;
