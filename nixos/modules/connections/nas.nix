@@ -19,3 +19,4 @@ in
       options = [ "_netdev" "defaults" "credentials=/etc/secrets/share_nas" "uid=1000" ];
     };
   };
+}
