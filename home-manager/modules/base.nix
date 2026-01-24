@@ -40,7 +40,7 @@ in
         "$HOME/.appimages"
       ];
       sessionVariables = {
-        TERMINAL = lib.mkDefault "foot";
+        TERMINAL = lib.mkDefault "footclient";
       };
       shellAliases = {
         e = "$EDITOR";
