@@ -11,6 +11,7 @@
       # ./devices/labtop.nix
       # ./devices/rock64.nix
       # ./devices/pbp.nix
+      # ./devices/server.nix
       # ./devices/t470s.nix
   ];
 
