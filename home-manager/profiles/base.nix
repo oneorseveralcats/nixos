@@ -5,6 +5,7 @@
     browsers.w3m.enable = true;
     distrobox.enable = true;
     bluetooth.enable = true;
+    programming.base.enable = true;
     stylix.enable = true;
     testing.enable = true;
 
