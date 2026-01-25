@@ -5,18 +5,12 @@ let
 in
 {
   options.myConfig.testing = {
-    enable = lib.mkOption {
-      description = "Enable packages and modules that i am testing.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable packages and modules that i am testing.";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
     ];
-
-    myConfig.virtualization.virtualbox.enable = true;
   };
 }
 

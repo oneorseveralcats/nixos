@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.system.input-remapper = {
-    enable = lib.mkOption {
-      description = "Enable input-remapper, a tool remapping the buttons on input devices (like drawing tablets).";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable input-remapper, a tool remapping the buttons on input devices (like drawing tablets).";
   };
 
   config = mkIf cfg.enable {

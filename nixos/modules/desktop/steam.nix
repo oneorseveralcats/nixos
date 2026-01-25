@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.desktop.steam = {
-    enable = lib.mkOption {
-      description = "Enable Steam.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable Steam.";
   };
 
   config = mkIf cfg.enable {

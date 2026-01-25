@@ -8,6 +8,14 @@ let ports = [
   28961 # waw
   ];
 in {
+  imports = [
+    ../profiles/ai.nix    
+    ../profiles/desktop.nix
+    ../profiles/games.nix
+    ../profiles/print_scan.nix
+    ../profiles/virtualization.nix
+  ];
+
   myConfig.boot-amd64.enable = true;
 
   networking.hostName = "desktop";
@@ -19,6 +27,4 @@ in {
   services.udev.extraRules = ''
     ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
   '';
-
-  programs.steam.enable = true; 
 }

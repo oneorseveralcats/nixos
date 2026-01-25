@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.connections.firewall = {
-    enable = lib.mkOption {
-      description = "Enable and configure firewall";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable and configure firewall";
   };
 
   config = mkIf cfg.enable {

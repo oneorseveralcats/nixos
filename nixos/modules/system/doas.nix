@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.system.doas = {
-    enable = mkOption {
-      description = "Replace sudo with doas.";
-      type = types.bool;
-      default = true;
-    };
+    enable = mkEnableOption "Replace sudo with doas.";
   };
 
   config = mkIf cfg.enable {

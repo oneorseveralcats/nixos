@@ -1,15 +1,11 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.printing;
+  cfg = config.myConfig.system.printing;
 in
 {
-  options.myConfig.printing = {
-    enable = lib.mkOption {
-      description = "Enable printer support.";
-      type = types.bool;
-      default = true;
-    };
+  options.myConfig.system.printing = {
+    enable = lib.mkEnableOption "Enable printer support.";
   };
 
   config = mkIf cfg.enable {

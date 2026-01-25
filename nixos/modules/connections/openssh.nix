@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.connections.openssh = {
-    enable = lib.mkOption {
-      description = "Enable openssh";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable openssh";
   };
 
   config = mkIf cfg.enable {

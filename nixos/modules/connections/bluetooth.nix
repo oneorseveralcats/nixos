@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.connections.bluetooth = {
-    enable = lib.mkOption {
-      description = "Enable bluetooth";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable bluetooth";
   };
 
   config = mkIf cfg.enable {

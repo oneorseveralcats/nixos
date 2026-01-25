@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.virtualization.docker = {
-    enable = lib.mkOption {
-      description = "Enable docker container manager.";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable docker container manager.";
   };
 
   config = mkIf cfg.enable {

@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.system.scanning = {
-    enable = lib.mkOption {
-      description = "Enable scanner support.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable scanner support.";
   };
 
   config = mkIf cfg.enable {

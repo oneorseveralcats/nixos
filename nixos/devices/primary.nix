@@ -2,6 +2,12 @@
 {
   imports = [
     <nixos-hardware/lenovo/thinkpad/t470s>
+
+    ../profiles/ai.nix
+    ../profiles/desktop.nix
+    ../profiles/games.nix
+    ../profiles/print_scan.nix
+    ../profiles/virtualization.nix
   ];
 
   # 3rd party keyboard trackpoint device ID

@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.system.flatpak = {
-    enable = mkOption {
-      description = "Enable flatpak support.";
-      type = types.bool;
-      default = true;
-    };
+    enable = mkEnableOption "Enable flatpak support.";
   };
 
   config = mkIf cfg.enable {

@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.users.user = {
-    enable = lib.mkOption {
-      description = "Enable the foundational packages and settings.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable the foundational packages and settings.";
   };
 
   config = mkIf cfg.enable {

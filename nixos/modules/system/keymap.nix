@@ -1,15 +1,11 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myConfig.system.system.keymap;
+  cfg = config.myConfig.system.keymap;
 in
 {
-  options.myConfig.system.system.keymap = {
-    enable = mkOption {
-      description = "Configure keyboard layout.";
-      type = types.bool;
-      default = true;
-    };
+  options.myConfig.system.keymap = {
+    enable = mkEnableOption "Configure keyboard layout.";
   };
 
   config = mkIf cfg.enable {

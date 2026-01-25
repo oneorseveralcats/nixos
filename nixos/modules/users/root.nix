@@ -7,11 +7,7 @@ in
   imports = [ <home-manager/nixos> ];
 
   options.myConfig.users.root = {
-    enable = lib.mkOption {
-      description = "Enable root home-manager/nixos configuration.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable root home-manager/nixos configuration.";
   };
 
   config = mkIf cfg.enable {

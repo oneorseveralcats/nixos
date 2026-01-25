@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.rax = {
-    enable = lib.mkOption {
-      description = "Enable things that are related to Rax";
-      type = types.bool;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Enable things that are related to Rax";
   };
 
   config = mkIf cfg.enable {

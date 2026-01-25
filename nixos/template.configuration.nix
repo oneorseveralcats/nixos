@@ -5,6 +5,8 @@
       ./hardware-configuration.nix
       ./modules
 
+      ./profiles/base.nix
+
       # Uncomment the correct device
       # ./devices/primary.nix
       # ./devices/desktop.nix

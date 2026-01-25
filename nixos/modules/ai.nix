@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.ai = {
-    enable = mkOption {
-      description = "Enable local LLM Support";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable local LLM Support";
   };
 
   config = mkIf cfg.enable {

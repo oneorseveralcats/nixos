@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.connections.nas = {
-    enable = lib.mkOption {
-      description = "Enable network attached storage.";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable network attached storage.";
   };
 
   config = mkIf cfg.enable {

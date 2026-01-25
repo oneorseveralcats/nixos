@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ../profiles/desktop.nix
+  ];
+
   networking.hostName = "labtop";
 
   networking.firewall.allowedTCPPorts = [ 9090 ];

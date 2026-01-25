@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.desktop.sway = {
-    enable = lib.mkOption {
-      description = "Enable system settings for the sway home-manager module to work properly";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable system settings for the sway home-manager module to work properly";
   };
 
   config = mkIf cfg.enable {

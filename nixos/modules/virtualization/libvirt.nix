@@ -5,11 +5,7 @@ let
 in
 {
   options.myConfig.virtualization.libvirt = {
-    enable = lib.mkOption {
-      description = "Enable libvirt and virt-manager";
-      type = types.bool;
-      default = true;
-    };
+    enable = lib.mkEnableOption "Enable libvirt and virt-manager";
   };
 
   config = mkIf cfg.enable {
