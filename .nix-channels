@@ -5,6 +5,7 @@ https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
 https://github.com/thiagokokada/nix-alien/archive/master.tar.gz nix-alien
 https://github.com/nix-community/nixvim/archive/nixos-25.11.tar.gz nixvim
 https://github.com/nix-community/NUR/archive/main.tar.gz nur
+https://github.com/Mic92/sops-nix/archive/master.tar.gz sops-nix
 https://github.com/danth/stylix/archive/release-25.11.tar.gz stylix
 https://github.com/nix-community/nix-on-droid/archive/master.tar.gz nix-on-droid
 https://github.com/gmodena/nix-flatpak/archive/refs/tags/latest.tar.gz nix-flatpak
