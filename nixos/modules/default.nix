@@ -12,7 +12,6 @@
     ./ai.nix
     ./base.nix
     ./boot-amd64.nix
-    ./college.nix
     ./rax.nix
     ./testing.nix
   ];

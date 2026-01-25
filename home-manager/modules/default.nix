@@ -16,7 +16,6 @@
     ./base.nix
     ./books.nix
     ./bluetooth.nix
-    ./college.nix
     ./flatpak.nix
     ./math.nix
     ./mime.nix
