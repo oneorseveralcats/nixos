@@ -13,10 +13,14 @@ in
   };
 
   config = mkIf cfg.enable {
-      programs.steam = {
-        enable = true; 
-        extraCompatPackages = [ pkgs.proton-ge-bin ];
-      };
+    environment.systemPackages = with pkgs; [
+      protontricks      
+    ];
+
+    programs.steam = {
+      enable = true; 
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
   };
 }
   
