@@ -21,8 +21,13 @@ in
       wget
     ];
 
-    # nix.package = pkgs.lix;
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config = {
+      allowUnfree = true;
+      packageOverrides = pkgs: {
+        nur = import <nur> { inherit pkgs; };
+        unstable = import <nixos-unstable> { inherit pkgs; };
+      };
+    };
 
     environment.pathsToLink = [
       # shell completions
