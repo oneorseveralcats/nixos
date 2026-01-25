@@ -6,6 +6,7 @@
     ./virtualization
     ./self-hosted
     ./socials
+    ./sops
     ./system
     ./users
 

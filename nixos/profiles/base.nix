@@ -2,6 +2,7 @@
 {
   myConfig = {
     base.enable = true;
+    sops.enable = true;
     testing.enable = true;
 
     connections = {

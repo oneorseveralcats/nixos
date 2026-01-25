@@ -9,6 +9,15 @@ in
   };
 
   config = mkIf cfg.enable {
+    myConfig.sops.enable = true;
+    sops.secrets."wifi/home/ssid" = {};
+    sops.secrets."wifi/home/password" = {};
+
+    sops.templates."wifi-credentials".content = ''
+      home_ssid=${config.sops.placeholder."wifi/home/ssid"}
+      home_password=${config.sops.placeholder."wifi/home/password"}
+    '';
+
     networking = {
       networkmanager.enable = true;
       nameservers = [
@@ -17,9 +26,12 @@ in
       ];
 
       wireless = {
-        secretsFile = "/etc/secrets/wifi";
+        secretsFile = config.sops.templates."wifi-credentials".path;
         networks = {
-          NETGEAR21.pskRaw = "ext:PSK_HOME";
+          home = {
+            ssid = "ext:home_ssid";
+            pskRaw = "ext:home_password";
+          };
         };
       };
     };
