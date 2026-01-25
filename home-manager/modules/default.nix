@@ -6,6 +6,7 @@
     ./desktop
     ./editors
     ./file-managers
+    ./games
     ./media
     ./programming
     ./shells
@@ -17,7 +18,6 @@
     ./bluetooth.nix
     ./college.nix
     ./flatpak.nix
-    ./games.nix
     ./math.nix
     ./mime.nix
     ./mullvad.nix

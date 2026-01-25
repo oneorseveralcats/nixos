@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../profiles/games.nix
     ../profiles/programming.nix
     ../profiles/socials.nix
     ../profiles/wayland.nix
