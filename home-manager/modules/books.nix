@@ -4,7 +4,6 @@ let
   aspell = pkgs.aspellWithDicts (dicts: with dicts; [ de fr en es ]);
   calibre = pkgs.calibre.override {
     unrarSupport = true;
-    speechSupport = true;
   };
   cfg = config.myHome.books;
 in
