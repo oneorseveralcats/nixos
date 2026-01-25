@@ -5,7 +5,7 @@ let
 in
 {
   options.myConfig.users.user = {
-    enable = lib.mkEnableOption "Enable the foundational packages and settings.";
+    enable = lib.mkEnableOption "Enable regular admin user, groups, and ssh key login for them.";
   };
 
   config = mkIf cfg.enable {
