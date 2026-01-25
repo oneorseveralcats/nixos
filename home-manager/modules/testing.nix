@@ -15,8 +15,6 @@ in
 
     # myHome.editors.neovim.enable = true;
 
-    myHome.shells.nushell.enable = true;
     myHome.browsers.chromium.enable = true;
-    myHome.browsers.librewolf.enable = true;
   };
 }
