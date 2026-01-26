@@ -24,8 +24,7 @@ in
             "vis"
             "yay"
           ];
-          pre_init_hooks =
-          let
+          pre_init_hooks = let
             chaotic-aur = pkgs.writers.writeBashBin "run.sh" ''
                 sudo su
                 pacman-key --init
@@ -34,23 +33,22 @@ in
                 pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'  
                 pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'  
 
-                if ! $(grep -v "\[chaotic-aur\]") "/etc/pacman.conf"; then
-                  printf '\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' >> /etc/pacman.conf 
-                fi
+                printf '\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' >> /etc/pacman.conf 
               '';
           in [
             "${chaotic-aur}/bin/run.sh"
-
-            "sudo ln -sf /usr/bin/vis /usr/bin/e"
+           
+            "pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm"
+            "ln -sf /usr/bin/vis /usr/bin/e"
           ];
         };
         debian = {
-            image = "quay.io/toolbx-images/debian-toolbox:12";
-            additional_packages = [
-              "foot-terminfo"
-              "fzf"
-              "grc"
-            ];
+          image = "quay.io/toolbx-images/debian-toolbox:12";
+          additional_packages = [
+            "foot-terminfo"
+            "fzf"
+            "grc"
+          ];
         };
       };
     };
