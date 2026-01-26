@@ -87,9 +87,16 @@ in
     programs.command-not-found.enable = lib.mkDefault true;
     programs.jq.enable = lib.mkDefault true;
     programs.lesspipe.enable = lib.mkDefault true;
-    programs.nix-index.enable = lib.mkDefault true;
     programs.fzf.enable = lib.mkDefault true;
     services.syncthing.enable = lib.mkDefault true;
+
+    programs.nix-index = {
+      enable = lib.mkDefault true;
+      enableBashIntegration = false;
+      enableFishIntegration = false;
+      enableNushellIntegration = false;
+      enableZshIntegration = false;
+    };
 
     xdg = {
       enable = true;
