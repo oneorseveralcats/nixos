@@ -16,7 +16,7 @@ in {
     ../profiles/virtualization.nix
   ];
 
-  myConfig.boot-amd64.enable = true;
+  boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "desktop";
 
