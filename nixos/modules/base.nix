@@ -38,6 +38,7 @@ in
       "/share/xdg-desktop-portal" "/share/applications"
     ];
 
+    boot.loader.systemd-boot.enable = lib.mkDefault true;
     boot.supportedFilesystems = [ "ntfs" ];
     boot.kernelPackages = pkgs.linuxPackages_latest;
     swapDevices = [{device = "/swapfile"; size = 4096;}];

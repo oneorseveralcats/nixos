@@ -16,8 +16,6 @@ in {
     ../profiles/virtualization.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-
   networking.hostName = "desktop";
 
   networking.firewall.allowedTCPPorts = [] ++ ports;

@@ -8,7 +8,5 @@
     ../profiles/virtualization.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-
   networking.hostName = "t470s";
 }

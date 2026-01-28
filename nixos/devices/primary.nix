@@ -31,12 +31,10 @@
     # ];
   };
 
-  myConfig.boot-amd64 = {
-    enable = true;
-    encryptedBoot = true;
+  boot.initrd.luks.devices."root" = {
+    device = "/dev/disk/by-uuid/fa86d9d0-658a-4c43-b3a9-0fdf938c7460";
+    preLVM = true;
   };
-
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/fa86d9d0-658a-4c43-b3a9-0fdf938c7460";
 
   services.mullvad-vpn.enable = true;
 }

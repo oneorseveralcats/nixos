@@ -3,8 +3,6 @@
   imports = [
   ];
 
-  boot.loader.systemd-boot.enable = true;
-
   myConfig.connections.nas.enable = lib.mkForce false;
 
   fileSystems."/media/jellyfin" = {
