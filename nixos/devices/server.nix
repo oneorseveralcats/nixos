@@ -3,7 +3,8 @@
   imports = [
   ];
 
-  myConfig.boot-amd64.enable = true;
+  boot.loader.systemd-boot.enable = true;
+
   myConfig.connections.nas.enable = lib.mkForce false;
 
   fileSystems."/media/jellyfin" = {
@@ -14,6 +15,33 @@
   fileSystems."/media/nas" = {
     device = "/dev/disk/by-uuid/cc4735c4-76c1-4612-95b9-335fb99b71e5";
     fsType = "ext4";
+  };
+
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        "security" = "user";
+        #"use sendfile" = "yes";
+        #"max protocol" = "smb2";
+        # note: localhost is the ipv6 localhost ::1
+        "hosts allow" = "192.168.1. localhost";
+        "hosts deny" = "ALL";
+        "guest account" = "nobody";
+      };
+      "nas" = {
+        "path" = "/media/nas";
+        "browseable" = "yes";
+        "writeable" = "yes";
+        "create mask" = "0644";
+        "force user" = "user";
+        "valid users" = "user";
+      };
+    };
   };
 
 
