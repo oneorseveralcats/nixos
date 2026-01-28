@@ -10,9 +10,7 @@
       # Uncomment the correct device
       # ./devices/primary.nix
       # ./devices/desktop.nix
-      # ./devices/labtop.nix
       # ./devices/rock64.nix
-      # ./devices/pbp.nix
       # ./devices/server.nix
       # ./devices/t470s.nix
   ];
