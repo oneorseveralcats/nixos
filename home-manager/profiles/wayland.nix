@@ -15,6 +15,7 @@
       mpv.enable = true;
       ncmpcpp.enable = true;
       newsboat.enable = true;
+      swayimg.enable = true;
       zathura.enable = true;
 
       extras.enable = true;

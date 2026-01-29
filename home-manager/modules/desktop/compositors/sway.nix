@@ -150,12 +150,15 @@ in
 
             { command = "resize set 400 500"; criteria = { title = "^n*sxiv$"; }; }
             { command = "move position 1510 0"; criteria = { title = "^n*sxiv$"; }; }
+            { command = "resize set 400 500"; criteria = { app_id = "^swayimg$"; }; }
+            { command = "move position 1510 0"; criteria = { app_id = "^swayimg$"; }; }
           
           ];
         };
         floating = {
           criteria = [
             { app_id = "^mpv$"; }
+            { app_id = "^swayimg$"; }
             { app_id = "^usbimager$"; }
             { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
