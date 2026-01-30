@@ -10,7 +10,9 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs.haskellPackages; [
+      cabal-install
       ghc 
+      stack
       haskell-language-server ormolu
       brick turtle curlhs pandoc 
 
