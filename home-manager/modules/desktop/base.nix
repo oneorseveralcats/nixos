@@ -17,7 +17,6 @@ in
       gimp3-with-plugins
       keepassxc
       nb
-      nsxiv
       udiskie usbimager
       xournalpp
 
