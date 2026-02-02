@@ -6,6 +6,7 @@
     ./mpd.nix
     ./mpv.nix
     ./ncmpcpp.nix
+    ./nom.nix
     ./newsboat.nix
     ./pqiv.nix
     ./swayimg.nix

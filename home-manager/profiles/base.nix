@@ -34,7 +34,7 @@
     media = {
       mpv.enable = true;
       ncmpcpp.enable = true;
-      newsboat.enable = true;
+      nom.enable = true;
     };
 
     math.enable = true;
