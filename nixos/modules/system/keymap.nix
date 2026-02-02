@@ -40,7 +40,7 @@ in
           };
         };
         t470s = {
-          ids = [ "0001:0001:a38e6885" "0001:0001:70533846" ];
+          ids = [ "0001:0001:a38e6885" "0001:0001:70533846" "0001:0001:09b4e68d" ];
           settings = lib.recursiveUpdate default.settings {
             main = {
               "sysrq" = "layer(meta)";
