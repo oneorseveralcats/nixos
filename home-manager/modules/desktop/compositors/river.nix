@@ -25,7 +25,7 @@ in
           "normal"
           "passthrough"
         ];
-        keyboard-layout = ''-variant "dvorak," -options "altwin:prtsc_rwin,caps:swapescape,lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle" "us,us"'';
+        keyboard-layout = ''-variant "dvorak," -options "caps:swapescape,lv3:ralt_switch_multikey,esperanto:dvorak,grp:shifts_toggle" "us,us"'';
         input = {
           "pointer-*" = {
             accel-profile = "adaptive";
@@ -41,7 +41,8 @@ in
             "Super Insert" = ''spawn "${pkgs.sway-contrib.grimshot}/bin/grimshot -n copy anything"'';
 
             "None XF86AudioMedia" = "spawn '${pkgs.playerctl}/bin/playctl play-pause'";
-            "None XF86AudioPlay"  = "spawn '${pkgs.playerctl}/bin/playctl play-pause'";
+            "None XF86AudioPlay"  = "spawn '${pkgs.playerctl}/bin/playctl play'";
+            "None XF86AudioPause"  = "spawn '${pkgs.playerctl}/bin/playctl pause'";
             "None XF86AudioPrev"  = "spawn '${pkgs.playerctl}/bin/playctl previous'";
             "None XF86AudioNext"  = "spawn '${pkgs.playerctl}/bin/playctl next'";
             "None XF86AudioRaiseVolume"  = "spawn '${pkgs.pamixer}/bin/pamixer -i 5'";
