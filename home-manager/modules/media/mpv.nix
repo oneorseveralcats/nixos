@@ -42,6 +42,7 @@ in
         slang = "eng,epo";
         sub-auto = "fuzzy";
         screenshot-directory = "~/pictures/mpv/";
+        autocreate-playlist = "same";
         geometry = "480";
         ytdl-format = ''bv[height<=720][vcodec!~='vp0?9']+ba/bv+ba/best'';
         ytdl-raw-options = "format-sort=[lang,res,size,fps,quality,br]";
