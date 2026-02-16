@@ -22,7 +22,7 @@ in
           image = "quay.io/toolbx/arch-toolbox:latest";
           additional_packages = [
             "vis"
-            "yay"
+            "paru"
           ];
           pre_init_hooks = let
             chaotic-aur = pkgs.writers.writeBashBin "run.sh" ''
