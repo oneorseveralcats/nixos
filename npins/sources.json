@@ -1,0 +1,150 @@
+{
+  "pins": {
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "release-25.11",
+      "submodules": false,
+      "revision": "366d78c2856de6ab3411c15c1cb4fb4c2bf5c826",
+      "url": "https://github.com/nix-community/home-manager/archive/366d78c2856de6ab3411c15c1cb4fb4c2bf5c826.tar.gz",
+      "hash": "04yamxkwdfjcz5dl8c6nayg1w6dhf325fdklbn09gymnzwzq5nml"
+    },
+    "lanzaboote": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "lanzaboote"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "2038a9a19adb886eccba775321b055fdbdc5029d",
+      "url": "https://github.com/nix-community/lanzaboote/archive/2038a9a19adb886eccba775321b055fdbdc5029d.tar.gz",
+      "hash": "0157c1v62y3miknfg6226lkwv2gc25sq430nz9iw9v3lmsfd5m9w"
+    },
+    "nix-alien": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "thiagokokada",
+        "repo": "nix-alien"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "d95b25a4dd6da2a1dfeaaf66163d0a281a8270e9",
+      "url": "https://github.com/thiagokokada/nix-alien/archive/d95b25a4dd6da2a1dfeaaf66163d0a281a8270e9.tar.gz",
+      "hash": "0l1jxn9a4rw21jbsxmjzp6k6gj12xpdww4rgfyr77wmbwckvr0ac"
+    },
+    "nix-flatpak": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "gmodena",
+        "repo": "nix-flatpak"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.7.0",
+      "revision": "440818969ac2cbd77bfe025e884d0aa528991374",
+      "url": "https://api.github.com/repos/gmodena/nix-flatpak/tarball/v0.7.0",
+      "hash": "1jsxx20jv2dmf75563i9ldyva99d0qcls2rm424ikx83hnasx47d"
+    },
+    "nix-on-droid": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nix-on-droid"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "55b6449b4582a4ba3ce712543c973360a026db7d",
+      "url": "https://github.com/nix-community/nix-on-droid/archive/55b6449b4582a4ba3ce712543c973360a026db7d.tar.gz",
+      "hash": "1if1cr4vclc0rrlbpjsa4afgn20c2w827l39iin5hvkq5af6b6z1"
+    },
+    "nixos": {
+      "type": "Channel",
+      "name": "nixos-25.11",
+      "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.5148.d04d8548aed3/nixexprs.tar.xz",
+      "hash": "0fqn54bxq153pa992mhdad47kx0ayv9knznnc6i8b8c17pdzadxy"
+    },
+    "nixos-hardware": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixos-hardware"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "a351494b0e35fd7c0b7a1aae82f0afddf4907aa8",
+      "url": "https://github.com/nixos/nixos-hardware/archive/a351494b0e35fd7c0b7a1aae82f0afddf4907aa8.tar.gz",
+      "hash": "1nyr1jrdy2bcm69s4zv2ifpsshrwma68fibrybqwcfi4s5rfsh20"
+    },
+    "nixos-unstable": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre939624.e6eae2ee2110/nixexprs.tar.xz",
+      "hash": "1fra25zc0yr1irx3l4f8bvin6q34s0pr1d6xr5r0wv3z3mkz90fz"
+    },
+    "nixvim": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixvim"
+      },
+      "branch": "nixos-25.11",
+      "submodules": false,
+      "revision": "b8f76bf5751835647538ef8784e4e6ee8deb8f95",
+      "url": "https://github.com/nix-community/nixvim/archive/b8f76bf5751835647538ef8784e4e6ee8deb8f95.tar.gz",
+      "hash": "1v4gghvjrzj7kwzvwgwjbhbiavwzbc5ncwjicc1jgjwdmbdaqhw7"
+    },
+    "nur": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nur"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "5a34f005effc58a448900b9e16b9dd15373e85eb",
+      "url": "https://github.com/nix-community/nur/archive/5a34f005effc58a448900b9e16b9dd15373e85eb.tar.gz",
+      "hash": "03mc9wm15hpk7caypdjy6c2icvqwn8r3c8wp663jfvrjz1r01rn7"
+    },
+    "sops-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mic92",
+        "repo": "sops-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "17eea6f3816ba6568b8c81db8a4e6ca438b30b7c",
+      "url": "https://github.com/mic92/sops-nix/archive/17eea6f3816ba6568b8c81db8a4e6ca438b30b7c.tar.gz",
+      "hash": "11j9jcingx5l0k5i497w8pv1yxb50fkkgzf287bw9r43mx7ddn4j"
+    },
+    "stylix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "danth",
+        "repo": "stylix"
+      },
+      "branch": "release-25.11",
+      "submodules": false,
+      "revision": "fe06391a1e1905fc7e6c13443ea439a89695ca69",
+      "url": "https://github.com/danth/stylix/archive/fe06391a1e1905fc7e6c13443ea439a89695ca69.tar.gz",
+      "hash": "1dw8kkdp9kxh05gik6v7wd69m9pi6vsf1nb7vpzcgrq1bpivpd4c"
+    }
+  },
+  "version": 5
+}

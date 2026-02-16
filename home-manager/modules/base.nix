@@ -59,7 +59,7 @@ in
       httrack
       imagemagickBig
       magic-wormhole megatools moreutils
-      ncdu nmap
+      ncdu nmap npins
       pulsemixer python3Packages.yq
       rdrview ripgrep
       termdown
