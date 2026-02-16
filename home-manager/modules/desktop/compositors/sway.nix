@@ -271,6 +271,26 @@ in
 
           "${modifier}+F11" = "mode passthrough";
         };
+        modes = with config.wayland.windowManager.sway.config; {
+          passthrough = {
+            "${modifier}+F11" = "mode default";
+          };
+          resize = {
+            "${left}" = "resize shrink width 10 px";
+            "${down}" = "resize grow height 10 px";
+            "${up}" = "resize shrink height 10 px";
+            "${right}" = "resize grow width 10 px";
+
+            "Left" = "resize shrink width 10 px";
+            "Down" = "resize grow height 10 px";
+            "Up" = "resize shrink height 10 px";
+            "Right" = "resize grow width 10 px";
+
+            # Exit resize mode
+            "Escape" = "mode default";
+            "Return" = "mode default";
+          };
+        };
         bars = [{ command = "none"; }];
         startup =
           let
