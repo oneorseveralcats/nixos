@@ -16,6 +16,7 @@ in
       helix
       killall
       lm_sensors
+      npins
       pciutils
       ncdu
       wget
@@ -41,7 +42,7 @@ in
     boot.loader.systemd-boot.enable = lib.mkDefault true;
     boot.supportedFilesystems = [ "ntfs" ];
     boot.kernelPackages = pkgs.linuxPackages_latest;
-    swapDevices = [{device = "/swapfile"; size = 4096;}];
+    swapDevices = [{device = "/swapfile"; size = 4096; priority= 100;}];
 
     time.timeZone = "America/New_York";
 
