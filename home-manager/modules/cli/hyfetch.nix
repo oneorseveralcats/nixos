@@ -9,9 +9,12 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.fastfetch ];
     programs.hyfetch = {
       enable = true;
       settings = {
+        backend = "fastfetch";
+        pride_month_disable = true;
         light_dark = "dark";
         mode = "rgb";
         preset = "agender";
