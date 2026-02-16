@@ -21,7 +21,6 @@ in
 
       home.shellAliases = {
         n = "lf";
-        nixos-rebuild = ''XDG_CACHE_HOME="/root/.cache nixos-rebuild'';
         q = "exit";
       };
 
