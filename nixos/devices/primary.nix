@@ -37,4 +37,5 @@
   };
 
   services.mullvad-vpn.enable = true;
+  myConfig.system.lanzaboote.enable = true;
 }
