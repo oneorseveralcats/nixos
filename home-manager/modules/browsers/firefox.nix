@@ -61,7 +61,7 @@ in
                 decentraleyes
                 firemonkey
                 istilldontcareaboutcookies
-                keepassxc-browser
+                # keepassxc-browser
                 sponsorblock
                 tridactyl
                 video-downloadhelper
@@ -71,6 +71,11 @@ in
                 overbitewx
                 geminize
               ];
+              settings = {
+                # # vimium
+                # "{d7742d87-e61d-4b78-b8a1-b469842139fa}".settings = {
+                # };
+              };
             };
           };
           "school" = personal // {
