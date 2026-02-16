@@ -49,7 +49,7 @@ in
         "gh" = "cd ~";
         "gm" = "cd /run/media/user/";
         "gp" = "cd ~/pictures";
-        "gr" = "cd /media/removable";
+        "gr" = "cd /media/nas";
         "gs" = "cd /media/storage";
         "gS" = "cd ~/documents/school";
         "gv" = "cd ~/videos/";
