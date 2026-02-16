@@ -162,16 +162,16 @@ in
             "'bar'" = "csd";
             "'firefox'" = "ssd";
             "'mpv'" = [ "float" "position 1377 747" "tags 2147483648" ];
+            "'usbimager'" = "float";
+          };
+          "-title" = {
+            "'Authentication Required'" = "float";
           };
         };
         spawn = [
           "'${pkgs.gammastep}/bin/gammastep -P -O 4000'"
-          "'${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources'"
           "'mullvad-vpn --enable-features=useozoneplatform --ozone-platform=wayland'"
-          # "logseq"
-          "'${pkgs.lxsession}/bin/lxsession'"
-          "tmux_default"
-          "anki"
+          "'${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent'"
         ];
         systemd.extraCommands = [
          "systemctl --user stop river-session.target"
