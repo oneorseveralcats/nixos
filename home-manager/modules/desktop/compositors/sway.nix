@@ -284,9 +284,7 @@ in
             thunderbirdIfEnabled = IfEnabledStartProgram config.myHome.socials.thunderbird.enable "${pkgs.thunderbird}/bin/thunderbird";
         in [
           { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
-          { command = "${pkgs.xorg.xrdb}/bin/xrdb ~/.Xresources"; }
-          { command = "${pkgs.lxsession}/bin/lxsession"; }
-          # { command = "anki"; }
+          { command = "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent"; }
           { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
           { command = "${pkgs.keepassxc}/bin/keepassxc --minimized"; }
         ] ++ [
