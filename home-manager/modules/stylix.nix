@@ -149,6 +149,13 @@ in
         color: @base0D;
       }
 
+      .modules-left #workspaces button.urgent,
+      .modules-left #tags button.urgent {
+        background-color: @base00;
+        border-bottom-color: @base08;
+        color: @base08;
+      }
+
       .modules-left #workspaces button.empty,
       .modules-left #tags button:not(.occupied):not(.focused) {
         color: @base02;
