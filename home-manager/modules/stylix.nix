@@ -28,7 +28,8 @@ in
         base05 = "#d0d0d0";
         base06 = "#e0e0e0";
         base07 = "#ffffff";
-        base08 = "#f5708a";
+        # base08 = "#f5708a";
+        base08 = "#ee2244";
         base09 = "#ee8122";
         base0A = "#b8a300";
         base0B = "#54bc5c";
