@@ -159,9 +159,13 @@ in
           criteria = [
             { app_id = "^mpv$"; }
             { app_id = "^swayimg$"; }
-            { app_id = "^usbimager$"; }
             { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
+
+            { app_id = "^usbimager$"; }
+            { app_id = "^io.gitlab.adhami3310.Impression$"; }
+
+            { title = "^Authentication Required$"; }
 
             { app_id = "^it.catboy.ripdrag$"; }
 
