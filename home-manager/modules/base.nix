@@ -53,6 +53,7 @@ in
 
     home.packages = with pkgs; [
       asciinema
+      dconf
       exiftool
       ffmpeg
       httrack
