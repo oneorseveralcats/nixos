@@ -43,6 +43,7 @@ in
     boot.supportedFilesystems = [ "ntfs" ];
     boot.kernelPackages = pkgs.linuxPackages_latest;
     swapDevices = [{device = "/swapfile"; size = 4096; priority= 100;}];
+    zramSwap.enable = true;
 
     time.timeZone = "America/New_York";
 
