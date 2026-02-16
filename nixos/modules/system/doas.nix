@@ -18,7 +18,7 @@ in
       doas = {
         enable = true;
         extraRules = [
-          { groups = [ "wheel" ]; persist = true; keepEnv = true; }
+          { groups = [ "wheel" ]; persist = true; setEnv = [ "NIX_PATH" ]; }
         ];
       };
     };
