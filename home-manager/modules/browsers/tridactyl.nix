@@ -2,6 +2,11 @@
 with lib;
 let 
   cfg = config.myHome.browsers.tridactyl;
+  generateSearchUrls = with pkgs.lib.generators;
+    set: toKeyValue {
+      mkKeyValue = mkKeyValueDefault {} " ";
+      indent="set searchurls.";
+  } set;
 in
 {
   options.myHome.browsers.tridactyl = {
@@ -27,17 +32,7 @@ in
 
       # Search Engines
       set searchengine duckduckgo
-      set searchurls.aw https://wiki.archlinux.org/index.php?search=%s
-      set searchurls.am https://man.archlinux.org/search?q=%s
-      set searchurls.np https://search.nixos.org/packages?query=%s
-      set searchurls.no https://search.nixos.org/options?query=%s
-      set searchurls.nw https://wiki.nixos.org/w/index.php?search=%s
-      set searchurls.ha https://hackage.haskell.org/package/%s/docs/
-      set searchurls.re https://reddit.com/r/%s
-      set searchurls.tw https://terraria.wiki.gg/wiki/Special:Search?search=%s
-      set searchurls.yt https://www.youtube.com/results?search_query=%s
-      set searchurls.w  https://en.wikipedia.org/w/index.php?search=%s
-
+      ${generateSearchUrls config.myHome.browsers.settings.search-engines}
 
       # Bindings
       bind ge scrollto 100
