@@ -12,9 +12,9 @@ in
 
     home.packages = with pkgs; [
       luanti
-      protontricks prismlauncher
+      unstable.protontricks prismlauncher
       terraria-server
-      wine winetricks
+      wineWow64Packages.waylandFull unstable.winetricks
 
       
       # kde games
