@@ -15,6 +15,7 @@ in
         extraGroups = [
          "adbusers"
          "docker"
+         "gamemode"
          "keyd" "kvm"
          "libvirtd" "lp"
          "networkmanager"
