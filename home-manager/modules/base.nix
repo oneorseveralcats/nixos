@@ -2,6 +2,7 @@
 with lib;
 let 
   cfg = config.myHome.base;
+  npinsPaths = lib.mapAttrsToList (k: v: "${k}=${v}") (import ../../npins);
   fonts = with pkgs; [
     corefonts
     mno16
@@ -18,7 +19,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    myHome.browsers.gemini.enable = true;
+    nix = {
+      package = pkgs.nix;
+      keepOldNixPath = false;
+      nixPath = npinsPaths;
+      settings.experimental-features = [ "nix-command" "flakes" ];
+    };
 
     nixpkgs.config.packageOverrides = pkgs: {
       nur = import <nur> { inherit pkgs; };
