@@ -20,6 +20,10 @@ in
         showread = false;
         ordering = "desc";
 
+        openers = [
+          { regex = "youtube";  cmd = "mpv %s"; }
+        ];
+
         theme = {
           glamour = "dark";
           titleColor = "#${config.lib.stylix.colors.base0D-hex}";
