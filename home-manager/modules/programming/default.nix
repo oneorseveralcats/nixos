@@ -26,8 +26,11 @@ in
     ./fsharp.nix
     ./go.nix
     ./haskell.nix
+    ./html-css.nix
     ./idris.nix
+    ./java.nix
     ./lua.nix
+    ./lean.nix
     ./miranda.nix
     ./ocaml.nix
     ./pascal.nix

@@ -11,7 +11,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       elmPackages.elm
-      elmPackages.elm-language-server
     ];
   };
 }

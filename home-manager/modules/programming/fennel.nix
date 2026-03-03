@@ -13,7 +13,6 @@ in
 
     home.packages = with pkgs; [
       fennel
-      fennel-ls
     ];
   };
 }

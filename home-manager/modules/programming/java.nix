@@ -11,7 +11,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       openjdk
-      jdt-language-server
     ];
   };
 }

@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.programming.languages.algol;
+  cfg = config.myHome.programming.languages.lean;
 in
 {
-  options.myHome.programming.languages.algol = {
+  options.myHome.programming.languages.lean = {
     enable = lib.mkEnableOption "Enable the Lean programming language and tools.";
   };
 

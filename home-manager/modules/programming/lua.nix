@@ -12,7 +12,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       luaPkg
-      lua-language-server
     ];
   };
 }

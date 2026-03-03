@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
+  inherit (lib)
+    optional
+    optionals;
   cfg = config.myHome.editors.helix;
 in
 {
@@ -12,7 +15,7 @@ in
     programs.helix = {
       enable = true;
       package = pkgs.unstable.helix;
-      defaultEditor = true;
+      defaultEditor = lib.mkDefault true;
       settings = {
         editor = {
           bufferline = "multiple";
@@ -58,28 +61,50 @@ in
         };
       };
       languages = {
-        # language-server.fennel-ls = with pkgs; {
-        #   command = "${fennel-ls}/bin/fennel-ls";
-        # };
-        # language = [{
-        #   name = "fennel";
-        #   auto-format = false;
-        #   comment-tokens = [ ";;" ];
-        #   file-types = [ "fnl" ];
-        #   language-servers = [ "fennel-ls" ];
-        # }];
-        
         # TODO: add spellcheck
         # language = [{
         #   name = "markdown";
         # }];
       };
-      extraPackages = with pkgs; lib.mkDefault [
+      extraPackages = let
+        lang = config.myHome.programming.languages;
+      in with pkgs; [
         awk-language-server
         marksman
-        nil nodePackages.bash-language-server
+        nixd nodePackages.bash-language-server
         yaml-language-server
-      ];
+      ]
+        ++ optional lang.clojure.enable pkgs.clojure-lsp
+        ++ optional lang.crystal.enable pkgs.crystalline
+        ++ optional lang.d.enable pkgs.serve-d
+        ++ optional lang.dart.enable pkgs.dart
+        ++ optional lang.elixir.enable pkgs.elixir-ls
+        ++ optional lang.elm.enable pkgs.elmPackages.elm-elm-language-server
+        ++ optional lang.erlang.enable pkgs.erlang-ls
+        ++ optional lang.fortran.enable pkgs.fortls
+        ++ optional lang.fsharp.enable pkgs.fsautocomplete
+        ++ optional lang.go.enable pkgs.gopls
+        ++ optional lang.html-css.enable pkgs.vscode-css-languageserver
+        ++ optional lang.idris.enable pkgs.idris2Packages.idris2Lsp
+        ++ optional lang.java.enable pkgs.jdt-language-server
+        ++ optional lang.lean.enable pkgs.lean4
+        ++ optional lang.lua.enable pkgs.lua-language-server
+        ++ optional lang.ocaml.enable pkgs.ocaml
+        ++ optional lang.perl.enable pkgs.perlnavigator
+        ++ optional lang.prolog.enable pkgs.swi-prolog
+        ++ optional lang.r.enable (pkgs.rWrapper.override{ packages = [ pkgs.rPackages.languageserver ];})
+        ++ optional lang.racket.enable pkgs.racket
+        ++ optional lang.ruby.enable pkgs.solargraph
+        ++ optional lang.scala.enable pkgs.metals
+        ++ optionals lang.c.enable [ pkgs.clang-tools pkgs.lldap ]
+        ++ optionals lang.dotnet.enable [ pkgs.omnisharp-roslyn pkgs.netcoredbg ]
+        ++ optionals lang.fennel.enable [ pkgs.fennel-ls pkgs.fnlfmt ]
+        ++ optionals lang.haskell.enable [ pkgs.haskell-language-server pkgs.ormolu ]
+        ++ optionals lang.purescript.enable [ pkgs.nodePackages.purescript-language-server pkgs.nodePackages.purs-tidy  ]
+        ++ optionals lang.python.enable [ pkgs.python3Packages.python-lsp-server pkgs.python3Packages.python-lsp-ruff ]
+        ++ optionals lang.rust.enable [ pkgs.rust-analyzer pkgs.lldap ]
+        ++ optionals lang.zig.enable [ zls lldap ]
+      ;
     };
   };
 }
