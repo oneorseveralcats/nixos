@@ -105,6 +105,8 @@ in
       enableZshIntegration = false;
     };
 
+    services.ssh-agent.enable = lib.mkDefault true;
+
     xdg = {
       enable = true;
       userDirs = {
