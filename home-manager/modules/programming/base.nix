@@ -36,13 +36,16 @@ in
           gpgSign = true;
         };
       };
+
+      includes = [{
+        condition = "hasconfig:remote.*.url:git@github.com:*/**";
+        contents.user.email = "170012754+oneorseveralcats@users.noreply.github.com";
+      }];
     };
 
     programs.lazygit = {
       enable = true;
     };
-
-    services.ssh-agent.enable = true;
   };
 }
 
