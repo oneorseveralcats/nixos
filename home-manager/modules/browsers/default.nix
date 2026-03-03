@@ -9,6 +9,7 @@
     ./luakit.nix
     ./nyxt.nix
     ./qutebrowser.nix
+    ./settings.nix
     ./tridactyl.nix
     ./w3m.nix
   ];
