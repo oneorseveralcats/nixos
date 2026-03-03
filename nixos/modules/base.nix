@@ -2,6 +2,7 @@
 with lib;
 let 
   cfg = config.myConfig.base;
+  npinsPaths = lib.mapAttrsToList (k: v: "${k}=${v}") (import ../../npins);
 in
 {
   options.myConfig.base = {
@@ -21,6 +22,20 @@ in
       ncdu
       wget
     ];
+
+    nix = {
+      channel.enable = false;
+      nixPath = npinsPaths ++ [ "nixos-config=/etc/nixos/configuration.nix" ]; 
+      settings = {
+        auto-optimise-store = true;
+        experimental-features = [ "nix-command" "flakes" ];
+      };
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
+      };
+    };
 
     nixpkgs.config = {
       allowUnfree = true;
