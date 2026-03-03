@@ -13,8 +13,13 @@ in
       protontricks      
     ];
 
+    programs.gamemode = {
+      enable = false;
+    };
+
     programs.steam = {
       enable = true; 
+      extraPackages = [ pkgs.gamescope ];
       extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
   };
