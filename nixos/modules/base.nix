@@ -45,15 +45,6 @@ in
       };
     };
 
-    environment.pathsToLink = [
-      # shell completions
-      "/share/bash-completion"
-      "/share/zsh"
-
-      # xdg portals
-      "/share/xdg-desktop-portal" "/share/applications"
-    ];
-
     boot.loader.systemd-boot.enable = lib.mkDefault true;
     boot.supportedFilesystems = [ "ntfs" ];
     boot.kernelPackages = pkgs.linuxPackages_latest;
