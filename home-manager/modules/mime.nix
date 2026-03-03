@@ -30,6 +30,11 @@ in
           terminal = false;
           mimeType = [ "inode/directory" ];
         };
+        modorganizer2 = {
+          name = "modorganizer2";
+          mimeType = [ "x-scheme-handler/nxm" ];
+          noDisplay = true;
+        };
       };
       mimeApps = {
         enable = true;
