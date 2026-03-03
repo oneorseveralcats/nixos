@@ -10,10 +10,12 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      ansible
       hugo
-    ];
+      rippkgs
 
-    # myHome.editors.neovim.enable = true;
+      unstable.chawan
+    ];
 
     myHome.browsers.chromium.enable = true;
   };
