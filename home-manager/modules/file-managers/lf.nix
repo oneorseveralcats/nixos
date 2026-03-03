@@ -66,7 +66,7 @@ in
         "xd" = ''& ${pkgs.ripdrag}/bin/ripdrag -A -x -n -r $fx'';
         "xm" = ''$ ${pkgs.mpv}/bin/mpv $fx'';
         "xr" = ''''${{ [ -n "$fs" ] && ${pkgs.moreutils}/bin/vidir $fs || ${pkgs.moreutils}/bin/vidir $PWD }}'';
-        "xw" = ''$ ${pkgs.pandoc}/bin/pandoc -t html "$f" | ${pkgs.w3m}/bin/w3m -T text/html'';
+        "xb" = ''$ ${pkgs.epr}/bin/epr $f'';
         "xx" = ''extract'';
 
         "<tab>" = "% tmux next-window";
