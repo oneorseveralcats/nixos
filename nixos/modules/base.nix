@@ -101,29 +101,9 @@ in
 
     programs.nix-ld = {
       enable = true;
-      package = pkgs.nix-ld;
-      libraries = with pkgs; [
-        curl
-        expat 
-        fuse3
-        icu
-        libgcc
-        nss
-        openssl
-        stdenv.cc.cc
-        zlib
-      ];
+      # package = pkgs.nix-ld;
+      libraries = pkgs.steam-run.args.multiPkgs pkgs;
     };
-
-    nix = {
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 14d";
-      };
-      settings.auto-optimise-store = true;
-    };
-    boot.tmp.cleanOnBoot = true;
 
     security.rtkit.enable = true;
     services.pipewire = {
