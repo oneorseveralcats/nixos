@@ -36,6 +36,7 @@ in
         osd-font-size = "20";
         osd-level = "3";
         osd-msg3 = "\${time-pos}/\${duration} (\${playtime-remaining})";
+        hwdec = "auto";
         sub-scale = "0.75";
         volume = "70";
         alang = "eng,epo";
