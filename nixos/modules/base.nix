@@ -60,12 +60,7 @@ in
         grep = "grep --color=auto";
         ls = "ls -hal --color=auto";
         ncdu = "${pkgs.ncdu}/bin/ncdu --color off";
-        nnn = "${pkgs.nnn}/bin/nnn -C";
-        n = "nnn";
         q = "exit";
-      };
-      variables = {
-        EDITOR="${pkgs.helix}/bin/hx";
       };
     };
 
