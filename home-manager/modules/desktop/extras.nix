@@ -12,13 +12,7 @@ in
     home.packages = with pkgs; [
       libreoffice-fresh hunspell hunspellDicts.tok hunspellDicts.en_US
       syncplay
-    ] ++
-      (if pkgs.stdenv.hostPlatform.system == "aarch64-linux" then
-        []
-      else
-        [ pkgs.tor-browser
-          # pkgs.logseq  
-        ])
-    ;
+    ]
+      ++ lib.optional (pkgs.stdenv.hostPlatform.isx86) pkgs.tor-browser;
   };
 }
