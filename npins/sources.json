@@ -1,5 +1,19 @@
 {
   "pins": {
+    "helix-master": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "helix-editor",
+        "repo": "helix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "51ec572a27a8c1267afbc07e6c1583585c6363dc",
+      "url": "https://github.com/helix-editor/helix/archive/51ec572a27a8c1267afbc07e6c1583585c6363dc.tar.gz",
+      "hash": "1hfai277sxlhj5x74q3pi0nn8lyk1dkmgdmy8qxb4pzpa4nm1j7z",
+      "frozen": true
+    },
     "home-manager": {
       "type": "Git",
       "repository": {
@@ -99,6 +113,19 @@
       "name": "nixos-25.11",
       "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.6561.1267bb4920d0/nixexprs.tar.xz",
       "hash": "1xk3sllr362bl8hgqglwjicdgg9bkravd7fq4c1js5n10zcczc7j"
+    },
+    "nixpkgs-master": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "1648979af25621455493f8160f1cf5985075e367",
+      "url": "https://github.com/nixos/nixpkgs/archive/1648979af25621455493f8160f1cf5985075e367.tar.gz",
+      "hash": "1xs7njkzgi39ncaj02qm5alxh395nxjwbk2ijz3ir0n363q27rr1"
     },
     "nixpkgs-unstable": {
       "type": "Channel",
