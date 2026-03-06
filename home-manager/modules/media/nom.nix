@@ -103,6 +103,10 @@ in
           { name = "Lowest Percent"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCxQrToVDBwHKuyIr47X04yA"; }    
           { name = "LunaticJ"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC6Tp0ptVPoykN-tnhy7gEIw"; }      
 
+          ## Roguelikes
+          { name = "Olexa"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC5ib5bTflXtyIkoF_l7OCHw"; }      
+          { name = "Rhapsody"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCDSQHqANzYyJLqLD-fV4XDQ"; }      
+
           # Go
           { name = "In Sente"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCP14BOcc0Rg9-TXXv2I4AkA"; }    
           { name = "Telegraph Go"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCJ8bZ_fK5G5o23pJ4DZAx8g"; }    
