@@ -27,8 +27,9 @@ in
     };
 
     nixpkgs.config.packageOverrides = pkgs: {
+      master = import <nixpkgs-master> { inherit pkgs; };
       nur = import <nur> { inherit pkgs; };
-      unstable = import <nixos-unstable> { inherit pkgs; };
+      unstable = import <nixpkgs-unstable> { inherit pkgs; };
     };
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "calibre" "corefonts"
