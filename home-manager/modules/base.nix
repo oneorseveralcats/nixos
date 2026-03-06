@@ -91,7 +91,10 @@ in
       };
     };
   
-    programs.command-not-found.enable = lib.mkDefault true;
+    programs.command-not-found = {
+      enable = lib.mkDefault true;
+      dbPath = "${builtins.storePath pkgs.path}/programs.sqlite";
+    };
     programs.jq.enable = lib.mkDefault true;
     programs.lesspipe.enable = lib.mkDefault true;
     programs.fzf.enable = lib.mkDefault true;
