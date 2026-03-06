@@ -6,6 +6,7 @@
     ./podman.nix
     ./virtualbox.nix
     ./virtualbox-guest.nix
+    ./waydroid.nix
   ];
 }
 
