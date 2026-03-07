@@ -5,6 +5,7 @@ let
     optional
     optionals;
   cfg = config.myHome.editors.helix;
+  helix-master = (builtins.getFlake (toString <helix-master>)).packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   options.myHome.editors.helix = {
@@ -14,7 +15,8 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      package = pkgs.unstable.helix;
+      # package = pkgs.unstable.helix;
+      package = helix-master;
       defaultEditor = lib.mkDefault true;
       settings = {
         editor = {
