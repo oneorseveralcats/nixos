@@ -38,7 +38,10 @@ in
         DontCheckDefaultBrowser = true;
         GenerativeAI.Enabled = false;
         HttpsOnlyMode = "enabled";
-        Homepage.URL = "duckduckgo.com";
+        Homepage = {
+          URL = "duckduckgo.com";
+          StartPage = "previous-session";
+        };
         PasswordManagerEnabled = false;
       };
       profiles = rec {
