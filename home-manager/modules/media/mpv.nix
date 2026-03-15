@@ -37,6 +37,7 @@ in
         osd-level = "3";
         osd-msg3 = "\${time-pos}/\${duration} (\${playtime-remaining})";
         hwdec = "auto";
+        gpu-context-pre = "wayland"; # TODO: check if this is necessary for fullscreen playback of AV1 video after v0.41.0
         sub-scale = "0.75";
         volume = "70";
         alang = "eng,epo";
