@@ -97,9 +97,18 @@ in
       dbPath = "${builtins.storePath pkgs.path}/programs.sqlite";
     };
     programs.jq.enable = lib.mkDefault true;
-    programs.lesspipe.enable = lib.mkDefault true;
     programs.fzf.enable = lib.mkDefault true;
     services.syncthing.enable = lib.mkDefault true;
+
+    programs.lesspipe.enable = lib.mkDefault true;
+    # home.file.".local/bin/lessfilter".source = pkgs.writeShellScript "lessfilter" ''
+    #   if [[ $1 =~ .*(<html|<body>|<head>).* ]]; then
+    #     cat "$1"
+    #     exit 0
+    #   else
+    #     exit 1
+    #   fi
+    # '';
 
     programs.nix-index = {
       enable = lib.mkDefault true;
