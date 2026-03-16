@@ -10,12 +10,12 @@ in
 
   config = mkIf cfg.enable {
     home.sessionVariables = {
-      TERMINAL = lib.mkDefault "footclient";
+      TERMINAL = lib.mkDefault "foot";
     };
 
     programs.foot = {
       enable = true;
-      server.enable = true;
+      # server.enable = true;
       settings = {
         main = {
           selection-target = "clipboard";

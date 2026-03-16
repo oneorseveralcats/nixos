@@ -37,7 +37,7 @@ in
       config = {
         modifier = "Mod4";
         menu = "${pkgs.fuzzel}/bin/fuzzel | xargs swaymsg exec --";
-        terminal = lib.mkDefault "footclient";
+        terminal = lib.mkDefault "foot";
         left = "h";
         down = "n";
         up = "t";

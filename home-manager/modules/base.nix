@@ -48,11 +48,10 @@ in
         "$HOME/.appimages"
       ];
       sessionVariables = {
-        TERMINAL = lib.mkDefault "footclient";
+        TERMINAL = lib.mkDefault "foot";
       };
       shellAliases = {
         e = "$EDITOR";
-        mvi = "${pkgs.mpv-unwrapped}/bin/mpv --config-dir=${config.xdg.configHome}/.config/mvi";
         neofetch = "${pkgs.hyfetch}/bin/neowofetch";
         q = "exit";
         weather = "${pkgs.curl}/bin/curl 'wttr.in/Cincinnati?2QFu'";
