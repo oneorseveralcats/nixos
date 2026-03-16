@@ -6,5 +6,6 @@
 
     ./base.nix
     ./extras.nix
+    ./testing.nix
   ];
 }

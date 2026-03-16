@@ -17,6 +17,5 @@ in
       unstable.chawan
     ];
 
-    myHome.browsers.chromium.enable = true;
   };
 }
