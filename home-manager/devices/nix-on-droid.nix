@@ -1,18 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  myHome = {
-    desktop.enable = false;
-    books.enable = false;
-    books.extras.enable = false;
-    games.gui.enable = false;
-    multimedia.enable = false;
-    probation.enable = false;
-    programming.enable = false;
-    rax.enable = false;
-    testing.enable = false;
-  };
-
   home.packages = with pkgs; [
   ];
 }
