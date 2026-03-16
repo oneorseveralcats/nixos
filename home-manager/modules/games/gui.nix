@@ -18,11 +18,11 @@ in
 
       
       # kde games
-      kdePackages.kfourinline
-      kdePackages.kgeography
-      kdePackages.kigo
-      kdePackages.knights
-      kdePackages.ksudoku
+      # kdePackages.kfourinline
+      # kdePackages.kgeography
+      # kdePackages.kigo
+      # kdePackages.knights
+      # kdePackages.ksudoku
     ];
   };
 }
