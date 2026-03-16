@@ -65,7 +65,7 @@ in
       httrack
       imagemagickBig
       magic-wormhole megatools moreutils
-      ncdu nmap npins
+      ncdu nix-tree nmap npins
       pulsemixer python3Packages.yq
       rdrview
       termdown
@@ -73,7 +73,7 @@ in
       watchexec wcalc wget
 
       # terminal powerpoint
-      haskellPackages.patat
+      # haskellPackages.patat
     ] ++ fonts;
 
     home.preferXdgDirectories = true;

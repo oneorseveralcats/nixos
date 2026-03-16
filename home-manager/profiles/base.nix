@@ -50,9 +50,5 @@
       bash.enable = true;      
       fish.enable = true;
     };
-
-    socials = {
-      weechat.enable = true;
-    };
   };
 }

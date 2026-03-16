@@ -22,8 +22,6 @@ in
         bk
         epr
         yacreader
-        unoconv
-
         calibre
       ];
     })
