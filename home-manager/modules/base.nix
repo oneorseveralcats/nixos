@@ -73,9 +73,6 @@ in
       # ventoy-bin 
       watchexec wcalc wget
 
-      # archives
-      atool bzip2 gzip p7zip unrar unzip xz zip
-
       # terminal powerpoint
       haskellPackages.patat
     ] ++ fonts;

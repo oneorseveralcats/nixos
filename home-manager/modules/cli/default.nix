@@ -2,6 +2,7 @@
 {
   imports = [
     ./asciinema.nix
+    ./atool.nix
     ./aria2.nix
     ./bat.nix
     ./htop.nix

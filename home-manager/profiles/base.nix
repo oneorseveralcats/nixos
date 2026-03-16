@@ -14,8 +14,9 @@
     };
 
     cli = {
-      asciinema.enable = true;
       aria2.enable = true;
+      asciinema.enable = true;
+      atool.enable = true;
       bat.enable = true;
       htop.enable = true;
       hyfetch.enable = true;
