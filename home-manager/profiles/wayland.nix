@@ -10,7 +10,6 @@
 
       base.enable = true;
       extras.enable = true;
-      testing.enable = true;
     };
     media = {
       mpv.enable = true;

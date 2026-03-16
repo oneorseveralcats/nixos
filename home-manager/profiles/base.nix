@@ -7,7 +7,6 @@
     games.cli.enable = true;
     programming.base.enable = true;
     stylix.enable = true;
-    testing.enable = true;
 
     browsers = {
       gemini.enable = true;
