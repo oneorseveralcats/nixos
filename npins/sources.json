@@ -114,7 +114,8 @@
       "submodules": false,
       "revision": "036073ae61929f8c5009be5239a52e74d896c5d7",
       "url": "https://github.com/nixos/nixpkgs/archive/036073ae61929f8c5009be5239a52e74d896c5d7.tar.gz",
-      "hash": "11i6mg9k9digpbif95ijw421w2r5bza644g4ml7xhvilg9dyknqj"
+      "hash": "11i6mg9k9digpbif95ijw421w2r5bza644g4ml7xhvilg9dyknqj",
+      "frozen": true
     },
     "nixpkgs-unstable": {
       "type": "Channel",
