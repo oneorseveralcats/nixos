@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     home.shellAliases = {
-      lg = "${pkgs.lazygit}/bin/lazygit";
+      # lg = "${pkgs.lazygit}/bin/lazygit";
     };
 
     programs.direnv = {
@@ -45,6 +45,9 @@ in
 
     programs.lazygit = {
       enable = true;
+      settings = {
+        git.overrideGpg = true;
+      };
     };
   };
 }
