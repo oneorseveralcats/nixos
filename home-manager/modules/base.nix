@@ -68,7 +68,7 @@ in
       magic-wormhole megatools moreutils
       ncdu nmap npins
       pulsemixer python3Packages.yq
-      rdrview ripgrep
+      rdrview
       termdown
       # ventoy-bin 
       watchexec wcalc wget

@@ -22,6 +22,7 @@
       pandoc.enable = true;
       nb.enable = true;
       readline.enable = true;
+      ripgrep.enable = true;
       sc-im.enable = true;
       yt-dlp.enable = true;
       zellij.enable = true;

@@ -10,6 +10,7 @@
     ./pandoc.nix
     ./presenterm.nix
     ./readline.nix
+    ./ripgrep.nix
     ./sc-im.nix
     ./tmux.nix
     ./yt-dlp.nix
