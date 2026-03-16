@@ -11,11 +11,11 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       frotz
-      gnugo katago
+      gnugo
       nethack
       tty-solitaire
       vitetris
-    ];
+    ] ++ lib.optional pkgs.stdenv.hostPlatform.isx86 katago;
 
     home.shellAliases = {
       ttysolitaire = "${pkgs.tty-solitaire}/bin/ttysolitaire -p 999 --no-background-color";
