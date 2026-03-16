@@ -15,6 +15,9 @@ ln -sf "$git_root/.nix-channels" "$HOME/.nix-channels"
 ln -s "$git_root/home-manager" "$cfg_dir/"
 ln -s "$git_root/nixpkgs" "$cfg_dir/"
 
+# nix-on-droid tries to look in .config/npins so this handles that
+ln -s "$git_root/npins" "$cfg_dir/"
+
 sudo ln -s "$git_root/nixos" "/etc/"
 
   
