@@ -14,6 +14,7 @@
     };
 
     cli = {
+      asciinema.enable = true;
       aria2.enable = true;
       bat.enable = true;
       htop.enable = true;

@@ -60,7 +60,6 @@ in
     };
 
     home.packages = with pkgs; [
-      asciinema
       dconf
       exiftool
       ffmpeg
@@ -99,6 +98,7 @@ in
     };
     programs.jq.enable = lib.mkDefault true;
     programs.fzf.enable = lib.mkDefault true;
+    services.ssh-agent.enable = lib.mkDefault true;
     services.syncthing.enable = lib.mkDefault true;
 
     programs.lesspipe.enable = lib.mkDefault true;
@@ -118,8 +118,6 @@ in
       enableNushellIntegration = false;
       enableZshIntegration = false;
     };
-
-    services.ssh-agent.enable = lib.mkDefault true;
 
     xdg = {
       enable = true;

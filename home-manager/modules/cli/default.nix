@@ -1,6 +1,7 @@
 {...}:
 {
   imports = [
+    ./asciinema.nix
     ./aria2.nix
     ./bat.nix
     ./htop.nix
