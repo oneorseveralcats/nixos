@@ -2,5 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    coreutils
+    ncurses
   ];
 }
