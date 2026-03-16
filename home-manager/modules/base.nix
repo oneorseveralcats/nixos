@@ -25,6 +25,7 @@ in
       nixPath = npinsPaths;
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
+    xdg.configFile."nix/nix.conf".force = true;
 
     nixpkgs.config.packageOverrides = pkgs: {
       master = import <nixpkgs-master> { inherit pkgs; };
