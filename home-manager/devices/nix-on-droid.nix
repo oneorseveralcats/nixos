@@ -5,4 +5,6 @@
     gnugrep
     ncurses
   ];
+
+  myHome.media.mpv.enable = lib.mkForce false;
 }
