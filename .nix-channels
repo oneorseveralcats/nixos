@@ -6,6 +6,7 @@ https://github.com/thiagokokada/nix-alien/archive/96045e886ba0dd45b27590e7c0c6e7
 https://github.com/gmodena/nix-flatpak/archive/refs/tags/latest.tar.gz nix-flatpak
 https://github.com/nix-community/nix-on-droid/archive/55b6449b4582a4ba3ce712543c973360a026db7d.tar.gz nix-on-droid
 https://github.com/nixos/nixos-hardware/archive/f8e82243fd601afb9f59ad230958bd073795cbfe.tar.gz nixos-hardware
+https://github.com/nix-community/nixos-wsl/archive/eabb9a917f546c0bb64654850dd5f57f7694d1a3.tar.gz nixos-wsl
 https://releases.nixos.org/nixos/25.11/nixos-25.11.7608.e9f278faa1d0/nixexprs.tar.xz nixpkgs
 https://releases.nixos.org/nixos/unstable/nixos-26.05pre962836.c06b4ae3d659/nixexprs.tar.xz nixpkgs-unstable
 https://github.com/nix-community/nixvim/archive/b8f76bf5751835647538ef8784e4e6ee8deb8f95.tar.gz nixvim

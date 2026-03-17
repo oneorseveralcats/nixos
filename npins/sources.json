@@ -97,6 +97,19 @@
       "url": "https://github.com/nixos/nixos-hardware/archive/f8e82243fd601afb9f59ad230958bd073795cbfe.tar.gz",
       "hash": "09hywfjk2il0l84p0nvg392li9qpwfnrfnczjw12ik555mywd2da"
     },
+    "nixos-wsl": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixos-wsl"
+      },
+      "branch": "release-25.11",
+      "submodules": false,
+      "revision": "eabb9a917f546c0bb64654850dd5f57f7694d1a3",
+      "url": "https://github.com/nix-community/nixos-wsl/archive/eabb9a917f546c0bb64654850dd5f57f7694d1a3.tar.gz",
+      "hash": "1z1xkc6d5894v87jg0np1gmykf9lxbgv7wfchawpichsb2dbska0"
+    },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-25.11",
