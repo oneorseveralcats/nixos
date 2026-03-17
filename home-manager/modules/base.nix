@@ -59,6 +59,7 @@ in
     };
 
     home.packages = with pkgs; [
+      android-tools
       dconf
       exiftool
       ffmpeg
