@@ -41,7 +41,7 @@ in
       allowUnfree = true;
       packageOverrides = pkgs: {
         nur = import <nur> { inherit pkgs; };
-        unstable = import <nixos-unstable> { inherit pkgs; };
+        unstable = import <nixpkgs-unstable> { inherit pkgs; };
       };
     };
 
