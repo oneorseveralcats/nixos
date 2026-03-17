@@ -13,7 +13,6 @@ in
 
     virtualisation = {
       waydroid = {
-        # package = pkgs.unstable.waydroid-nftables;
         enable = true;
       };
     };
