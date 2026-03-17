@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    findutils
     gnugrep gnused
     ncurses
   ];
