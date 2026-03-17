@@ -9,7 +9,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    networking.firewall.enable = true;
+    networking = {
+      nftables.enable = true;
+      firewall.enable = true;
+    };
   };
 }
 

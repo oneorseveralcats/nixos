@@ -9,8 +9,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    networking.nftables.enable = true;
+
     virtualisation = {
       waydroid = {
+        # package = pkgs.unstable.waydroid-nftables;
         enable = true;
       };
     };
