@@ -10,6 +10,11 @@
 
   home.shellAliases.home-manager = "nix-on-droid";
 
+  home.file.".termux/termux.properties".text = lib.generators.toKeyValue {} {
+    fullscreen = true;
+    # use-fullscreen-workaround = true;
+  };
+
   xdg.configFile."fish/conf.d/background-processes.fish".source = pkgs.writers.writeFish "background-processes" ''
     if status --is-interactive
       if ! pgrep ssh-agent > /dev/null
