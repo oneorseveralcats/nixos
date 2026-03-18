@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     findutils
     gnugrep gnused
+    killall
     ncurses
     openssh
     procps
@@ -15,14 +16,22 @@
     # use-fullscreen-workaround = true;
   };
 
-  xdg.configFile."fish/conf.d/background-processes.fish".source = pkgs.writers.writeFish "background-processes" ''
-    if status --is-interactive
-      if ! pgrep ssh-agent > /dev/null
-        eval (ssh-agent -c) > /dev/null
-
-        trap "ssh-agent -k > /dev/null" SIGINT SIGTERM EXIT
+  programs.fish.shellInitLast = /* fish */ ''
+    function autostart
+      if status --is-login
+        if test -n $SSH_AUTH_PID
+          eval (ssh-agent -c) > /dev/null
+        end
       end
     end
+
+    function cleanup --on-event fish_exit
+      if status --is-login
+        ssh-agent -k > /dev/null
+      end
+    end
+
+    autostart
   '';
 
   programs.zellij.settings.default_shell = "bash";
