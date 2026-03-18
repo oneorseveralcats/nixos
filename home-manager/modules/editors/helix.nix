@@ -54,6 +54,9 @@ in
             };
           };
         };
+        keys.insert = {
+          "A-space" = "normal_mode";
+        };
         keys.normal = {
           Z.Z = [ ":wqa!" ];
           g.t = [ ":buffer-next" ];
