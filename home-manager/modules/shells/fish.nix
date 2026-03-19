@@ -72,8 +72,11 @@ in
           fish_default_key_bindings -M insert
           fish_vi_key_bindings --no-erase
 
-          bind -M default \ce accept-autosuggestion execute
-          bind -M insert \ce accept-autosuggestion execute
+          bind -M default ctrl-e accept-autosuggestion execute
+          bind -M insert  ctrl-e accept-autosuggestion execute
+
+          bind -M default ctrl-enter accept-autosuggestion execute
+          bind -M insert  ctrl-enter accept-autosuggestion execute
         end
 
         set -g fish_key_bindings keymap # autopair didn't work without this
