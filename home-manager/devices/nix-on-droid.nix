@@ -17,6 +17,10 @@
   #     use-fullscreen-workaround = true;
   # };
 
+  programs.nom.settings.openers = lib.mkForce [
+    { regex = "youtube"; cmd = "termux-open --content-type video %s"; }
+  ];
+
   programs.fish.shellInitLast = /* fish */ ''
     function autostart
       if status is-login
