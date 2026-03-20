@@ -9,7 +9,13 @@
     procps
   ];
 
+  home.sessionVariables.SHELL = "${pkgs.bash}/bin/bash";
   home.shellAliases.home-manager = "nix-on-droid";
+
+  # xdg.configFile."termux/termux.properties".text = lib.generators.toKeyValue {} {
+  #     fullscreen = true;
+  #     use-fullscreen-workaround = true;
+  # };
 
   programs.fish.shellInitLast = /* fish */ ''
     function autostart
