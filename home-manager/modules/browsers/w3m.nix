@@ -1,434 +1,346 @@
 { config, lib, pkgs, ... }:
 let 
-  inherit (lib)
-    mkIf
-    mkOption
-    types;
-
   cfg = config.myHome.browsers.w3m;
-in {
+in
+{
   options.myHome.browsers.w3m = {
-    enable = lib.mkEnableOption "the w3m terminal web browser";
+    enable = lib.mkEnableOption "the w3m terminal web browser and pager.";
+  };
 
-    package = lib.mkPackageOption pkgs "w3m" { nullable = true; };
+  config = let
+    w3mDir = "${config.xdg.configHome}/w3m";
+    in lib.mkIf cfg.enable {
+    programs.w3m = {
+      enable = true;
+      package = pkgs.w3m.overrideAttrs {
+        version = "git";
+        src = pkgs.fetchFromSourcehut {
+          owner = "~rkta";
+          repo = "w3m";
+          rev = "f66fade88b777511b093bc2690883175a7b0d47e";
+          sha256 = "sha256-K9uWdt2pWkqHG9CyIzS8WnHHPqn/vy5BW0Ci/Qr/mzc=";
+        };
+      };
+      w3mImg2Sixel = "img2sixel -d atkinson";
+      homePage = "${w3mDir}/bookmark.html";
+      bindings = {
+        "h" = "LEFT";
+        "k" = "DOWN";
+        "j" = "UP";
+        "l" = "RIGHT";
+        "LEFT" = "LEFT";
+        "DOWN" = "UP";
+        "UP" = "DOWN";
+        "RIGHT" = "RIGHT";
 
-    homePage = mkOption {
-      type = types.str;
-      default = "https://duckduckgo.com";
-      example = "\${config.xdg.configHome}/w3m/bookmark.html";
-      description = "Page w3m opens to if a url isn't provided.";
-    };
+        "M-h" = "MOVE_LEFT";
+        "M-j" = "MOVE_DOWN";
+        "M-k" = "MOVE_UP";
+        "M-l" = "MOVE_RIGHT";
+        "M-LEFT" = "MOVE_LEFT";
+        "M-DOWN" = "MOVE_DOWN";
+        "M-UP" = "MOVE_UP";
+        "M-RIGHT" = "MOVE_RIGHT";
+        
+        "C-u" = "PREV_PAGE";
+        "C-d" = "NEXT_PAGE";
 
-    w3mImg2Sixel = mkOption {
-      type = with types; nullOr str;
-      default = "img2sixel";
-      example = "img2sixel -d atkinson";
-      description = ''
-        The executable and arguments that w3m should execute when using libsixel
-        as the image backend.
-      '';
-    };
-
-    bindings = mkOption {
-      type = with types; attrsOf str;
-      default = { };
-      example = {
-        "gg" = "BEGIN";
-        "C-a" = "LINE_BEGIN";
-        "O" =
-          ''COMMAND "SET_OPTION dictprompt='GOTO: '; SET_OPTION dictcommand=file:/cgi-bin/opener.cgi ; DICT_WORD"'';
-        "\\\"" = "REG_MARK";
-        "\";\"" = "MARK_WORD";
+        "gh" = "LINE_BEGIN";
+        "gl" = "LINE_END";
         "\\^" = "LINE_BEGIN";
-        "M-TAB" = "PREV_LINK";
-        "M-C-j" = "SAVE_LINK";
-        "DEL" = "CLOSE_TAB";
+        "0" = "LINE_BEGIN";
+        "$" = "LINE_END";
+        "C-a" = "LINE_BEGIN";
+        "C-e" = "LINE_END";
+
+        "w" = "NEXT_WORD";
+        "W" = "PREV_WORD";
+      
         "SPC" = "NEXT_PAGE";
-        "UP" = "MOVE_UP";
+        "M-SPC" = "PREV_PAGE";
+        "TAB" = "NEXT_LINK";
+        "M-TAB" = "PREV_LINK";
+
+        "zt" = "CURSOR_TOP";
+        "zm" = "CURSOR_MIDDLE";
+        "zb" = "CURSOR_BOTTOM";
+        # "zt" = "LINE_TOP";
+        # "zm" = "LINE_MIDDLE";
+        # "zb" = "LINE_BOTTOM";
+
+        "gm" = "MAIN";
+        "gg" = "BEGIN";
+        "ge" = "END";
+        "G" = "END";
+
+        "r" = "RELOAD";
+        "R" = "RELOAD";
+
+        "gT" = "PREV_TAB";
+        "gt" = "NEXT_TAB";
+        "J" = "PREV_TAB";
+        "K" = "NEXT_TAB";
+        "m" = "MOVE_LIST_MENU";
+        "c-H" = "SELECT_MENU";
+        "b" = "TAB_MENU";
+        "C-t" = "NEW_TAB";
+        "d" = "CLOSE_TAB";
+        "C-w" = "CLOSE_TAB";
+        "M-b" = "BOOKMARK";
+
+        "H" = "BACK";
+
+        "/" = "ISEARCH";
+        "?" = "ISEARCH_BACK";
+        "n" = "SEARCH_NEXT";
+        "N" = "SEARCH_PREV";
+        "f" = "LIST_MENU";
+        "F" = ''COMMAND "NEW_TAB; LIST_MENU"'';
+
+        # "f" = ''COMMAND "RESHAPE ; LINK_BEGIN ; GOTO_LINK"'';
+        # "F" = ''COMMAND "RESHAPE ; LINK_BEGIN ; TAB_LINK"'';
+
+        # "C-s" = "SAVE_LINK";
+        "C-s" = "SAVE";
+        "C-l" = "REDRAW";
+        "C-i" = "INFO";
+        "q" = ''COMMAND "READ_SHELL 'rm ${w3mDir}/session 2>/dev/null'; BACK; STORE; EXIT"'';
+        "Q" = "EXIT";
+
+        "\";\"d" = "DOWNLOAD_LIST";
+        "\";\"h" = "HISTORY";
+        "\";\"m" = "MENU";
+
+        "M-x" = "COMMAND";
+        ":" = "COMMAND";
+        
+        "@" = "READ_SHELL";
+        "!" = "SHELL";
+        "|" = "PIPE_BUF";
+        "#" = "PIPE_SHELL";
+        
+        "o" = ''COMMAND "SET_OPTION dictprompt='open '; SET_OPTION dictcommand=file:/cgi-bin/handler; DICT_WORD"'';
+        "t" = ''COMMAND "SET_OPTION dictprompt='tabopen '; SET_OPTION dictcommand=file:/cgi-bin/handler; NEW_TAB; DICT_WORD"'';
+        "O" = "GOTO";
+        "T" = "TAB_GOTO";
+        "M-o" = "GOTO_LINK";
+        "M-t" = "TAB_LINK";
+
+        "M-r" = ''GOTO reader:'';
+
+        "X"  = "EXTERN";
+        "yy" = ''COMMAND "EXTERN ${pkgs.wl-clipboard}/bin/wl-copy; MESSAGE 'link copied!'"'';
+        "yh" = ''COMMAND "EXTERN_LINK ${pkgs.wl-clipboard}/bin/wl-copy; MESSAGE 'link copied!'"'';
+        "xm" = ''COMMAND "EXTERN_LINK '${pkgs.mpv}/bin/mpv --terminal=yes %s &'; MESSAGE 'video opened!'"'';
+
+        # "C-@" = "MARK";
+        # "\\\"" = "REG_MARK";
+        # ":" = "MARK_URL";
+        # "\";\"" = "MARK_WORD";
+        # "M-:" = "MARK_MID";
+        # "M-n" = "NEXT_MARK";
+        # "M-p" = "PREV_MARK";
+        
+        # "C-g" = "LINE_INFO";
+        # "C-k" = "COOKIE";
+        # "C-w" = "WRAP_TOGGLE";
+        # "C-z" = "SUSPEND";
+
+        # "(" = "UNDO";
+        # ")" = "REDO";
+        # "E" = "EDIT";
+        # "F" = "FRAME";
+        # "H" = "HELP";
+        # "I" = "VIEW_IMAGE";
+        # "L" = "LIST";
+        # "M" = "EXTERN";
+        # "S" = "SAVE_SCREEN";
+        # "U" = "GOTO";
+        # "V" = "LOAD";
+        # "Z" = "CENTER_H";
+        # "c" = "PEEK";
+        # "i" = "PEEK_IMG";
+        # "u" = "PEEK_LINK";
+        # "v" = "VIEW";
+        # "z" = "CENTER_V";
+
+      #   "M-I" = "SAVE_IMAGE";
+      #   "M-M" = "EXTERN_LINK";
+      #   "M-W" = "DICT_WORD_AT";
+      #   "M-e" = "EDIT_SCREEN";
+      #   "M-g" = "GOTO_LINE";
+      #   "M-k" = "DEFINE_KEY";
+      #   "M-o" = "SET_OPTION";
+      #   "M-u" = "GOTO_RELATIVE";
+      #   "M-w" = "DICT_WORD";
       };
-      description = ''
-        Keybindings for w3m.
 
-        See <https://git.sr.ht/~rkta/w3m/tree/master/item/doc/README.keymap> for
-        documentation.
-      '';
-    };
+      settings = {
+        cgi_bin = "${w3mDir}/w3m/cgi-bin";
+        mailcap = "${w3mDir}/w3m/mailcap";
+        urimethodmap = "${w3mDir}/w3m/urimethodmap";
+        passwd_file = "${w3mDir}/w3m/passwd";
+        pre_form_file = "${w3mDir}/w3m/pre_form";
+        siteconf_file = "${w3mDir}/w3m/siteconf";
 
-    bookmarks = {
-      title = mkOption {
-        type = types.str;
-        default = "Bookmarks";
-        description = ''
-          Title of the bookmarks page.
-        '';
+        dl_dir = "${config.xdg.userDirs.download}/downloads";
+        tmp_dir = "${config.xdg.cacheHome}/w3m";
+
+        editor = "$EDITOR";
+
+        bgextviewer = 1;
+        extbrowser = "xdg-open %s";
+        extbrowser2 = "url=%s && ${pkgs.mpv}/bin/mpv $url &";
+
+        dirlist_cmd = "file:/cgi-bin/lf";
+
+        tabstop = 4;
+        pixel_per_char = 13;
+        pixel_per_line = 27;
+        display_link = 0;
+        display_link_number = 0;
+        decode_url = 1;
+        display_lineinfo = 1;
+        display_column_number = 1;
+        graphic_char = 1;
+        fold_textarea = 1;
+        fold_pre = 1;
+        display_ins_del = 2;
+        inline_img_protocol = 2;
+        # imgdisplay = "chafa";
+        fold_line = 1;
+        label_topline = 1;
+        nextpage_topline = 1;
+        high-intensity = 1;
+        active_style = 1;
+        visited_anchor = 1;
+        vi_prec_num = 1;
+        mark_all_pages = 1;
+        wrap_search = 1;
+        use_lessopen = 0;
+        user_agent = "lynx";
+        meta_refresh = 1;
+        use_cookie = 1;
       };
+      
+      siteconf = [
+        { url =  "https://duckduckgo.com/l/?uddg="; preferences = [ "url_charset utf-8" ''substitute_url ""'' ]; }
+      ];
+      urimethodmap = {
+        gemini = "file:/cgi-bin/gemini?%s";
+        reader = "file:/cgi-bin/reader?%s";
+      };
+      bookmarks = {
+        title = "Bookmarks";
+        marks = {
+          gemini = [
+            { name = "kennedy"; url = "https://portal.mozz.us/gemini/kennedy.gemi.dev/search"; }
+            { name = "gemplex"; url = "https://portal.mozz.us/gemini/gemplex.space/search"; }
+            { name = "TLGS"; url = "https://portal.mozz.us/gemini/tlgs.one/search"; }
 
-      marks = mkOption {
-        type =
-          let
-            bookmarkType = types.submodule {
-              options = {
-                name = mkOption {
-                  type = types.str;
-                  description = ''
-                    Display name of bookmark.
-                  '';
-                };
+            { name = "antenna"; url = "https://portal.mozz.us/gemini/warmedal.se/~antenna/"; }
+            { name = "BBS"; url = "https://portal.mozz.us/gemini/bbs.geminispace.org/"; }
+            { name = "cosmos"; url = "https://portal.mozz.us/gemini/skyjake.fi/~Cosmos/"; }
+            { name = "station"; url = "https://portal.mozz.us/gemini/station.martinrue.com/"; }
 
-                url = mkOption {
-                  type = types.str;
-                  description = ''
-                    Destination address of bookmark.
-                  '';
-                };
-              };
-            };
-          in
-          with types;
-          attrsOf (listOf bookmarkType);
-        default = { };
-        example = {
-          nix = [
-            {
-              name = "nixos manual";
-              url = "https://nixos.org/manual/nixos/stable/";
-            }
-            {
-              name = "home-manager manual";
-              url = "https://nix-community.github.io/home-manager/";
-            }
+            { name = "skyjake"; url = "https://portal.mozz.us/gemini/skyjake.fi/"; }
           ];
-          archlinux = [
-            {
-              name = "aur";
-              url = "https://aur.archlinux.org/";
-            }
-            {
-              name = "archwiki";
-              url = "https://wiki.archlinux.org/title/Main_page";
-            }
+          gopher = [
+            { name = "gopherpedia"; url = "gopher://gopherpedia.com/7/lookup"; }
+            { name = "bitreich"; url = "gopher://bitreich.org/1/lawn"; }
+            { name = "hackernews"; url = "gopher://hngopher.com/"; }
+            { name = "parazy"; url = "gopher://bay.parazy.de:666"; }
           ];
         };
-        description = ''
-          Bookmark file for w3m.
-        '';
       };
-    };
-
-    cgiBin = mkOption {
-      type =
-        let
-          fileType = types.submodule {
-            options = {
-              source = mkOption {
-                type = with types; nullOr path;
-                default = null;
-                description = ''
-                  Path to script file.
-                '';
-              };
-              text = mkOption {
-                type = with types; nullOr lines;
-                default = null;
-                description = ''
-                  Inline content of script file.
-                '';
-              };
-            };
+      cgiBin = {
+        handler.source = let
+          engines = with config.myHome.browsers.settings; search-engines // {
+            w = search-engines.gopherpedia;
+            yt = search-engines.idiotbox;
           };
-        in
-        types.attrsOf fileType;
-      default = { };
-      example = {
-        "search.cgi".text = ''
-          #!/usr/bin/env sh
+          generateSearchEngines = set: lib.concatMapAttrsStringSep "\n"
+            (k: v: ''${k}) echo "W3m-control: GOTO ${lib.replaceStrings [ "%s" ] [ "$QUERY" ] v}";;'') set;
+        in pkgs.writeShellScript "handler" ''
+          clean_url () {
+            echo "$1" | sed 's_%3A_:_g;
+                             s_%2F_/_g;
+                             s_+_ _g' | xargs
+          }
 
-          PREFIX=$(echo "$QUERY_STRING" | cut -d ':' -f1)
-          INPUT=$(echo "$QUERY_STRING" | cut -d ':' -f2-)
+          is_valid_url () {
+            # regex='(https?|ftp|file|gopher|gemini)://[-[:alnum:]\+&@#/%?=~_|!:,.;]*[-[:alnum:]\+&@#/%=~_|]'
+            regex='^((https?|ftp|file|gopher|gemini)://)?[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]\.[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]$'
 
-          case $PREFIX in
-            aw) echo "W3m-control: GOTO https://wiki.archlinux.org/index.php?search=$INPUT";;
-            ddg) echo "W3m-control: GOTO https://lite.duckduckgo.com/lite/?q=$INPUT";;
-          esac
+            [[ "$1" =~ $regex ]] && return 0
+          }
+
+          CLEANED_QUERY=$(clean_url "$QUERY_STRING")
+
+          PREFIX=$(echo "$CLEANED_QUERY" | cut -d' ' -f1)
+          QUERY=$(echo "$CLEANED_QUERY" | cut -d' ' -f2-)
+
+          echo "QUERY_STRING: \"$QUERY_STRING\""
+          echo "CLEANED_QUERY: \"$CLEANED_QUERY\""
+          echo "SCHEME: \"$PREFIX\""
+          echo "ADDRESS: \"$QUERY\""
+          is_valid_url "$CLEANED_QUERY" && echo "URL VALID" || echo "URL NOT VALID" 
+
+          if is_valid_url "$CLEANED_QUERY"; then
+            echo "W3m-control: GOTO $CLEANED_QUERY"
+          else
+            case $PREFIX in
+          ${generateSearchEngines engines}
+              *) echo "W3m-control: GOTO https://lite.duckduckgo.com/lite/?q=$CLEANED_QUERY";;
+            esac
+          fi
 
           echo "W3m-control: DELETE_PREVBUF"
         '';
-      };
-      description = ''
-        Scripts located in w3m's cgi-bin directory. For security reasons, w3m can
-        only read scripts from here and {file}`''${pkgs.w3m}/libexec/w3m/cgi-bin/`
-        (referenceable as $LIB in w3m). The cgi-bin scripts can be written in any
-        language and have access to the query provided to them through the
-        QUERY_STRING environment variable. A cgi-bin script can send commands
-        back to w3m via stdout with the form "W3m-control: <command>".
 
-        See <https://git.sr.ht/~rkta/w3m/tree/master/item/doc/MANUAL.html> for
-        more information.
+        reader.source = pkgs.writeShellScript "rdrview" ''
+          echo "W3m-control: BACK"
+          echo "W3m-control: READ_SHELL rdrview -H $W3M_URL 2>/dev/null"
+          echo "W3m-control: VIEW"
+          echo "W3m-control: DELETE_PREVBUF"
 
-        As of w3m v0.5.5, the option `cgi_bin` isn't defined by default. If you
-        want to use any cgi-bin scripts in w3m then set
-        `programs.w3m.settings.cgi_bin`.
-      '';
-    };
-
-    settings = mkOption {
-      type = with types; attrsOf (either str int);
-      default = { };
-      example = {
-        cgi_bin = "\${config.xdg.configHome}/w3m/cgi-bin";
-        urimethodmap = "\${config.xdg.configHome}/w3m/urimethodmap";
-        siteconf_file = "\${config.xdg.configHome}/w3m/siteconf";
-
-        tabstop = 4;
-        extbrowser = "firefox";
-      };
-      description = ''
-        Settings for w3m typically set on the OPTIONS page. The best way to
-        configure them is setting them in w3m then nixifying the w3m `config`
-        file located at either {file}`~/.w3m/config` or
-        {file}`~/$XDG_CONFIG_HOME/w3m/config`.
-      '';
-    };
-
-    siteconf = mkOption {
-      type =
-        let
-          entryType = types.submodule {
-            options = {
-              url = mkOption {
-                type = types.str;
-                description = ''
-                  The url that the preferences should apply to. Can be of the
-                  form `<url>`, `m!<regex>!`, `m@<regex>@`, or `/<regex>/` with
-                  optional trailing "i" for case insensitive and "exact" for exact
-                  matches.
-                '';
-              };
-              preferences = mkOption {
-                type = with types; listOf str;
-                description = ''
-                  The preferences that w3m can apply to the matched url. Options
-                  are: `substitute_url "<destination-url>"`,
-                  `url_charset <charset>`, `no_referer_from on|off`,
-                  `no_referer_to on|off`, `user_agent "string"`.
-                '';
-              };
-            };
-          };
-        in
-        types.listOf entryType;
-      default = [ ];
-      example = [
-        {
-          url = "m!^https://duckduckgo.com/!i";
-          preferences = [
-            ''substitute_url "https://lite.duckduckgo.com"''
-          ];
-        }
-        {
-          url = "m!^https://wikipedia.org/! exact";
-          preferences = [
-            "url_charset utf-8"
-            ''substitute_url "https://eo.wikipedia.org"''
-          ];
-        }
-      ];
-      description = ''
-        Settings for w3m's siteconf. It allows you to match on a url pattern
-        and do various things like url substitutions, site-specific user agent
-        settings, specifying charset, and a few others.
-
-        See <https://git.sr.ht/~rkta/w3m/tree/master/item/doc/README.siteconf>
-        for documentation and examples.
-
-        As of w3m v0.5.5, siteconf doesn't respect the W3M_DIR environment
-        variable, so unless `programs.w3m.settings.siteconf_file` is set,
-        `siteconf` will always be at {file}`~/.w3m/siteconf`.
-      '';
-    };
-
-    urimethodmap = mkOption {
-      type = with types; attrsOf str;
-      default = { };
-      example = {
-        ddg = "file:/cgi-bin/search.cgi?%s";
-        help = "file:/$LIB/w3mhelp.cgi?%s";
-      };
-      description = ''
-        Settings for w3m's urimethodmap. It allows you to define custom uri
-        schemes and map them to scripts. Scripts must be in the directory
-        defined in `programs.w3m.settings.cgi_bin`.
-
-        As of w3m v0.5.5, urimethodmap doesn't respect the W3M_DIR environment
-        variable, so unless `programs.w3m.settings.urimethodmap` is set,
-        `urimethodmap` will always be at {file}`~/.w3m/urimethodmap`.
-      '';
-    };
-
-    extraPackages = mkOption {
-      type = with types; listOf package;
-      default = [ ];
-      example = lib.literalExpression "[ pkgs.rdrview pkgs.libsixel ]";
-      description = "Extra packages available to w3m.";
-    };
-  };
-
-config =
-  let
-    w3mDir =
-      if config.home.preferXdgDirectories && config.xdg.enable then
-        "${config.xdg.configHome}/w3m"
-      else
-        "${config.home.homeDirectory}/.w3m";
-
-    # the locations that various files should be generated.
-    bookmarkFile = "${w3mDir}/bookmark.html";
-    configFile = "${w3mDir}/config";
-    keymapFile = cfg.settings.keymap_file or "${w3mDir}/keymap";
-
-    # these files currently don't respect the W3M_DIR environment variable so,
-    # if not configured in programs.w3m.settings, they're expected to be at
-    # ~/.w3m. This will likely be fixed in w3m versions after v0.5.6.
-    urimethodmapFile = cfg.settings.urimethodmap or "${config.home.homeDirectory}/.w3m/urimethodmap";
-    siteconfFile = cfg.settings.siteconf_file or "${config.home.homeDirectory}/.w3m/siteconf";
-    cgiBinDir = cfg.settings.cgi_bin or "${config.home.homeDirectory}/.w3m/cgi-bin";
-
-    # prepends the path of the cgiBinDir to the script name, explicitly generates
-    # and replaces any text attribute with equivalent
-    # "source = pkgs.writeScript ..."
-    cgiScripts = lib.mapAttrs' (
-      k: v:
-      lib.nameValuePair "${cgiBinDir}/${k}" (
-        if (v.text != null) then { source = pkgs.writeScript k v.text; } else v
-      )
-    ) cfg.cgiBin;
-
-    # used to generate config, keymap, and urimethodmap files
-    mkConfig =
-      {
-        pre ? "",
-        sep ? " ",
-      }:
-      set:
-      lib.generators.toKeyValue {
-        indent = pre;
-        mkKeyValue = lib.generators.mkKeyValueDefault { } sep;
-      } set;
-
-    # put at the top of configuration files.
-    warningHeader = ''
-      # This file was generated by Home Manager and is read-only.
-
-    '';
-  in
-  mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = (lib.filterAttrs (k: v: !isNull v.text && !isNull v.source) cfg.cgiBin) == { };
-        message = "Cannot specify both `.text` and `.source` options for `programs.w3m.cgiBin` scripts.";
-      }
-    ];
-
-    # wraps w3m to avoid polluting the user environment with its environment
-    # variables and extra packages.
-    home.packages = lib.mkIf (cfg.package != null) [
-      (pkgs.symlinkJoin {
-        name = "w3m-wrapped";
-        paths = [ cfg.package ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/w3m \
-          --set W3M_DIR "${w3mDir}" \
-          --set W3M_IMG2SIXEL "${cfg.w3mImg2Sixel}" \
-          --set WWW_HOME "${cfg.homePage}" \
-          --suffix PATH : ${lib.makeBinPath cfg.extraPackages}
+          # stdin="$(cat)"
+          # echo "<!DOCTYPE html>"
+          # echo "<html>"
+          # echo "<h1>test</h1>"
+          # echo "$stdin" | ${pkgs.rdrview}/bin/rdrview -H -T title,sitename,body
+          # echo "</html>"
         '';
-      })
-    ];
 
-    home.file = {
-      # generates w3m's bookmark file. the format is:
-      #   <h1>title</h1>
-      #   <h2>category1</h2>
-      #   <ul>
-      #     <li>bookmark</li>
-      #     ...
-      #   </ul>
-      #
-      #   <h2>category2</h2>
-      #   ...
-      "${bookmarkFile}" = mkIf (cfg.bookmarks.marks != { }) {
-        source =
-          let
-            mkBookmarks =
-              with lib;
-              set:
-              concatStringsSep "\n" (
-                flatten (
-                  mapAttrsToList (
-                    k: v:
-                    [ "<h2>${k}</h2>" ]
-                    ++ [ "<ul>" ]
-                    ++ (map (s: "<li><a href=\"${s.url}\">${s.name}</a></li>") v)
-                    ++ [ "</ul" ]
-                  ) set
-                )
-              );
-          in
-          pkgs.writeText "bookmark.html" ''
-            <!-- This file was generated by Home Manager and is read-only. -->
-            <!DOCTYPE html>
-            <html>
-            <head>
-            </head>
-            <body>
-            <h1>${cfg.bookmarks.title}</h1>
-            ${mkBookmarks cfg.bookmarks.marks}
-            </body>
-            </html>
-          '';
+        gemini.source = pkgs.writeShellScript "gemini" ''
+          QUERY_STRING=$(echo "$QUERY_STRING" | cut -d '/' -f3-)
+
+          echo "W3m-control: GOTO https://portal.mozz.us/gemini/$QUERY_STRING"
+        '';
+
+        lf.source = pkgs.writeShellScript "lflist" ''
+          read stdin
+          echo "W3m-control: GOTO $(${pkgs.lf}/bin/lf -print-selection $stdin)"
+          echo "W3m-control: DELETE_PREVBUF"
+        '';
       };
 
-      # generates w3m's keybinding file. the format is:
-      #   keymap <key(s)> <action(s)>
-      "${keymapFile}" = mkIf (cfg.bindings != { }) {
-        source = pkgs.writeText "keymap" (warningHeader + (mkConfig { pre = "keymap "; } cfg.bindings));
-      };
+      extraPackages = with pkgs; [
+        chafa
+        libsixel
+        rdrview
+      ];
+    };
 
-      # generates w3m's main config file. the format is:
-      #   <option> <value>
-      "${configFile}" = mkIf (cfg.settings != { }) {
-        source = pkgs.writeText "config" (warningHeader + (mkConfig { } cfg.settings));
-      };
-
-      # generates w3m's siteconf file. the format is:
-      #   url <pattern>
-      #   <option> <argument>
-      #   <option> <argument>
-      #   ...
-      #
-      #
-      #   url <pattern>
-      #   ...
-      "${siteconfFile}" = mkIf (cfg.siteconf != [ ]) {
-        source =
-          let
-            mkSiteConf =
-              with lib;
-              set: concatStringsSep "\n" (flatten (map (s: [ "url ${s.url}" ] ++ s.preferences ++ [ "\n" ]) set));
-          in
-          pkgs.writeText "siteconf" (warningHeader + (mkSiteConf cfg.siteconf));
-      };
-
-      # generates w3m's urimethodmap file. the format is:
-      #   <uri_scheme>: <script>
-      "${urimethodmapFile}" = mkIf (cfg.urimethodmap != { }) {
-        source = pkgs.writeText "urimethodmap" (
-          warningHeader + (mkConfig { sep = ": "; } cfg.urimethodmap)
-        );
-      };
-    }
-    // cgiScripts;
+    home.file.".local/bin/w3m" = {
+      source = pkgs.writeShellScript "w3m-session-restore" ''
+        if [ -e "${w3mDir}/session" ]; then
+            ~/.nix-profile/bin/w3m -R "$@"
+        else
+            ~/.nix-profile/bin/w3m "$@"
+        fi
+      '';
+      executable = true;
+    };
   };
 }
-

@@ -10,7 +10,7 @@
 
     browsers = {
       gemini.enable = true;
-      # w3m.enable = true;
+      w3m.enable = true;
     };
 
     cli = {

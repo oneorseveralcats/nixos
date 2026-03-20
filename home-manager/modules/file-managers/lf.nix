@@ -117,10 +117,10 @@ in
         }}
 
         cmd extract %{{
-          if ! (${pkgs.atool}/bin/atool -x -- "$f"); then
+          if ! (${config.programs.atool.finalPackage}/bin/atool -x -- "$f"); then
             printf ' format not recognized. manually specify: '
             read ans
-            if ! (${pkgs.atool}/bin/atool -F $ans -x "$f"); then
+            if ! (${config.programs.atool.finalPackage}/bin/atool -F $ans -x "$f"); then
               printf ' error: unable to extract. try again.'
             fi
           fi

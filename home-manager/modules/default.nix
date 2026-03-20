@@ -11,6 +11,7 @@
     ./programming
     ./shells
     ./socials
+    ./temporary
     ./virtualization
 
     ./base.nix

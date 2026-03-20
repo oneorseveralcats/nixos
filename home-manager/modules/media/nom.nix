@@ -5,17 +5,16 @@ let
 in
 {
   options.myHome.media.nom = {
-    enable = lib.mkEnableOption "Enable the nom rss feed reader.";
+    enable = lib.mkEnableOption "the nom rss feed reader.";
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.unstable.nom
-    ];
+    myHome.stylix.enable = true;
 
-    xdg.configFile."nom/config.yml" = {
-      force = true;
-      text = lib.generators.toYAML {} {
+    programs.nom = {
+      enable = true;
+      package = pkgs.unstable.nom;
+      settings = {
         autoread = true;
         showread = false;
         ordering = "desc";
