@@ -13,7 +13,7 @@ in {
   nix.nixPath = npinsPaths;
 
   build.activation.generateTermuxProperties = let
-    path = "$XDG_CONFIG_HOME/termux/termux.properties";
+    path = "$HOME/.config/termux/termux.properties";
     settings = {
       fullscreen = true;
       use-fullscreen-workaround = true;
