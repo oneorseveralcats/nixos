@@ -13,6 +13,8 @@ in
         # http
         archwiki = "https://wiki.archlinux.org/index.php?search=%s";
         archman = "https://man.archlinux.org/search?q=%s";
+        duckduckgo = "https://duckduckgo.com/?q=%s";
+        duckduckgolite = "https://lite.duckduckgo.com/lite/?q=%s";
         idiotbox = "https://codemadness.org/idiotbox/?q=%s"; # youtube frontend
         nixpkgs = "https://search.nixos.org/packages?query=%s";
         nixopts = "https://search.nixos.org/options?query=%s";
@@ -25,6 +27,7 @@ in
 
         aw = archwiki;
         am = archman;
+        d = duckduckgo;
         np = nixpkgs;
         no = nixopts;
         nw = nixwiki;
@@ -43,7 +46,7 @@ in
 
 
         # gemini
-        # kennedy = "gemini://kennedy.gemi.dev/search?%s?reader=1";
+        kennedy = "gemini://kennedy.gemi.dev/search?%s";
       };
     };
   };
