@@ -14,11 +14,7 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      package =
-        if pkgs.stdenv.hostPlatform.isx86_64 then
-          (builtins.getFlake (toString <helix-master>)).packages.${pkgs.stdenv.hostPlatform.system}.default
-        else
-          pkgs.unstable.helix;
+      package = pkgs.unstable.helix;
       defaultEditor = lib.mkDefault true;
       settings = {
         editor = {
