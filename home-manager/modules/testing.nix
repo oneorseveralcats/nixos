@@ -19,7 +19,6 @@ in
 
     ];
 
-    myHome.browsers.chawan.enable = true;
     myHome.programming.languages.java.enable = true;
   };
 }

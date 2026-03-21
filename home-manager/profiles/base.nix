@@ -9,7 +9,7 @@
     stylix.enable = true;
 
     browsers = {
-      gemini.enable = true;
+      chawan.enable = true;
       w3m.enable = true;
     };
 
