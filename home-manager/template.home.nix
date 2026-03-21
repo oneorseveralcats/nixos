@@ -13,11 +13,12 @@
 
     # uncomment or add the correct device
     # ./devices/desktop.nix
-    # ./devices/primary.nix
+    # ./devices/nix-on-droid.nix
     # ./devices/pbp.nix
+    # ./devices/primary.nix
     # ./devices/server.nix
     # ./devices/t470s.nix
-    # ./devices/nix-on-droid.nix
+    # ./devices/wsl.nix
   ];
 
   # original nixos version

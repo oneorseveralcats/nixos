@@ -13,6 +13,7 @@
       # ./devices/rock64.nix
       # ./devices/server.nix
       # ./devices/t470s.nix
+      # ./devices/wsl.nix
   ];
 
   system.stateVersion = "21.11";
