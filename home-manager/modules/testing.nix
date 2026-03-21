@@ -17,9 +17,9 @@ in
       hugo
       rippkgs
 
-      unstable.chawan
     ];
 
+    myHome.browsers.chawan.enable = true;
     myHome.programming.languages.java.enable = true;
   };
 }

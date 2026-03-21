@@ -1,6 +1,7 @@
 {...}:
 {
   imports = [
+    ./chawan.nix
     ./chromium.nix
     ./firefox.nix
     ./floorp.nix
