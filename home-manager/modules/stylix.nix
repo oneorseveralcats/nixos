@@ -215,17 +215,6 @@ in
         selection-match = match;
       };
     };
-
-    xresources = {
-      properties = {
-        "Nsxiv.window.background" =	"#${config.lib.stylix.colors.base00-hex}";
-        "Nsxiv.window.foreground" =	"#${config.lib.stylix.colors.base0D-hex}";
-        "Nsxiv.bar.background" =	"#${config.lib.stylix.colors.base0D-hex}";
-        "Nsxiv.bar.foreground" =	"#${config.lib.stylix.colors.base00-hex}";
-        "Nsxiv.mark.foreground" =	"#${config.lib.stylix.colors.base08-hex}";
-        "Nsxiv.bar.font" = "${config.stylix.fonts.sansSerif.name}-${toString config.stylix.fonts.sizes.applications}";
-      };
-    };
   };
 }
 
