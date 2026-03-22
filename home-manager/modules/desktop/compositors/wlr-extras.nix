@@ -17,16 +17,6 @@ in
       wev wlprop
     ];
 
-    programs.fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          terminal = "${pkgs.foot}/bin/foot";
-          list-executables-in-path = true;
-        };
-      };
-    };
-
     services.mako = {
       enable = true;
       settings = {
