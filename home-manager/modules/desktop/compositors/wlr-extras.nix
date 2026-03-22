@@ -17,16 +17,6 @@ in
       wev wlprop
     ];
 
-    services.mako = {
-      enable = true;
-      settings = {
-        default-timeout = 15000;
-        width = 500;
-        height = 500;
-        border-size = 2;
-      };
-    };
-
     services.swayidle = {
       enable = true;
       events = [
