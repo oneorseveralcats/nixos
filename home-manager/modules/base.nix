@@ -53,7 +53,6 @@ in
       };
       shellAliases = {
         e = "$EDITOR";
-        neofetch = "${pkgs.hyfetch}/bin/neowofetch";
         q = "exit";
         weather = "${pkgs.curl}/bin/curl 'wttr.in/Cincinnati?2QFu'";
       };

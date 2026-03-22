@@ -10,6 +10,9 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [ pkgs.fastfetch ];
+
+    home.shellAliases.neofetch = "${pkgs.hyfetch}/bin/neowofetch";
+
     programs.hyfetch = {
       enable = true;
       settings = {
