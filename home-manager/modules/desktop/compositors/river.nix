@@ -9,7 +9,18 @@ in
   };
 
   config = mkIf cfg.enable {
-    myHome.desktop.compositors.wlr-extras.enable = true;
+    myHome.desktop = {
+      bars.waybar.enable = true;
+      launchers.fuzzel.enable = true;
+
+      others = {
+        mako.enable = true;
+        swayidle.enable = true;
+        swaylock.enable = true;
+        wlr-packages.enable = true;
+        wlr-portals.enable = true;
+      };
+    };
 
     wayland.windowManager.river = {
       enable = true;
@@ -184,13 +195,21 @@ in
         _JAVA_AWT_WM_NONREPARENTING = "1";
         ANKI_WAYLAND = "1";
         MOZ_ENABLE_WAYLAND = "1";
-        QT_QPA_PLATFORM = "wayland-egl";
+        # QT_QPA_PLATFORM = "wayland-egl";
+        QT_QPA_PLATFORM = "wayland";
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         SDL_VIDEODRIVER = "wayland";
       };
       extraConfig = /* sh */ ''
         rivertile -main-ratio 0.5 -view-padding 6 -outer-padding 6 &
       '';
+    };
+
+    myHome.stylix.enable = true;
+    wayland.windowManager.river.settings = {
+        # background-color = lib.mkForce "0x002b36";
+        # border-color-focused = lib.mkForce "0x${config.lib.stylix.colors.base0D-hex}";
+        border-color-unfocused = lib.mkForce "0x${config.lib.stylix.colors.base02-hex}";
     };
   };
 }
