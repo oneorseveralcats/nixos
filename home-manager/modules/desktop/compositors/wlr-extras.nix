@@ -17,14 +17,6 @@ in
       wev wlprop
     ];
 
-    programs.swaylock = {
-      enable = true;
-      settings = {
-        daemonize = true;
-        hide-keyboard-layout = true;
-      };
-    };
-
     xdg.portal = {
       enable = true;
       config = {
