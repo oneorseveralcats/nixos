@@ -334,6 +334,14 @@ in
       '';
     };
 
+    myHome.stylix.enable = true;
+    wayland.windowManager.sway.config.colors = {
+      focused.background = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
+      focused.text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
+      focusedInactive.border = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
+      unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
+    };
+
     services.swayosd = {
       enable = true;
       topMargin = 0.5;

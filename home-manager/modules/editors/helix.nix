@@ -17,6 +17,7 @@ in
       package = pkgs.unstable.helix;
       defaultEditor = lib.mkDefault true;
       settings = {
+        theme = lib.mkForce "stylix-custom";
         editor = {
           bufferline = "multiple";
           color-modes = true;
@@ -108,6 +109,21 @@ in
         ++ optionals lang.rust.enable [ pkgs.rust-analyzer pkgs.lldap ]
         ++ optionals lang.zig.enable [ zls lldap ]
       ;
+    };
+
+    myHome.stylix.enable = true;
+    programs.helix = {
+      themes = {
+        stylix-custom = {
+          inherits = "stylix";
+
+          "ui.statusline.normal" = { fg = "base00"; bg = "base0D"; };
+          "ui.bufferline.active" = { fg = "base00"; bg = "base0D"; modifiers = ["bold"]; };
+          "ui.cursor.primary" = { fg = "base0D"; modifiers = ["reversed"]; };
+          "ui.cursor.match" = { fg = "base0D"; underline.style = "line"; };
+          # "ui.cursor.select" = { fg = "base0A"; modifiers = ["reversed"]; };
+        };
+      };
     };
   };
 }

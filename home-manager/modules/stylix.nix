@@ -82,7 +82,7 @@ in
           window.background { border-radius: 0; }
         '';
         swaylock = {
-          enable = true;
+          enable = true; # fixed when system.stateVersion >= 23.05
           useWallpaper = false;
         };
 
@@ -91,6 +91,7 @@ in
         };
 
         firefox.profileNames = [ "personal" "school" "offline" ];
+        floorp.profileNames = config.stylix.targets.firefox.profileNames;
         librewolf.profileNames = config.stylix.targets.firefox.profileNames;
       };
     };
@@ -106,113 +107,14 @@ in
     #     name = lib.mkForce "Adwaita-dark";
     #   };
     # };
+    
+    # I believe this will be removable in next stylix release.
     qt = {
       enable = true;
       platformTheme.name = "qtct";
       style = {
         # package = pkgs.adwaita-qt;
         name = "adwaita-dark";
-      };
-    };
-
-    wayland.windowManager.river.settings = {
-        # background-color = lib.mkForce "0x002b36";
-        # border-color-focused = lib.mkForce "0x${config.lib.stylix.colors.base0D-hex}";
-        border-color-unfocused = lib.mkForce "0x${config.lib.stylix.colors.base02-hex}";
-    };
-
-    wayland.windowManager.sway.config.colors = {
-      focused.background = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
-      focused.text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
-      focusedInactive.border = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
-      unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
-    };
-
-    programs.waybar.style = /* css */ ''
-      .modules-left #workspaces button:hover,
-      .modules-left #tags button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
-      }
-
-      .modules-left #workspaces button,
-      .modules-left #tags button {
-        color: @base05;
-        padding: 0 3px;
-      }
-
-      .modules-left #workspaces button.focused,
-      .modules-left #workspaces button.active,
-      .modules-left #tags button.focused,
-      .modules-left #tags button.active {
-        border-bottom-color: @base0D;
-        color: @base0D;
-      }
-
-      .modules-left #workspaces button.urgent,
-      .modules-left #tags button.urgent {
-        background-color: @base00;
-        border-bottom-color: @base08;
-        color: @base08;
-      }
-
-      .modules-left #workspaces button.empty,
-      .modules-left #tags button:not(.occupied):not(.focused) {
-        color: @base02;
-      }
-
-      .modules-left #workspaces label {
-        font-weight: normal;
-      }
-
-      .modules-left widget label#mode {
-        margin-left: 0.25em;
-        color: @base08;
-      }
-
-      .modules-right widget {
-        border-left: 1.25px solid @base05;
-        border-bottom: 15px solid transparent;
-        border-top: 15px solid transparent;
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-
-      .modules-right box#tray widget {
-        border-left: 0;
-      }
-
-      .modules-right box#tray {
-        padding-left: 5px;
-      }
-
-      .modules-right #custom-sep {
-        font-weight: bold;
-        padding-left: 2px;
-        padding-right: 2px;
-      }
-    '';
-
-    programs.helix = {
-      settings.theme = lib.mkForce "stylix-custom";
-      themes = {
-        stylix-custom = {
-          inherits = "stylix";
-
-          "ui.statusline.normal" = { fg = "base00"; bg = "base0D"; };
-          "ui.bufferline.active" = { fg = "base00"; bg = "base0D"; modifiers = ["bold"]; };
-          "ui.cursor.primary" = { fg = "base0D"; modifiers = ["reversed"]; };
-          "ui.cursor.match" = { fg = "base0D"; underline.style = "line"; };
-          # "ui.cursor.select" = { fg = "base0A"; modifiers = ["reversed"]; };
-        };
-      };
-    };
-
-    programs.fuzzel.settings = {
-      main.icon-theme = "${config.stylix.iconTheme.dark}";
-      colors = rec {
-        match = lib.mkForce "${config.lib.stylix.colors.base0D-hex}ff";
-        selection-match = match;
       };
     };
   };
