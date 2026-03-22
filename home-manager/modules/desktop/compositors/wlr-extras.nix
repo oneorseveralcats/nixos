@@ -16,30 +16,5 @@ in
       wf-recorder wl-clipboard wl-clipboard-x11 
       wev wlprop
     ];
-
-    xdg.portal = {
-      enable = true;
-      config = {
-        common = {
-          default = [
-            "gtk"
-          ];
-        };
-        sway = {
-          default = [
-            "wlr"
-            "gtk"
-          ];
-          "org.freedesktop.impl.portal.Secret" = [
-            "gnome-keyring"
-          ];
-        };
-      };
-      extraPortals = with pkgs; [
-        gnome-keyring
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
-    };
   };
 }
