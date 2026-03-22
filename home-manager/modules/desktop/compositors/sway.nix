@@ -8,8 +8,19 @@ in
     enable = lib.mkEnableOption "Enable and configure the sway wayland compositor.";
   };
 
-  config =  mkIf cfg.enable {
-    myHome.desktop.compositors.wlr-extras.enable = true;
+  config = mkIf cfg.enable {
+    myHome.desktop = {
+      bars.waybar.enable = true;
+      launchers.fuzzel.enable = true;
+
+      others = {
+        mako.enable = true;
+        swayidle.enable = true;
+        swaylock.enable = true;
+        wlr-packages.enable = true;
+        wlr-portals.enable = true;
+      };
+    };
 
     # extraSessionCommands does not seem to work with fish shell, so i put the wayland specific variables here.
     home.sessionVariables = {
