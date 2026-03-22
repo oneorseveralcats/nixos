@@ -1,7 +1,7 @@
 https://github.com/nix-darwin/nix-darwin/archive/ebec37af18215214173c98cf6356d0aca24a2585.tar.gz darwin
 https://github.com/helix-editor/helix/archive/0d7e1dc93aabc9351ee30ceddda374ef5d42c685.tar.gz helix-master
 https://github.com/nix-community/home-manager/archive/a91b3ea73a765614d90360580b689c48102d1d33.tar.gz home-manager
-https://github.com/nix-community/home-manager/archive/9670de2921812bc4e0452f6e3efd8c859696c183.tar.gz home-manager-unstable
+https://github.com/nix-community/home-manager/archive/932ca46013acabbedd13c27dc278e3d043707e46.tar.gz home-manager-unstable
 https://github.com/nix-community/lanzaboote/archive/d21013305ef39e1d9d2d06b161c3785ffad82281.tar.gz lanzaboote
 https://github.com/thiagokokada/nix-alien/archive/96045e886ba0dd45b27590e7c0c6e77bbb54033d.tar.gz nix-alien
 https://github.com/gmodena/nix-flatpak/archive/refs/tags/latest.tar.gz nix-flatpak
@@ -11,6 +11,6 @@ https://github.com/nix-community/nixos-wsl/archive/381bc12a25d49c6b798f98ab33a8d
 https://releases.nixos.org/nixos/25.11/nixos-25.11.7849.812b3986fd15/nixexprs.tar.xz nixpkgs
 https://releases.nixos.org/nixos/unstable/nixos-26.05pre964859.b40629efe5d6/nixexprs.tar.xz nixpkgs-unstable
 https://github.com/nix-community/nixvim/archive/b8f76bf5751835647538ef8784e4e6ee8deb8f95.tar.gz nixvim
-https://github.com/nix-community/nur/archive/28a361f8d2ae2ee28a4852af2ca10e61345523f7.tar.gz nur
-https://github.com/mic92/sops-nix/archive/29b6519f3e0780452bca0ac0be4584f04ac16cc5.tar.gz sops-nix
-https://github.com/danth/stylix/archive/e8ffdddd42062ebc90178db9d013aa38c20b7b2f.tar.gz stylix
+https://github.com/nix-community/nur/archive/aecd34b62cac7c87645bb0195447a4420dc5f017.tar.gz nur
+https://github.com/mic92/sops-nix/archive/3e0d543e6ba6c0c48117a81614e90c6d8c425170.tar.gz sops-nix
+https://github.com/danth/stylix/archive/7c34241d80ea64dd2039bb3a786fb66b4c6261d9.tar.gz stylix
