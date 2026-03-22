@@ -15,8 +15,7 @@ in
     stylix = {
       enable = true;
       polarity = "dark";
-      image = lib.mkDefault "${pkgs.lxqt.lxqt-themes}/share/lxqt/wallpapers/origami-dark.png";
-      imageScalingMode = lib.mkDefault "fit";
+      image = "${pkgs.nixos-artwork.wallpapers.binary-black}/share/backgrounds/nixos/nix-wallpaper-binary-black.png";
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/evenok-dark.yaml";
       base16Scheme = {
         name = "dark and vibrant";
@@ -44,8 +43,9 @@ in
         package = pkgs.phinger-cursors;
         size = 36;
       };
+
       iconTheme = {
-        enable = true;
+        enable = pkgs.stdenv.hostPlatform.isLinux;
         dark = "Papirus-Dark";
         light = "Papirus-Light";
         package = pkgs.papirus-icon-theme;
