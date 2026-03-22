@@ -80,7 +80,7 @@ in
     home.preferXdgDirectories = true;
 
     fonts.fontconfig = {
-      # enable = true; disabled because of stylix
+      enable = ! config.myHome.stylix.enable;
       defaultFonts = {
           serif = [ "Noto Serif Light" "Noto Serif" ];
           sansSerif = [ "Noto Sans Light" "Noto Sans" ];
@@ -119,7 +119,7 @@ in
     xdg = {
       enable = true;
       userDirs = {
-        enable = true;
+        enable = pkgs.stdenv.hostPlatform.isLinux;
         desktop = "$HOME/";
         documents = "$HOME/documents";
         download = "$HOME/downloads";
