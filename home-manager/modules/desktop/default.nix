@@ -1,8 +1,11 @@
 { config, lib, ...}:
 {
   imports = [
-    ./terminals
+    ./bars
     ./compositors
+    ./others
+    ./launchers
+    ./terminals
 
     ./base.nix
     ./extras.nix
