@@ -12,12 +12,12 @@ in
       enable = true;
       settings = {
         embed-metadata = true;
-        embed-thumbnail = true;
         embed-subs = true;
-        write-auto-subs = true;
+        # embed-thumbnail = true;
+        # write-auto-subs = true;
         format = "bestaudio+bestvideo[height<=1080]";
         merge-output-format = "mkv";
-        sub-langs = "en,eo";
+        sub-langs = "en";
       };
     };
   };
