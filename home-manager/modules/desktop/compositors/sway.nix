@@ -13,6 +13,8 @@ in
       bars.waybar.enable = true;
       launchers.fuzzel.enable = true;
 
+      autostart.wlr.enable = true;
+
       others = {
         mako.enable = true;
         swayidle.enable = true;
@@ -303,24 +305,8 @@ in
           };
         };
         bars = [{ command = "none"; }];
-        startup =
-          let
-            IfEnabledStartProgram = predicate: command:
-              if predicate then
-                { command = command; }
-              else
-                { command = "true"; };
-
-            mullvadAppIfEnabled = IfEnabledStartProgram config.myHome.vpn.mullvad.enable "${pkgs.mullvad-vpn}/bin/mullvad-vpn";
-            thunderbirdIfEnabled = IfEnabledStartProgram config.myHome.socials.thunderbird.enable "${pkgs.thunderbird}/bin/thunderbird";
-        in [
-          { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; }
-          { command = "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent"; }
-          { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }
-          { command = "${pkgs.keepassxc}/bin/keepassxc --minimized"; }
-        ] ++ [
-          mullvadAppIfEnabled
-          thunderbirdIfEnabled
+        startup = [
+          { command = "${pkgs.swaynag-battery}/bin/swaynag-battery --threshold 20"; }
         ];
       };
       extraConfig = ''
