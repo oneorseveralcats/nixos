@@ -93,27 +93,57 @@ in
         };
         assigns = {
           "1" = [
+            { app_id = "^ws1$"; }
+            { app_id = "^ws1-focus$"; }
           ];
           "2" = [
             { app_id = "^anki$"; }
             { app_id = "^thunderbird$"; }
+            { app_id = "^ws2$"; }
+            { app_id = "^ws2-focus$"; }
             { instance = "^logseq$"; }
           ];
           "3" = [
             { app_id = "^foot$"; }
             { app_id = "^footclient$"; }
+            { app_id = "^ws3$"; }
+            { app_id = "^ws3-focus$"; }
           ];
           "4" = [
             { app_id = "^calibre-ebook-viewer$"; }
             { app_id = "^calibre-gui$"; }
             { app_id = "^org.pwmt.zathura$"; }
             { app_id = "^YACReader$"; }
+            { app_id = "^ws4$"; }
+            { app_id = "^ws4-focus$"; }
           ];
           "5" = [
             { class = "^steam$"; }
             { app_id = "^Terraria.bin.x86_64$"; }
             { app_id = "^Patrick's Parabox.x86_64$"; }
             { app_id = ".*Baba Is You.*"; }
+            { app_id = "^ws5$"; }
+            { app_id = "^ws5-focus$"; }
+          ];
+          "6" = [
+            { app_id = "^ws6$"; }
+            { app_id = "^ws6-focus$"; }
+          ];
+          "7" = [
+            { app_id = "^ws7$"; }
+            { app_id = "^ws7-focus$"; }
+          ];
+          "8" = [
+            { app_id = "^ws8$"; }
+            { app_id = "^ws8-focus$"; }
+          ];
+          "9" = [
+            { app_id = "^ws9$"; }
+            { app_id = "^ws9-focus$"; }
+          ];
+          "10" = [
+            { app_id = "^ws10$"; }
+            { app_id = "^ws10-focus$"; }
           ];
         };
         gaps = {
@@ -127,6 +157,17 @@ in
               video_pos = "";
           in [
             # Focus on Open
+            { command = "focus"; criteria = { app_id = "^ws1-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws2-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws3-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws4-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws5-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws6-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws7-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws8-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws9-focus$"; }; }
+            { command = "focus"; criteria = { app_id = "^ws10-focus$"; }; }
+
             { command = "focus"; criteria = { instance = "^logseq$"; }; }
             { command = "focus"; criteria = { app_id = "^foot$"; }; }
             { command = "focus"; criteria = { app_id = "^footclient$"; }; }
