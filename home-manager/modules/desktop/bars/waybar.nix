@@ -14,12 +14,17 @@ in
       systemd.enable = true;
       settings = {
         mainBar = {
-          height = 35;
+          id = "bar-0";
+          ipc = true;
+          height = 25;
           position = "top";
           reload_style_on_change = true;
           modules-left = [ "sway/workspaces" "sway/mode" "river/tags" "river/mode" ];
-          modules-center = [ "sway/window" "river/window" ];
-          modules-right = lib.mkDefault [ "sway/language" "clock#date" "clock#time" "battery" "tray" ];
+          modules-center = [ "clock#time" ];
+          modules-right = let
+            sep = "custom/separator";
+            addSeparator = xs: [ sep ] ++ lib.intersperse sep xs;
+          in addSeparator [ "sway/language" "clock#date" "battery" "tray" ];
 
           "sway/language" = {
             format = "{short} {variant}";
@@ -30,12 +35,12 @@ in
             disable-scoll = true;
             format = "{index}";
             persistent-workspaces = {
-              "1:WEB" = [];
-              "2:ANKI" = [];
-              "3:TERM" = [];
-              "4:READ" = [];
-              "5:GAME" = [];
-              "6:DOC" = [];
+              "1" = [];
+              "2" = [];
+              "3" = [];
+              "4" = [];
+              "5" = [];
+              "6" = [];
               "7" = [];
               "8" = [];
               "9" = [];
@@ -63,6 +68,9 @@ in
             max-length = 30;
           };
 
+          "custom/separator" = {
+            format = "|";
+          };
           "clock#date" = {
             format = "{:%m/%d}";
             tooltip = false;
@@ -72,8 +80,8 @@ in
             tooltip = false;
           };
           "tray" = {
-            icon-size = 25;
-            spacing = 5;
+            icon-size = 22;
+            spacing = 3;
           };
         };
       };
@@ -83,34 +91,34 @@ in
     programs.waybar.style = /* css */ ''
       .modules-left #workspaces button:hover,
       .modules-left #tags button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
+        background: none;
+        box-shadow: none;
+        text-shadow: none;
+        transition: none;
       }
 
       .modules-left #workspaces button,
       .modules-left #tags button {
+        border: 0;
         color: @base05;
         padding: 0 3px;
+      }
+
+      .modules-left #workspaces button.empty,
+      .modules-left #tags button:not(.occupied):not(.focused) {
+        color: @base03;
       }
 
       .modules-left #workspaces button.focused,
       .modules-left #workspaces button.active,
       .modules-left #tags button.focused,
       .modules-left #tags button.active {
-        border-bottom-color: @base0D;
         color: @base0D;
       }
 
       .modules-left #workspaces button.urgent,
       .modules-left #tags button.urgent {
-        background-color: @base00;
-        border-bottom-color: @base08;
         color: @base08;
-      }
-
-      .modules-left #workspaces button.empty,
-      .modules-left #tags button:not(.occupied):not(.focused) {
-        color: @base02;
       }
 
       .modules-left #workspaces label {
@@ -122,24 +130,7 @@ in
         color: @base08;
       }
 
-      .modules-right widget {
-        border-left: 1.25px solid @base05;
-        border-bottom: 15px solid transparent;
-        border-top: 15px solid transparent;
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-
-      .modules-right box#tray widget {
-        border-left: 0;
-      }
-
-      .modules-right box#tray {
-        padding-left: 5px;
-      }
-
-      .modules-right #custom-sep {
-        font-weight: bold;
+      .modules-right #custom-separator {
         padding-left: 2px;
         padding-right: 2px;
       }

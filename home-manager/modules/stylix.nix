@@ -78,6 +78,8 @@ in
       };
 
       targets = {
+        waybar.addCss = false;
+
         gtk.extraCss = /* css */ ''
           window.background { border-radius: 0; }
         '';
