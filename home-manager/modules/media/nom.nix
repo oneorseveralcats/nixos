@@ -25,8 +25,8 @@ in
 
         theme = {
           glamour = "dark";
-          titleColor = "#${config.lib.stylix.colors.base0D-hex}";
-          titleColorFg = "#${config.lib.stylix.colors.base07-hex}";
+          titleColor = "#${config.lib.stylix.colors.base05-hex}";
+          titleColorFg = "#${config.lib.stylix.colors.base00-hex}";
           filterColor = "#${config.lib.stylix.colors.base0D-hex}";
           selectedItemColor = "#${config.lib.stylix.colors.base0D-hex}";
         };
