@@ -92,23 +92,24 @@ in
           resolution = "1920x1080@60Hz";
         };
         assigns = {
-          "1:WEB" = [];
-          "2:ANKI" = [
+          "1" = [
+          ];
+          "2" = [
             { app_id = "^anki$"; }
             { app_id = "^thunderbird$"; }
             { instance = "^logseq$"; }
           ];
-          "3:TERM" = [
+          "3" = [
             { app_id = "^foot$"; }
             { app_id = "^footclient$"; }
           ];
-          "4:READ" = [
+          "4" = [
             { app_id = "^calibre-ebook-viewer$"; }
             { app_id = "^calibre-gui$"; }
             { app_id = "^org.pwmt.zathura$"; }
             { app_id = "^YACReader$"; }
           ];
-          "5:GAME" = [
+          "5" = [
             { class = "^steam$"; }
             { app_id = "^Terraria.bin.x86_64$"; }
             { app_id = "^Patrick's Parabox.x86_64$"; }
@@ -197,7 +198,7 @@ in
           ];
         };
         bindkeysToCode = true;
-        defaultWorkspace = "workspace '1:WEB'";
+        defaultWorkspace = "workspace 1";
         keybindings = with config.wayland.windowManager.sway.config; {
           "${modifier}+Shift+q" = "exec swaynag -t warning -m 'Exit Sway?' -b 'Yes.' 'swaymsg exit'";
           "${modifier}+Shift+r" = "reload";
@@ -218,23 +219,23 @@ in
 
           "${modifier}+a" = "workspace back_and_forth";
 
-          "${modifier}+1" = "workspace '1:WEB'";
-          "${modifier}+2" = "workspace '2:ANKI'";
-          "${modifier}+3" = "workspace '3:TERM'";
-          "${modifier}+4" = "workspace '4:READ'";
-          "${modifier}+5" = "workspace '5:GAME'";
-          "${modifier}+6" = "workspace '6:DOC'";
+          "${modifier}+1" = "workspace 1";
+          "${modifier}+2" = "workspace 2";
+          "${modifier}+3" = "workspace 3";
+          "${modifier}+4" = "workspace 4";
+          "${modifier}+5" = "workspace 5";
+          "${modifier}+6" = "workspace 6";
           "${modifier}+7" = "workspace 7";
           "${modifier}+8" = "workspace 8";
           "${modifier}+9" = "workspace 9";
           "${modifier}+0" = "workspace 10";
 
-          "${modifier}+Shift+1" = "move container to workspace '1:WEB'";
-          "${modifier}+Shift+2" = "move container to workspace '2:ANKI'";
-          "${modifier}+Shift+3" = "move container to workspace '3:TERM'";
-          "${modifier}+Shift+4" = "move container to workspace '4:READ'";
-          "${modifier}+Shift+5" = "move container to workspace '5:GAME'";
-          "${modifier}+Shift+6" = "move container to workspace '6:DOC'";
+          "${modifier}+Shift+1" = "move container to workspace 1";
+          "${modifier}+Shift+2" = "move container to workspace 2";
+          "${modifier}+Shift+3" = "move container to workspace 3";
+          "${modifier}+Shift+4" = "move container to workspace 4";
+          "${modifier}+Shift+5" = "move container to workspace 5";
+          "${modifier}+Shift+6" = "move container to workspace 6";
           "${modifier}+Shift+7" = "move container to workspace 7";
           "${modifier}+Shift+8" = "move container to workspace 8";
           "${modifier}+Shift+9" = "move container to workspace 9";
