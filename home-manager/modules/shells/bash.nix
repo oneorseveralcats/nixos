@@ -13,36 +13,57 @@ in
 
     programs.bash = {
       enable = true;
-      bashrcExtra = /* sh */ ''
-        RED="\[$(tput setaf 1)\]"
-        GREEN="\[$(tput setaf 2)\]"
-        BLUE="\[$(tput setaf 4)\]"
-        RESET="\[$(tput sgr0)\]"
+      bashrcExtra = let
+        setPrompt = /* bash */ '' 
+          BLUE='\e[0;34m'
+          RESET='\e[m'
 
-        complete -cf doas
+          PS1="''${BLUE}(bash) \w''${RESET}> "
+          [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
+          [ -n "$LF_LEVEL" ] && PS1="LF$LF_LEVEL $PS1"
+        '';
+        waylandSessionManager = with config.myHome.desktop.compositors; /* bash */ ''
+          if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+            export NEWT_COLORS='
+              root=,black
+              border=black,white
+              title=blue,white
+              textbox=black,white
+              window=,white
+              listbox=black,white
+              actsellistbox=white,blue
+              actlistbox=white,blue
+              compactbutton=white,white
+              button=white,white
+            '
+            wm=$(${pkgs.newt}/bin/whiptail --title "Session" --menu \
+              "Choose a session to run" 0 0 0 \
+              ${lib.optionalString labwc.enable "'labwc' ''"}\
+              ${lib.optionalString sway.enable "'sway' ''"}\
+              ${lib.optionalString river.enable "'river' ''"}\
+              --nocancel --default-item "sway" 3>&1 1>&2 2>&3)
 
-        PS1="''${BLUE}(bash) \w''${RESET}> "
-        [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
-        [ -n "$LF_LEVEL" ] && PS1="LF$LF_LEVEL $PS1"
-
-        gd () {
-          if [ -z "$@" ]; then
-            cd "$(lf -print-last-dir)"
-          else
-            cd "$@"
+            exec "''${wm}"
           fi
-        }
+        '';
+        # TODO: look into cleaning up command used to start shells in bash.
+        shellStart = cmd: /* sh */ ''
+          if ${pkgs.toybox}/bin/grep -qv "${builtins.baseNameOf cmd}" /proc/$PPID/comm && [[ ''${SHLVL} == [1,2] ]]; then
+            shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+            exec ${cmd} $LOGIN_OPTION
+          fi
+        '';
+      in /* sh */ ''
+        # complete -cf doas
+        ${setPrompt}
 
-        # launch sway on tty1
-        if type sway &> /dev/null && [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-          exec sway
-        fi
+        ${with config.myHome.desktop.compositors; lib.optionalString (builtins.any (x: x) [
+          labwc.enable
+          river.enable
+          sway.enable
+        ]) waylandSessionManager}
 
-        # launch fish
-        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]; then
-          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-        fi
+        ${lib.optionalString config.myHome.shells.fish.enable (shellStart "${config.programs.fish.package}/bin/fish")}
       '';
     };
   };
