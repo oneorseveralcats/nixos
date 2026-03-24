@@ -256,8 +256,9 @@ in
 
           "${modifier}+r" = "mode resize";
 
-          "${modifier}+Return" = "exec ${terminal} -T 'Terminal'";
-          "${modifier}+Shift+Return" = "exec ${terminal} -a 'floating'";
+          "${modifier}+Return" = "exec ${terminal} --title='Terminal'";
+          "${modifier}+Shift+Return" = "exec ${terminal} --title='Terminal' --app-id='floating'";
+          "${modifier}+Shift+f" = "exec ${terminal} --title='Files' --app-id='floating' -- lf";
           "${modifier}+d" = "exec ${menu}";
 
           "${modifier}+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpv' \"opening $(wl-paste)\" & mpv \"$(wl-paste)\"";
@@ -268,19 +269,47 @@ in
 
           "--release Caps_Lock" = "exec swayosd-client --caps-lock";
 
-          "XF86MonBrightnessUp" = "exec swayosd-client --brightness raise";
-          "XF86MonBrightnessDown" = "exec swayosd-client --brightness lower";
+          "XF86MonBrightnessUp" = let
+            brightnessRaise = pkgs.writers.writeBash "brightnessRaise" ''
+                brightnessPercentage="$(${pkgs.brightnessctl}/bin/brightnessctl -m | cut -d, -f4)"
+                case $brightnessPercentage in
+                  0%) swayosd-client --brightness 1;;
+                  1%) swayosd-client --brightness 5;;
+                   *) swayosd-client --brightness raise;;
+                esac
+              '';
+          in "exec ${brightnessRaise}";
+          "XF86MonBrightnessDown" = let
+            brightnessLower = pkgs.writers.writeBash "brightnessLower" ''
+                brightnessPercentage="$(${pkgs.brightnessctl}/bin/brightnessctl -m | cut -d, -f4)"
+                case $brightnessPercentage in
+                  5%) swayosd-client --brightness 1;;
+                  1%) swayosd-client --brightness 0;;
+                   *) swayosd-client --brightness lower;;
+                esac
+              '';
+          in "exec ${brightnessLower}";
 
           "XF86AudioMute" = "exec swayosd-client --output-volume mute-toggle";
           "XF86AudioMicMute" = "exec swayosd-client --input-volume mute-toggle";
-          "XF86AudioRaiseVolume" =  "exec swayosd-client --output-volume raise --max-volume 150";
-          "XF86AudioLowerVolume" =  "exec swayosd-client --output-volume lower --max-volume 150";
+          "XF86AudioRaiseVolume" = "exec swayosd-client --output-volume raise --max-volume 150";
+          "XF86AudioLowerVolume" = "exec swayosd-client --output-volume lower --max-volume 150";
 
           "XF86AudioMedia" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
           "XF86AudioPlay"  = "exec ${pkgs.playerctl}/bin/playerctl play";
           "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl pause";
           "XF86AudioPrev"  = "exec ${pkgs.playerctl}/bin/playerctl previous";
           "XF86AudioNext"  = "exec ${pkgs.playerctl}/bin/playerctl next";
+
+          "${modifier}+b" = let
+            toggleBar = pkgs.writers.writeBash "toggleBar" ''
+                if [ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ]; then
+                  swaymsg bar mode invisible
+                else
+                  swaymsg bar mode dock
+                fi
+              '';
+          in ''exec ${toggleBar}'';
 
           "${modifier}+F11" = "mode passthrough";
         };
