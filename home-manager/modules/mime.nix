@@ -13,26 +13,23 @@ in
     xdg.configFile."mimeapps.list".force = true;
     
     xdg = {
-      desktopEntries = {
-        atool-list = {
-          name = "atool-list";
-          exec = "atool -l %f";
-          terminal = true;
+      desktopEntries = let
+        term = "${config.home.sessionVariables.TERMINAL}";
+      in {
+        hx-term = {
+          name = "hx-term";
+          exec = ''${term} -- hx %F'';
           noDisplay = true;
-          mimeType = [ "application/zip" "application/x-rar" "application/x-7z-compressed" ];
+        };
+        bk-term = {
+          name = "bk-term";
+          exec = ''${term} --font=monospace:size=24 --title=Reader --app-id=ws4-focus -- bk %f'';
+          noDisplay = true;
         };
         lf-term = {
           name = "lf-term";
-          # TODO: unhard-code terminal value.
-          exec = ''foot --title=Files --app-id=floating -- lf %F'';
-          icon = "lf";
-          noDisplay = true;
-          terminal = false;
-          mimeType = [ "inode/directory" ];
-        };
-        modorganizer2 = {
-          name = "modorganizer2";
-          mimeType = [ "x-scheme-handler/nxm" ];
+          exec = ''${term} --title=Files --app-id=floating -- lf %F'';
+          # mimeType = [ "inode/directory" ];
           noDisplay = true;
         };
       };
@@ -40,7 +37,7 @@ in
         enable = true;
         defaultApplications = {
           # reading
-          "application/epub+zip" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
+          "application/epub+zip" = [ "bk-term.desktop" "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
           "application/pdf" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
           "image/vnd.djvu" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
           "application/vnd.comicbook+zip" = [ "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
@@ -110,23 +107,24 @@ in
           "video/dv" = [ "mpv.desktop" ];
 
           # text
-          "text/english" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/plain" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-makefile" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-c++hdr" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-c++src" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-chdr" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-csrc" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-haskell" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-java" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-moc" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-pascal" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-tcl" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-tex" = [ "Helix.desktop" "nvim.desktop" ];
-          "application/x-shellscript" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-c" = [ "Helix.desktop" "nvim.desktop" ];
-          "text/x-c++" = [ "Helix.desktop" "nvim.desktop" ];
-          "application/json" = [ "Helix.desktop" "nvim.desktop" ];
+          "text/english" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/markdown" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/plain" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-makefile" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-c++hdr" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-c++src" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-chdr" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-csrc" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-haskell" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-java" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-moc" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-pascal" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-tcl" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-tex" = [ "hx-term.desktop" "nvim.desktop" ];
+          "application/x-shellscript" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-c" = [ "hx-term.desktop" "nvim.desktop" ];
+          "text/x-c++" = [ "hx-term.desktop" "nvim.desktop" ];
+          "application/json" = [ "hx-term.desktop" "nvim.desktop" ];
           "text/html" = [ "firefox.desktop" "chromium.desktop" ];
 
           # documents
@@ -134,9 +132,9 @@ in
           "application/vnd.oasis.opendocument.text" = [ "base.desktop"];
           "text/rtf" = [ "base.desktop"];
 
-          "application/zip"  = [ "atool-list.desktop" ];
-          "application/x-rar"  = [ "atool-list.desktop" ];
-          "application/x-7z-compressed" = [ "atool-list.desktop" ];
+          # "application/zip"  = [ "atool-list.desktop" ];
+          # "application/x-rar"  = [ "atool-list.desktop" ];
+          # "application/x-7z-compressed" = [ "atool-list.desktop" ];
 
           # web browser
           "x-scheme-handler/http" = [ "firefox.desktop" "librewolf.desktop" "chromium.desktop" ];
