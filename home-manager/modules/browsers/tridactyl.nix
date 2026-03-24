@@ -17,6 +17,7 @@ in
     xdg.configFile."tridactyl/tridactylrc".text = ''
       colorscheme shydactyl
 
+      guiset_quiet gui none
       guiset_quiet navbar autohide
       guiset_quiet tabs always
       guiset_quiet tabs count
