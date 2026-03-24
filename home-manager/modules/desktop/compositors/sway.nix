@@ -151,6 +151,8 @@ in
           outer = 2;
         };
         window = {
+          titlebar = false;
+          hideEdgeBorders = "--i3 smart";
           border = 2;
           commands = let
               video_xy = "";
@@ -211,6 +213,7 @@ in
           ];
         };
         floating = {
+          titlebar = false;
           criteria = [
             { app_id = "^mpv$"; }
             { app_id = "^swayimg$"; }
@@ -381,7 +384,6 @@ in
         ];
       };
       extraConfig = ''
-        hide_edge_borders --i3 smart
         set $gnome-schema org.gnome.desktop.interface
         exec_always {
       	  gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
