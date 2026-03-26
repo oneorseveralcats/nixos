@@ -88,10 +88,6 @@ in
           useWallpaper = false;
         };
 
-        zellij = {
-          enable = false;
-        };
-
         firefox.profileNames = [ "personal" "school" "offline" ];
         floorp.profileNames = config.stylix.targets.firefox.profileNames;
         librewolf.profileNames = config.stylix.targets.firefox.profileNames;
