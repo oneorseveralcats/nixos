@@ -13,6 +13,8 @@ in
       bars.waybar.enable = true;
       launchers.fuzzel.enable = true;
 
+      autostart.wlr.enable = true;
+
       others = {
         mako.enable = true;
         swayidle.enable = true;
