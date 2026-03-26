@@ -16,8 +16,7 @@ in
     programs.zellij = {
       enable = true;
       settings = {
-        mouse_mode = false;
-        theme = "ao";
+        # theme = "stylix-custom";
         simplified_ui = true;
         show_startup_tips = false;
         ui = {
@@ -26,55 +25,56 @@ in
       };
     };
 
-    xdg.configFile."zellij/layouts/multimedia.kdl".text = /* kdl */ ''
-      layout name="multimedia" {
-      	default_tab_template {
-      		pane name="tab-bar" size=1 borderless=true {
-      	        plugin location="zellij:tab-bar"
-    	    }
-      		children
-      	    pane name="status-bar" size=2 borderless=true {
-      	        plugin location="zellij:status-bar"
-    	    }
-      	}
-
-      	tab name="ncmpcpp" {
-      		pane command="ncmpcpp"
-      	}
-      	tab name="newsboat" {
-      		pane command="newsboat"
-      	}
-      	tab name="audio" split_direction="horizontal" {
-      		pane command="pulsemixer"
-      		pane command="bluetuith"
-      	}
-      	tab name="background" {
-      		pane {
-            command "bash"
-            args "-c" "while true; do ~/projects/programming/rssfeed_hackery/run.sh; sleep 1h; done"
-          }
-      	}
-      }
-    '';
-
-    xdg.configFile."zellij/layouts/programming.kdl".text = ''
-      layout name="programming" {
-      	default_tab_template {
-      		pane name="tab-bar" size=1 borderless=true {
-      	        plugin location="zellij:tab-bar"
-      	  }
-      		children
-    	    pane name="status-bar" size=2 borderless=true {
-    	        plugin location="zellij:status-bar"
-    	    }
-      	}
-
-        tab name="Programming" {
-          pane name="editor" size="80%"
-          pane name="output" size="20%"
-          
+    programs.zellij.layouts = rec {
+      default.layout._children = [
+        {
+          default_tab_template._children = [
+            {
+              pane = {
+                size = 1;
+                borderless = true;
+                plugin.location = "zellij:tab-bar";
+              };
+            }
+            { "children" = { }; }
+            {
+              pane = {
+                size = 1;
+                borderless = true;
+                plugin.location = "zellij:status-bar";
+              };
+            }
+          ];
         }
-      }
-    '';
+      ];
+      startup.layout._children = default.layout._children ++ [
+        {
+          tab = {
+            _props.name = "music";
+            _children = [{ pane.command = "ncmpcpp"; }];
+          };
+        }
+        {
+          tab = {
+            _props.name = "yt";
+            _children = [{ pane.command = "nom"; }];
+          };
+        }
+        {
+          tab = {
+            _props.name = "vol";
+            _children = [{ pane.command = "pulsemixer"; }];
+          };
+        }
+      ];
+    };
+
+    programs.zellij.themes = with config.lib.stylix.colors; {
+      stylix-custom.themes = {
+        ribbon_unselected = {
+          base = base01;
+        };
+      };
+    };
   };
 }
