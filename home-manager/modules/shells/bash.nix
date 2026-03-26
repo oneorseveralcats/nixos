@@ -48,7 +48,7 @@ in
         '';
         # TODO: look into cleaning up command used to start shells in bash.
         shellStart = cmd: /* sh */ ''
-          if ${pkgs.toybox}/bin/grep -qv "${builtins.baseNameOf cmd}" /proc/$PPID/comm && [[ ''${SHLVL} == [1,2] ]]; then
+          if ${pkgs.toybox}/bin/grep -qv "${builtins.baseNameOf cmd}" /proc/$PPID/comm && [ -z ''${BASH_EXECUTION_STRING} ]; then
             shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
             exec ${cmd} $LOGIN_OPTION
           fi
