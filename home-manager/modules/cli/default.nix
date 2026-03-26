@@ -12,6 +12,7 @@
     ./presenterm.nix
     ./readline.nix
     ./ripgrep.nix
+    ./rtorrent.nix
     ./sc-im.nix
     ./tmux.nix
     ./yt-dlp.nix
