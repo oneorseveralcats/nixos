@@ -19,10 +19,13 @@ in
         mako.enable = true;
         swayidle.enable = true;
         swaylock.enable = true;
+        swayosd.enable = true;
         wlr-packages.enable = true;
         wlr-portals.enable = true;
       };
     };
+
+    programs.waybar.systemd.target = "sway-session.target";
 
     # extraSessionCommands does not seem to work with fish shell, so i put the wayland specific variables here.
     home.sessionVariables = {
@@ -113,17 +116,17 @@ in
             { app_id = "^calibre-ebook-viewer$"; }
             { app_id = "^calibre-gui$"; }
             { app_id = "^org.pwmt.zathura$"; }
-            { app_id = "^YACReader$"; }
             { app_id = "^ws4$"; }
             { app_id = "^ws4-focus$"; }
+            { app_id = "^YACReader$"; }
           ];
           "5" = [
-            { class = "^steam$"; }
             { app_id = "^Terraria.bin.x86_64$"; }
             { app_id = "^Patrick's Parabox.x86_64$"; }
             { app_id = ".*Baba Is You.*"; }
             { app_id = "^ws5$"; }
             { app_id = "^ws5-focus$"; }
+            { class = "^steam$"; }
           ];
           "6" = [
             { app_id = "^ws6$"; }
@@ -219,6 +222,8 @@ in
             { app_id = "^swayimg$"; }
             { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
+
+            { title = "^Bluetooth Devices$"; }
 
             { app_id = "^usbimager$"; }
             { app_id = "^io.gitlab.adhami3310.Impression$"; }
@@ -395,8 +400,12 @@ in
 
     myHome.stylix.enable = true;
     wayland.windowManager.sway.config.colors = {
-      focused.background = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
-      focused.text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
+      focused = rec {
+        background = lib.mkForce "#${config.lib.stylix.colors.base04-hex}";
+        border = background;
+        text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
+        # indicator = lib.mkForce "#${config.lib.stylix.colors.base03-hex}";
+      };
       focusedInactive.border = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
       unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
     };
