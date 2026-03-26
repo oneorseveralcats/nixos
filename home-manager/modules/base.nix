@@ -33,7 +33,7 @@ in
       unstable = import <nixpkgs-unstable> { inherit pkgs; };
     };
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "calibre" "corefonts"
+      "corefonts"
       "jflap"
       "libretro-genesis-plus-gx"
       "steam"
@@ -120,11 +120,11 @@ in
       enable = true;
       userDirs = {
         enable = pkgs.stdenv.hostPlatform.isLinux;
-        desktop = "$HOME/";
-        documents = "$HOME/documents";
-        download = "$HOME/downloads";
-        pictures = "$HOME/pictures";
-        videos = "$HOME/videos";
+        desktop = "${config.home.homeDirectory}/";
+        documents = "${config.home.homeDirectory}/documents";
+        download = "${config.home.homeDirectory}/downloads";
+        pictures = "${config.home.homeDirectory}/pictures";
+        videos = "${config.home.homeDirectory}/videos";
       };
     };
   };
