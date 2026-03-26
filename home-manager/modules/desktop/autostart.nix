@@ -36,10 +36,13 @@ in
   in lib.mkMerge [
     (mkIf cfg.enable {
       services.blueman-applet.enable = true;
+      services.pasystray.enable = true;
 
       systemd.user.services = {
-        pasystray = mkService { command = "${pkgs.pasystray}/bin/pasystray"; };
         keepassxc = mkService { command = "${pkgs.keepassxc}/bin/keepassxc --minimized"; };
+        zellij-default = mkService {
+          command = "${pkgs.zellij}/bin/zellij --layout startup attach -b --create zellij-default";
+        };
       }
         // optionalAttrs config.myHome.vpn.mullvad.enable
           { mullvad-vpn = mkService { command = "${pkgs.mullvad-vpn}/bin/mullvad-vpn"; }; }
