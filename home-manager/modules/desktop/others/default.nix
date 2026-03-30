@@ -8,5 +8,6 @@
     ./swayosd.nix
     ./wlr-packages.nix
     ./wlr-portals.nix
+    ./wob.nix
   ];
 }
