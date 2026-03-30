@@ -6,6 +6,7 @@
     ./signal.nix
     ./telegram.nix
     ./thunderbird.nix
+    ./tutanota.nix
     ./weechat.nix
   ];
 }

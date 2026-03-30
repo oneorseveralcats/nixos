@@ -4,5 +4,6 @@
     signal.enable = true;
     telegram.enable = true;
     thunderbird.enable = true;
+    tutanota.enable = true;
   };
 }
