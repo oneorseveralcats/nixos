@@ -13,10 +13,6 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      ansible
-      hugo
-      rippkgs
-
     ];
 
     myHome.programming.languages.java.enable = true;
