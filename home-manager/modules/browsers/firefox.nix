@@ -78,6 +78,20 @@ in
               # };
             };
           };
+          # TODO: use tridactyl to find preferred full custom firefox css then add here
+          # userChrome = /* css */ ''
+          #   .titlebar-buttonbox {
+          #     width: 0 !important;
+          #   }
+
+          #   .titlebar-close {
+          #   	visibility: hidden !important;
+          #   }
+
+          #   hbox.titlebar-spacer {
+          #   	width: 0 !important;
+          #   }
+          # '';
         };
         "school" = personal // {
           id = lib.mkDefault 1;
