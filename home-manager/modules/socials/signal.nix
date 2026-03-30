@@ -2,6 +2,9 @@
 with lib;
 let 
   cfg = config.myHome.socials.signal;
+  package = pkgs.signal-desktop;
+  systemd.targets = [ "tray.target" ];
+  systemd.extraArgs = [ "--start-in-tray" ];
 in
 {
   options.myHome.socials.signal = {
@@ -9,9 +12,24 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      signal-desktop
+    home.packages = lib.mkIf (package != null) [
+      package
     ];
+
+    systemd.user.services.signal-desktop = lib.mkIf true {
+      Unit = {
+        Description = "Signal Desktop client";
+        PartOf = systemd.targets;
+        After = systemd.targets;
+      };
+
+      Service = {
+        ExecStart = "${lib.getExe package} ${builtins.toString systemd.extraArgs}";
+        Restart = "on-failure";
+      };
+
+      Install.WantedBy = systemd.targets;
+    };
   };
 }
 

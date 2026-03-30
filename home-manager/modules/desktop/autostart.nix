@@ -46,21 +46,19 @@ in
       }
         // optionalAttrs config.myHome.vpn.mullvad.enable
           { mullvad-vpn = mkService { command = "${pkgs.mullvad-vpn}/bin/mullvad-vpn"; }; }
-        // optionalAttrs config.myHome.socials.signal.enable
-          { telegram-desktop = mkService { command = "${pkgs.signal-desktop-bin}/bin/signal-desktop"; }; }
         // optionalAttrs config.myHome.socials.thunderbird.enable
           { thunderbird = mkService { command = "${pkgs.thunderbird}/bin/thunderbird"; }; }
         // optionalAttrs config.myHome.socials.telegram.enable
-          { telegram-desktop = mkService { command = "${pkgs.telegram-desktop}/bin/Telegram -autostart"; }; }
+          { telegram-desktop = mkService { command = "${pkgs.telegram-desktop}/bin/Telegram -startintray"; }; }
         // optionalAttrs config.myHome.flatpak.enable
           { vesktop = mkService { command = "${pkgs.flatpak}/bin/flatpak run dev.vencord.Vesktop -m"; }; }
        ;
     })
     (mkIf cfg.wlr.enable {
+      services.lxqt-policykit-agent.enable = true;
+
       systemd.user.services = {
         gammastep = mkService { command = "${pkgs.gammastep}/bin/gammastep -P -O 4000"; };
-        lqxt-policykit = mkService { command = "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent"; };
-        
       }
         // optionalAttrs config.myHome.desktop.others.swayidle.enable
           { sway-audio-idle-inhibit = mkService { command = "${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit"; }; }
