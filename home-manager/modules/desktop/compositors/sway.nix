@@ -5,7 +5,7 @@ let
 in
 {
   options.myHome.desktop.compositors.sway = {
-    enable = lib.mkEnableOption "Enable and configure the sway wayland compositor.";
+    enable = lib.mkEnableOption "and configure the sway wayland compositor.";
   };
 
   config = mkIf cfg.enable {
@@ -306,39 +306,49 @@ in
 
           "${modifier}+r" = "mode resize";
 
-          "${modifier}+Return" = "exec ${terminal} --title='Terminal'";
-          "${modifier}+Shift+Return" = "exec ${terminal} --title='Terminal' --app-id='floating'";
-          "${modifier}+Shift+f" = "exec ${terminal} --title='Files' --app-id='floating' -- lf";
+          "${modifier}+Return" =
+            if config.myHome.cli.zellij.enable then
+              "exec " + pkgs.writeShellScript "focus-zellij" ''
+                ${config.programs.zellij.package}/bin/zellij --session zellij-default action new-tab -n term
+                swaymsg '[title="^zellij-default$"] focus'
+              ''
+            else
+              "exec ${terminal} --title='Terminal'";
+          "${modifier}+Shift+Return" = "exec ${terminal} --title='Terminal'";
+          "${modifier}+Ctrl+Shift+Return" = "exec ${terminal} --title='Terminal' --app-id='floating'";
+          "${modifier}+Shift+f" = "exec " + pkgs.writers.writeBash "show-hide-fm" ''
+            swaymsg [title="^Files$"] scratchpad show\
+            || swaymsg [title="^Files$"] move container to scratchpad\
+            || ${terminal} --title='Files' --app-id='floating' -- lf && swaymsg sticky enable
+          '';
           "${modifier}+d" = "exec ${menu}";
 
           "${modifier}+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpv' \"opening $(wl-paste)\" & mpv \"$(wl-paste)\"";
-          "${modifier}+Shift+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpvc' \"playlist: $(wl-paste) added.\" & mpvc -a \"$(wl-paste)\"";
+          "${modifier}+Shift+m" = "exec " + pkgs.writers.writeBash "show-video-scratchpad" ''
+            swaymsg [app_id="^mpv$"] scratchpad show
+          '';
           # "${modifier}+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpvc' \"playlist: $(wl-paste) added.\" & mpvc -a \"$(wl-paste)\"";
           # "${modifier}+Shift+m" = "exec ${pkgs.libnotify}/bin/notify-send 'mpv' \"opening $(wl-paste)\" & mpv \"$(wl-paste)\"";
           "${modifier}+Insert" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot -n copy anything";
 
           "--release Caps_Lock" = "exec swayosd-client --caps-lock";
 
-          "XF86MonBrightnessUp" = let
-            brightnessRaise = pkgs.writers.writeBash "brightnessRaise" ''
-                brightnessPercentage="$(${pkgs.brightnessctl}/bin/brightnessctl -m | cut -d, -f4)"
-                case $brightnessPercentage in
-                  0%) swayosd-client --brightness 1;;
-                  1%) swayosd-client --brightness 5;;
-                   *) swayosd-client --brightness raise;;
-                esac
-              '';
-          in "exec ${brightnessRaise}";
-          "XF86MonBrightnessDown" = let
-            brightnessLower = pkgs.writers.writeBash "brightnessLower" ''
-                brightnessPercentage="$(${pkgs.brightnessctl}/bin/brightnessctl -m | cut -d, -f4)"
-                case $brightnessPercentage in
-                  5%) swayosd-client --brightness 1;;
-                  1%) swayosd-client --brightness 0;;
-                   *) swayosd-client --brightness lower;;
-                esac
-              '';
-          in "exec ${brightnessLower}";
+          "XF86MonBrightnessUp" = "exec " + pkgs.writers.writeBash "brightnessRaise" ''
+            percent="$(brightnessctl -m | cut -d, -f4)"
+            case $percent in
+              0%) brightnessctl s 1%;;
+              1%) brightnessctl s 5%;;
+               *) brightnessctl s 5%+;;
+            esac
+          '';
+          "XF86MonBrightnessDown" = "exec " + pkgs.writers.writeBash "brightnessLower" ''
+            percent="$(brightnessctl -m | cut -d, -f4)"
+            case $percent in
+              1%) brightnessctl s 0%;;
+              5%) brightnessctl s 1%;;
+               *) brightnessctl s 5%-;;
+            esac
+          '';
 
           "XF86AudioMute" = "exec swayosd-client --output-volume mute-toggle";
           "XF86AudioMicMute" = "exec swayosd-client --input-volume mute-toggle";
@@ -386,6 +396,7 @@ in
         bars = [{ command = "none"; }];
         startup = [
           { command = "${pkgs.swaynag-battery}/bin/swaynag-battery --threshold 20"; }
+          { command = "sleep 5s; ${pkgs.foot}/bin/foot -- ${pkgs.zellij}/bin/zellij attach -f zellij-default"; }
         ];
       };
       extraConfig = ''
