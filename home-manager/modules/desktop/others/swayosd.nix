@@ -11,7 +11,8 @@ in
   config = mkIf cfg.enable {
     services.swayosd = {
       enable = true;
-      topMargin = 0.035;
+      package = pkgs.unstable.swayosd;
+      topMargin = 0.085;
     };
   };
 }
