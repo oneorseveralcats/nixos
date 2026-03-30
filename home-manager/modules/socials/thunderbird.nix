@@ -5,7 +5,7 @@ let
 in
 {
   options.myHome.socials.thunderbird = {
-    enable = lib.mkEnableOption "Enable the thunderbird email client.";
+    enable = lib.mkEnableOption "the thunderbird email client.";
   };
 
   config = mkIf cfg.enable {
