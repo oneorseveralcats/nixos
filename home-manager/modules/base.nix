@@ -38,7 +38,6 @@ in
       "libretro-genesis-plus-gx"
       "steam"
       "terraria-server"
-      "unrar"
       "video-downloadhelper"
       "zerotierone"
     ];
