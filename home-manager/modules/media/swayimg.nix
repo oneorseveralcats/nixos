@@ -20,6 +20,7 @@ in
         };
         viewer = {
           preload = 5;
+          scale = "fit";
           window = "#${config.lib.stylix.colors.base00-hex}";
         };
 
