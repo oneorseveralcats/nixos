@@ -36,6 +36,8 @@ in
 
       # Bindings
       bind ge scrollto 100
+
+      unbind <A-m>
     '';
 
     xdg.configFile."tridactyl/themes/stylix.css".text = with config.lib.stylix.colors; ''
