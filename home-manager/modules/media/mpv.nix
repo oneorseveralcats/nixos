@@ -23,7 +23,7 @@ in
         "WHEEL_UP" = "ignore";
         "WHEEL_DOWN" = "ignore";
 
-        # "b" = "cycle-values vf \"sub,lavfi=negate\" \"\"";
+        "b" = ''cycle-values saturation -100 0'';
         "i" = "script-binding stats/display-stats-toggle";
 
         "alt+f" = "script-binding file_browser/browse-files";
@@ -40,6 +40,7 @@ in
         gpu-context-pre = "wayland"; # TODO: check if this is necessary for fullscreen playback of AV1 video after v0.41.0
         sub-scale = "0.75";
         volume = "70";
+        saturation = "-100";
         alang = "eng,epo";
         slang = "eng,epo";
         sub-auto = "fuzzy";
