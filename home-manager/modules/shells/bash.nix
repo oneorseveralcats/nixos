@@ -55,13 +55,15 @@ in
         # complete -cf doas
         ${setPrompt}
 
-        if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-          ${with config.myHome.desktop.compositors; lib.optionalString (builtins.any (x: x) [
-            labwc.enable
-            river.enable
-            sway.enable
-          ]) "exec ${waylandSessionManager}"}
-        fi
+        ${with config.myHome.desktop.compositors; lib.optionalString (builtins.any (x: x) [
+          labwc.enable
+          river.enable
+          sway.enable
+        ]) /* sh */ ''
+          if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+            exec ${waylandSessionManager}
+          fi
+        ''}
 
         ${lib.optionalString config.myHome.shells.fish.enable (shellStart "${config.programs.fish.package}/bin/fish")}
       '';
