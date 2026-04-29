@@ -17,8 +17,8 @@ in
         src = pkgs.fetchFromSourcehut {
           owner = "~rkta";
           repo = "w3m";
-          rev = "f66fade88b777511b093bc2690883175a7b0d47e";
-          sha256 = "sha256-K9uWdt2pWkqHG9CyIzS8WnHHPqn/vy5BW0Ci/Qr/mzc=";
+          rev = "a76f3223522f05b46b9b00cbd8355bf766cd0fcc";
+          sha256 = "sha256-jWXUBQPqKoByHye9ISCo/TrxU/82J3FkCkEV9IW+jEg=";
         };
       };
       w3mImg2Sixel = "img2sixel -d atkinson";
