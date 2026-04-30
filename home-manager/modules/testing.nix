@@ -14,7 +14,5 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
     ];
-
-    myHome.programming.languages.java.enable = true;
   };
 }
