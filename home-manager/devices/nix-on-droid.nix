@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     findutils
@@ -11,11 +11,6 @@
 
   home.sessionVariables.SHELL = "${pkgs.bash}/bin/bash";
   home.shellAliases.home-manager = "nix-on-droid";
-
-  # xdg.configFile."termux/termux.properties".text = lib.generators.toKeyValue {} {
-  #     fullscreen = true;
-  #     use-fullscreen-workaround = true;
-  # };
 
   programs.nom.settings.openers = lib.mkForce [
     { regex = "youtube"; cmd = "termux-open --content-type video %s"; }
@@ -47,5 +42,14 @@
   programs.zellij.settings.default_shell = "bash";
 
   myHome.testing.enable = true;
-  myHome.media.mpv.enable = lib.mkForce false;
+  myHome = {
+    # giac-with-xcas is ~1gb in size
+    math.enable = lib.mkForce false;
+
+    media = {
+      mpv.enable = lib.mkForce false;
+      ncmpcpp.enable = lib.mkForce false;
+      nom.enable = lib.mkForce false;
+    };
+  };
 }
