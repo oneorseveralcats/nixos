@@ -9,6 +9,11 @@ in
 
   options.myHome.stylix = {
     enable = lib.mkEnableOption "Enable stylix, a project to uniformly style NixOS.";
+    styleDesktopApps = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "style desktop apps and toolkits like Qt & GTK.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -45,7 +50,7 @@ in
       };
 
       iconTheme = {
-        enable = pkgs.stdenv.hostPlatform.isLinux;
+        enable = pkgs.stdenv.hostPlatform.isLinux && cfg.styleDesktopApps;
         dark = "Papirus-Dark";
         light = "Papirus-Light";
         package = pkgs.papirus-icon-theme;
@@ -78,6 +83,8 @@ in
       };
 
       targets = {
+        gtk.enable = cfg.styleDesktopApps;
+
         waybar.addCss = false;
         avizo.enable = false;
 
@@ -109,7 +116,7 @@ in
     
     # I believe this will be removable in next stylix release.
     qt = {
-      enable = true;
+      enable = cfg.styleDesktopApps;
       platformTheme.name = "qtct";
       style = {
         # package = pkgs.adwaita-qt;

@@ -46,6 +46,8 @@
     # giac-with-xcas is ~1gb in size
     math.enable = lib.mkForce false;
 
+    stylix.styleDesktopApps = false;
+
     media = {
       mpv.enable = lib.mkForce false;
       ncmpcpp.enable = lib.mkForce false;
