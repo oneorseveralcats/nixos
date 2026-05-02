@@ -7,6 +7,7 @@
     ./telegram.nix
     ./thunderbird.nix
     ./tutanota.nix
+    ./vesktop.nix
     ./weechat.nix
   ];
 }
