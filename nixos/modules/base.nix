@@ -99,6 +99,10 @@ in
       vimAlias = true;
     };
 
+
+    # makes regular shebangs work
+    services.envfs.enable = true;
+
     programs.nix-ld = {
       enable = true;
       # package = pkgs.nix-ld;

@@ -11,9 +11,6 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
     ];
-
-    # should make #!/bin/bash shebangs work
-    services.envfs.enable = true;
   };
 }
 
