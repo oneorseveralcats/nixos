@@ -15,7 +15,7 @@ in
       slurp 
       dragon-drop
       wf-recorder wl-clipboard wl-clipboard-x11 
-      wev wlprop
+      wev wlrctl wlprop
     ];
   };
 }
