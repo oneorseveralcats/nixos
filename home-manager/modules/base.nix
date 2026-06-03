@@ -62,6 +62,7 @@ in
       dconf
       exiftool
       ffmpeg
+      glow
       httrack
       imagemagickBig
       magic-wormhole megatools moreutils
