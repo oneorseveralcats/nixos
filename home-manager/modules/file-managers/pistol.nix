@@ -25,7 +25,8 @@ in
         { fpath = ".*\\.opml$"; command = "sh: ${pkgs.yq}/bin/xq -x '.' %pistol-filename% | ${pkgs.bat}/bin/bat --color=always -pp -l xml"; }
       
         # Archives
-        { mime = "application/x-7z-compressed"; command = "sh: ${pkgs.atool}/bin/atool -l %pistol-filename% | tail -n +19"; }
+        { mime = "application/x-7z-compressed"; command = "${pkgs.exiftool}/bin/exiftool -FileName -FileSize %pistol-filename%"; }
+        { mime = "application/gzip"; command = "${pkgs.exiftool}/bin/exiftool -FileName -FileSize %pistol-filename%"; }
 
 
         { mime = "audio/*"; command = "${pkgs.exiftool}/bin/exiftool -Title -Artist -Album -Comment -Duration -AudioBitrate  %pistol-filename%"; }
