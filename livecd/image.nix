@@ -14,9 +14,8 @@
   # };
 
   boot = {
-    initrd.kernelModules = [ "wl" ];
-
     kernelModules = [ "wl" ];
+    initrd.kernelModules = [ "wl" ];
     extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
   };
   
