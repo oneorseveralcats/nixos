@@ -13,6 +13,9 @@ in
       virt-manager
     ];
 
+    # TODO: replace this with more granular control: https://wiki.nixos.org/wiki/Networking#Virtualization
+    networking.firewall.trustedInterfaces = [ "virbr0" ];
+
     virtualisation = {
       libvirtd = {
         enable = true;
