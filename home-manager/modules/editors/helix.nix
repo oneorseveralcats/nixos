@@ -40,6 +40,7 @@ in
             character = "╎";
             skip-levels = 1;
           };
+          rulers = [ 81 101 121 ];
           statusline = {
             left = [ "mode" "spinner" "file-name" "read-only-indicator" "file-modification-indicator" ];
             center = [ "file-type" ];
