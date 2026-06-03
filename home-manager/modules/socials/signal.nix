@@ -17,11 +17,7 @@ in
     ];
 
     systemd.user.services.signal-desktop = lib.mkIf true {
-      Unit = {
-        Description = "Signal Desktop client";
-        PartOf = systemd.targets;
-        After = systemd.targets;
-      };
+      Unit.Description = "Signal Desktop client";
 
       Service = {
         ExecStart = "${lib.getExe package} ${builtins.toString systemd.extraArgs}";

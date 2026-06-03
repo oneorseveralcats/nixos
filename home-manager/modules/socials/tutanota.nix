@@ -17,11 +17,7 @@ in
     ];
 
     systemd.user.services.tutanota-desktop = lib.mkIf true {
-      Unit = {
-        Description = "Tutanota Desktop client";
-        PartOf = systemd.targets;
-        After = systemd.targets;
-      };
+      Unit.Description = "Tutanota Desktop client";
 
       Service = {
         ExecStart = "${lib.getExe package} ${builtins.toString systemd.extraArgs}";
