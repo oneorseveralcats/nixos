@@ -103,8 +103,8 @@ in
           { name = "LunaticJ"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC6Tp0ptVPoykN-tnhy7gEIw"; }      
 
           ## Roguelikes
-          { name = "Olexa"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC5ib5bTflXtyIkoF_l7OCHw"; }      
-          { name = "Rhapsody"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCDSQHqANzYyJLqLD-fV4XDQ"; }      
+          # { name = "Olexa"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC5ib5bTflXtyIkoF_l7OCHw"; }      
+          # { name = "Rhapsody"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCDSQHqANzYyJLqLD-fV4XDQ"; }      
 
           # Go
           { name = "In Sente"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCP14BOcc0Rg9-TXXv2I4AkA"; }    
@@ -181,9 +181,9 @@ in
           { name = "Mia Mulder"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC_OttpBEWWzSUlZbk5qmhSA"; }    
 
           { name = "Rowan Ellis"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCniXurp_3xcDh923eiqGX3w"; }    
-          { name = "Some More News"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCvlj0IzjSnNoduQF0l3VGng"; }    
           { name = "Rebecca Watson"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCFJxE0l3cVYU4kHzi4qVEkw"; }    
-          { name = "The Kavernacle"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCoG5ya-sMXNMkqkIz1sZ_Lw"; }    
+          # { name = "Some More News"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCvlj0IzjSnNoduQF0l3VGng"; }    
+          # { name = "The Kavernacle"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCoG5ya-sMXNMkqkIz1sZ_Lw"; }    
 
           { name = "oliSUNvia"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCVHxJghKAB_kA_5LMM8MD3w"; }    
           { name = "Mina Le"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCoOss5XiPpnLHGmLrBvNkJg"; }    
@@ -208,8 +208,8 @@ in
           { name = "Low Level"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg"; }    
 
           ##News
-          { name = "Majority Report"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC-3jIAlnQmbbVMV6gR7K8aQ"; }    
-          { name = "Badempanada"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzmizB92LJ9oxf5T_snZNA"; }    
+          # { name = "Majority Report"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC-3jIAlnQmbbVMV6gR7K8aQ"; }    
+          # { name = "Badempanada"; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCUzmizB92LJ9oxf5T_snZNA"; }    
         ];
       };
     };
