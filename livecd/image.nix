@@ -1,7 +1,8 @@
-{ pkgs, modulesPath, lib, ... }: {
+{ config, pkgs, modulesPath, lib, ... }: {
 
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    # "${modulesPath}/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
   ];
 
   # services.openssh = {
@@ -12,6 +13,13 @@
   #   };
   # };
 
+  boot = {
+    initrd.kernelModules = [ "wl" ];
+
+    kernelModules = [ "wl" ];
+    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  };
+  
   programs.ssh.startAgent = true;
   
   users.users.nixos = {
