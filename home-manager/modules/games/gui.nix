@@ -12,6 +12,7 @@ in
 
     home.packages = with pkgs; [
       luanti
+      moonlight-qt
       unstable.protontricks prismlauncher
       terraria-server
       wineWow64Packages.waylandFull unstable.winetricks
