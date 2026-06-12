@@ -15,7 +15,10 @@ in
     home-manager.users.root = { pkgs, ...}: {
       xdg = {
         enable = true;
-        userDirs.enable = true;
+        userDirs = {
+          enable = true;
+          setSessionVariables = true;
+        };
       };
       home.preferXdgDirectories = true;
 
@@ -75,7 +78,7 @@ in
         };
         extraPackages = with pkgs; lib.mkDefault [
           marksman
-          nil nodePackages.bash-language-server
+          nil bash-language-server
         ];
       };      
 
