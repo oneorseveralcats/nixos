@@ -7,11 +7,9 @@ let
   ) (import ../../npins);
   fonts = with pkgs; [
     corefonts
-    mno16
     nerd-fonts.fira-code
     noto-fonts
     noto-fonts-cjk-sans
-    spleen
     twemoji-color-font
   ];
 in
