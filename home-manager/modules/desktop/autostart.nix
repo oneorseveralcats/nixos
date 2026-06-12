@@ -23,14 +23,14 @@ in
     }:{
       Install.WantedBy = [ wantedBy ];
       Service = {
-        ExecStartPre = "${pkgs.toybox}/bin/sleep 2s";
+        # ExecStartPre = "${pkgs.toybox}/bin/sleep 2s";
         ExecStart = "${command}";
       };
       Unit = {
-        After = [ "waybar.service" ];
+        # After = [ "waybar.service" ];
         Description = "Autostart: ${builtins.baseNameOf command}";
         # prevents home-manager from restarting these services
-        X-SwitchMethod = "keep-old";
+        # X-SwitchMethod = "keep-old";
       };
     };
   in lib.mkMerge [
@@ -50,8 +50,6 @@ in
           { thunderbird = mkService { command = "${pkgs.thunderbird}/bin/thunderbird"; }; }
         // optionalAttrs config.myHome.socials.telegram.enable
           { telegram-desktop = mkService { command = "${pkgs.telegram-desktop}/bin/Telegram -startintray"; }; }
-        // optionalAttrs config.myHome.flatpak.enable
-          { vesktop = mkService { command = "${pkgs.flatpak}/bin/flatpak run dev.vencord.Vesktop -m"; }; }
        ;
     })
     (mkIf cfg.wlr.enable {
