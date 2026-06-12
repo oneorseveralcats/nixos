@@ -47,11 +47,6 @@ in
         up = "t";
         right = "s";
         workspaceAutoBackAndForth = true;
-        fonts = {
-          names = [ "monospace" ];
-          style = "Light";
-          # size = 14.0;
-        };
         input = {
           "type:keyboard" = {
             xkb_layout = "us,us";
@@ -387,26 +382,21 @@ in
           { command = "sleep 5s; ${pkgs.foot}/bin/foot -- ${pkgs.zellij}/bin/zellij attach -f zellij-default"; }
         ];
       };
-      extraConfig = ''
-        set $gnome-schema org.gnome.desktop.interface
-        exec_always {
-      	  gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
-      	  gsettings set $gnome-schema icon-theme 'Adwaita'
-      	  gsettings set $gnome-schema cursor-theme 'Adwaita'
-        }
-      '';
     };
 
     myHome.stylix.enable = true;
-    wayland.windowManager.sway.config.colors = {
-      focused = rec {
-        background = lib.mkForce "#${config.lib.stylix.colors.base04-hex}";
-        border = background;
-        text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
-        # indicator = lib.mkForce "#${config.lib.stylix.colors.base03-hex}";
+    wayland.windowManager.sway.config = {
+      fonts.names = lib.mkForce [ config.stylix.fonts.monospace.name ];
+      colors = {
+        focused = rec {
+          background = lib.mkForce "#${config.lib.stylix.colors.base04-hex}";
+          border = background;
+          text = lib.mkForce "#${config.lib.stylix.colors.base00-hex}";
+          # indicator = lib.mkForce "#${config.lib.stylix.colors.base03-hex}";
+        };
+        focusedInactive.border = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
+        unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
       };
-      focusedInactive.border = lib.mkForce "#${config.lib.stylix.colors.base0D-hex}";
-      unfocused.border = lib.mkForce "#${config.lib.stylix.colors.base02-hex}";
     };
   };
 }
