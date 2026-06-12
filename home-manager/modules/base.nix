@@ -120,6 +120,7 @@ in
       enable = true;
       userDirs = {
         enable = pkgs.stdenv.hostPlatform.isLinux;
+        setSessionVariables = true;
         desktop = "${config.home.homeDirectory}/";
         documents = "${config.home.homeDirectory}/documents";
         download = "${config.home.homeDirectory}/downloads";
