@@ -10,7 +10,6 @@ in
 
   config = mkIf cfg.enable {
     myHome.browsers.tridactyl.enable = true;
-    programs.firefox.enable = true;
 
     home.sessionVariables.BROWSER = lib.mkDefault "firefox";
 
@@ -29,7 +28,10 @@ in
     };
 
     programs.firefox = {
+      enable = true;
       package = pkgs.firefox.override { cfg.speechSynthesisSupport = true; };
+      # default if stateVersion >= 26.05
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       policies = {
         DisableFirefoxStudies = true;
         DisablePocket = true;
