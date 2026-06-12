@@ -1,16 +1,15 @@
 { config, lib, pkgs, ... }:
-with lib;
 let 
   cfg = config.myHome.socials.vesktop;
   systemd.targets = [ "tray.target" ];
-  systemd.extraArgs = [ "--start-in-tray" ];
+  systemd.extraArgs = [ "-m" ];
 in
 {
   options.myHome.socials.vesktop = {
     enable = lib.mkEnableOption "Enable the vesktop discord client.";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.vesktop = {
       enable = true;
       vencord = {
@@ -22,14 +21,10 @@ in
     };
     
     systemd.user.services.vesktop-desktop = lib.mkIf true {
-      Unit = {
-        Description = "vesktop Desktop client";
-        # PartOf = systemd.targets;
-        # After = systemd.targets;
-      };
+      Unit.Description = "vesktop Desktop client";
 
       Service = {
-        ExecStart = "${lib.getExe package} ${builtins.toString systemd.extraArgs}";
+        ExecStart = "${lib.getExe config.programs.vesktop.package} ${toString systemd.extraArgs}";
         Restart = "on-failure";
       };
 
