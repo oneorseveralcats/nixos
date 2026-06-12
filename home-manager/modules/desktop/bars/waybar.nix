@@ -11,7 +11,13 @@ in
   config =  mkIf cfg.enable {
     programs.waybar = {
       enable = true;
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        targets = [
+          "river-session.target"
+          "sway-session.target"
+        ];
+      };
       settings = {
         mainBar = {
           id = "bar-0";

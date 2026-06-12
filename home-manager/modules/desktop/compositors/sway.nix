@@ -25,8 +25,6 @@ in
       };
     };
 
-    programs.waybar.systemd.target = "sway-session.target";
-
     wayland.windowManager.sway = {
       enable = true;
       checkConfig = false;

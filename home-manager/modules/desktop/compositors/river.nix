@@ -189,8 +189,6 @@ in
         systemd.extraCommands = [
          "systemctl --user stop river-session.target"
          "systemctl --user start river-session.target"
-         "systemctl --user stop waybar.service"
-         "systemctl --user start waybar.service"
         ];
       };
       extraSessionVariables = {
