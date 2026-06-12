@@ -76,7 +76,7 @@ in
       in with pkgs; [
         awk-language-server
         marksman
-        nixd nodePackages.bash-language-server
+        nixd bash-language-server
         yaml-language-server
       ]
         ++ optional lang.clojure.enable pkgs.clojure-lsp
@@ -105,7 +105,7 @@ in
         ++ optionals lang.dotnet.enable [ pkgs.omnisharp-roslyn pkgs.netcoredbg ]
         ++ optionals lang.fennel.enable [ pkgs.fennel-ls pkgs.fnlfmt ]
         ++ optionals lang.haskell.enable [ pkgs.haskell-language-server pkgs.ormolu ]
-        ++ optionals lang.purescript.enable [ pkgs.nodePackages.purescript-language-server pkgs.nodePackages.purs-tidy  ]
+        ++ optionals lang.purescript.enable [ pkgs.purescript-language-server pkgs.purs-tidy  ]
         ++ optionals lang.python.enable [ pkgs.python3Packages.python-lsp-server pkgs.python3Packages.python-lsp-ruff ]
         ++ optionals lang.rust.enable [ pkgs.rust-analyzer pkgs.lldap ]
         ++ optionals lang.zig.enable [ zls lldap ]
