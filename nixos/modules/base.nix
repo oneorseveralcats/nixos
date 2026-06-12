@@ -2,7 +2,9 @@
 with lib;
 let 
   cfg = config.myConfig.base;
-  npinsPaths = lib.mapAttrsToList (k: v: "${k}=${v}") (import ../../npins);
+  npinsPaths = lib.mapAttrsToList (
+    k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
+  ) (import ../../npins);
 in
 {
   options.myConfig.base = {

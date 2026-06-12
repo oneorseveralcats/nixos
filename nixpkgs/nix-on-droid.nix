@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 let
-  npinsPaths = lib.mapAttrsToList (k: v: "${k}=${v}") (import ../npins);
+  npinsPaths = lib.mapAttrsToList (
+    k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
+  ) (import ../../npins);
 in {
   android-integration = {
     termux-open.enable = true;
