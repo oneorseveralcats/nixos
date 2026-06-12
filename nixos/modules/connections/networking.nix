@@ -25,15 +25,17 @@ in
         "194.242.2.3" # Mullvad Adblocking
       ];
 
-      wireless = {
-        secretsFile = config.sops.templates."wifi-credentials".path;
-        networks = {
-          home = {
-            ssid = "ext:home_ssid";
-            pskRaw = "ext:home_password";
-          };
-        };
-      };
+      # convert to networkmanager
+      # 
+      # wireless = {
+      #   secretsFile = config.sops.templates."wifi-credentials".path;
+      #   networks = {
+      #     home = {
+      #       ssid = "ext:home_ssid";
+      #       pskRaw = "ext:home_password";
+      #     };
+      #   };
+      # };
     };
   };
 }
