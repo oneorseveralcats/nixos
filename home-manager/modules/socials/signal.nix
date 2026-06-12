@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-with lib;
 let 
   cfg = config.myHome.socials.signal;
   package = pkgs.signal-desktop;
@@ -11,7 +10,7 @@ in
     enable = lib.mkEnableOption "Enable the signal messaging client.";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = lib.mkIf (package != null) [
       package
     ];
@@ -20,7 +19,7 @@ in
       Unit.Description = "Signal Desktop client";
 
       Service = {
-        ExecStart = "${lib.getExe package} ${builtins.toString systemd.extraArgs}";
+        ExecStart = "${lib.getExe package} ${toString systemd.extraArgs}";
         Restart = "on-failure";
       };
 
