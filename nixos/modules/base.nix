@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      acpi
+      acpi android-tools
       entr
       git
       helix
@@ -81,8 +81,6 @@ in
 
       set -o vi
     '';
-
-    programs.adb.enable = true;
 
     programs.appimage = {
       enable = true;
