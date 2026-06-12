@@ -13,16 +13,14 @@ in
 
     services.swayidle = {
       enable = true;
-      events = [
-        { 
-          event = "before-sleep"; 
-          command = "${pkgs.playerctl}/bin/playerctl pause; ${pkgs.swaylock}/bin/swaylock";
-        }
-        { 
-          event = "lock"; 
-          command = "${pkgs.swaylock}/bin/swaylock";
-        }
+      systemdTargets = [
+        "river-session.target"
+        "sway-session.target"
       ];
+      events = {
+        before-sleep = "${pkgs.playerctl}/bin/playerctl pause; ${pkgs.swaylock}/bin/swaylock";
+        lock = "${pkgs.swaylock}/bin/swaylock";
+      };
       timeouts = [
         { 
           timeout = 3600; 
