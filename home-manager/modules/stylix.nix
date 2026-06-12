@@ -49,22 +49,19 @@ in
         size = 36;
       };
 
-      iconTheme = {
+      icons = {
         enable = pkgs.stdenv.hostPlatform.isLinux && cfg.styleDesktopApps;
         dark = "Papirus-Dark";
         light = "Papirus-Light";
         package = pkgs.papirus-icon-theme;
       };
 
-      fonts = {
-        serif = {
-          package = pkgs.noto-fonts;
-          name = config.stylix.fonts.sansSerif.name;
-        };
+      fonts = rec {
         sansSerif = {
           package = pkgs.noto-fonts;
           name = "Noto Sans Light";
         };
+        serif = sansSerif;
         monospace = {
           package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font Light";
