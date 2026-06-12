@@ -5,5 +5,6 @@
     telegram.enable = true;
     thunderbird.enable = true;
     tutanota.enable = true;
+    vesktop.enable = true;
   };
 }
