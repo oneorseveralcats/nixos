@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-with lib;
 let 
   cfg = config.myHome.socials.tutanota;
   package = pkgs.unstable.tutanota-desktop;
@@ -11,7 +10,7 @@ in
     enable = lib.mkEnableOption "the tutanota email client.";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = lib.mkIf (package != null) [
       package
     ];
@@ -20,7 +19,7 @@ in
       Unit.Description = "Tutanota Desktop client";
 
       Service = {
-        ExecStart = "${lib.getExe package} ${builtins.toString systemd.extraArgs}";
+        ExecStart = "${lib.getExe package} ${toString systemd.extraArgs}";
         Restart = "on-failure";
       };
 
