@@ -8,6 +8,7 @@
     connections = {
       bluetooth.enable = true;
       firewall.enable = true;
+      localsend.enable = true;
       nas.enable = true;
       networking.enable = true;
       openssh.enable = true;
