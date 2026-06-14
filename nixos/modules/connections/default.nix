@@ -7,6 +7,7 @@
     ./nas.nix
     ./networking.nix
     ./openssh.nix
+    ./sunshine.nix
   ];
 }
 

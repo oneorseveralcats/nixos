@@ -16,6 +16,8 @@ in {
     ../profiles/virtualization.nix
   ];
 
+  myConfig.connections.sunshine.enable = true;
+
   networking.hostName = "desktop";
 
   networking.firewall.allowedTCPPorts = [] ++ ports;
