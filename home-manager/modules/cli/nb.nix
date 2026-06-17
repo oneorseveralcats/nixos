@@ -13,10 +13,6 @@ in
       nb
       openssl
     ];
-
-    home.sessionVariables = {
-      NB_DIR = "${config.xdg.userDirs.documents}/notes";
-    };
   };
 }
 
