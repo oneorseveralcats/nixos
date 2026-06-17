@@ -78,16 +78,6 @@ in
     ] ++ fonts;
 
     home.preferXdgDirectories = true;
-
-    fonts.fontconfig = {
-      enable = ! config.myHome.stylix.enable;
-      defaultFonts = {
-          serif = [ "Noto Serif Light" "Noto Serif" ];
-          sansSerif = [ "Noto Sans Light" "Noto Sans" ];
-          monospace = [ "Fira Code Nerd Font Light" "Fira Code Light" "Noto Sans Mono" ];
-          emoji = [ "Twitter Color Emoji" ];
-      };
-    };
   
     programs.command-not-found = {
       enable = lib.mkDefault true;
