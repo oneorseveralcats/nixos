@@ -2,7 +2,7 @@
 let
   npinsPaths = lib.mapAttrsToList (
     k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
-  ) (import ../../npins);
+  ) (import ../npins);
 in {
   android-integration = {
     termux-open.enable = true;
