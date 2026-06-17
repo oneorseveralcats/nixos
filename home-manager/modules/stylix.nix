@@ -81,6 +81,7 @@ in
 
       targets = {
         gtk.enable = cfg.styleDesktopApps;
+        qt.enable = cfg.styleDesktopApps;
 
         waybar.addCss = false;
         avizo.enable = false;
@@ -96,28 +97,6 @@ in
         firefox.profileNames = [ "personal" "school" "offline" ];
         floorp.profileNames = config.stylix.targets.firefox.profileNames;
         librewolf.profileNames = config.stylix.targets.firefox.profileNames;
-      };
-    };
-
-    ## Overrides
-    # gtk = {
-    #   iconTheme = {
-    #     package = pkgs.adwaita-icon-theme;
-    #     name = "Adwaita";
-    #   };
-    #   theme = {
-    #     package = lib.mkForce pkgs.gnome-themes-extra;
-    #     name = lib.mkForce "Adwaita-dark";
-    #   };
-    # };
-    
-    # I believe this will be removable in next stylix release.
-    qt = {
-      enable = cfg.styleDesktopApps;
-      platformTheme.name = "qtct";
-      style = {
-        # package = pkgs.adwaita-qt;
-        name = "adwaita-dark";
       };
     };
   };
