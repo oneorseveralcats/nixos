@@ -5,13 +5,6 @@ let
   npinsPaths = lib.mapAttrsToList (
     k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
   ) (import ../../npins);
-  fonts = with pkgs; [
-    corefonts
-    nerd-fonts.fira-code
-    noto-fonts
-    noto-fonts-cjk-sans
-    twemoji-color-font
-  ];
 in
 {
   options.myHome.base = {
@@ -75,7 +68,7 @@ in
 
       # terminal powerpoint
       # haskellPackages.patat
-    ] ++ fonts;
+    ];
 
     home.preferXdgDirectories = true;
   

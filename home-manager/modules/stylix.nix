@@ -16,7 +16,22 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
+  config = let
+    fonts = with pkgs; [
+      corefonts
+      nerd-fonts.fira-code
+      noto-fonts
+      noto-fonts-cjk-sans
+      twemoji-color-font
+    ];
+  in mkIf cfg.enable {
+    nixpkgs.config.allowUnfreePackages = [
+      "corefonts"
+    ];
+
+    home.packages = []
+      ++ lib.optionals cfg.styleDesktopApps fonts;
+
     stylix = {
       enable = true;
       polarity = "dark";
