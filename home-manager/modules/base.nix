@@ -25,15 +25,6 @@ in
       nur = import <nur> { inherit pkgs; };
       unstable = import <nixpkgs-unstable> { inherit pkgs; };
     };
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "corefonts"
-      "jflap"
-      "libretro-genesis-plus-gx"
-      "steam"
-      "terraria-server"
-      "video-downloadhelper"
-      "zerotierone"
-    ];
 
     home = {
       sessionPath = [

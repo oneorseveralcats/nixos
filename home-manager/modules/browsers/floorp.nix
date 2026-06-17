@@ -9,6 +9,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    nixpkgs.config.allowUnfreePackages = [
+      "video-downloadhelper"
+    ];
+
     programs.floorp = with config.programs; {
       enable = true;
       package = pkgs.floorp.override {
