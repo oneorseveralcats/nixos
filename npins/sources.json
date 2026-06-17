@@ -36,9 +36,9 @@
       },
       "branch": "release-26.05",
       "submodules": false,
-      "revision": "ea6d221d7aa85652d014b6f719dddf036037515b",
-      "url": "https://github.com/nix-community/home-manager/archive/ea6d221d7aa85652d014b6f719dddf036037515b.tar.gz",
-      "hash": "sha256-cZRlW47U6A2nWvAmnZeeO6Xvq23gxYbVLel4KxqOrcQ="
+      "revision": "8355f0a16b2dbb06a97959a918af5b239bbe05ae",
+      "url": "https://github.com/nix-community/home-manager/archive/8355f0a16b2dbb06a97959a918af5b239bbe05ae.tar.gz",
+      "hash": "sha256-ZGuxexEMo4Xv28KJ0dX/m/PHN4oZIOnxHZpNTyrvx4M="
     },
     "home-manager-unstable": {
       "type": "Git",
@@ -49,9 +49,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "486595d2cf49cfcd649b58a284fa11ac0e34da22",
-      "url": "https://github.com/nix-community/home-manager/archive/486595d2cf49cfcd649b58a284fa11ac0e34da22.tar.gz",
-      "hash": "sha256-5inaamLgUMWy+MOBE9ChF9QAF1o/74LFuHkI0W/9rqc="
+      "revision": "34dd288e65012954cf7170658e0e6a61255b0327",
+      "url": "https://github.com/nix-community/home-manager/archive/34dd288e65012954cf7170658e0e6a61255b0327.tar.gz",
+      "hash": "sha256-CFF4fNNfr2GZSx1xJhBNBi7VMj8OtOqZGOV+fiBSbzw="
     },
     "lanzaboote": {
       "type": "Git",
@@ -75,9 +75,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "1bb49f5aea63e95a3cf9c4b91f9f1331fef7a52b",
-      "url": "https://github.com/thiagokokada/nix-alien/archive/1bb49f5aea63e95a3cf9c4b91f9f1331fef7a52b.tar.gz",
-      "hash": "sha256-HiVhuhD7Fvfje3iw4slmtcCckz/LbjLITa4g/iTEbw0="
+      "revision": "e218108d0fd1ff3e373f126872eddaba62e0afce",
+      "url": "https://github.com/thiagokokada/nix-alien/archive/e218108d0fd1ff3e373f126872eddaba62e0afce.tar.gz",
+      "hash": "sha256-o2iVZt04K97ypUszGRRH31kSanLv/+ujgqH3UI1qXUQ="
     },
     "nix-flatpak": {
       "type": "Tarball",
@@ -126,14 +126,14 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-26.05",
-      "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.1550.bd0ff2d3eac2/nixexprs.tar.xz",
-      "hash": "sha256-YMnBf9lk/LYgvqfmSSJuOGigtRs5Lsy26pJHVlR9yMY="
+      "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.1947.a0374025a863/nixexprs.tar.xz",
+      "hash": "sha256-PoRRDfm1khYEJCk5KyX4Snud03VzRcmxKil5n6drTI0="
     },
     "nixpkgs-unstable": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1011622.a799d3e3886d/nixexprs.tar.xz",
-      "hash": "sha256-G5B1h4sOH4DN/RZ85xYi6zPm2MHdOrNMeUmMslZ28Qs="
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1014179.9ae611a455b9/nixexprs.tar.xz",
+      "hash": "sha256-d34lhgOet4IqYMnCxbIvwFBMOyTV6PT4TyNEOP0/ZhU="
     },
     "nixvim": {
       "type": "Git",
@@ -144,9 +144,9 @@
       },
       "branch": "nixos-26.05",
       "submodules": false,
-      "revision": "e7ce6708cc5b6275406a8feee06ca50c5cafd6bf",
-      "url": "https://github.com/nix-community/nixvim/archive/e7ce6708cc5b6275406a8feee06ca50c5cafd6bf.tar.gz",
-      "hash": "sha256-MxUVyE7A5QMJXOEFQhOHsqs4UPhujeDgdFhguE7Wmic="
+      "revision": "12c6b37a3117af9e603d5238bf39d8f48f2c336a",
+      "url": "https://github.com/nix-community/nixvim/archive/12c6b37a3117af9e603d5238bf39d8f48f2c336a.tar.gz",
+      "hash": "sha256-hODr0Mx4pgkVP0Cq1IQcYGHY4aZobsTmq8UJSDqepzE="
     },
     "nur": {
       "type": "Git",
@@ -157,9 +157,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "9e4ccd576a4b837173bc5c6681b4f332752ed5a1",
-      "url": "https://github.com/nix-community/nur/archive/9e4ccd576a4b837173bc5c6681b4f332752ed5a1.tar.gz",
-      "hash": "sha256-/pAjJFeB5JNXic2p6+RTQmNC2CyzsUMFrz6T8yotAqE="
+      "revision": "abb38b4dd68bf78f87fac9c4ef16085cc178c6a2",
+      "url": "https://github.com/nix-community/nur/archive/abb38b4dd68bf78f87fac9c4ef16085cc178c6a2.tar.gz",
+      "hash": "sha256-cgpKZul13mad41JgqV3RUwJ80ttIFvEbOFIXjDv2nZI="
     },
     "sops-nix": {
       "type": "Git",
