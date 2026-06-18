@@ -1,4 +1,5 @@
-#!/bin/sh
+#! /usr/bin/env nix-shell
+#! nix-shell -p git bash -i bash
 
 # used to generate the relevant symlinks for home-manager and nixos configs.
 git_root=$(git rev-parse --show-toplevel)
