@@ -171,31 +171,43 @@ in
             { command = "focus"; criteria = { app_id = ".*Baba Is You.*"; }; }
 
 
-            { command = "resize set 1000 600"; criteria = { title = "^Files$"; app_id = "floating"; }; }
-            { command = "move position center"; criteria = { title = "^Files$"; app_id = "floating"; }; }
+            {
+              command = "resize set 1000 600, move position center";
+              criteria = { title = "^Files$"; app_id = "floating"; };
+            }
 
-            { command = "sticky enable"; criteria = { app_id = "^mpv$"; }; }
-            { command = "move position 1400 660"; criteria = { app_id = "^mpv$"; }; }
-            # { command = "resize set 480 270"; criteria = { app_id = "^mpv$"; }; }
+            {
+              command = "sticky enable, resize set 480 270, move position 1400 660";
+              criteria = { app_id = "^mpv$"; };
+            }
 
-            { command = "sticky enable"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
-            { command = "move position 1400 660"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
-            { command = "resize set 480 270"; criteria = { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }; }
+            {
+              command = "sticky enable, resize set 480 270, move position 1400 660";
+              criteria = {
+                app_id = "^firefox$";
+                title = "^Picture-in-Picture$";
+              };
+            }
 
-            { command = "resize set 500 150"; criteria = { app_id = "^deluge$"; title = "^Add URl$"; }; }
+            {
+              command = "resize set 500 150";
+              criteria = { app_id = "^deluge$"; title = "^Add URl$"; };
+            }
 
-            { command = "sticky enable"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
-            { command = "move position 1460 380"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
-            { command = "resize set 485 125"; criteria = { app_id = "^it.catboy.ripdrag$"; }; }
+            {
+              command = "sticky enable, resize set 485 125, move position 1460 380";
+              criteria = { app_id = "^it.catboy.ripdrag$"; };
+            }
 
-            { command = "resize set 750 750"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
-            { command = "move position center"; criteria = { app_id = "^firefox$"; title = "^Save As$"; }; }
+            {
+              command = "resize set 750 750, move position center";
+              criteria = { app_id = "^firefox$"; title = "^Save As$"; };
+            }
 
-            { command = "resize set 400 500"; criteria = { title = "^n*sxiv$"; }; }
-            { command = "move position 1510 0"; criteria = { title = "^n*sxiv$"; }; }
-            { command = "resize set 400 500"; criteria = { app_id = "^swayimg$"; }; }
-            { command = "move position 1510 0"; criteria = { app_id = "^swayimg$"; }; }
-          
+            {
+              command = "resize set 400 500, move position 1510 0";
+              criteria = { app_id = "^swayimg$"; };
+            }
           ];
         };
         floating = {
@@ -203,7 +215,6 @@ in
           criteria = [
             { app_id = "^mpv$"; }
             { app_id = "^swayimg$"; }
-            { title = "^n*sxiv$"; }
             { class = "^Pqiv$"; }
 
             { title = "^Bluetooth Devices$"; }
