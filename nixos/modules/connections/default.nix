@@ -1,6 +1,8 @@
 { ... }:
 {
   imports = [
+    ./vpns
+
     ./bluetooth.nix
     ./firewall.nix
     ./localsend.nix
