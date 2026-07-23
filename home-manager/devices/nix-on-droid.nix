@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     findutils
-    gnugrep gnused
+    gawk gnugrep gnused
     killall
     ncurses
     openssh
