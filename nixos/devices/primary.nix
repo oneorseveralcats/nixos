@@ -35,7 +35,7 @@
     device = "/dev/disk/by-uuid/fa86d9d0-658a-4c43-b3a9-0fdf938c7460";
     preLVM = true;
   };
-
-  services.mullvad-vpn.enable = true;
+  
+  myConfig.connections.vpns.proton.enable = true;
   myConfig.system.lanzaboote.enable = true;
 }
