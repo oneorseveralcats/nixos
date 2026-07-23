@@ -30,7 +30,6 @@ in
         "alt+q" = "script-binding quality_menu/video_formats_toggle";
       };
       config = {
-        af = "scaletempo2=max-speed=10";
         osc = "no";
         osd-font-size = "20";
         osd-level = "3";
@@ -44,7 +43,9 @@ in
         sub-auto = "fuzzy";
         screenshot-directory = "~/pictures/mpv/";
         autocreate-playlist = "same";
-        geometry = "480";
+        image-display-duration = "inf";
+        directory-mode = "ignore";
+        auto-window-resize = "no";
         ytdl-format = ''bv[height<=720][vcodec!~='vp0?9']+ba/bv+ba/best'';
         ytdl-raw-options = "format-sort=[lang,res,size,fps,quality,br]";
       };
