@@ -19,27 +19,11 @@ in
       enable = true;
       containers = {
         arch = {
-          image = "quay.io/toolbx/arch-toolbox:latest";
+          image = "ghcr.io/ublue-os/arch-toolbox:latest";
           additional_packages = [
             "vis"
-            "paru"
           ];
-          pre_init_hooks = let
-            setup-chaotic-aur = pkgs.writers.writeBash "setup-chaotic-aur" ''
-                if [ ! -e "/etc/pacman.d/chaotic-mirrorlist" ]; then
-                  sudo su
-                  pacman-key --init
-                  pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-                  pacman-key --lsign-key 3056513887B78AEB
-                  pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'  
-                  pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'  
-
-                  printf '\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n' >> /etc/pacman.conf 
-                fi
-              '';
-          in [
-            "${setup-chaotic-aur}"
-            "pacman -Sy --noconfirm archlinux-keyring"
+          pre_init_hooks = [
             "ln -sf /usr/bin/vis /usr/bin/e"
           ];
         };
