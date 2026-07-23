@@ -206,6 +206,10 @@ in
 
             {
               command = "resize set 400 500, move position 1510 0";
+              criteria = { app_id = "^mvi$"; };
+            }
+            {
+              command = "resize set 400 500, move position 1510 0";
               criteria = { app_id = "^swayimg$"; };
             }
           ];
@@ -214,6 +218,7 @@ in
           titlebar = false;
           criteria = [
             { app_id = "^mpv$"; }
+            { app_id = "^mvi$"; }
             { app_id = "^swayimg$"; }
             { class = "^Pqiv$"; }
 

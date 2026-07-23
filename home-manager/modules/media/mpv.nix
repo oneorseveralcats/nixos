@@ -28,6 +28,11 @@ in
         "alt+f" = "script-binding file_browser/browse-files";
         "alt+p" = "script-binding playlistmanager/showplaylist";
         "alt+q" = "script-binding quality_menu/video_formats_toggle";
+
+        # mvi
+        "i {mvi}" = "script-message status-line-toggle";
+        # "SPACE {mvi}" = "nonrepeatable playlist-next";
+        # "Shift+SPACE {mvi}" = "nonrepeatable playlist-prev";
       };
       config = {
         osc = "no";
@@ -49,21 +54,35 @@ in
         ytdl-format = ''bv[height<=720][vcodec!~='vp0?9']+ba/bv+ba/best'';
         ytdl-raw-options = "format-sort=[lang,res,size,fps,quality,br]";
       };
+
+      profiles = rec {
+        mvi = {
+          profile-cond= ''p["current-tracks/video/image"]'';
+          image-display-duration = "inf";
+          keepaspect-window = "no";
+          loop-playlist = "inf";
+          osd-level = "0";
+          wayland-app-id = "mvi";
+        };
+        "extension.gif" = {
+          loop-file = "inf";
+          profile = "mvi";
+        };
+      };
+
       scripts = with pkgs.mpvScripts; [
         mpris
         mpv-playlistmanager
-        quality-menu
         reload
         sponsorblock-minimal # sponsorblock
-        visualizer
         # manga-reader
-        # mpv-image-viewer.status-line
-        # mpv-image-viewer.ruler
-        # mpv-image-viewer.minimap
-        # mpv-image-viewer.image-positioning
+        mpv-image-viewer.status-line
+        mpv-image-viewer.ruler
+        mpv-image-viewer.minimap
+        mpv-image-viewer.image-positioning
         # mpv-image-viewer.freeze-window
-        # mpv-image-viewer.equalizer
-        # mpv-image-viewer.detect-image
+        mpv-image-viewer.equalizer
+        mpv-image-viewer.detect-image
       ];
       scriptOpts = {
         playlistmanager = {
@@ -81,12 +100,23 @@ in
 
           resolve_url_titles = "yes";
 
-          loadfiles_on_start = "yes";
-          loadfiles_filetypes = ''["mp3","wav","ogm","flac","m4a","wma","ogg","opus","mkv","avi","mp4","ogv","webm","rmvb","flv","wmv","mpeg","mpg","m4v","3gp"]'';
-
           playlist_display_timeout = "15";
         };
+
         file_browser = {}; # TODO? https://github.com/CogentRedTester/mpv-file-browser/blob/master/docs/file_browser.conf
+
+        # mvi
+        detect_image = {
+          command_on_first_image_loaded = "apply-profile mvi; enable-section mvi";
+          command_on_non_image_loaded = "disable-section mvi";
+        };
+
+        status_line = {
+          enabled = "no";
+          size = "24";
+          text_bottom_left = "\${filename}";
+          text_bottom_right = "[\${playlist-pos-1}/\${playlist-count}]";
+        };
       };
     };
 

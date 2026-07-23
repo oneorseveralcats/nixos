@@ -12,10 +12,16 @@ in
     xdg.mime.enable = true;
     xdg.configFile."mimeapps.list".force = true;
     
-    xdg = {
+    xdg = rec {
       desktopEntries = let
         term = "${config.home.sessionVariables.TERMINAL}";
       in {
+        # mvi = {
+        #   name = "mvi";
+        #   exec = ''mpv --profile=mvi -- %U'';
+        #   noDisplay = true;
+        # };
+
         hx-term = {
           name = "hx-term";
           exec = ''${term} -- hx %F'';
@@ -40,30 +46,31 @@ in
           "application/epub+zip" = [ "bk-term.desktop" "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
           "application/pdf" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
           "image/vnd.djvu" = [ "org.pwmt.zathura.desktop" "calibre-ebook-viewer.desktop" "calibre-gui.desktop" ];
-          "application/vnd.comicbook+zip" = [ "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
-          "application/vnd.comicbook-rar" = [ "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
+          "application/vnd.comicbook+zip" = [ "mvi.desktop" "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
+          "application/vnd.comicbook-rar" = [ "mvi.desktop" "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
+          "application/x-cb7" = [ "mvi.desktop" "YACReader.desktop" "org.pwmt.zathura-cb.desktop" ];
 
           # images
-          "image/bmp" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/gif" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/jpeg" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/jpg" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/png" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/tiff" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/x-bmp" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/x-portable-anymap" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/x-portable-bitmap" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/x-portable-graymap" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/x-tga" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/x-xpixmap" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/webp" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/heic" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/svg+xml" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "application/postscript" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/jp2" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/jxl" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/avif" = [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
-          "image/heif"= [ "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/bmp" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/gif" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/jpeg" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/jpg" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/png" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/tiff" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/x-bmp" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/x-portable-anymap" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/x-portable-bitmap" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/x-portable-graymap" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/x-tga" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/x-xpixmap" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/webp" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/heic" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/svg+xml" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "application/postscript" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/jp2" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/jxl" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/avif" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
+          "image/heif"= [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
 
           # video
           "application/x-troff-msvideo" = [ "mpv.desktop" ];
