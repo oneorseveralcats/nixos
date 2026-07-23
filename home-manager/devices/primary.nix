@@ -7,6 +7,5 @@
     ../profiles/socials.nix
     ../profiles/testing.nix
     ../profiles/wayland.nix
-    ../profiles/vpn.nix
   ];
 }
