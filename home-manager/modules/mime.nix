@@ -72,6 +72,13 @@ in
           "image/avif" = [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
           "image/heif"= [ "mvi.desktop" "swayimg.desktop" "pqiv.desktop" "gimp.desktop" "firefox.desktop" ];
 
+          # audio
+          "audio/aac" = [ "mpv.desktop" ];
+          "audio/flac" = [ "mpv.desktop" ];
+          "audio/mpeg" = [ "mpv.desktop" ];
+          "audio/ogg" = [ "mpv.desktop" ];
+          "audio/opus" = [ "mpv.desktop" ];
+
           # video
           "application/x-troff-msvideo" = [ "mpv.desktop" ];
           "video/mpeg" = [ "mpv.desktop" ];
