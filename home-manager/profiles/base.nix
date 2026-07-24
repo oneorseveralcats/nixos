@@ -34,7 +34,7 @@
     };
 
     file-managers = {
-      lf.enable = true;
+      yazi.enable = true;
     };
 
     media = {

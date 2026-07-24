@@ -32,9 +32,9 @@ in
           exec = ''${term} --font=monospace:size=24 --title=Reader --app-id=ws4-focus -- bk %f'';
           noDisplay = true;
         };
-        lf-term = {
+        fm-term = {
           name = "lf-term";
-          exec = ''${term} --title=Files --app-id=floating -- lf %F'';
+          exec = ''${term} --title=Files --app-id=Files -- yazi %F'';
           # mimeType = [ "inode/directory" ];
           noDisplay = true;
         };
@@ -151,7 +151,7 @@ in
           "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
           "x-scheme-handler/mid" = [ "thunderbird.desktop" ];
 
-          "inode/directory" = [ "lf-term.desktop" "lf.desktop" "nnn.desktop" ];
+          "inode/directory" = [ "fm-term.desktop" ];
 
           "application/x-xopp" = [ "com.github.xournalpp.xournalpp.desktop" ];
         };

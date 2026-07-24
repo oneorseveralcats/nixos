@@ -31,6 +31,9 @@ in
           if test -n "$NNNLVL"
             set NNN "N$NNNLVL "
           end
+          if test -n "$YAZI_LEVEL"
+            set YAZI "Y$YAZI_LEVEL "
+          end
 
           if test -n "$CONTAINER_ID"
             set CONTAINER "($CONTAINER_ID) "
@@ -46,6 +49,7 @@ in
           string join "" -- (printf '%s' $CONTAINER) \
                             (set_color green) (printf '%s' $SSH_CONNECT) (set_color normal) \
                             (set_color blue) (printf '%s' $NIX_SHELL) (set_color normal) \
+                            (printf '%s' $YAZI)      \
                             (printf '%s' $LF)        \
                             (printf '%s' $NNN)       \
                             (set_color blue) (prompt_pwd --full-length-dirs 2) (set_color normal) '> '

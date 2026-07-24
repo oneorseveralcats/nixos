@@ -172,8 +172,8 @@ in
 
 
             {
-              command = "resize set 1000 600, move position center";
-              criteria = { title = "^Files$"; app_id = "floating"; };
+              command = "sticky enable, resize set 1400 800, move position center";
+              criteria = { app_id = "^Files$"; };
             }
 
             {
@@ -208,6 +208,7 @@ in
               command = "resize set 400 500, move position 1510 0";
               criteria = { app_id = "^mvi$"; };
             }
+
             {
               command = "resize set 400 500, move position 1510 0";
               criteria = { app_id = "^swayimg$"; };
@@ -239,6 +240,7 @@ in
             { app_id = "^firefox$"; title = "^Picture-in-Picture$"; }
 
             { app_id = "^floating$"; }
+            { app_id = "^Files$"; }
 
             { app_id = "^syncplay$"; title = "^Set playlist \\(one per line\\)$"; }
             { app_id = "^syncplay$"; title = "^Add URLs to playlist \\(one per line\\)$"; }
@@ -316,9 +318,9 @@ in
           "${modifier}+Shift+Return" = "exec ${terminal} --title='Terminal'";
           "${modifier}+Ctrl+Shift+Return" = "exec ${terminal} --title='Terminal' --app-id='floating'";
           "${modifier}+Shift+f" = "exec " + pkgs.writers.writeBash "show-hide-fm" ''
-            swaymsg [title="^Files$"] scratchpad show\
-            || swaymsg [title="^Files$"] move container to scratchpad\
-            || ${terminal} --title='Files' --app-id='floating' -- lf && swaymsg sticky enable
+            swaymsg [app_id="^Files$"] scratchpad show\
+            || swaymsg [app_id="^Files$"] move container to scratchpad\
+            || xdg-open "${config.home.homeDirectory}"
           '';
           "${modifier}+d" = "exec ${menu}";
 

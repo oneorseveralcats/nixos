@@ -22,8 +22,8 @@ in
 
     home.shellAliases = {
       lft = "tmux -L lf -f ~/.config/lf/tmux.conf new-session -A -s lf -- lf";
-      f = "lf";
-      ff = "lft";
+      # f = "lf";
+      # ff = "lft";
       fd = "cd $(lf -print-last-dir)";
     };
 
