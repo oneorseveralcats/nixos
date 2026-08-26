@@ -15,7 +15,9 @@ in
     nix = {
       package = pkgs.nix;
       keepOldNixPath = false;
-      nixPath = npinsPaths;
+      nixPath = [
+        "nixos-config=$HOME/git/nixos/nixos/configuration.nix"
+      ] ++ npinsPaths;
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
     xdg.configFile."nix/nix.conf".force = true;
