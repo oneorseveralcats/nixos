@@ -176,12 +176,12 @@ in
       };
 
       settings = {
-        cgi_bin = "${w3mDir}/w3m/cgi-bin";
-        mailcap = "${w3mDir}/w3m/mailcap";
-        urimethodmap = "${w3mDir}/w3m/urimethodmap";
-        passwd_file = "${w3mDir}/w3m/passwd";
-        pre_form_file = "${w3mDir}/w3m/pre_form";
-        siteconf_file = "${w3mDir}/w3m/siteconf";
+        cgi_bin = "${w3mDir}/cgi-bin";
+        mailcap = "${w3mDir}/mailcap";
+        urimethodmap = "${w3mDir}/urimethodmap";
+        passwd_file = "${w3mDir}/passwd";
+        pre_form_file = "${w3mDir}/pre_form";
+        siteconf_file = "${w3mDir}/siteconf";
 
         dl_dir = "${config.xdg.userDirs.download}/downloads";
         tmp_dir = "${config.xdg.cacheHome}/w3m";
