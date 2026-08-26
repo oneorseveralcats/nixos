@@ -51,6 +51,7 @@ in
       glow
       httrack
       imagemagickBig
+      just
       magic-wormhole megatools moreutils
       ncdu nix-tree nmap npins
       pulsemixer python3Packages.yq
