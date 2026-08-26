@@ -35,6 +35,7 @@ in
           { desc = "Close tab"; on = [ "q" ]; run = "close"; }
 
           { desc = "enter directory, or open file"; on = "l"; run = "plugin smart-enter"; }
+          { desc = "enter directory, or open file"; on = "<right>"; run = "plugin smart-enter"; }
 
           { desc = "Run a shell command"; on = [ ";" ";" ]; run = "shell --interactive"; }
           { desc = "ripdrag"; on = [ ";" "d" ]; run = "shell -- ${lib.getExe pkgs.ripdrag} -A -x -n -r %s"; }
