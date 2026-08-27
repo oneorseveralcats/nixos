@@ -2,9 +2,9 @@
 with lib;
 let 
   cfg = config.myHome.base;
-  npinsPaths = lib.mapAttrsToList (
-    k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
-  ) (import ../../npins);
+  # npinsPaths = lib.mapAttrsToList (
+  #   k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
+  # ) (import ../../npins);
 in
 {
   options.myHome.base = {
@@ -15,18 +15,12 @@ in
     nix = {
       package = pkgs.nix;
       keepOldNixPath = false;
-      nixPath = [
-        "nixos-config=$HOME/git/nixos/nixos/configuration.nix"
-      ] ++ npinsPaths;
+      # nixPath = [
+      #   "nixos-config=$HOME/git/nixos/nixos/configuration.nix"
+      # ] ++ npinsPaths;
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
     xdg.configFile."nix/nix.conf".force = true;
-
-    nixpkgs.config.packageOverrides = pkgs: {
-      master = import <nixpkgs-master> { inherit pkgs; };
-      nur = import <nur> { inherit pkgs; };
-      unstable = import <nixpkgs-unstable> { inherit pkgs; };
-    };
 
     home = {
       sessionPath = [
@@ -68,7 +62,7 @@ in
   
     programs.command-not-found = {
       enable = lib.mkDefault true;
-      dbPath = "${builtins.storePath pkgs.path}/programs.sqlite";
+      # dbPath = "${builtins.storePath pkgs.path}/programs.sqlite";
     };
     programs.jq.enable = lib.mkDefault true;
     programs.fzf.enable = lib.mkDefault true;

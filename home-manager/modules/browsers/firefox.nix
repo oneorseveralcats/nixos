@@ -11,10 +11,6 @@ in
   config = mkIf cfg.enable {
     myHome.browsers.tridactyl.enable = true;
 
-    nixpkgs.config.allowUnfreePackages = [
-      "video-downloadhelper"
-    ];
-
     home.sessionVariables.BROWSER = lib.mkDefault "firefox";
 
     home.file.".local/bin/schoolfox" = {

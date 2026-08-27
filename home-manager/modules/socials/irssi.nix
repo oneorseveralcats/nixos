@@ -22,6 +22,6 @@ in
       '';
     };
 
-    home.file.".irssi/scripts/vim_mode.pl".source = builtins.fetchurl "https://github.com/shabble/irssi-scripts/raw/master/vim-mode/vim_mode.pl";
+    # home.file.".irssi/scripts/vim_mode.pl".source = builtins.fetchurl "https://github.com/shabble/irssi-scripts/raw/master/vim-mode/vim_mode.pl";
   };
 }

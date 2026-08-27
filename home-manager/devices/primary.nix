@@ -2,10 +2,15 @@
 
 {
   imports = [
+    ../home.nix
+
     ../profiles/games.nix
     ../profiles/programming.nix
     ../profiles/socials.nix
     ../profiles/testing.nix
     ../profiles/wayland.nix
   ];
+
+  home.username = "user";
+  home.homeDirectory = "/home/user";
 }

@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
+    ../home.nix
   ];
 
-  home.packages = with pkgs; [
-  ];
+  home.username = "user";
+  home.homeDirectory = "/home/user";
 }

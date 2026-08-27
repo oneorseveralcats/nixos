@@ -11,10 +11,6 @@ in
   config = mkIf cfg.enable {
     myHome.browsers.tridactyl.enable = true;
 
-    nixpkgs.config.allowUnfreePackages = [
-      "video-downloadhelper"
-    ];
-
     programs.librewolf = with config.programs; {
       enable = true;
       package = pkgs.librewolf.override {

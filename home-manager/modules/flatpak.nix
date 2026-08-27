@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myHome.testing;
 in
 {
   imports = [
-    "${<nix-flatpak>}/modules/home-manager.nix"
+    "${inputs.nix-flatpak}/modules/home-manager.nix"
   ];
 
   options.myHome.flatpak = {

@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myHome.editors.neovim;
-  nixvim = import <nixvim>;
+  nixvim = import inputs.nixvim;
 in
 {
   imports = [

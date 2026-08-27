@@ -174,11 +174,11 @@ in
     };
 
     home.file = {
-      ".local/share/luakit/adblock/easylist.txt".source = builtins.fetchurl "https://easylist.to/easylist/easylist.txt";
-      ".local/share/luakit/adblock/easyprivacy.txt".source = builtins.fetchurl "https://easylist.to/easylist/easyprivacy.txt";
-      ".local/share/luakit/adblock/fanboy-annoyance.txt".source = builtins.fetchurl "https://secure.fanboy.co.nz/fanboy-annoyance.txt";
-      ".local/share/luakit/adblock/fanboy-cookiemonster.txt".source = builtins.fetchurl "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt";
-      ".local/share/luakit/adblock/fanboy-social.txt".source = builtins.fetchurl "https://easylist.to/easylist/fanboy-social.txt";
+      # ".local/share/luakit/adblock/easylist.txt".source = builtins.fetchurl "https://easylist.to/easylist/easylist.txt";
+      # ".local/share/luakit/adblock/easyprivacy.txt".source = builtins.fetchurl "https://easylist.to/easylist/easyprivacy.txt";
+      # ".local/share/luakit/adblock/fanboy-annoyance.txt".source = builtins.fetchurl "https://secure.fanboy.co.nz/fanboy-annoyance.txt";
+      # ".local/share/luakit/adblock/fanboy-cookiemonster.txt".source = builtins.fetchurl "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt";
+      # ".local/share/luakit/adblock/fanboy-social.txt".source = builtins.fetchurl "https://easylist.to/easylist/fanboy-social.txt";
     };
   };
 }

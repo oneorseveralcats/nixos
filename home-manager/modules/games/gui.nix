@@ -9,11 +9,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.config.allowUnfreePackages = [
-      "steam"
-      "terraria-server"
-    ];
-
     home.packages = with pkgs; [
       luanti
       moonlight-qt

@@ -9,10 +9,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.config.allowUnfreePackages = [
-      "libretro-genesis-plus-gx"
-    ];
-
     home.packages = with pkgs; [
       dolphin-emu
       pcsx2

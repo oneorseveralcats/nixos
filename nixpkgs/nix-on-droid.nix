@@ -1,8 +1,8 @@
-{ lib, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 let
-  npinsPaths = lib.mapAttrsToList (
-    k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
-  ) (import ../npins);
+  # npinsPaths = lib.mapAttrsToList (
+  #   k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
+  # ) (import ../npins);
 in {
   android-integration = {
     termux-open.enable = true;
@@ -12,7 +12,7 @@ in {
     xdg-open.enable = true;
   };
 
-  nix.nixPath = npinsPaths;
+  # nix.nixPath = npinsPaths;
 
   build.activation = {
     generateResolvConf = let
@@ -37,6 +37,15 @@ in {
     '';
   };
 
-  home-manager.config = ../home-manager/home.nix;
-  system.stateVersion = "21.11";
+  home-manager = {
+    config = ../home-manager/devices/nix-on-droid.nix;
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit pkgs;
+    };
+    sharedModules = [
+      inputs.nur.modules.homeManager.default
+    ];
+  };
+  system.stateVersion = "24.05";
 }

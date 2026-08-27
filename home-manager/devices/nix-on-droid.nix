@@ -1,5 +1,9 @@
 { pkgs, lib, ... }:
 {
+  imports = [
+    ../home.nix
+  ];
+
   home.packages = with pkgs; [
     findutils
     gawk gnugrep gnused

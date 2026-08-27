@@ -2,8 +2,13 @@
 
 {
   imports = [
+    ../home.nix
+
     ../profiles/wayland.nix
   ];
+
+  home.username = "user";
+  home.homeDirectory = "/home/user";
 
   home.packages = with pkgs; [
     firefox

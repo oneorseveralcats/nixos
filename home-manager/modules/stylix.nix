@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myHome.stylix;
-  stylix = import <stylix>;
+  stylix = import inputs.stylix;
 in
 {
   imports = [ stylix.homeModules.stylix ];
@@ -25,10 +25,6 @@ in
       twemoji-color-font
     ];
   in mkIf cfg.enable {
-    nixpkgs.config.allowUnfreePackages = [
-      "corefonts"
-    ];
-
     home.packages = []
       ++ lib.optionals cfg.styleDesktopApps fonts;
 
@@ -77,6 +73,10 @@ in
           name = "Noto Sans Light";
         };
         serif = sansSerif;
+        # serif = {
+        #   package = sansSerif.package;
+        #   name = sansSerif.name;
+        # };
         monospace = {
           package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font Light";
