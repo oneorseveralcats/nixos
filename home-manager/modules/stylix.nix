@@ -9,6 +9,11 @@ in
 
   options.myHome.stylix = {
     enable = lib.mkEnableOption "Enable stylix, a project to uniformly style NixOS.";
+    enableFonts = lib.mkOption {
+      type = lib.types.bool;
+      default = cfg.styleDesktopApps;
+      description = "install and enable fonts and font configuration.";
+    };
     styleDesktopApps = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -26,7 +31,7 @@ in
     ];
   in mkIf cfg.enable {
     home.packages = []
-      ++ lib.optionals cfg.styleDesktopApps fonts;
+      ++ lib.optionals cfg.enableFonts fonts;
 
     stylix = {
       enable = true;
@@ -95,6 +100,9 @@ in
       };
 
       targets = {
+        font-packages.enable = cfg.enableFonts;
+        fontconfig.enable = cfg.enableFonts;
+
         gtk.enable = cfg.styleDesktopApps;
         qt.enable = cfg.styleDesktopApps;
 
