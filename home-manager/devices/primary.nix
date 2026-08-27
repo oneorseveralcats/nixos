@@ -10,7 +10,4 @@
     ../profiles/testing.nix
     ../profiles/wayland.nix
   ];
-
-  home.username = "user";
-  home.homeDirectory = "/home/user";
 }

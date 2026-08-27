@@ -8,8 +8,5 @@
     ../profiles/wayland.nix
   ];
 
-  home.username = "user";
-  home.homeDirectory = "/home/user";
-
   myHome.socials.thunderbird.enable = true;
 }
