@@ -52,7 +52,7 @@
 
     stylix.styleDesktopApps = false;
 
-    virtualization.distrobox = lib.mkForce false;
+    virtualization.distrobox.enable = lib.mkForce false;
 
     media = {
       mpv.enable = lib.mkForce false;
