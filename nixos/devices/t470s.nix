@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   imports = [
-    <nixos-hardware/lenovo/thinkpad/t470s>
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t470s
+    ../hardware-configuration/t470s.nix
+
+    ../configuration.nix
 
     ../profiles/desktop.nix
     ../profiles/print_scan.nix

@@ -9,6 +9,10 @@ let ports = [
   ];
 in {
   imports = [
+    ../hardware-configuration/desktop.nix
+
+    ../configuration.nix
+
     ../profiles/ai.nix    
     ../profiles/desktop.nix
     ../profiles/games.nix

@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ../hardware-configuration/server.nix
+
+    ../configuration.nix
   ];
 
   myConfig.connections.nas.enable = lib.mkForce false;

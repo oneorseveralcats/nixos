@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myConfig.users.root;
 in
 {
-  imports = [ <home-manager/nixos> ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   options.myConfig.users.root = {
     enable = lib.mkEnableOption "Enable root home-manager/nixos configuration.";

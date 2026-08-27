@@ -2,9 +2,6 @@
 with lib;
 let 
   cfg = config.myConfig.base;
-  npinsPaths = lib.mapAttrsToList (
-    k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
-  ) (import ../../npins);
 in
 {
   options.myConfig.base = {
@@ -26,8 +23,6 @@ in
     ];
 
     nix = {
-      channel.enable = false;
-      nixPath = npinsPaths ++ [ "nixos-config=/etc/nixos/configuration.nix" ]; 
       settings = {
         auto-optimise-store = true;
         experimental-features = [ "nix-command" "flakes" ];
@@ -36,14 +31,6 @@ in
         automatic = true;
         dates = "weekly";
         options = "--delete-older-than 14d";
-      };
-    };
-
-    nixpkgs.config = {
-      allowUnfree = true;
-      packageOverrides = pkgs: {
-        nur = import <nur> { inherit pkgs; };
-        unstable = import <nixpkgs-unstable> { inherit pkgs; };
       };
     };
 

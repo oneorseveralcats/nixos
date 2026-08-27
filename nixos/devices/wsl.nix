@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ...}:
+{ config, inputs, lib, pkgs, ...}:
 {
-  imports = [ <nixos-wsl/modules> ];
+  imports = [
+    "${inputs.nixos-wsl}.modules"
+    ../hardware-configuration/wsl.nix
+
+    ../configuration.nix
+  ];
 
   wsl = {
     enable = true;

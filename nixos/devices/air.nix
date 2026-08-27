@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 {
   imports = [
-    <nixos-hardware/apple/macbook-air/7>
+    inputs.nixos-hardware.nixosModules.apple-macbook-air-7
+    ../hardware-configuration/air.nix
+
+    ../configuration.nix
 
     ../profiles/desktop.nix
     ../profiles/games.nix

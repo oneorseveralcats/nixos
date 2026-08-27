@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myConfig.sops;
 in
 {
   imports = [
-    <sops-nix/modules/sops>
+    "${inputs.sops-nix}/modules/sops"
   ];
 
   options.myConfig.sops = {

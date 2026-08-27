@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myConfig.system.lanzaboote;
-  lanzaboote = import <lanzaboote> {};
 in
 {
-  imports = [ lanzaboote.nixosModules.lanzaboote ]; 
+  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ]; 
 
   options.myConfig.system.lanzaboote = {
     enable = lib.mkEnableOption "Enable secure-boot through lanzaboote.";
