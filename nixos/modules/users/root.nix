@@ -29,7 +29,7 @@ in
 
       programs.git = {
         enable = true;
-        extraConfig.safe.directory = "/home/user/git/nixos";
+        settings.safe.directory = "/home/user/git/nixos";
       };
 
       # TODO: try importing the helix.nix file. It would involve stylix.nix too.
