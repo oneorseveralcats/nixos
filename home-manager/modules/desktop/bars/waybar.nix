@@ -6,6 +6,11 @@ in
 {
   options.myHome.desktop.bars.waybar = {
     enable = lib.mkEnableOption "and configure waybar.";
+    hasBattery = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "display battery information in the status bar.";
+    };
   };
 
   config =  mkIf cfg.enable {
@@ -30,7 +35,10 @@ in
           modules-right = let
             sep = "custom/separator";
             addSeparator = xs: [ sep ] ++ lib.intersperse sep xs;
-          in addSeparator [ "sway/language" "clock#date" "battery" "tray" ];
+          in addSeparator (
+            [ "sway/language" "clock#date" ]
+            ++ lib.optional cfg.hasBattery "battery"
+            ++ [ "tray" ]);
 
           "sway/language" = {
             format = "{short} {variant}";

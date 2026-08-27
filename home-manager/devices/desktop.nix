@@ -18,4 +18,6 @@
     "wireless _first_".enable = false;
   };
 
+  myHome.desktop.bars.waybar.hasBattery = false;
+
 }
