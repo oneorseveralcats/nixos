@@ -62,32 +62,11 @@ in
 
     home.preferXdgDirectories = true;
   
-    programs.command-not-found = {
-      enable = lib.mkDefault true;
-      # dbPath = "${builtins.storePath pkgs.path}/programs.sqlite";
-    };
-    programs.jq.enable = lib.mkDefault true;
-    programs.fzf.enable = lib.mkDefault true;
-    services.ssh-agent.enable = lib.mkDefault true;
-    services.syncthing.enable = lib.mkDefault true;
-
-    programs.lesspipe.enable = lib.mkDefault true;
-    # home.file.".local/bin/lessfilter".source = pkgs.writeShellScript "lessfilter" ''
-    #   if [[ $1 =~ .*(<html|<body>|<head>).* ]]; then
-    #     cat "$1"
-    #     exit 0
-    #   else
-    #     exit 1
-    #   fi
-    # '';
-
-    programs.nix-index = {
-      enable = lib.mkDefault true;
-      enableBashIntegration = false;
-      enableFishIntegration = false;
-      enableNushellIntegration = false;
-      enableZshIntegration = false;
-    };
+    programs.command-not-found.enable = true;
+    programs.jq.enable = true;
+    programs.fzf.enable = true;
+    services.ssh-agent.enable = true;
+    services.syncthing.enable = true;
 
     xdg = {
       enable = true;
