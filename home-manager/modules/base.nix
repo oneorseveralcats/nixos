@@ -49,7 +49,7 @@ in
       imagemagickBig
       just
       magic-wormhole megatools moreutils
-      ncdu nix-tree nmap npins
+      ncdu nix-tree nmap
       pulsemixer python3Packages.yq
       rdrview
       termdown
