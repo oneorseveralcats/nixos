@@ -38,9 +38,9 @@ in {
       inherit inputs;
       inherit pkgs;
     };
-    # sharedModules = [
-    #   inputs.nur.modules.homeManager.default
-    # ];
+    sharedModules = [
+      inputs.nur.modules.homeManager.default
+    ];
   };
   system.stateVersion = "24.05";
 }
