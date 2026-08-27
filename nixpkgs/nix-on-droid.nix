@@ -1,8 +1,5 @@
 { inputs, lib, pkgs, ... }:
 let
-  # npinsPaths = lib.mapAttrsToList (
-  #   k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
-  # ) (import ../npins);
 in {
   android-integration = {
     termux-open.enable = true;
@@ -11,8 +8,6 @@ in {
     termux-setup-storage.enable = true;
     xdg-open.enable = true;
   };
-
-  # nix.nixPath = npinsPaths;
 
   build.activation = {
     #generateResolvConf = let

@@ -2,9 +2,6 @@
 with lib;
 let 
   cfg = config.myHome.base;
-  # npinsPaths = lib.mapAttrsToList (
-  #   k: v: lib.optionalString (lib.isAttrs v) "${k}=${v}"
-  # ) (import ../../npins);
 in
 {
   options.myHome.base = {
@@ -14,10 +11,6 @@ in
   config = mkIf cfg.enable {
     nix = {
       package = pkgs.nix;
-      keepOldNixPath = false;
-      # nixPath = [
-      #   "nixos-config=$HOME/git/nixos/nixos/configuration.nix"
-      # ] ++ npinsPaths;
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
     xdg.configFile."nix/nix.conf".force = true;
