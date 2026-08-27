@@ -18,7 +18,7 @@ in
       keepassxc
       nb
       udiskie usbimager
-      xournalpp
+      # xournalpp
 
       hicolor-icon-theme
       adwaita-icon-theme gnome-themes-extra
