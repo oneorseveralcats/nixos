@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let 
   cfg = config.myHome.socials.signal;
-  package = pkgs.signal-desktop;
+  package = pkgs.unstable.signal-desktop;
   systemd.targets = [ "tray.target" ];
   systemd.extraArgs = [ "--start-in-tray" ];
 in
