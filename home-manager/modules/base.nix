@@ -11,6 +11,11 @@ in
   config = mkIf cfg.enable {
     nix = {
       package = pkgs.nix;
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
+      };
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
     xdg.configFile."nix/nix.conf".force = true;
