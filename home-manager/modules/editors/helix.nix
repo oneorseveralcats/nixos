@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   inherit (lib)
@@ -9,12 +9,21 @@ in
 {
   options.myHome.editors.helix = {
     enable = lib.mkEnableOption "Enable the helix text editor (hx).";
+    useHelixFlake = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "use helix flake from upstream instead of nixpkgs version";
+    };
   };
 
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      package = pkgs.unstable.helix;
+      package =
+        if cfg.useHelixFlake then
+          inputs.helix-master.packages.${pkgs.stdenv.hostPlatform.system}.default
+        else
+          pkgs.helix;
       defaultEditor = lib.mkDefault true;
       settings = {
         theme = lib.mkForce "stylix-custom";
