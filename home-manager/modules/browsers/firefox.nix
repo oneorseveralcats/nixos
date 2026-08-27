@@ -56,7 +56,6 @@ in
           extensions = {
             packages = with pkgs.nur.repos.rycee.firefox-addons; [
               auto-tab-discard
-              # bypass-paywalls-clean
               canvasblocker
               cookie-autodelete
               clearurls
@@ -64,15 +63,17 @@ in
               decentraleyes
               firemonkey
               istilldontcareaboutcookies
-              # keepassxc-browser
               sponsorblock
               tridactyl
               video-downloadhelper
               videospeed
               ublock-origin
 
-              overbitewx
-              geminize
+              # bypass-paywalls-clean
+              # keepassxc-browser
+              
+              # overbitewx
+              # geminize
             ];
             settings = {
               # # vimium
