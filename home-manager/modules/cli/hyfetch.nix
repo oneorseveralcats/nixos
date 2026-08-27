@@ -9,14 +9,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.fastfetch ];
-
     home.shellAliases.neofetch = "${pkgs.hyfetch}/bin/neowofetch";
 
     programs.hyfetch = {
       enable = true;
       settings = {
-        backend = "fastfetch";
+        backend = "neofetch";
         pride_month_disable = true;
         light_dark = "dark";
         mode = "rgb";
