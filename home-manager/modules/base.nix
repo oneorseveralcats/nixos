@@ -1,9 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.myHome.base;
 in
 {
+  imports = [
+    inputs.flake-programs-sqlite.homeModules.programs-sqlite
+  ];
+
   options.myHome.base = {
     enable = lib.mkEnableOption "Enable the most basic configuration operations and programs.";
   };

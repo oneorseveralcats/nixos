@@ -2,6 +2,11 @@
   description = "NixOS and Home-Manager config";
 
   inputs = {
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helix-master = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
