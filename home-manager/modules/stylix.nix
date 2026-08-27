@@ -103,7 +103,9 @@ in
         font-packages.enable = cfg.enableFonts;
         fontconfig.enable = cfg.enableFonts;
 
+        gnome.enable = cfg.styleDesktopApps;
         gtk.enable = cfg.styleDesktopApps;
+        kde.enable = cfg.styleDesktopApps;
         qt.enable = cfg.styleDesktopApps;
 
         waybar.addCss = false;
