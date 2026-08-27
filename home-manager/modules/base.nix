@@ -97,6 +97,7 @@ in
         desktop = "${config.home.homeDirectory}/";
         documents = "${config.home.homeDirectory}/documents";
         download = "${config.home.homeDirectory}/downloads";
+        music = "${config.home.homeDirectory}/audio";
         pictures = "${config.home.homeDirectory}/pictures";
         projects = "${config.home.homeDirectory}/projects";
         videos = "${config.home.homeDirectory}/videos";
