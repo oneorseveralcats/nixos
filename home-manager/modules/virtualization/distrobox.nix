@@ -1,15 +1,15 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.distrobox;
+  cfg = config.myHome.virtualization.distrobox;
 in
 {
-  options.myHome.distrobox = {
+  options.myHome.virtualization.distrobox = {
     enable = lib.mkEnableOption "Enable distrobox and configure containers.";
   };
 
   config = mkIf cfg.enable {
-    myHome.podman.enable = true;
+    myHome.virtualization.podman.enable = true;
 
     home.packages = [
       # pkgs.lilipod

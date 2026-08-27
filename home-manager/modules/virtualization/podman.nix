@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let 
-  cfg = config.myHome.podman;
+  cfg = config.myHome.virtualization.podman;
 in
 {
-  options.myHome.podman = {
+  options.myHome.virtualization.podman = {
     enable = lib.mkEnableOption "Enable podman container manager.";
   };
 

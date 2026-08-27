@@ -3,10 +3,10 @@
   myHome = {
     base.enable = true;
     bluetooth.enable = true;
-    distrobox.enable = true;
     games.cli.enable = true;
     programming.base.enable = true;
     stylix.enable = true;
+    virtualization.distrobox.enable = true;
 
     browsers = {
       chawan.enable = true;
