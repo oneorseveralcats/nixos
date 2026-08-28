@@ -1,6 +1,10 @@
 { inputs, lib, pkgs, ... }:
 let
 in {
+  nix.registry = {
+    nixpkgs.flake = inputs.nixpkgs;
+  };
+
   android-integration = {
     termux-open.enable = true;
     termux-open-url.enable = true;
