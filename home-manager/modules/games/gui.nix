@@ -12,11 +12,12 @@ in
     home.packages = with pkgs; [
       luanti
       moonlight-qt
-      unstable.protontricks prismlauncher
+      unstable.protontricks
       terraria-server
       wineWow64Packages.waylandFull unstable.winetricks
 
-      
+      # prismlauncher
+
       # kde games
       # kdePackages.kfourinline
       # kdePackages.kgeography
