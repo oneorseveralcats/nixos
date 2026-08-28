@@ -26,7 +26,6 @@ in {
       path = "$HOME/.config/termux/termux.properties";
       settings = {
         fullscreen = true;
-        use-fullscreen-workaround = true;
       };
     in /* bash */ ''
       echo "generating termux.properties"
