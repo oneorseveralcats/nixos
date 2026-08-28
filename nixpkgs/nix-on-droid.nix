@@ -13,6 +13,9 @@ in {
     xdg-open.enable = true;
   };
 
+  terminal.font = "${pkgs.nerd-fonts.fira-code}/share/fonts/truetype/NerdFonts/FiraCode/FiraCodeNerdFont-Light.ttf";
+  time.timeZone = "America/New_York";
+
   build.activation = {
     #generateResolvConf = let
     #  path = "/etc/resolv.conf";
