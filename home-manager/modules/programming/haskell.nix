@@ -12,10 +12,6 @@ in
     home.packages = with pkgs.haskellPackages; [
       cabal-install
       ghc 
-      stack
-      brick turtle curlhs pandoc 
-
-      # language-gemini
     ];
   
     home.file.".haskeline".text = ''
