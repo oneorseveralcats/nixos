@@ -65,6 +65,8 @@ in
     programs.command-not-found.enable = true;
     programs.jq.enable = true;
     programs.fzf.enable = true;
+
+    services.gnome-keyring.enable = true;
     services.ssh-agent.enable = true;
     services.syncthing.enable = true;
 
