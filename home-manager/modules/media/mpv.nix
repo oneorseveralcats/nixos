@@ -56,14 +56,14 @@ in
       };
 
       profiles = rec {
-        mvi = {
-          profile-cond= ''p["current-tracks/video/image"]'';
-          image-display-duration = "inf";
-          keepaspect-window = "no";
-          loop-playlist = "inf";
-          osd-level = "0";
-          wayland-app-id = "mvi";
-        };
+        # mvi = {
+        #   profile-cond= ''p["current-tracks/video/image"]'';
+        #   image-display-duration = "inf";
+        #   keepaspect-window = "no";
+        #   loop-playlist = "inf";
+        #   osd-level = "0";
+        #   wayland-app-id = "mvi";
+        # };
         "extension.gif" = {
           loop-file = "inf";
           profile = "mvi";
@@ -75,14 +75,15 @@ in
         mpv-playlistmanager
         reload
         sponsorblock-minimal # sponsorblock
+
         # manga-reader
-        mpv-image-viewer.status-line
-        mpv-image-viewer.ruler
-        mpv-image-viewer.minimap
-        mpv-image-viewer.image-positioning
+        # mpv-image-viewer.status-line
+        # mpv-image-viewer.ruler
+        # mpv-image-viewer.minimap
+        # mpv-image-viewer.image-positioning
         # mpv-image-viewer.freeze-window
-        mpv-image-viewer.equalizer
-        mpv-image-viewer.detect-image
+        # mpv-image-viewer.equalizer
+        # mpv-image-viewer.detect-image
       ];
       scriptOpts = {
         playlistmanager = {
