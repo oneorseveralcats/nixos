@@ -21,6 +21,11 @@ in
     programs.git = {
       enable = true;
       settings = {
+        safe = {
+          directory = [
+            "/storage/emulated/0/sync/notes/*"
+          ];
+        };
         init = {
           defaultBranch = "main";
         };
