@@ -48,6 +48,8 @@
     # giac-with-xcas is ~1gb in size
     math.enable = lib.mkForce false;
 
+    programming.languages.rust.enable = true;
+
     stylix.styleDesktopApps = false;
 
     virtualization.distrobox.enable = lib.mkForce false;
