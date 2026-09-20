@@ -307,16 +307,8 @@ in
 
           "${modifier}+r" = "mode resize";
 
-          "${modifier}+Return" =
-            if config.myHome.cli.zellij.enable then
-              "exec " + pkgs.writeShellScript "focus-zellij" ''
-                ${config.programs.zellij.package}/bin/zellij --session zellij-default action new-tab -n term
-                swaymsg '[title="^zellij-default$"] focus'
-              ''
-            else
-              "exec ${terminal} --title='Terminal'";
-          "${modifier}+Shift+Return" = "exec ${terminal} --title='Terminal'";
-          "${modifier}+Ctrl+Shift+Return" = "exec ${terminal} --title='Terminal' --app-id='floating'";
+          "${modifier}+Return" = "exec ${terminal} --title='Terminal'";
+          "${modifier}+Shift+Return" = "exec ${terminal} --title='Terminal' --app-id='floating'";
           "${modifier}+Shift+f" = "exec " + pkgs.writers.writeBash "show-hide-fm" ''
             swaymsg [app_id="^Files$"] scratchpad show\
             || swaymsg [app_id="^Files$"] move container to scratchpad\
