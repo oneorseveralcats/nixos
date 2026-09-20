@@ -5,6 +5,7 @@
     ./atool.nix
     ./aria2.nix
     ./bat.nix
+    ./fd.nix
     ./htop.nix
     ./hyfetch.nix
     ./nb.nix

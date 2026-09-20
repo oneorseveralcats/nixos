@@ -18,6 +18,7 @@
       asciinema.enable = true;
       atool.enable = true;
       bat.enable = true;
+      fd.enable = true;
       htop.enable = true;
       hyfetch.enable = true;
       pandoc.enable = true;
