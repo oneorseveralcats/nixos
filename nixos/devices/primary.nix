@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t470s
@@ -20,6 +20,8 @@
     sensitivity = 255;
     speed = 255;
   };
+
+  swapDevices = lib.mkForce [];
 
   networking.hostName = "primary";
 
