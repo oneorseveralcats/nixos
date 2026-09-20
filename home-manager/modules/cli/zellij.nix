@@ -70,10 +70,7 @@ in
 
     programs.zellij.themes = with config.lib.stylix.colors.withHashtag; {
       stylix.themes.default = {
-        frame_selected.base = lib.mkForce base0D;
-        ribbon_selected.background = lib.mkForce base0D;
         ribbon_unselected.emphasis_1 = lib.mkForce base01;
-        table_title.base = lib.mkForce base0D;
       };
     };
   };

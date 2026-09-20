@@ -96,6 +96,8 @@ in
       };
 
       targets = {
+        avizo.enable = false;
+
         font-packages.enable = cfg.enableFonts;
         fontconfig.enable = cfg.enableFonts;
 
@@ -104,16 +106,15 @@ in
         kde.enable = cfg.styleDesktopApps;
         qt.enable = cfg.styleDesktopApps;
 
+        swaylock.useWallpaper = false;
+
         waybar.addCss = false;
-        avizo.enable = false;
+
+        zellij.colors.override.withHashtag.base0E = config.lib.stylix.colors.withHashtag.base0D;
 
         gtk.extraCss = /* css */ ''
           window.background { border-radius: 0; }
         '';
-        swaylock = {
-          enable = true; # fixed when system.stateVersion >= 23.05
-          useWallpaper = false;
-        };
 
         firefox.profileNames = [ "personal" "school" "offline" ];
         floorp.profileNames = config.stylix.targets.firefox.profileNames;
