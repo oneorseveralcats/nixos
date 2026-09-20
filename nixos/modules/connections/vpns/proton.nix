@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      proton-vpn-cli protonvpn-gui
+      proton-vpn-cli proton-vpn
       wireguard-tools
     ];
 
